@@ -50,5 +50,10 @@ namespace DXApplication2
 
             fm.ShowDialog();
         }
+
+        private void officeNavigationBar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
