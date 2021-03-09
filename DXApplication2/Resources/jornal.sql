@@ -6,9 +6,14 @@ use dossierMarcher
 
 go
 
+drop table etude
 
+create table etude( id1 int primary key identity(1,1) ,  objet text , estimation text , montant money , envoyer_tresoryer date , validate int DEFAULT 0 , délai_dexecution int   , deleted int default 0  , localite int  foreign key references localite(id_l)  , Type_marcher int foreign key references Type_marcher (id_type)  , Nature int foreign key references Nature(id_N)   )
 
-create table etude( id1 int primary key identity(1,1) ,  objet text , estimation text , montant money , envoyer_tresoryer date , validate int DEFAULT 0 , délai_dexecution int   , deleted int default 0 )
+select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , délai_dexecution  , deleted from etude where deleted = 0
+
+select *  from etude
+
 
 create table publication(id2 int primary key identity(1,1) ,   Aop varchar(30) , date_jornal date , date_portail date , date_convocation date , date_op date ,  validate int DEFAULT 0 , deleted int default 0 , duree_portail int default 0 ,duree_Jornal int default 0  )
 

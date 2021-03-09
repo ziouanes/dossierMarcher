@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars.Docking2010;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,15 @@ namespace DXApplication2
 
         private void Etude_Load(object sender, EventArgs e)
         {
+            textEditCaution.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            textEditCaution.Properties.Mask.EditMask = "n2";
+            textEditCaution.Properties.Mask.UseMaskAsDisplayFormat = true;
+
+
+            textEditdélai.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            textEditdélai.Properties.Mask.EditMask = "n0";
+            textEditdélai.Properties.Mask.UseMaskAsDisplayFormat = true;
+
             ExecuteQuerylocality();
             ExecuteQuerytype();
             ExecuteQueryNature();
@@ -143,6 +153,96 @@ namespace DXApplication2
 
             comboBoxtype.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             //comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+        }
+
+        //setexecutequery
+        private void ExecuteQuery(string txtQuery)
+        {
+            try
+            {
+
+
+                //Program.SetConnection();
+                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                Program.sql_cmd = Program.sql_con.CreateCommand();
+                Program.sql_cmd.CommandText = txtQuery;
+                Program.sql_cmd.ExecuteNonQuery();
+                Program.sql_con.Close();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //this.Dispose();
+            }
+
+        }
+
+        private void windowsUIButtonPanelMain_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            WindowsUIButton btn = e.Button as WindowsUIButton;
+
+            if (e.Button == windowsUIButtonPanelMain.Buttons[0])
+            {
+                try
+                {
+
+                    if (richTextBoxobject.Text == "" || textEditCaution.Text == "" || dateEditTresorier.Text == "" || comboBoxcocalite.SelectedIndex == -1 || comboBoxnature.SelectedIndex == -1 || comboBoxtype.SelectedIndex == -1)
+                    {
+                        XtraMessageBox.Show("champs obligatoires");
+
+                    }
+                    else
+
+                    {
+
+                        string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature]) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature)";
+
+
+                        Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
+                        Program.sql_cmd.Parameters.AddWithValue("@objet", richTextBoxobject.Text);
+                        Program.sql_cmd.Parameters.AddWithValue("@estimation", textEditestimation.Text);
+                        Program.sql_cmd.Parameters.AddWithValue("@montant", textEditCaution.Text);
+                        Program.sql_cmd.Parameters.AddWithValue("@envoyer", dateEditTresorier.Text);
+                        Program.sql_cmd.Parameters.AddWithValue("@delai", textEditdélai.Text) ;
+                        Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
+                        Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
+                        Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
+
+
+
+                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                        Program.sql_cmd.ExecuteNonQuery();
+                        Program.sql_con.Close();
+                        XtraMessageBox.Show("good");
+
+                        // toastNotificationsManager1.ShowNotification("1d00270b-1651-4ed4-a139-bd59d5d8cf8e");
+                        this.Close();
+
+
+                    }
+                }
+
+
+
+
+
+
+
+
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    //this.Dispose();
+                }
+
+            }
 
         }
     }

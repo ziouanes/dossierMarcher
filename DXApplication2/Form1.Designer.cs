@@ -33,6 +33,24 @@ namespace DXApplication2
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.barSubItemNavigation = new DevExpress.XtraBars.BarSubItem();
+            this.employeesBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.customersBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.skinDropDownButtonItem = new DevExpress.XtraBars.SkinDropDownButtonItem();
+            this.skinPaletteRibbonGalleryBarItem = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
+            this.barButtonEtude = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonPublication = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonouverture = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroupNavigation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.officeNavigationBar = new DevExpress.XtraBars.Navigation.OfficeNavigationBar();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.employeesNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
@@ -40,49 +58,41 @@ namespace DXApplication2
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.employeesNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlEtude = new DevExpress.XtraGrid.GridControl();
+            this.classEtudeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridViewEtude = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colobjet = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colestimation = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colmontant = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colenvoyer_tresoryer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalidate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldélai_dexecution = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldeleted = new DevExpress.XtraGrid.Columns.GridColumn();
             this.employeesLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlPub = new DevExpress.XtraGrid.GridControl();
+            this.gridViewPub = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroupNavigation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
-            this.barSubItemNavigation = new DevExpress.XtraBars.BarSubItem();
-            this.employeesBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
-            this.customersBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
-            this.skinDropDownButtonItem = new DevExpress.XtraBars.SkinDropDownButtonItem();
-            this.skinPaletteRibbonGalleryBarItem = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
-            this.barButtonEtude = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonPublication = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonouverture = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.gridControlOvert = new DevExpress.XtraGrid.GridControl();
+            this.gridViewOvert = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
             this.navigationFrame.SuspendLayout();
             this.employeesNavigationPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlEtude)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classEtudeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewEtude)).BeginInit();
             this.customersNavigationPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPub)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPub)).BeginInit();
             this.navigationPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlOvert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewOvert)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonStatusBar
@@ -91,6 +101,156 @@ namespace DXApplication2
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1144, 24);
+            // 
+            // ribbonControl
+            // 
+            this.ribbonControl.ExpandCollapseItem.Id = 0;
+            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl.ExpandCollapseItem,
+            this.ribbonControl.SearchEditItem,
+            this.skinRibbonGalleryBarItem,
+            this.barSubItemNavigation,
+            this.employeesBarButtonItem,
+            this.customersBarButtonItem,
+            this.skinDropDownButtonItem,
+            this.skinPaletteRibbonGalleryBarItem,
+            this.barButtonEtude,
+            this.barButtonPublication,
+            this.barButtonouverture,
+            this.barButtonItem1});
+            this.ribbonControl.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl.MaxItemId = 50;
+            this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
+            this.ribbonControl.Name = "ribbonControl";
+            this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage,
+            this.ribbonPage1});
+            this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
+            this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.Size = new System.Drawing.Size(1144, 158);
+            this.ribbonControl.StatusBar = this.ribbonStatusBar;
+            this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
+            // 
+            // skinRibbonGalleryBarItem
+            // 
+            this.skinRibbonGalleryBarItem.Id = 14;
+            this.skinRibbonGalleryBarItem.Name = "skinRibbonGalleryBarItem";
+            // 
+            // barSubItemNavigation
+            // 
+            this.barSubItemNavigation.Caption = "Navigation";
+            this.barSubItemNavigation.Id = 15;
+            this.barSubItemNavigation.ImageOptions.ImageUri.Uri = "NavigationBar";
+            this.barSubItemNavigation.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.employeesBarButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.customersBarButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            this.barSubItemNavigation.Name = "barSubItemNavigation";
+            // 
+            // employeesBarButtonItem
+            // 
+            this.employeesBarButtonItem.Caption = "Etude";
+            this.employeesBarButtonItem.Id = 44;
+            this.employeesBarButtonItem.Name = "employeesBarButtonItem";
+            this.employeesBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
+            // 
+            // customersBarButtonItem
+            // 
+            this.customersBarButtonItem.Caption = "Publication";
+            this.customersBarButtonItem.Id = 45;
+            this.customersBarButtonItem.Name = "customersBarButtonItem";
+            this.customersBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Overture";
+            this.barButtonItem1.Id = 49;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
+            // skinDropDownButtonItem
+            // 
+            this.skinDropDownButtonItem.Id = 46;
+            this.skinDropDownButtonItem.Name = "skinDropDownButtonItem";
+            // 
+            // skinPaletteRibbonGalleryBarItem
+            // 
+            this.skinPaletteRibbonGalleryBarItem.Caption = "$newskinpalettename$";
+            this.skinPaletteRibbonGalleryBarItem.Id = 47;
+            this.skinPaletteRibbonGalleryBarItem.Name = "skinPaletteRibbonGalleryBarItem";
+            // 
+            // barButtonEtude
+            // 
+            this.barButtonEtude.Caption = "Etude";
+            this.barButtonEtude.Id = 46;
+            this.barButtonEtude.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonEtude.ImageOptions.Image")));
+            this.barButtonEtude.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonEtude.ImageOptions.LargeImage")));
+            this.barButtonEtude.Name = "barButtonEtude";
+            this.barButtonEtude.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonEtude_ItemClick);
+            // 
+            // barButtonPublication
+            // 
+            this.barButtonPublication.Caption = "Publication";
+            this.barButtonPublication.Id = 47;
+            this.barButtonPublication.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonPublication.ImageOptions.Image")));
+            this.barButtonPublication.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonPublication.ImageOptions.LargeImage")));
+            this.barButtonPublication.Name = "barButtonPublication";
+            this.barButtonPublication.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonPublication_ItemClick);
+            // 
+            // barButtonouverture
+            // 
+            this.barButtonouverture.Caption = "Overtutre";
+            this.barButtonouverture.Id = 48;
+            this.barButtonouverture.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonouverture.ImageOptions.Image")));
+            this.barButtonouverture.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonouverture.ImageOptions.LargeImage")));
+            this.barButtonouverture.Name = "barButtonouverture";
+            // 
+            // ribbonPage
+            // 
+            this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroupNavigation,
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup3});
+            this.ribbonPage.Name = "ribbonPage";
+            this.ribbonPage.Text = "View";
+            // 
+            // ribbonPageGroupNavigation
+            // 
+            this.ribbonPageGroupNavigation.ItemLinks.Add(this.barSubItemNavigation);
+            this.ribbonPageGroupNavigation.Name = "ribbonPageGroupNavigation";
+            this.ribbonPageGroupNavigation.Text = "Module";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonEtude);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonPublication);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonouverture);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "theme";
+            // 
+            // ribbonPageGroup
+            // 
+            this.ribbonPageGroup.AllowTextClipping = false;
+            this.ribbonPageGroup.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonPageGroup.ItemLinks.Add(this.skinDropDownButtonItem);
+            this.ribbonPageGroup.ItemLinks.Add(this.skinPaletteRibbonGalleryBarItem);
+            this.ribbonPageGroup.Name = "ribbonPageGroup";
+            this.ribbonPageGroup.Text = "Appearance";
             // 
             // officeNavigationBar
             // 
@@ -158,28 +318,103 @@ namespace DXApplication2
             // 
             // employeesNavigationPage
             // 
-            this.employeesNavigationPage.Controls.Add(this.gridControl1);
+            this.employeesNavigationPage.Controls.Add(this.gridControlEtude);
             this.employeesNavigationPage.Controls.Add(this.employeesLabelControl);
             this.employeesNavigationPage.Name = "employeesNavigationPage";
             this.employeesNavigationPage.Size = new System.Drawing.Size(979, 371);
             // 
-            // gridControl1
+            // gridControlEtude
             // 
-            this.gridControl1.BackgroundImage = global::DXApplication2.Properties.Resources.icons8_registration_32;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MenuManager = this.ribbonControl;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(979, 371);
-            this.gridControl1.TabIndex = 1;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridControlEtude.BackgroundImage = global::DXApplication2.Properties.Resources.icons8_registration_32;
+            this.gridControlEtude.DataSource = this.classEtudeBindingSource;
+            this.gridControlEtude.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlEtude.Location = new System.Drawing.Point(0, 0);
+            this.gridControlEtude.MainView = this.gridViewEtude;
+            this.gridControlEtude.MenuManager = this.ribbonControl;
+            this.gridControlEtude.Name = "gridControlEtude";
+            this.gridControlEtude.Size = new System.Drawing.Size(979, 371);
+            this.gridControlEtude.TabIndex = 1;
+            this.gridControlEtude.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewEtude});
             // 
-            // gridView1
+            // classEtudeBindingSource
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.classEtudeBindingSource.DataSource = typeof(DXApplication2.ClassEtude);
+            // 
+            // gridViewEtude
+            // 
+            this.gridViewEtude.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid1,
+            this.colobjet,
+            this.colestimation,
+            this.colmontant,
+            this.colenvoyer_tresoryer,
+            this.colvalidate,
+            this.coldélai_dexecution,
+            this.coldeleted});
+            this.gridViewEtude.GridControl = this.gridControlEtude;
+            this.gridViewEtude.Name = "gridViewEtude";
+            this.gridViewEtude.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewEtude_RowStyle);
+            // 
+            // colid1
+            // 
+            this.colid1.FieldName = "id1";
+            this.colid1.Name = "colid1";
+            this.colid1.Visible = true;
+            this.colid1.VisibleIndex = 0;
+            this.colid1.Width = 60;
+            // 
+            // colobjet
+            // 
+            this.colobjet.FieldName = "objet";
+            this.colobjet.Name = "colobjet";
+            this.colobjet.Visible = true;
+            this.colobjet.VisibleIndex = 1;
+            this.colobjet.Width = 126;
+            // 
+            // colestimation
+            // 
+            this.colestimation.FieldName = "estimation";
+            this.colestimation.Name = "colestimation";
+            this.colestimation.Visible = true;
+            this.colestimation.VisibleIndex = 2;
+            this.colestimation.Width = 113;
+            // 
+            // colmontant
+            // 
+            this.colmontant.FieldName = "montant";
+            this.colmontant.Name = "colmontant";
+            this.colmontant.Visible = true;
+            this.colmontant.VisibleIndex = 3;
+            this.colmontant.Width = 94;
+            // 
+            // colenvoyer_tresoryer
+            // 
+            this.colenvoyer_tresoryer.FieldName = "envoyer_tresoryer";
+            this.colenvoyer_tresoryer.Name = "colenvoyer_tresoryer";
+            this.colenvoyer_tresoryer.Visible = true;
+            this.colenvoyer_tresoryer.VisibleIndex = 4;
+            this.colenvoyer_tresoryer.Width = 108;
+            // 
+            // colvalidate
+            // 
+            this.colvalidate.FieldName = "validate";
+            this.colvalidate.Name = "colvalidate";
+            this.colvalidate.Width = 108;
+            // 
+            // coldélai_dexecution
+            // 
+            this.coldélai_dexecution.FieldName = "délai_dexecution";
+            this.coldélai_dexecution.Name = "coldélai_dexecution";
+            this.coldélai_dexecution.Visible = true;
+            this.coldélai_dexecution.VisibleIndex = 5;
+            this.coldélai_dexecution.Width = 108;
+            // 
+            // coldeleted
+            // 
+            this.coldeleted.FieldName = "deleted";
+            this.coldeleted.Name = "coldeleted";
+            this.coldeleted.Width = 129;
             // 
             // employeesLabelControl
             // 
@@ -200,27 +435,27 @@ namespace DXApplication2
             // 
             // customersNavigationPage
             // 
-            this.customersNavigationPage.Controls.Add(this.gridControl2);
+            this.customersNavigationPage.Controls.Add(this.gridControlPub);
             this.customersNavigationPage.Controls.Add(this.customersLabelControl);
             this.customersNavigationPage.Name = "customersNavigationPage";
             this.customersNavigationPage.Size = new System.Drawing.Size(979, 371);
             // 
-            // gridControl2
+            // gridControlPub
             // 
-            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(0, 0);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.MenuManager = this.ribbonControl;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(979, 371);
-            this.gridControl2.TabIndex = 2;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gridControlPub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlPub.Location = new System.Drawing.Point(0, 0);
+            this.gridControlPub.MainView = this.gridViewPub;
+            this.gridControlPub.MenuManager = this.ribbonControl;
+            this.gridControlPub.Name = "gridControlPub";
+            this.gridControlPub.Size = new System.Drawing.Size(979, 371);
+            this.gridControlPub.TabIndex = 2;
+            this.gridControlPub.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewPub});
             // 
-            // gridView2
+            // gridViewPub
             // 
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name = "gridView2";
+            this.gridViewPub.GridControl = this.gridControlPub;
+            this.gridViewPub.Name = "gridViewPub";
             // 
             // customersLabelControl
             // 
@@ -241,176 +476,26 @@ namespace DXApplication2
             // 
             // navigationPage1
             // 
-            this.navigationPage1.Controls.Add(this.gridControl3);
+            this.navigationPage1.Controls.Add(this.gridControlOvert);
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(979, 371);
             // 
-            // gridControl3
+            // gridControlOvert
             // 
-            this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl3.Location = new System.Drawing.Point(0, 0);
-            this.gridControl3.MainView = this.gridView3;
-            this.gridControl3.MenuManager = this.ribbonControl;
-            this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(979, 371);
-            this.gridControl3.TabIndex = 0;
-            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView3});
+            this.gridControlOvert.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlOvert.Location = new System.Drawing.Point(0, 0);
+            this.gridControlOvert.MainView = this.gridViewOvert;
+            this.gridControlOvert.MenuManager = this.ribbonControl;
+            this.gridControlOvert.Name = "gridControlOvert";
+            this.gridControlOvert.Size = new System.Drawing.Size(979, 371);
+            this.gridControlOvert.TabIndex = 0;
+            this.gridControlOvert.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewOvert});
             // 
-            // gridView3
+            // gridViewOvert
             // 
-            this.gridView3.GridControl = this.gridControl3;
-            this.gridView3.Name = "gridView3";
-            // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "theme";
-            // 
-            // ribbonPageGroup
-            // 
-            this.ribbonPageGroup.AllowTextClipping = false;
-            this.ribbonPageGroup.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup.ItemLinks.Add(this.skinDropDownButtonItem);
-            this.ribbonPageGroup.ItemLinks.Add(this.skinPaletteRibbonGalleryBarItem);
-            this.ribbonPageGroup.Name = "ribbonPageGroup";
-            this.ribbonPageGroup.Text = "Appearance";
-            // 
-            // ribbonPage
-            // 
-            this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroupNavigation,
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup2,
-            this.ribbonPageGroup3});
-            this.ribbonPage.Name = "ribbonPage";
-            this.ribbonPage.Text = "View";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonouverture);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonPublication);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonEtude);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            // 
-            // ribbonPageGroupNavigation
-            // 
-            this.ribbonPageGroupNavigation.ItemLinks.Add(this.barSubItemNavigation);
-            this.ribbonPageGroupNavigation.Name = "ribbonPageGroupNavigation";
-            this.ribbonPageGroupNavigation.Text = "Module";
-            // 
-            // skinRibbonGalleryBarItem
-            // 
-            this.skinRibbonGalleryBarItem.Id = 14;
-            this.skinRibbonGalleryBarItem.Name = "skinRibbonGalleryBarItem";
-            // 
-            // barSubItemNavigation
-            // 
-            this.barSubItemNavigation.Caption = "Navigation";
-            this.barSubItemNavigation.Id = 15;
-            this.barSubItemNavigation.ImageOptions.ImageUri.Uri = "NavigationBar";
-            this.barSubItemNavigation.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.employeesBarButtonItem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.customersBarButtonItem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
-            this.barSubItemNavigation.Name = "barSubItemNavigation";
-            // 
-            // employeesBarButtonItem
-            // 
-            this.employeesBarButtonItem.Caption = "Etude";
-            this.employeesBarButtonItem.Id = 44;
-            this.employeesBarButtonItem.Name = "employeesBarButtonItem";
-            this.employeesBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
-            // 
-            // customersBarButtonItem
-            // 
-            this.customersBarButtonItem.Caption = "Publication";
-            this.customersBarButtonItem.Id = 45;
-            this.customersBarButtonItem.Name = "customersBarButtonItem";
-            this.customersBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
-            // 
-            // skinDropDownButtonItem
-            // 
-            this.skinDropDownButtonItem.Id = 46;
-            this.skinDropDownButtonItem.Name = "skinDropDownButtonItem";
-            // 
-            // skinPaletteRibbonGalleryBarItem
-            // 
-            this.skinPaletteRibbonGalleryBarItem.Caption = "$newskinpalettename$";
-            this.skinPaletteRibbonGalleryBarItem.Id = 47;
-            this.skinPaletteRibbonGalleryBarItem.Name = "skinPaletteRibbonGalleryBarItem";
-            // 
-            // barButtonEtude
-            // 
-            this.barButtonEtude.Caption = "Etude";
-            this.barButtonEtude.Id = 46;
-            this.barButtonEtude.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonEtude.ImageOptions.Image")));
-            this.barButtonEtude.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonEtude.ImageOptions.LargeImage")));
-            this.barButtonEtude.Name = "barButtonEtude";
-            this.barButtonEtude.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonEtude_ItemClick);
-            // 
-            // barButtonPublication
-            // 
-            this.barButtonPublication.Caption = "Publication";
-            this.barButtonPublication.Id = 47;
-            this.barButtonPublication.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonPublication.ImageOptions.Image")));
-            this.barButtonPublication.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonPublication.ImageOptions.LargeImage")));
-            this.barButtonPublication.Name = "barButtonPublication";
-            this.barButtonPublication.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonPublication_ItemClick);
-            // 
-            // barButtonouverture
-            // 
-            this.barButtonouverture.Caption = "Overtutre";
-            this.barButtonouverture.Id = 48;
-            this.barButtonouverture.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonouverture.ImageOptions.Image")));
-            this.barButtonouverture.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonouverture.ImageOptions.LargeImage")));
-            this.barButtonouverture.Name = "barButtonouverture";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Overture";
-            this.barButtonItem1.Id = 49;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
-            // 
-            // ribbonControl
-            // 
-            this.ribbonControl.ExpandCollapseItem.Id = 0;
-            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl.ExpandCollapseItem,
-            this.ribbonControl.SearchEditItem,
-            this.skinRibbonGalleryBarItem,
-            this.barSubItemNavigation,
-            this.employeesBarButtonItem,
-            this.customersBarButtonItem,
-            this.skinDropDownButtonItem,
-            this.skinPaletteRibbonGalleryBarItem,
-            this.barButtonEtude,
-            this.barButtonPublication,
-            this.barButtonouverture,
-            this.barButtonItem1});
-            this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 50;
-            this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
-            this.ribbonControl.Name = "ribbonControl";
-            this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage,
-            this.ribbonPage1});
-            this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.Size = new System.Drawing.Size(1144, 158);
-            this.ribbonControl.StatusBar = this.ribbonStatusBar;
-            this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
+            this.gridViewOvert.GridControl = this.gridControlOvert;
+            this.gridViewOvert.Name = "gridViewOvert";
             // 
             // Form1
             // 
@@ -429,20 +514,21 @@ namespace DXApplication2
             this.Text = "accueil";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).EndInit();
             this.navigationFrame.ResumeLayout(false);
             this.employeesNavigationPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlEtude)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classEtudeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewEtude)).EndInit();
             this.customersNavigationPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPub)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPub)).EndInit();
             this.navigationPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlOvert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewOvert)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,14 +546,14 @@ namespace DXApplication2
         private DevExpress.XtraEditors.LabelControl employeesLabelControl;
         private DevExpress.XtraBars.Navigation.NavigationPage customersNavigationPage;
         private DevExpress.XtraEditors.LabelControl customersLabelControl;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl gridControlEtude;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewEtude;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
-        private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.GridControl gridControl3;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraGrid.GridControl gridControlPub;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewPub;
+        private DevExpress.XtraGrid.GridControl gridControlOvert;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewOvert;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem;
         private DevExpress.XtraBars.BarSubItem barSubItemNavigation;
@@ -486,5 +572,14 @@ namespace DXApplication2
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup;
+        private System.Windows.Forms.BindingSource classEtudeBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colid1;
+        private DevExpress.XtraGrid.Columns.GridColumn colobjet;
+        private DevExpress.XtraGrid.Columns.GridColumn colestimation;
+        private DevExpress.XtraGrid.Columns.GridColumn colmontant;
+        private DevExpress.XtraGrid.Columns.GridColumn colenvoyer_tresoryer;
+        private DevExpress.XtraGrid.Columns.GridColumn colvalidate;
+        private DevExpress.XtraGrid.Columns.GridColumn coldélai_dexecution;
+        private DevExpress.XtraGrid.Columns.GridColumn coldeleted;
     }
 }

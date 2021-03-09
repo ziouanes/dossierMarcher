@@ -24,7 +24,7 @@ namespace DXApplication2
         }
 
 
-        public static SqlConnection sql_con = new SqlConnection("Data Source=AANDROID-123122;Initial Catalog=dossierMarcher;Integrated Security=True");
+        public static SqlConnection sql_con = new SqlConnection("Data Source=AANDROID-123122;Initial Catalog=dossierMarcher;Integrated Security=True;MultipleActiveResultSets = True;");
 
 
         internal static SqlCommand sql_cmd;

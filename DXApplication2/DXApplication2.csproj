@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassEtude.cs" />
     <Compile Include="Etude.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +126,8 @@
       <DependentUpon>suivi_des_order.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="Properties\DataSources\ClassEtude.datasource" />
+    <None Include="Properties\DataSources\Etude.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -140,6 +143,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\jornal.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapper">
+      <Version>1.50.2</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
