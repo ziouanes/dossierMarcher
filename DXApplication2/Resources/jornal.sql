@@ -15,14 +15,14 @@ select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , déla
 select *  from etude
 
 
-create table publication(id2 int primary key identity(1,1) ,   Aop varchar(30) , date_jornal date , date_portail date , date_convocation date , date_op date ,  validate int DEFAULT 0 , deleted int default 0 , duree_portail int default 0 ,duree_Jornal int default 0  )
+create table publication(id2 int primary key identity(1,1) , Aop varchar(30) , date_jornal date , date_portail date , date_convocation date , date_op date ,  validate int DEFAULT 0 , deleted int default 0 , duree_portail int default 0 ,duree_Jornal int default 0  )
 
-
+select * from publication
 
 
 create table fk(id1 int foreign key references etude(id1) on delete cascade on update cascade , id2 int foreign key references publication(id2) on delete cascade on update cascade , primary key(id1,id2)  )
 
-
+select * from fk
 
 create table SIMPLE_overture(id3 int primary key identity(1,1) , attributaire varchar(50) ,Montant money , num_Marcher varchar(30)  , date_Visa date , date_approbation date  , valide_approbation int default 0 , duree_approbation int default 0, délai_dexecution int , caution_definitif money  , caution_return money , datenotifiy date , date_caution date , valide_caution int default 0 , duree_caution int default 0 ,valide_order_service int default 0 , duree_order_service int default 0  )
 
@@ -38,6 +38,8 @@ create table  Etat_order(id_etat int primary key identity(1,1)  , date_deffet da
 
 
 go
+
+select id2 , Aop , date_jornal , date_portail , date_convocation , validate  , duree_portail , duree_Jornal   from publication where deleted = 0
 
 create table localite (id_l int primary key identity(1,1) , localite varchar(30) )
 
@@ -66,6 +68,32 @@ INSERT INTO Nature VALUES ('Formitaire');
 
 
 -------procedure notify 1    if(validate  = 0) --------------
+----- triger after insert update --------------
+create trigger s1
+ on publication
+
+after insert , update 
+as
+begin 
+declare @id int,
+@jornal date ,
+@date_op date 
+
+set @id = cast((select top 1 id2 from inserted  )as int)
+
+set @jornal = cast((select top 1 date_jornal from inserted) as date)
+
+set @date_op = cast((select top 1 date_op from inserted) as date)
+
+EXEC p1 @id , @jornal  , @date_op 
+ 
+end
+
+
+
+
+
+
 
 create procedure p1 (@id int ,  @jornal date , @date_op date)
 as
@@ -89,9 +117,9 @@ set @dateop = (select date_op from publication where id2 = @id)
 if(@validate =0)
 begin
 
- set @duree_Jornal =  cast(((datediff(day,@datejornal,getdate()))*100)/datediff(day,@datejornal,@dateop))as int)
+ set @duree_Jornal =  cast(((datediff(day,@datejornal,getdate()))*100)/datediff(day,@datejornal,@dateop)as int)
 
- set @duree_portail = cast(((datediff(day,@date_portail,getdate()))*100)/datediff(day,@date_portail,@dateop))as int)
+ set @duree_portail = cast(((datediff(day,@date_portail,getdate()))*100)/datediff(day,@date_portail,@dateop)as int)
 
  update publication set duree_portail = @duree_portail , duree_Jornal = @duree_Jornal where id2 = @id
 

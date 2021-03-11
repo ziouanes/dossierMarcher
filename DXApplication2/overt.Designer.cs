@@ -29,10 +29,11 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.editable = new DevExpress.XtraEditors.CheckEdit();
             this.dateEdit_caution = new DevExpress.XtraEditors.DateEdit();
             this.dateEditreception = new DevExpress.XtraEditors.DateEdit();
             this.dateEditdate_approbation = new DevExpress.XtraEditors.DateEdit();
@@ -46,6 +47,7 @@ namespace DXApplication2
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.Montant = new DevExpress.XtraEditors.TextEdit();
+            this.délai_dexecution = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
@@ -78,14 +80,13 @@ namespace DXApplication2
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem9 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.editable = new DevExpress.XtraEditors.CheckEdit();
-            this.délai_dexecution = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_caution.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_caution.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditreception.Properties.CalendarTimeProperties)).BeginInit();
@@ -101,6 +102,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Montant.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.délai_dexecution.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
@@ -133,12 +135,10 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editable.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.délai_dexecution.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -166,6 +166,15 @@ namespace DXApplication2
             this.layoutControl1.Size = new System.Drawing.Size(1290, 592);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // editable
+            // 
+            this.editable.Location = new System.Drawing.Point(36, 359);
+            this.editable.Name = "editable";
+            this.editable.Properties.Caption = "Editable";
+            this.editable.Size = new System.Drawing.Size(1218, 20);
+            this.editable.StyleController = this.layoutControl1;
+            this.editable.TabIndex = 14;
             // 
             // dateEdit_caution
             // 
@@ -244,13 +253,13 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions4.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions5.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions6.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions1.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions2.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions3.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
             this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanelMain.EnableImageTransparency = true;
             this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 520);
@@ -325,6 +334,21 @@ namespace DXApplication2
             this.Montant.TabIndex = 5;
             this.Montant.EditValueChanged += new System.EventHandler(this.Montant_EditValueChanged);
             this.Montant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Montant_KeyPress);
+            // 
+            // délai_dexecution
+            // 
+            this.délai_dexecution.Location = new System.Drawing.Point(863, 268);
+            this.délai_dexecution.Name = "délai_dexecution";
+            this.délai_dexecution.Properties.DisplayFormat.FormatString = "d";
+            this.délai_dexecution.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.délai_dexecution.Properties.EditFormat.FormatString = "d";
+            this.délai_dexecution.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.délai_dexecution.Properties.Mask.EditMask = "d";
+            this.délai_dexecution.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            this.délai_dexecution.Properties.ReadOnly = true;
+            this.délai_dexecution.Size = new System.Drawing.Size(379, 20);
+            this.délai_dexecution.StyleController = this.layoutControl1;
+            this.délai_dexecution.TabIndex = 11;
             // 
             // Root
             // 
@@ -677,6 +701,15 @@ namespace DXApplication2
             this.emptySpaceItem8.Text = "emptySpaceItem1";
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.editable;
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 193);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(1222, 24);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
+            // 
             // layoutControlGroup6
             // 
             this.layoutControlGroup6.CustomizationFormText = "layoutControlGroup6";
@@ -705,39 +738,6 @@ namespace DXApplication2
             this.layoutControlItem2.Text = "A O O  n° ";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(167, 13);
             // 
-            // layoutControlItem14
-            // 
-            this.layoutControlItem14.Control = this.editable;
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 193);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(1222, 24);
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem14.TextVisible = false;
-            // 
-            // editable
-            // 
-            this.editable.Location = new System.Drawing.Point(36, 359);
-            this.editable.Name = "editable";
-            this.editable.Properties.Caption = "Editable";
-            this.editable.Size = new System.Drawing.Size(1218, 20);
-            this.editable.StyleController = this.layoutControl1;
-            this.editable.TabIndex = 14;
-            // 
-            // délai_dexecution
-            // 
-            this.délai_dexecution.Location = new System.Drawing.Point(863, 268);
-            this.délai_dexecution.Name = "délai_dexecution";
-            this.délai_dexecution.Properties.DisplayFormat.FormatString = "d";
-            this.délai_dexecution.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.délai_dexecution.Properties.EditFormat.FormatString = "d";
-            this.délai_dexecution.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.délai_dexecution.Properties.Mask.EditMask = "d";
-            this.délai_dexecution.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
-            this.délai_dexecution.Properties.ReadOnly = true;
-            this.délai_dexecution.Size = new System.Drawing.Size(379, 20);
-            this.délai_dexecution.StyleController = this.layoutControl1;
-            this.délai_dexecution.TabIndex = 11;
-            // 
             // overt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -749,6 +749,7 @@ namespace DXApplication2
             this.Load += new System.EventHandler(this.overt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.editable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_caution.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_caution.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditreception.Properties.CalendarTimeProperties)).EndInit();
@@ -764,6 +765,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Montant.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.délai_dexecution.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
@@ -796,12 +798,10 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editable.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.délai_dexecution.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

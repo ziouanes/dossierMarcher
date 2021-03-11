@@ -40,23 +40,54 @@ namespace DXApplication2
             Etude fm = new Etude();
 
             fm.ShowDialog();
+            select_Etude_Data();
+            select_Publication_Data();
         }
 
-        private void select_Etude_Data()
+        private void select_Publication_Data()
         {
             try
             {
-                using (Program.sql_con)
+                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
-                {
-                    if (Program.sql_con.State == ConnectionState.Closed)
-                        Program.sql_con.Open();
+
+
+
+
+                string query = $"select id2 , Aop , date_jornal , date_portail , date_convocation , validate  , duree_portail , duree_Jornal   from publication where deleted = 0  ; " ;
+                classpublicationBindingSource.DataSource = Program.sql_con.Query<Class_publication>(query, commandType: CommandType.Text);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //this.Dispose();
+            }
+
+        }
+
+
+
+            private void select_Etude_Data()
+        {
+            try
+            {
+                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+
+
+                
 
                     string query = $"select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , délai_dexecution   from etude where deleted = 0  ; ";
                     classEtudeBindingSource.DataSource = Program.sql_con.Query<ClassEtude>(query, commandType: CommandType.Text);
 
 
-                }
+                
             }
             catch (Exception ex)
             {
@@ -71,6 +102,7 @@ namespace DXApplication2
         private void Form1_Load(object sender, EventArgs e)
         {
             select_Etude_Data();
+            select_Publication_Data();
         }
 
         private void barButtonPublication_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -78,6 +110,9 @@ namespace DXApplication2
             publication fm = new publication();
 
             fm.ShowDialog();
+
+            select_Publication_Data();
+
         }
 
         private void officeNavigationBar_Click(object sender, EventArgs e)
@@ -91,13 +126,92 @@ namespace DXApplication2
                 GridView View = sender as GridView;
                 if (e.RowHandle >= 0)
                 {
-                    string validate = View.GetRowCellDisplayText(e.RowHandle, View.Columns["validate"]);
-                    if (validate == "0")
+                        string validate = View.GetRowCellDisplayText(e.RowHandle, View.Columns["validate"]);
+                        if (validate == "0")
+                        {
+                            e.Appearance.BackColor = Color.Cyan;
+                            e.Appearance.BackColor2 = Color.SeaShell;
+                            e.HighPriority = true;
+                        }
+                    if (validate == "1")
                     {
-                        e.Appearance.BackColor = Color.Cyan;
+                        e.Appearance.BackColor = Color.GreenYellow;
                         e.Appearance.BackColor2 = Color.SeaShell;
                         e.HighPriority = true;
                     }
+                    if (validate == "-1")
+                    {
+                        e.Appearance.BackColor = Color.Gray;
+                        e.Appearance.BackColor2 = Color.SeaShell;
+                        e.HighPriority = true;
+                    }
+                }
+            
+
+        }
+
+        private void barButtonItem_validate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row = gridViewEtude.FocusedRowHandle;
+
+
+        }
+
+        private void gridControlEtude_MouseUp(object sender, MouseEventArgs e)
+        {
+            
+          
+
+
+            if (e.Button != MouseButtons.Right) return;
+            var rowM = gridViewEtude.FocusedRowHandle;
+
+            string validate;
+            validate = gridViewEtude.GetRowCellValue(rowM, "validate").ToString();
+
+            if (int.Parse(validate) == 0)
+            {
+
+            if (rowM >= 0)
+                popupMenuetude.ShowPopup(barManager1, new Point(MousePosition.X, MousePosition.Y));
+            else
+                popupMenuetude.HidePopup();
+            }
+            else if (int.Parse(validate) == 1)
+            {
+                if (rowM >= 0)
+                    popupMenu_validate.ShowPopup(barManager1, new Point(MousePosition.X, MousePosition.Y));
+                else
+                    popupMenu_validate.HidePopup();
+
+            }
+
+
+        }
+
+        private void ribbonControl_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void gridControlPub_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridViewPub_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            GridView View = sender as GridView;
+            if (e.RowHandle >= 0)
+            {
+                string validate = View.GetRowCellDisplayText(e.RowHandle, View.Columns["validate"]);
+                if (validate == "0")
+                {
+                    e.Appearance.BackColor = Color.Cyan;
+                    e.Appearance.BackColor2 = Color.SeaShell;
+                    e.HighPriority = true;
+                }
                 if (validate == "1")
                 {
                     e.Appearance.BackColor = Color.GreenYellow;
@@ -106,14 +220,11 @@ namespace DXApplication2
                 }
                 if (validate == "-1")
                 {
-                    e.Appearance.BackColor = Color.Salmon;
+                    e.Appearance.BackColor = Color.Gray;
                     e.Appearance.BackColor2 = Color.SeaShell;
                     e.HighPriority = true;
                 }
             }
-            
-
         }
-
     }
 }

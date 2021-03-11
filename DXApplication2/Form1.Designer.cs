@@ -44,6 +44,9 @@ namespace DXApplication2
             this.barButtonEtude = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonPublication = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonouverture = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemedit = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_delete = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_validate = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupNavigation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -72,11 +75,29 @@ namespace DXApplication2
             this.employeesLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControlPub = new DevExpress.XtraGrid.GridControl();
+            this.classpublicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewPub = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAop = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_jornal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_portail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_convocation = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalidate1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colduree_portail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemProgressBar_Portail = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
+            this.colduree_Jornal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemProgressBar_jornal = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControlOvert = new DevExpress.XtraGrid.GridControl();
             this.gridViewOvert = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.popupMenuetude = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.popupMenu_validate = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -89,10 +110,16 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEtude)).BeginInit();
             this.customersNavigationPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPub)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPub)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar_Portail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar_jornal)).BeginInit();
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOvert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOvert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuetude)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu_validate)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonStatusBar
@@ -117,9 +144,12 @@ namespace DXApplication2
             this.barButtonEtude,
             this.barButtonPublication,
             this.barButtonouverture,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.barButtonItemedit,
+            this.barButtonItem_delete,
+            this.barButtonItem_validate});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 50;
+            this.ribbonControl.MaxItemId = 53;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -130,6 +160,7 @@ namespace DXApplication2
             this.ribbonControl.Size = new System.Drawing.Size(1144, 158);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
+            this.ribbonControl.Click += new System.EventHandler(this.ribbonControl_Click);
             // 
             // skinRibbonGalleryBarItem
             // 
@@ -204,6 +235,31 @@ namespace DXApplication2
             this.barButtonouverture.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonouverture.ImageOptions.Image")));
             this.barButtonouverture.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonouverture.ImageOptions.LargeImage")));
             this.barButtonouverture.Name = "barButtonouverture";
+            // 
+            // barButtonItemedit
+            // 
+            this.barButtonItemedit.Caption = "Edit";
+            this.barButtonItemedit.Id = 50;
+            this.barButtonItemedit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemedit.ImageOptions.Image")));
+            this.barButtonItemedit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemedit.ImageOptions.LargeImage")));
+            this.barButtonItemedit.Name = "barButtonItemedit";
+            // 
+            // barButtonItem_delete
+            // 
+            this.barButtonItem_delete.Caption = "Supremer";
+            this.barButtonItem_delete.Id = 51;
+            this.barButtonItem_delete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_delete.ImageOptions.Image")));
+            this.barButtonItem_delete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_delete.ImageOptions.LargeImage")));
+            this.barButtonItem_delete.Name = "barButtonItem_delete";
+            // 
+            // barButtonItem_validate
+            // 
+            this.barButtonItem_validate.Caption = "Valide";
+            this.barButtonItem_validate.Id = 52;
+            this.barButtonItem_validate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_validate.ImageOptions.Image")));
+            this.barButtonItem_validate.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_validate.ImageOptions.LargeImage")));
+            this.barButtonItem_validate.Name = "barButtonItem_validate";
+            this.barButtonItem_validate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_validate_ItemClick);
             // 
             // ribbonPage
             // 
@@ -336,6 +392,7 @@ namespace DXApplication2
             this.gridControlEtude.TabIndex = 1;
             this.gridControlEtude.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewEtude});
+            this.gridControlEtude.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gridControlEtude_MouseUp);
             // 
             // classEtudeBindingSource
             // 
@@ -354,6 +411,7 @@ namespace DXApplication2
             this.coldeleted});
             this.gridViewEtude.GridControl = this.gridControlEtude;
             this.gridViewEtude.Name = "gridViewEtude";
+            this.gridViewEtude.OptionsBehavior.Editable = false;
             this.gridViewEtude.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewEtude_RowStyle);
             // 
             // colid1
@@ -442,20 +500,106 @@ namespace DXApplication2
             // 
             // gridControlPub
             // 
+            this.gridControlPub.DataSource = this.classpublicationBindingSource;
             this.gridControlPub.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlPub.Location = new System.Drawing.Point(0, 0);
             this.gridControlPub.MainView = this.gridViewPub;
             this.gridControlPub.MenuManager = this.ribbonControl;
             this.gridControlPub.Name = "gridControlPub";
+            this.gridControlPub.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemProgressBar_Portail,
+            this.repositoryItemProgressBar_jornal});
             this.gridControlPub.Size = new System.Drawing.Size(979, 371);
             this.gridControlPub.TabIndex = 2;
             this.gridControlPub.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPub});
+            this.gridControlPub.Click += new System.EventHandler(this.gridControlPub_Click);
+            // 
+            // classpublicationBindingSource
+            // 
+            this.classpublicationBindingSource.DataSource = typeof(DXApplication2.Class_publication);
             // 
             // gridViewPub
             // 
+            this.gridViewPub.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid2,
+            this.colAop,
+            this.coldate_jornal,
+            this.coldate_portail,
+            this.coldate_convocation,
+            this.colvalidate1,
+            this.colduree_portail,
+            this.colduree_Jornal});
             this.gridViewPub.GridControl = this.gridControlPub;
             this.gridViewPub.Name = "gridViewPub";
+            this.gridViewPub.OptionsBehavior.Editable = false;
+            this.gridViewPub.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewPub_RowStyle);
+            // 
+            // colid2
+            // 
+            this.colid2.FieldName = "id2";
+            this.colid2.Name = "colid2";
+            this.colid2.Visible = true;
+            this.colid2.VisibleIndex = 0;
+            // 
+            // colAop
+            // 
+            this.colAop.FieldName = "Aop";
+            this.colAop.Name = "colAop";
+            this.colAop.Visible = true;
+            this.colAop.VisibleIndex = 1;
+            // 
+            // coldate_jornal
+            // 
+            this.coldate_jornal.FieldName = "date_jornal";
+            this.coldate_jornal.Name = "coldate_jornal";
+            this.coldate_jornal.Visible = true;
+            this.coldate_jornal.VisibleIndex = 2;
+            // 
+            // coldate_portail
+            // 
+            this.coldate_portail.FieldName = "date_portail";
+            this.coldate_portail.Name = "coldate_portail";
+            this.coldate_portail.Visible = true;
+            this.coldate_portail.VisibleIndex = 3;
+            // 
+            // coldate_convocation
+            // 
+            this.coldate_convocation.FieldName = "date_convocation";
+            this.coldate_convocation.Name = "coldate_convocation";
+            this.coldate_convocation.Visible = true;
+            this.coldate_convocation.VisibleIndex = 4;
+            // 
+            // colvalidate1
+            // 
+            this.colvalidate1.FieldName = "validate";
+            this.colvalidate1.Name = "colvalidate1";
+            this.colvalidate1.Visible = true;
+            this.colvalidate1.VisibleIndex = 5;
+            // 
+            // colduree_portail
+            // 
+            this.colduree_portail.ColumnEdit = this.repositoryItemProgressBar_Portail;
+            this.colduree_portail.FieldName = "duree_portail";
+            this.colduree_portail.Name = "colduree_portail";
+            this.colduree_portail.Visible = true;
+            this.colduree_portail.VisibleIndex = 6;
+            // 
+            // repositoryItemProgressBar_Portail
+            // 
+            this.repositoryItemProgressBar_Portail.Name = "repositoryItemProgressBar_Portail";
+            // 
+            // colduree_Jornal
+            // 
+            this.colduree_Jornal.ColumnEdit = this.repositoryItemProgressBar_jornal;
+            this.colduree_Jornal.FieldName = "duree_Jornal";
+            this.colduree_Jornal.Name = "colduree_Jornal";
+            this.colduree_Jornal.Visible = true;
+            this.colduree_Jornal.VisibleIndex = 7;
+            // 
+            // repositoryItemProgressBar_jornal
+            // 
+            this.repositoryItemProgressBar_jornal.Name = "repositoryItemProgressBar_jornal";
             // 
             // customersLabelControl
             // 
@@ -496,6 +640,61 @@ namespace DXApplication2
             // 
             this.gridViewOvert.GridControl = this.gridControlOvert;
             this.gridViewOvert.Name = "gridViewOvert";
+            this.gridViewOvert.OptionsBehavior.Editable = false;
+            // 
+            // popupMenuetude
+            // 
+            this.popupMenuetude.ItemLinks.Add(this.barButtonItemedit);
+            this.popupMenuetude.ItemLinks.Add(this.barButtonItem_delete);
+            this.popupMenuetude.ItemLinks.Add(this.barButtonItem_validate);
+            this.popupMenuetude.Name = "popupMenuetude";
+            this.popupMenuetude.Ribbon = this.ribbonControl;
+            // 
+            // barManager1
+            // 
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1144, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 599);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1144, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 599);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1144, 0);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 599);
+            // 
+            // popupMenu_validate
+            // 
+            this.popupMenu_validate.ItemLinks.Add(this.barButtonItemedit);
+            this.popupMenu_validate.Name = "popupMenu_validate";
+            this.popupMenu_validate.Ribbon = this.ribbonControl;
             // 
             // Form1
             // 
@@ -507,6 +706,10 @@ namespace DXApplication2
             this.Controls.Add(this.officeNavigationBar);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.IconOptions.Image = global::DXApplication2.Properties.Resources.icons8_registration_32;
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl;
@@ -525,10 +728,16 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEtude)).EndInit();
             this.customersNavigationPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPub)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPub)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar_Portail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar_jornal)).EndInit();
             this.navigationPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOvert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOvert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuetude)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu_validate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -581,5 +790,26 @@ namespace DXApplication2
         private DevExpress.XtraGrid.Columns.GridColumn colvalidate;
         private DevExpress.XtraGrid.Columns.GridColumn coldélai_dexecution;
         private DevExpress.XtraGrid.Columns.GridColumn coldeleted;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemedit;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_delete;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_validate;
+        private DevExpress.XtraBars.PopupMenu popupMenuetude;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.PopupMenu popupMenu_validate;
+        private System.Windows.Forms.BindingSource classpublicationBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colid2;
+        private DevExpress.XtraGrid.Columns.GridColumn colAop;
+        private DevExpress.XtraGrid.Columns.GridColumn coldate_jornal;
+        private DevExpress.XtraGrid.Columns.GridColumn coldate_portail;
+        private DevExpress.XtraGrid.Columns.GridColumn coldate_convocation;
+        private DevExpress.XtraGrid.Columns.GridColumn colvalidate1;
+        private DevExpress.XtraGrid.Columns.GridColumn colduree_portail;
+        private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repositoryItemProgressBar_Portail;
+        private DevExpress.XtraGrid.Columns.GridColumn colduree_Jornal;
+        private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repositoryItemProgressBar_jornal;
     }
 }

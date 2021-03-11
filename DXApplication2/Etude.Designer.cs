@@ -33,6 +33,7 @@ namespace DXApplication2
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.textEditdélai = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxnature = new System.Windows.Forms.ComboBox();
             this.comboBoxtype = new System.Windows.Forms.ComboBox();
             this.comboBoxcocalite = new System.Windows.Forms.ComboBox();
@@ -40,6 +41,7 @@ namespace DXApplication2
             this.richTextBoxobject = new System.Windows.Forms.RichTextBox();
             this.windowsUIButtonPanelMain = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.textEditCaution = new DevExpress.XtraEditors.TextEdit();
+            this.textEditestimation = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
@@ -58,14 +60,14 @@ namespace DXApplication2
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEditestimation = new DevExpress.XtraEditors.TextEdit();
-            this.textEditdélai = new DevExpress.XtraEditors.TextEdit();
             this.délai_dexecution = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditdélai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditTresorier.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditTresorier.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCaution.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditestimation.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
@@ -84,8 +86,6 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditestimation.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditdélai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.délai_dexecution)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,6 +108,14 @@ namespace DXApplication2
             this.layoutControl1.Size = new System.Drawing.Size(1124, 324);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // textEditdélai
+            // 
+            this.textEditdélai.Location = new System.Drawing.Point(162, 216);
+            this.textEditdélai.Name = "textEditdélai";
+            this.textEditdélai.Size = new System.Drawing.Size(337, 20);
+            this.textEditdélai.StyleController = this.layoutControl1;
+            this.textEditdélai.TabIndex = 16;
             // 
             // comboBoxnature
             // 
@@ -198,6 +206,18 @@ namespace DXApplication2
             this.textEditCaution.Size = new System.Drawing.Size(364, 20);
             this.textEditCaution.StyleController = this.layoutControl1;
             this.textEditCaution.TabIndex = 7;
+            // 
+            // textEditestimation
+            // 
+            this.textEditestimation.Location = new System.Drawing.Point(162, 112);
+            this.textEditestimation.Name = "textEditestimation";
+            this.textEditestimation.Properties.DisplayFormat.FormatString = "d";
+            this.textEditestimation.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.textEditestimation.Properties.EditFormat.FormatString = "d";
+            this.textEditestimation.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.textEditestimation.Size = new System.Drawing.Size(337, 20);
+            this.textEditestimation.StyleController = this.layoutControl1;
+            this.textEditestimation.TabIndex = 12;
             // 
             // Root
             // 
@@ -381,26 +401,6 @@ namespace DXApplication2
             this.layoutControlItem6.Text = "Nature : ";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(135, 13);
             // 
-            // textEditestimation
-            // 
-            this.textEditestimation.Location = new System.Drawing.Point(162, 112);
-            this.textEditestimation.Name = "textEditestimation";
-            this.textEditestimation.Properties.DisplayFormat.FormatString = "d";
-            this.textEditestimation.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEditestimation.Properties.EditFormat.FormatString = "d";
-            this.textEditestimation.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEditestimation.Size = new System.Drawing.Size(337, 20);
-            this.textEditestimation.StyleController = this.layoutControl1;
-            this.textEditestimation.TabIndex = 12;
-            // 
-            // textEditdélai
-            // 
-            this.textEditdélai.Location = new System.Drawing.Point(162, 216);
-            this.textEditdélai.Name = "textEditdélai";
-            this.textEditdélai.Size = new System.Drawing.Size(337, 20);
-            this.textEditdélai.StyleController = this.layoutControl1;
-            this.textEditdélai.TabIndex = 16;
-            // 
             // délai_dexecution
             // 
             this.délai_dexecution.Control = this.textEditdélai;
@@ -422,9 +422,11 @@ namespace DXApplication2
             this.Load += new System.EventHandler(this.Etude_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEditdélai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditTresorier.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditTresorier.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCaution.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditestimation.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
@@ -443,8 +445,6 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditestimation.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditdélai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.délai_dexecution)).EndInit();
             this.ResumeLayout(false);
 
