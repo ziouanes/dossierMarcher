@@ -29,7 +29,7 @@ namespace DXApplication2
 
                 Program.sql_cmd = Program.sql_con.CreateCommand();
                 Program.sql_cmd.CommandType = CommandType.Text;
-                Program.sql_cmd.CommandText = " select id1 , objet  from [etude]  where validate  = 1 ";
+                Program.sql_cmd.CommandText = " select id1 , objet  from [etude]  where validate  = 1 and id1  not in ( select id1  from fk ) ";
                 Program.sql_cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 Program.adapter = new SqlDataAdapter(Program.sql_cmd);
@@ -69,6 +69,7 @@ namespace DXApplication2
         {
             try
             {
+
             DateTime dt = (DateTime)textEditJornal.EditValue ;
             dt = dt.AddDays(23);
             dateEditop.EditValue = dt ;

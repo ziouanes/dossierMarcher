@@ -13,6 +13,7 @@ namespace DXApplication2
         public DateTime date_jornal { get; set; }
         public DateTime date_portail { get; set; }
         public DateTime date_convocation { get; set; }
+        public DateTime date_OP { get; set; }
         public int validate { get; set; }
         public int duree_portail { get; set; }
         public int duree_Jornal { get; set; }

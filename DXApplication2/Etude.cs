@@ -15,6 +15,63 @@ namespace DXApplication2
 {
     public partial class Etude : DevExpress.XtraEditors.XtraForm
     {
+        int idEtude = 0;
+        DateTime dateenvoyer = DateTime.Now;
+
+
+        public Etude(int id1 , string objet ,string estimation , string montant , DateTime envoyer_tresoryer  , int délai_dexecution )
+        {
+
+            InitializeComponent();
+            idEtude = id1;
+            richTextBoxobject.Text = objet;
+            textEditestimation.Text = estimation;
+            textEditCaution.Text = montant;
+            dateenvoyer = envoyer_tresoryer;
+            textEditdélai.Text = délai_dexecution.ToString();
+
+
+            try
+            {
+                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+                {
+                    SqlCommand cmd = Program.sql_con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.CommandText = "SELECT [localite] , [Type_marcher]  , [Nature] from etude where id1 =" + id1 + "";
+                    DataTable table = new DataTable();
+                    cmd.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(table);
+                    foreach (DataRow row in table.Rows)
+                    {
+                        comboBoxcocalite.SelectedValue = row["localite"].ToString();
+                        comboBoxnature.SelectedValue = row["Nature"].ToString();
+                        comboBoxtype.SelectedValue = row["Type_marcher"].ToString();
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //this.Dispose();
+            }
+
+
+
+
+
+
+        }
+
+
+
         public Etude()
         {
             InitializeComponent();
@@ -34,6 +91,11 @@ namespace DXApplication2
             ExecuteQuerylocality();
             ExecuteQuerytype();
             ExecuteQueryNature();
+
+            if(idEtude != 0)
+            {
+                dateEditTresorier.EditValue = dateenvoyer;
+            }
         }
 
         private void ExecuteQuerylocality()
@@ -199,28 +261,59 @@ namespace DXApplication2
 
                     {
 
-                        string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature]) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature)";
+                        if (idEtude == 0)
+                        {
+                            string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature]) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature)";
 
 
-                        Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
-                        Program.sql_cmd.Parameters.AddWithValue("@objet", richTextBoxobject.Text);
-                        Program.sql_cmd.Parameters.AddWithValue("@estimation", textEditestimation.Text);
-                        Program.sql_cmd.Parameters.AddWithValue("@montant", textEditCaution.Text);
-                        Program.sql_cmd.Parameters.AddWithValue("@envoyer", dateEditTresorier.Text);
-                        Program.sql_cmd.Parameters.AddWithValue("@delai", textEditdélai.Text) ;
-                        Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
-                        Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
-                        Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
+                            Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
+                            Program.sql_cmd.Parameters.AddWithValue("@objet", richTextBoxobject.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@estimation", textEditestimation.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@montant", textEditCaution.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@envoyer", dateEditTresorier.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@delai", textEditdélai.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
 
 
 
-                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-                        Program.sql_cmd.ExecuteNonQuery();
-                        Program.sql_con.Close();
-                        XtraMessageBox.Show("good");
+                            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                            Program.sql_cmd.ExecuteNonQuery();
+                            Program.sql_con.Close();
+                            XtraMessageBox.Show("good");
 
-                        // toastNotificationsManager1.ShowNotification("1d00270b-1651-4ed4-a139-bd59d5d8cf8e");
-                        this.Close();
+                            // toastNotificationsManager1.ShowNotification("1d00270b-1651-4ed4-a139-bd59d5d8cf8e");
+                            this.Close();
+
+
+                        }
+                        else
+                        {
+                            string sql = "update  [etude] set objet = @objet ,[estimation] = @estimation ,[montant] = @montant ,[envoyer_tresoryer]  = @envoyer,[délai_dexecution] =  @delai , [localite]  = @localisation , [Type_marcher] = @type_marcher , [Nature]  = @nature where id1 = @id ";
+
+
+                            Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
+                            Program.sql_cmd.Parameters.AddWithValue("@objet", richTextBoxobject.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@estimation", textEditestimation.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@montant", textEditCaution.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@envoyer", dateEditTresorier.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@delai", textEditdélai.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@id", idEtude);
+
+
+
+                            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                            Program.sql_cmd.ExecuteNonQuery();
+                            Program.sql_con.Close();
+                            XtraMessageBox.Show("good");
+
+
+                            this.Close();
+                        }
 
 
                     }
@@ -244,6 +337,114 @@ namespace DXApplication2
 
             }
 
+            if (e.Button == windowsUIButtonPanelMain.Buttons[1])
+            {
+                try
+                {
+
+                    if (richTextBoxobject.Text == "" || textEditCaution.Text == "" || dateEditTresorier.Text == "" || comboBoxcocalite.SelectedIndex == -1 || comboBoxnature.SelectedIndex == -1 || comboBoxtype.SelectedIndex == -1)
+                    {
+                        XtraMessageBox.Show("champs obligatoires");
+
+                    }
+                    else
+
+                    {
+
+                        if (idEtude == 0)
+                        {
+                            string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature]) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature)";
+
+
+                            Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
+                            Program.sql_cmd.Parameters.AddWithValue("@objet", richTextBoxobject.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@estimation", textEditestimation.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@montant", textEditCaution.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@envoyer", dateEditTresorier.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@delai", textEditdélai.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
+
+
+
+                            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                            Program.sql_cmd.ExecuteNonQuery();
+                            Program.sql_con.Close();
+                            XtraMessageBox.Show("good");
+
+                            // toastNotificationsManager1.ShowNotification("1d00270b-1651-4ed4-a139-bd59d5d8cf8e");
+                            richTextBoxobject.Text = "";
+                            textEditCaution.Text = "";
+                            dateEditTresorier.Text = "";
+                            comboBoxcocalite.SelectedIndex = -1;
+                            comboBoxnature.SelectedIndex = -1;
+                            comboBoxtype.SelectedIndex = -1;
+
+
+                        }
+                        else
+                        {
+                            string sql = "update  [etude] set objet = @objet ,[estimation] = @estimation ,[montant] = @montant ,[envoyer_tresoryer]  = @envoyer,[délai_dexecution] =  @delai , [localite]  = @localisation , [Type_marcher] = @type_marcher , [Nature]  = @nature where id1 = @id ";
+
+
+                            Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
+                            Program.sql_cmd.Parameters.AddWithValue("@objet", richTextBoxobject.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@estimation", textEditestimation.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@montant", textEditCaution.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@envoyer", dateEditTresorier.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@delai", textEditdélai.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@id", idEtude);
+
+
+
+                            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                            Program.sql_cmd.ExecuteNonQuery();
+                            Program.sql_con.Close();
+                            XtraMessageBox.Show("good");
+
+                            idEtude = 0;
+                            richTextBoxobject.Text = "";
+                            textEditCaution.Text = "";
+                            dateEditTresorier.Text = "";
+                            comboBoxcocalite.SelectedIndex = -1;
+                            comboBoxnature.SelectedIndex = -1;
+                            comboBoxtype.SelectedIndex = -1;
+                        }
+
+
+                    }
+                }
+
+
+
+
+
+
+
+
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    //this.Dispose();
+                }
+            }
+            if (e.Button == windowsUIButtonPanelMain.Buttons[2])
+            {
+                idEtude = 0;
+                richTextBoxobject.Text = "";
+                textEditCaution.Text = "";
+                dateEditTresorier.Text = "";
+                comboBoxcocalite.SelectedIndex = -1;
+                comboBoxnature.SelectedIndex = -1;
+                comboBoxtype.SelectedIndex = -1;
+            }
         }
     }
 }

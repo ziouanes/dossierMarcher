@@ -54,7 +54,7 @@ namespace DXApplication2
 
 
 
-                string query = $"select id2 , Aop , date_jornal , date_portail , date_convocation , validate  , duree_portail , duree_Jornal   from publication where deleted = 0  ; " ;
+                string query = $"select id2 , Aop , date_jornal , date_portail , date_convocation , validate  , duree_portail , duree_Jornal  , date_op  from publication where deleted = 0  ; " ;
                 classpublicationBindingSource.DataSource = Program.sql_con.Query<Class_publication>(query, commandType: CommandType.Text);
 
 
@@ -152,8 +152,42 @@ namespace DXApplication2
 
         private void barButtonItem_validate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var row = gridViewEtude.FocusedRowHandle;
 
+            var row3 = gridViewEtude.FocusedRowHandle;
+            string cellid;
+            cellid = gridViewEtude.GetRowCellValue(row3, "id1").ToString();
+
+            if (MessageBox.Show("Voulez-vous vraiment Valider cette Etude   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+
+
+                    using (SqlCommand deleteCommand = new SqlCommand("update etude set validate = 1 WHERE id1 = @id", Program.sql_con))
+                    {
+
+
+                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+                        deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
+
+                        deleteCommand.ExecuteNonQuery();
+
+
+
+                    }
+                    select_Etude_Data();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    //this.Dispose();
+                }
+
+            }
 
         }
 
@@ -225,6 +259,206 @@ namespace DXApplication2
                     e.HighPriority = true;
                 }
             }
+        }
+
+        private void gridControlPub_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right) return;
+            var rowM = gridViewPub.FocusedRowHandle;
+
+            string validate;
+            validate = gridViewPub.GetRowCellValue(rowM, "validate").ToString();
+
+            if (int.Parse(validate) == 0)
+            {
+
+                if (rowM >= 0)
+                    popupMenupub.ShowPopup(barManager1, new Point(MousePosition.X, MousePosition.Y));
+                else
+                    popupMenupub.HidePopup();
+            }
+            else if (int.Parse(validate) == 1)
+            {
+                if (rowM >= 0)
+                    popupMenuPub_validate.ShowPopup(barManager1, new Point(MousePosition.X, MousePosition.Y));
+                else
+                    popupMenuPub_validate.HidePopup();
+
+            }
+        }
+
+        private void barButtonItem_delete_etude_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row2 = gridViewEtude.FocusedRowHandle;
+            string cellid;
+            cellid = gridViewEtude.GetRowCellValue(row2, "id1").ToString();
+
+                if (MessageBox.Show("Voulez-vous vraiment Annuler cette Etude   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+            try
+            {
+
+
+                    using (SqlCommand deleteCommand = new SqlCommand("update etude set validate = -1 WHERE id1 = @id", Program.sql_con))
+                {
+
+
+                    if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+                    deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
+
+                    deleteCommand.ExecuteNonQuery();
+
+
+
+                }
+                    select_Etude_Data();
+                }
+                catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //this.Dispose();
+            }
+
+                }
+
+
+        }
+
+        private void barButtonItemedit_Etude_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row2 = gridViewEtude.FocusedRowHandle;
+            int cellid;
+            string cellobjet;
+            string cellEstimation;
+            string montant;
+            DateTime cellEnvoyer_tresorier;
+            int délai_dexecution;
+           
+
+
+            cellid = int.Parse(gridViewEtude.GetRowCellValue(row2, "id1").ToString());
+            cellobjet = gridViewEtude.GetRowCellValue(row2, "objet").ToString();
+            cellEstimation = gridViewEtude.GetRowCellValue(row2, "estimation").ToString();
+            montant = gridViewEtude.GetRowCellValue(row2, "montant").ToString();
+            cellEnvoyer_tresorier = Convert.ToDateTime(gridViewEtude.GetRowCellValue(row2, "envoyer_tresoryer"));
+            délai_dexecution = int.Parse(gridViewEtude.GetRowCellValue(row2, "délai_dexecution").ToString());
+
+
+
+            Etude etude = new Etude(cellid, cellobjet, cellEstimation, montant, cellEnvoyer_tresorier, délai_dexecution);
+            etude.ShowDialog();
+            select_Etude_Data();
+
+
+        }
+
+        private void barButtonItem_valider_pub_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row3 = gridViewPub.FocusedRowHandle;
+            string cellid;
+            cellid = gridViewPub.GetRowCellValue(row3, "id2").ToString();
+
+            if (MessageBox.Show("Voulez-vous vraiment Valider cette Publication   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+
+
+                    using (SqlCommand deleteCommand = new SqlCommand("update publication set validate = 1 WHERE id2 = @id", Program.sql_con))
+                    {
+
+
+                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+                        deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
+
+                        deleteCommand.ExecuteNonQuery();
+
+
+
+                    }
+                    select_Publication_Data();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    //this.Dispose();
+                }
+
+            }
+        }
+
+        private void barButtonItem_annuler_pub_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row2 = gridViewPub.FocusedRowHandle;
+            string cellid;
+            cellid = gridViewPub.GetRowCellValue(row2, "id2").ToString();
+
+            if (MessageBox.Show("Voulez-vous vraiment Annuler cette Publication   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+
+
+                    using (SqlCommand deleteCommand = new SqlCommand("update publication set validate = -1 WHERE id2 = @id", Program.sql_con))
+                    {
+
+
+                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+                        deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
+
+                        deleteCommand.ExecuteNonQuery();
+
+
+
+                    }
+                    select_Publication_Data();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    //this.Dispose();
+                }
+
+            }
+        }
+
+        private void barButtonItemedit_pub_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row2 = gridViewPub.FocusedRowHandle;
+            int id2;
+            string cellaoo;
+            DateTime celldateJornal;
+            DateTime celldateconvocation;
+            DateTime cellDatePortail;
+            DateTime celldateOverture;
+
+
+
+            //id2 = int.Parse(gridViewPub.GetRowCellValue(row2, "id2").ToString());
+            //cellaoo = gridViewPub.GetRowCellValue(row2, "Aop").ToString();
+            //celldateJornal = gridViewPub.GetRowCellValue(row2, "date_jornal").ToString();
+            //celldateconvocation = gridViewPub.GetRowCellValue(row2, "date_convocation").ToString();
+            //cellDatePortail = Convert.ToDateTime(gridViewPub.GetRowCellValue(row2, "date_portail"));
+            //celldateOverture = int.Parse(gridViewPub.GetRowCellValue(row2, "délai_dexecution").ToString());
+
+
+
+            //Etude etude = new Etude(cellid, cellobjet, cellEstimation, montant, cellEnvoyer_tresorier, délai_dexecution);
+            //etude.ShowDialog();
+            select_Etude_Data();
+
         }
     }
 }
