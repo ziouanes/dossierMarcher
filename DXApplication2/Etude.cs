@@ -283,7 +283,7 @@ namespace DXApplication2
                             Program.sql_con.Close();
                             XtraMessageBox.Show("good");
 
-                            // toastNotificationsManager1.ShowNotification("1d00270b-1651-4ed4-a139-bd59d5d8cf8e");
+                            // toastNotificationsManager1.ShowNotification("677ae63a-96ce-4b84-bb50-c3feef4564ce");
                             this.Close();
 
 

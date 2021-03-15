@@ -14,7 +14,7 @@ create table etude( id1 int primary key identity(1,1) ,  objet text , estimation
 
 select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , délai_dexecution  , deleted from etude where deleted = 0
 
-select *  from etude
+select e.objet from etude e inner join fk f on e.id1 = f.id1 inner join publication p on f.id2 = p.id2 where p.id2 = 5
 
 
 create table publication(id2 int primary key identity(1,1) , Aop varchar(30) , date_jornal date , date_portail date , date_convocation date , date_op date ,  validate int DEFAULT 0 , deleted int default 0 , duree_portail int default 0 ,duree_Jornal int default 0  )

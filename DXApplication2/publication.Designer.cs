@@ -29,9 +29,11 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(publication));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.comboBoxObject = new System.Windows.Forms.ComboBox();
             this.windowsUIButtonPanelMain = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
@@ -55,6 +57,7 @@ namespace DXApplication2
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditAop.Properties)).BeginInit();
@@ -81,6 +84,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -104,7 +108,7 @@ namespace DXApplication2
             // comboBoxObject
             // 
             this.comboBoxObject.FormattingEnabled = true;
-            this.comboBoxObject.Location = new System.Drawing.Point(154, 80);
+            this.comboBoxObject.Location = new System.Drawing.Point(154, 78);
             this.comboBoxObject.Name = "comboBoxObject";
             this.comboBoxObject.Size = new System.Drawing.Size(985, 21);
             this.comboBoxObject.TabIndex = 7;
@@ -126,13 +130,13 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions4.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions5.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions6.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions1.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions2.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions3.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
             this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanelMain.EnableImageTransparency = true;
             this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 332);
@@ -148,7 +152,7 @@ namespace DXApplication2
             // 
             // textEditAop
             // 
-            this.textEditAop.Location = new System.Drawing.Point(154, 169);
+            this.textEditAop.Location = new System.Drawing.Point(154, 168);
             this.textEditAop.Name = "textEditAop";
             this.textEditAop.Size = new System.Drawing.Size(429, 20);
             this.textEditAop.StyleController = this.layoutControl1;
@@ -157,7 +161,7 @@ namespace DXApplication2
             // textEditJornal
             // 
             this.textEditJornal.EditValue = null;
-            this.textEditJornal.Location = new System.Drawing.Point(154, 193);
+            this.textEditJornal.Location = new System.Drawing.Point(154, 192);
             this.textEditJornal.Name = "textEditJornal";
             this.textEditJornal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -177,7 +181,7 @@ namespace DXApplication2
             // textEditconvocation
             // 
             this.textEditconvocation.EditValue = null;
-            this.textEditconvocation.Location = new System.Drawing.Point(705, 169);
+            this.textEditconvocation.Location = new System.Drawing.Point(705, 168);
             this.textEditconvocation.Name = "textEditconvocation";
             this.textEditconvocation.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -197,7 +201,7 @@ namespace DXApplication2
             // textEditportai
             // 
             this.textEditportai.EditValue = null;
-            this.textEditportai.Location = new System.Drawing.Point(705, 193);
+            this.textEditportai.Location = new System.Drawing.Point(705, 192);
             this.textEditportai.Name = "textEditportai";
             this.textEditportai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -262,15 +266,15 @@ namespace DXApplication2
             this.layoutControlGroup4});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1131, 273);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1131, 275);
             this.layoutControlGroup1.Text = "Group1";
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 182);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 183);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(1131, 22);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1131, 23);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup6
@@ -282,7 +286,7 @@ namespace DXApplication2
             this.emptySpaceItem2});
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(1131, 89);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(1131, 90);
             this.layoutControlGroup6.Text = "Group2";
             // 
             // Object
@@ -298,7 +302,7 @@ namespace DXApplication2
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 25);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(1107, 19);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(1107, 20);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup3
@@ -310,7 +314,7 @@ namespace DXApplication2
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlItem5});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 89);
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 90);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Size = new System.Drawing.Size(1131, 93);
             this.layoutControlGroup3.Text = "Group3";
@@ -370,7 +374,7 @@ namespace DXApplication2
             this.layoutControlGroup4.ExpandButtonVisible = true;
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem6});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 204);
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 206);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Size = new System.Drawing.Size(1131, 69);
             this.layoutControlGroup4.Text = "Group4";
@@ -396,6 +400,13 @@ namespace DXApplication2
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // toastNotificationsManager1
+            // 
+            this.toastNotificationsManager1.ApplicationId = "0ce85068-7b9b-4772-9c52-a4112a0c02e1";
+            this.toastNotificationsManager1.Notifications.AddRange(new DevExpress.XtraBars.ToastNotifications.IToastNotificationProperties[] {
+            new DevExpress.XtraBars.ToastNotifications.ToastNotification("677ae63a-96ce-4b84-bb50-c3feef4564ce", ((System.Drawing.Image)(resources.GetObject("toastNotificationsManager1.Notifications"))), "", "insert success", "", DevExpress.XtraBars.ToastNotifications.ToastNotificationTemplate.ImageAndText01),
+            new DevExpress.XtraBars.ToastNotifications.ToastNotification("63e40279-d885-4efa-91fd-073fbda47ee2", ((System.Drawing.Image)(resources.GetObject("toastNotificationsManager1.Notifications1"))), "", "Modifier success", "", DevExpress.XtraBars.ToastNotifications.ToastNotificationTemplate.ImageAndText02)});
+            // 
             // publication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,6 +414,7 @@ namespace DXApplication2
             this.ClientSize = new System.Drawing.Size(1175, 404);
             this.Controls.Add(this.layoutControl1);
             this.Name = "publication";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "publication";
             this.Load += new System.EventHandler(this.publication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -431,6 +443,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -460,5 +473,6 @@ namespace DXApplication2
         private DevExpress.XtraEditors.DateEdit dateEditop;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager1;
     }
 }

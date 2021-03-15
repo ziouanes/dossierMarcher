@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace DXApplication2
 {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -54,7 +55,7 @@ namespace DXApplication2
 
 
 
-                string query = $"select id2 , Aop , date_jornal , date_portail , date_convocation , validate  , duree_portail , duree_Jornal  , date_op  from publication where deleted = 0  ; " ;
+                string query = $"select id2 , Aop , date_jornal , date_portail , date_convocation , validate  , duree_portail , duree_Jornal  , date_op  from publication where deleted = 0  order by id2 desc ; " ;
                 classpublicationBindingSource.DataSource = Program.sql_con.Query<Class_publication>(query, commandType: CommandType.Text);
 
 
@@ -83,7 +84,7 @@ namespace DXApplication2
 
                 
 
-                    string query = $"select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , délai_dexecution   from etude where deleted = 0  ; ";
+                    string query = $"select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , délai_dexecution   from etude where deleted = 0   order by id1 desc ; ";
                     classEtudeBindingSource.DataSource = Program.sql_con.Query<ClassEtude>(query, commandType: CommandType.Text);
 
 
@@ -99,10 +100,38 @@ namespace DXApplication2
             }
         }
 
+        private void select_Overt_Data()
+        {
+            try
+            {
+                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+
+
+
+
+                string query = $"select id3 , attributaire , Montant , num_Marcher , date_Visa  , date_approbation  , valide_approbation  , duree_approbation , délai_dexecution  , caution_definitif , caution_return , datenotifiy , date_caution , valide_caution , duree_caution  , valide_order_service  , duree_order_service from SIMPLE_overture order by id3 desc";
+                classSIMPLEovertureBindingSource.DataSource = Program.sql_con.Query<ClassSIMPLE_overture>(query, commandType: CommandType.Text);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //this.Dispose();
+            }
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             select_Etude_Data();
             select_Publication_Data();
+            select_Overt_Data();
         }
 
         private void barButtonPublication_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -443,21 +472,38 @@ namespace DXApplication2
             DateTime celldateconvocation;
             DateTime cellDatePortail;
             DateTime celldateOverture;
+            int cell_validate;
 
 
 
-            //id2 = int.Parse(gridViewPub.GetRowCellValue(row2, "id2").ToString());
-            //cellaoo = gridViewPub.GetRowCellValue(row2, "Aop").ToString();
-            //celldateJornal = gridViewPub.GetRowCellValue(row2, "date_jornal").ToString();
-            //celldateconvocation = gridViewPub.GetRowCellValue(row2, "date_convocation").ToString();
-            //cellDatePortail = Convert.ToDateTime(gridViewPub.GetRowCellValue(row2, "date_portail"));
-            //celldateOverture = int.Parse(gridViewPub.GetRowCellValue(row2, "délai_dexecution").ToString());
+            id2 = int.Parse(gridViewPub.GetRowCellValue(row2, "id2").ToString());
+            cellaoo = gridViewPub.GetRowCellValue(row2, "Aop").ToString();
+            celldateJornal = Convert.ToDateTime(gridViewPub.GetRowCellValue(row2, "date_jornal").ToString());
+            celldateconvocation = Convert.ToDateTime(gridViewPub.GetRowCellValue(row2, "date_convocation").ToString());
+            cellDatePortail = Convert.ToDateTime((gridViewPub.GetRowCellValue(row2, "date_portail")));
+            celldateOverture = Convert.ToDateTime(gridViewPub.GetRowCellValue(row2, "date_OP").ToString());
+            cell_validate = int.Parse(gridViewPub.GetRowCellValue(row2, "validate").ToString());
 
 
+            publication pub = new publication(id2, cellaoo, celldateJornal, celldateconvocation, cellDatePortail, celldateOverture , cell_validate);
+            pub.ShowDialog();
+            select_Publication_Data();
 
-            //Etude etude = new Etude(cellid, cellobjet, cellEstimation, montant, cellEnvoyer_tresorier, délai_dexecution);
-            //etude.ShowDialog();
-            select_Etude_Data();
+        }
+
+        private void gridViewOvert_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView View = sender as GridView;
+            if (e.RowHandle == View.FocusedRowHandle) return;
+            if (e.Column.FieldName != "valide_approbation") 
+            {
+
+                if (Convert.ToInt32(e.CellValue) == 1)
+                    e.Appearance.BackColor = Color.FromArgb(60, Color.Salmon);
+                if (Convert.ToInt32(e.CellValue) == 0)
+                    e.Appearance.BackColor = Color.FromArgb(60, Color.Red);
+            };
+           
 
         }
     }

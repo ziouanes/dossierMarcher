@@ -276,6 +276,7 @@ namespace DXApplication2
             this.ClientSize = new System.Drawing.Size(1126, 454);
             this.Controls.Add(this.layoutControl1);
             this.Name = "suivi_des_order";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "suivi_des_order";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

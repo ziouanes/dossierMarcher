@@ -79,13 +79,41 @@ namespace DXApplication2
             this.employeesLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControlPub = new DevExpress.XtraGrid.GridControl();
+            this.classpublicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewPub = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAop = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_jornal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_portail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_convocation = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_OP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalidate1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colduree_portail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemProgressBar_Portail = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
+            this.colduree_Jornal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemProgressBar_jornal = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControlOvert = new DevExpress.XtraGrid.GridControl();
+            this.classSIMPLEovertureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewOvert = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colattributaire = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMontant1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colnum_Marcher = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_Visa = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_approbation = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalide_approbation = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colduree_approbation = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldélai_dexecution1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcaution_definitif = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcaution_return = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldatenotifiy = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_caution = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalide_caution = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colduree_caution = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalide_order_service = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colduree_order_service = new DevExpress.XtraGrid.Columns.GridColumn();
             this.popupMenuetude = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -95,16 +123,6 @@ namespace DXApplication2
             this.popupMenu_validate = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenupub = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuPub_validate = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.classpublicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAop = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldate_jornal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldate_portail = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldate_convocation = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldate_OP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colvalidate1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colduree_portail = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colduree_Jornal = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -117,26 +135,27 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEtude)).BeginInit();
             this.customersNavigationPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPub)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar_Portail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar_jornal)).BeginInit();
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOvert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOvert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuetude)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu_validate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenupub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuPub_validate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 575);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 577);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1144, 24);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1144, 22);
             // 
             // ribbonControl
             // 
@@ -361,7 +380,7 @@ namespace DXApplication2
             // officeNavigationBar
             // 
             this.officeNavigationBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.officeNavigationBar.Location = new System.Drawing.Point(0, 529);
+            this.officeNavigationBar.Location = new System.Drawing.Point(0, 531);
             this.officeNavigationBar.Name = "officeNavigationBar";
             this.officeNavigationBar.NavigationClient = this.navBarControl;
             this.officeNavigationBar.Size = new System.Drawing.Size(1144, 46);
@@ -381,7 +400,7 @@ namespace DXApplication2
             this.navBarControl.Name = "navBarControl";
             this.navBarControl.OptionsNavPane.ExpandedWidth = 165;
             this.navBarControl.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControl.Size = new System.Drawing.Size(165, 371);
+            this.navBarControl.Size = new System.Drawing.Size(165, 373);
             this.navBarControl.TabIndex = 0;
             this.navBarControl.Text = "navBarControl";
             this.navBarControl.ActiveGroupChanged += new DevExpress.XtraNavBar.NavBarGroupEventHandler(this.navBarControl_ActiveGroupChanged);
@@ -418,7 +437,7 @@ namespace DXApplication2
             this.navigationPage1});
             this.navigationFrame.RibbonAndBarsMergeStyle = DevExpress.XtraBars.Docking2010.Views.RibbonAndBarsMergeStyle.Always;
             this.navigationFrame.SelectedPage = this.employeesNavigationPage;
-            this.navigationFrame.Size = new System.Drawing.Size(979, 371);
+            this.navigationFrame.Size = new System.Drawing.Size(979, 373);
             this.navigationFrame.TabIndex = 0;
             this.navigationFrame.Text = "navigationFrame";
             // 
@@ -427,7 +446,7 @@ namespace DXApplication2
             this.employeesNavigationPage.Controls.Add(this.gridControlEtude);
             this.employeesNavigationPage.Controls.Add(this.employeesLabelControl);
             this.employeesNavigationPage.Name = "employeesNavigationPage";
-            this.employeesNavigationPage.Size = new System.Drawing.Size(979, 371);
+            this.employeesNavigationPage.Size = new System.Drawing.Size(979, 373);
             // 
             // gridControlEtude
             // 
@@ -438,7 +457,7 @@ namespace DXApplication2
             this.gridControlEtude.MainView = this.gridViewEtude;
             this.gridControlEtude.MenuManager = this.ribbonControl;
             this.gridControlEtude.Name = "gridControlEtude";
-            this.gridControlEtude.Size = new System.Drawing.Size(979, 371);
+            this.gridControlEtude.Size = new System.Drawing.Size(979, 373);
             this.gridControlEtude.TabIndex = 1;
             this.gridControlEtude.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewEtude});
@@ -462,6 +481,8 @@ namespace DXApplication2
             this.gridViewEtude.GridControl = this.gridControlEtude;
             this.gridViewEtude.Name = "gridViewEtude";
             this.gridViewEtude.OptionsBehavior.Editable = false;
+            this.gridViewEtude.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colvalidate, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridViewEtude.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewEtude_RowStyle);
             // 
             // colid1
@@ -537,7 +558,7 @@ namespace DXApplication2
             this.employeesLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeesLabelControl.Location = new System.Drawing.Point(0, 0);
             this.employeesLabelControl.Name = "employeesLabelControl";
-            this.employeesLabelControl.Size = new System.Drawing.Size(979, 371);
+            this.employeesLabelControl.Size = new System.Drawing.Size(979, 373);
             this.employeesLabelControl.TabIndex = 0;
             this.employeesLabelControl.Text = "Etude";
             // 
@@ -546,7 +567,7 @@ namespace DXApplication2
             this.customersNavigationPage.Controls.Add(this.gridControlPub);
             this.customersNavigationPage.Controls.Add(this.customersLabelControl);
             this.customersNavigationPage.Name = "customersNavigationPage";
-            this.customersNavigationPage.Size = new System.Drawing.Size(979, 371);
+            this.customersNavigationPage.Size = new System.Drawing.Size(979, 373);
             // 
             // gridControlPub
             // 
@@ -559,12 +580,16 @@ namespace DXApplication2
             this.gridControlPub.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemProgressBar_Portail,
             this.repositoryItemProgressBar_jornal});
-            this.gridControlPub.Size = new System.Drawing.Size(979, 371);
+            this.gridControlPub.Size = new System.Drawing.Size(979, 373);
             this.gridControlPub.TabIndex = 2;
             this.gridControlPub.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPub});
             this.gridControlPub.Click += new System.EventHandler(this.gridControlPub_Click);
             this.gridControlPub.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gridControlPub_MouseUp);
+            // 
+            // classpublicationBindingSource
+            // 
+            this.classpublicationBindingSource.DataSource = typeof(DXApplication2.Class_publication);
             // 
             // gridViewPub
             // 
@@ -583,9 +608,74 @@ namespace DXApplication2
             this.gridViewPub.OptionsBehavior.Editable = false;
             this.gridViewPub.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewPub_RowStyle);
             // 
+            // colid2
+            // 
+            this.colid2.FieldName = "id2";
+            this.colid2.Name = "colid2";
+            this.colid2.Visible = true;
+            this.colid2.VisibleIndex = 0;
+            // 
+            // colAop
+            // 
+            this.colAop.FieldName = "Aop";
+            this.colAop.Name = "colAop";
+            this.colAop.Visible = true;
+            this.colAop.VisibleIndex = 1;
+            // 
+            // coldate_jornal
+            // 
+            this.coldate_jornal.FieldName = "date_jornal";
+            this.coldate_jornal.Name = "coldate_jornal";
+            this.coldate_jornal.Visible = true;
+            this.coldate_jornal.VisibleIndex = 2;
+            // 
+            // coldate_portail
+            // 
+            this.coldate_portail.FieldName = "date_portail";
+            this.coldate_portail.Name = "coldate_portail";
+            this.coldate_portail.Visible = true;
+            this.coldate_portail.VisibleIndex = 3;
+            // 
+            // coldate_convocation
+            // 
+            this.coldate_convocation.FieldName = "date_convocation";
+            this.coldate_convocation.Name = "coldate_convocation";
+            this.coldate_convocation.Visible = true;
+            this.coldate_convocation.VisibleIndex = 4;
+            // 
+            // coldate_OP
+            // 
+            this.coldate_OP.FieldName = "date_OP";
+            this.coldate_OP.Name = "coldate_OP";
+            this.coldate_OP.Visible = true;
+            this.coldate_OP.VisibleIndex = 5;
+            // 
+            // colvalidate1
+            // 
+            this.colvalidate1.FieldName = "validate";
+            this.colvalidate1.Name = "colvalidate1";
+            this.colvalidate1.Visible = true;
+            this.colvalidate1.VisibleIndex = 6;
+            // 
+            // colduree_portail
+            // 
+            this.colduree_portail.ColumnEdit = this.repositoryItemProgressBar_Portail;
+            this.colduree_portail.FieldName = "duree_portail";
+            this.colduree_portail.Name = "colduree_portail";
+            this.colduree_portail.Visible = true;
+            this.colduree_portail.VisibleIndex = 7;
+            // 
             // repositoryItemProgressBar_Portail
             // 
             this.repositoryItemProgressBar_Portail.Name = "repositoryItemProgressBar_Portail";
+            // 
+            // colduree_Jornal
+            // 
+            this.colduree_Jornal.ColumnEdit = this.repositoryItemProgressBar_jornal;
+            this.colduree_Jornal.FieldName = "duree_Jornal";
+            this.colduree_Jornal.Name = "colduree_Jornal";
+            this.colduree_Jornal.Visible = true;
+            this.colduree_Jornal.VisibleIndex = 8;
             // 
             // repositoryItemProgressBar_jornal
             // 
@@ -604,7 +694,7 @@ namespace DXApplication2
             this.customersLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customersLabelControl.Location = new System.Drawing.Point(0, 0);
             this.customersLabelControl.Name = "customersLabelControl";
-            this.customersLabelControl.Size = new System.Drawing.Size(979, 371);
+            this.customersLabelControl.Size = new System.Drawing.Size(979, 373);
             this.customersLabelControl.TabIndex = 1;
             this.customersLabelControl.Text = "Publication";
             // 
@@ -612,25 +702,168 @@ namespace DXApplication2
             // 
             this.navigationPage1.Controls.Add(this.gridControlOvert);
             this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(979, 371);
+            this.navigationPage1.Size = new System.Drawing.Size(979, 373);
             // 
             // gridControlOvert
             // 
+            this.gridControlOvert.DataSource = this.classSIMPLEovertureBindingSource;
             this.gridControlOvert.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlOvert.Location = new System.Drawing.Point(0, 0);
             this.gridControlOvert.MainView = this.gridViewOvert;
             this.gridControlOvert.MenuManager = this.ribbonControl;
             this.gridControlOvert.Name = "gridControlOvert";
-            this.gridControlOvert.Size = new System.Drawing.Size(979, 371);
+            this.gridControlOvert.Size = new System.Drawing.Size(979, 373);
             this.gridControlOvert.TabIndex = 0;
             this.gridControlOvert.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewOvert});
             // 
+            // classSIMPLEovertureBindingSource
+            // 
+            this.classSIMPLEovertureBindingSource.DataSource = typeof(DXApplication2.ClassSIMPLE_overture);
+            // 
             // gridViewOvert
             // 
+            this.gridViewOvert.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid3,
+            this.colattributaire,
+            this.colMontant1,
+            this.colnum_Marcher,
+            this.coldate_Visa,
+            this.coldate_approbation,
+            this.colvalide_approbation,
+            this.colduree_approbation,
+            this.coldélai_dexecution1,
+            this.colcaution_definitif,
+            this.colcaution_return,
+            this.coldatenotifiy,
+            this.coldate_caution,
+            this.colvalide_caution,
+            this.colduree_caution,
+            this.colvalide_order_service,
+            this.colduree_order_service});
             this.gridViewOvert.GridControl = this.gridControlOvert;
             this.gridViewOvert.Name = "gridViewOvert";
             this.gridViewOvert.OptionsBehavior.Editable = false;
+            this.gridViewOvert.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridViewOvert_RowCellStyle);
+            // 
+            // colid3
+            // 
+            this.colid3.FieldName = "id3";
+            this.colid3.Name = "colid3";
+            this.colid3.Visible = true;
+            this.colid3.VisibleIndex = 0;
+            // 
+            // colattributaire
+            // 
+            this.colattributaire.FieldName = "attributaire";
+            this.colattributaire.Name = "colattributaire";
+            this.colattributaire.Visible = true;
+            this.colattributaire.VisibleIndex = 1;
+            // 
+            // colMontant1
+            // 
+            this.colMontant1.FieldName = "Montant";
+            this.colMontant1.Name = "colMontant1";
+            this.colMontant1.Visible = true;
+            this.colMontant1.VisibleIndex = 2;
+            // 
+            // colnum_Marcher
+            // 
+            this.colnum_Marcher.FieldName = "num_Marcher";
+            this.colnum_Marcher.Name = "colnum_Marcher";
+            this.colnum_Marcher.Visible = true;
+            this.colnum_Marcher.VisibleIndex = 3;
+            // 
+            // coldate_Visa
+            // 
+            this.coldate_Visa.FieldName = "date_Visa";
+            this.coldate_Visa.Name = "coldate_Visa";
+            this.coldate_Visa.Visible = true;
+            this.coldate_Visa.VisibleIndex = 4;
+            // 
+            // coldate_approbation
+            // 
+            this.coldate_approbation.FieldName = "date_approbation";
+            this.coldate_approbation.Name = "coldate_approbation";
+            this.coldate_approbation.Visible = true;
+            this.coldate_approbation.VisibleIndex = 5;
+            // 
+            // colvalide_approbation
+            // 
+            this.colvalide_approbation.FieldName = "valide_approbation";
+            this.colvalide_approbation.Name = "colvalide_approbation";
+            this.colvalide_approbation.Visible = true;
+            this.colvalide_approbation.VisibleIndex = 6;
+            // 
+            // colduree_approbation
+            // 
+            this.colduree_approbation.FieldName = "duree_approbation";
+            this.colduree_approbation.Name = "colduree_approbation";
+            this.colduree_approbation.Visible = true;
+            this.colduree_approbation.VisibleIndex = 7;
+            // 
+            // coldélai_dexecution1
+            // 
+            this.coldélai_dexecution1.FieldName = "délai_dexecution";
+            this.coldélai_dexecution1.Name = "coldélai_dexecution1";
+            this.coldélai_dexecution1.Visible = true;
+            this.coldélai_dexecution1.VisibleIndex = 8;
+            // 
+            // colcaution_definitif
+            // 
+            this.colcaution_definitif.FieldName = "caution_definitif";
+            this.colcaution_definitif.Name = "colcaution_definitif";
+            this.colcaution_definitif.Visible = true;
+            this.colcaution_definitif.VisibleIndex = 9;
+            // 
+            // colcaution_return
+            // 
+            this.colcaution_return.FieldName = "caution_return";
+            this.colcaution_return.Name = "colcaution_return";
+            this.colcaution_return.Visible = true;
+            this.colcaution_return.VisibleIndex = 10;
+            // 
+            // coldatenotifiy
+            // 
+            this.coldatenotifiy.FieldName = "datenotifiy";
+            this.coldatenotifiy.Name = "coldatenotifiy";
+            this.coldatenotifiy.Visible = true;
+            this.coldatenotifiy.VisibleIndex = 11;
+            // 
+            // coldate_caution
+            // 
+            this.coldate_caution.FieldName = "date_caution";
+            this.coldate_caution.Name = "coldate_caution";
+            this.coldate_caution.Visible = true;
+            this.coldate_caution.VisibleIndex = 12;
+            // 
+            // colvalide_caution
+            // 
+            this.colvalide_caution.FieldName = "valide_caution";
+            this.colvalide_caution.Name = "colvalide_caution";
+            this.colvalide_caution.Visible = true;
+            this.colvalide_caution.VisibleIndex = 13;
+            // 
+            // colduree_caution
+            // 
+            this.colduree_caution.FieldName = "duree_caution";
+            this.colduree_caution.Name = "colduree_caution";
+            this.colduree_caution.Visible = true;
+            this.colduree_caution.VisibleIndex = 14;
+            // 
+            // colvalide_order_service
+            // 
+            this.colvalide_order_service.FieldName = "valide_order_service";
+            this.colvalide_order_service.Name = "colvalide_order_service";
+            this.colvalide_order_service.Visible = true;
+            this.colvalide_order_service.VisibleIndex = 15;
+            // 
+            // colduree_order_service
+            // 
+            this.colduree_order_service.FieldName = "duree_order_service";
+            this.colduree_order_service.Name = "colduree_order_service";
+            this.colduree_order_service.Visible = true;
+            this.colduree_order_service.VisibleIndex = 16;
             // 
             // popupMenuetude
             // 
@@ -700,73 +933,6 @@ namespace DXApplication2
             this.popupMenuPub_validate.Name = "popupMenuPub_validate";
             this.popupMenuPub_validate.Ribbon = this.ribbonControl;
             // 
-            // classpublicationBindingSource
-            // 
-            this.classpublicationBindingSource.DataSource = typeof(DXApplication2.Class_publication);
-            // 
-            // colid2
-            // 
-            this.colid2.FieldName = "id2";
-            this.colid2.Name = "colid2";
-            this.colid2.Visible = true;
-            this.colid2.VisibleIndex = 0;
-            // 
-            // colAop
-            // 
-            this.colAop.FieldName = "Aop";
-            this.colAop.Name = "colAop";
-            this.colAop.Visible = true;
-            this.colAop.VisibleIndex = 1;
-            // 
-            // coldate_jornal
-            // 
-            this.coldate_jornal.FieldName = "date_jornal";
-            this.coldate_jornal.Name = "coldate_jornal";
-            this.coldate_jornal.Visible = true;
-            this.coldate_jornal.VisibleIndex = 2;
-            // 
-            // coldate_portail
-            // 
-            this.coldate_portail.FieldName = "date_portail";
-            this.coldate_portail.Name = "coldate_portail";
-            this.coldate_portail.Visible = true;
-            this.coldate_portail.VisibleIndex = 3;
-            // 
-            // coldate_convocation
-            // 
-            this.coldate_convocation.FieldName = "date_convocation";
-            this.coldate_convocation.Name = "coldate_convocation";
-            this.coldate_convocation.Visible = true;
-            this.coldate_convocation.VisibleIndex = 4;
-            // 
-            // coldate_OP
-            // 
-            this.coldate_OP.FieldName = "date_OP";
-            this.coldate_OP.Name = "coldate_OP";
-            this.coldate_OP.Visible = true;
-            this.coldate_OP.VisibleIndex = 5;
-            // 
-            // colvalidate1
-            // 
-            this.colvalidate1.FieldName = "validate";
-            this.colvalidate1.Name = "colvalidate1";
-            this.colvalidate1.Visible = true;
-            this.colvalidate1.VisibleIndex = 6;
-            // 
-            // colduree_portail
-            // 
-            this.colduree_portail.FieldName = "duree_portail";
-            this.colduree_portail.Name = "colduree_portail";
-            this.colduree_portail.Visible = true;
-            this.colduree_portail.VisibleIndex = 7;
-            // 
-            // colduree_Jornal
-            // 
-            this.colduree_Jornal.FieldName = "duree_Jornal";
-            this.colduree_Jornal.Name = "colduree_Jornal";
-            this.colduree_Jornal.Visible = true;
-            this.colduree_Jornal.VisibleIndex = 8;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -799,18 +965,19 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEtude)).EndInit();
             this.customersNavigationPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPub)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPub)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar_Portail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar_jornal)).EndInit();
             this.navigationPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOvert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOvert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuetude)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu_validate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenupub)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuPub_validate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -891,5 +1058,23 @@ namespace DXApplication2
         private DevExpress.XtraGrid.Columns.GridColumn colvalidate1;
         private DevExpress.XtraGrid.Columns.GridColumn colduree_portail;
         private DevExpress.XtraGrid.Columns.GridColumn colduree_Jornal;
+        private System.Windows.Forms.BindingSource classSIMPLEovertureBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colid3;
+        private DevExpress.XtraGrid.Columns.GridColumn colattributaire;
+        private DevExpress.XtraGrid.Columns.GridColumn colMontant1;
+        private DevExpress.XtraGrid.Columns.GridColumn colnum_Marcher;
+        private DevExpress.XtraGrid.Columns.GridColumn coldate_Visa;
+        private DevExpress.XtraGrid.Columns.GridColumn coldate_approbation;
+        private DevExpress.XtraGrid.Columns.GridColumn colvalide_approbation;
+        private DevExpress.XtraGrid.Columns.GridColumn colduree_approbation;
+        private DevExpress.XtraGrid.Columns.GridColumn coldélai_dexecution1;
+        private DevExpress.XtraGrid.Columns.GridColumn colcaution_definitif;
+        private DevExpress.XtraGrid.Columns.GridColumn colcaution_return;
+        private DevExpress.XtraGrid.Columns.GridColumn coldatenotifiy;
+        private DevExpress.XtraGrid.Columns.GridColumn coldate_caution;
+        private DevExpress.XtraGrid.Columns.GridColumn colvalide_caution;
+        private DevExpress.XtraGrid.Columns.GridColumn colduree_caution;
+        private DevExpress.XtraGrid.Columns.GridColumn colvalide_order_service;
+        private DevExpress.XtraGrid.Columns.GridColumn colduree_order_service;
     }
 }
