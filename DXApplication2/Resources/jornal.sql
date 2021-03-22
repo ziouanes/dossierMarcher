@@ -10,7 +10,7 @@ drop table etude
 
 select id1 , objet  from [etude]  where validate  = 1 and id1  not in ( select id1  from fk )
 
-create table etude( id1 int primary key identity(1,1) ,  objet text , estimation text , montant money , envoyer_tresoryer date , validate int DEFAULT 0 , délai_dexecution int   , deleted int default 0  , localite int  foreign key references localite(id_l)  , Type_marcher int foreign key references Type_marcher (id_type)  , Nature int foreign key references Nature(id_N)   )
+create table etude( id1 int primary key identity(1,1) ,  objet text , estimation text , montant varchar(10) , envoyer_tresoryer date , validate int DEFAULT 0 , délai_dexecution int   , deleted int default 0  , localite int  foreign key references localite(id_l)  , Type_marcher int foreign key references Type_marcher (id_type)  , Nature int foreign key references Nature(id_N)   )
 
 select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , délai_dexecution  , deleted from etude where deleted = 0
 
@@ -24,13 +24,16 @@ select * from publication
 
 create table fk(id1 int foreign key references etude(id1) on delete cascade on update cascade , id2 int foreign key references publication(id2) on delete cascade on update cascade , primary key(id1,id2)  )
 
-select * from fk
+select * from SIMPLE_overture
 
-create table SIMPLE_overture(id3 int primary key identity(1,1) , attributaire varchar(50) ,Montant money , num_Marcher varchar(30)  , date_Visa date , date_approbation date  , valide_approbation int default 0 , duree_approbation int default 0, délai_dexecution int , caution_definitif money  , caution_return money , datenotifiy date , date_caution date , valide_caution int default 0 , duree_caution int default 0 ,valide_order_service int default 0 , duree_order_service int default 0  )
+create table SIMPLE_overture(id3 int primary key identity(1,1) , attributaire varchar(50) ,Montant varchar(10) , num_Marcher varchar(30)  , date_Visa date , date_approbation date  , valide_approbation int default 0 , duree_approbation int default 0, délai_dexecution int , caution_definitif varchar(10)  , caution_return varchar(10) , datenotifiy date , date_caution date , valide_caution int default 0 , duree_caution int default 0 ,valide_order_service int default 0 , duree_order_service int default 0  )
 
+select * from SIMPLE_overture
 
+select id3 , attributaire , Montant , num_Marcher , date_Visa  , date_approbation  , valide_approbation  , duree_approbation , délai_dexecution  , caution_definitif , caution_return , datenotifiy , date_caution , valide_caution , duree_caution  , valide_order_service  , duree_order_service from SIMPLE_overture
 
-create table fk2(id2 int foreign key references publication(id2) on delete cascade on update cascade ,id3 int foreign key references SIMPLE_overture(id1) on delete cascade on update cascade , primary key(id2,id3) )
+select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , délai_dexecution   from etude where deleted = 0   order by id1 desc ;
+create table fk2(id2 int foreign key references publication(id2) on delete cascade on update cascade ,id3 int foreign key references SIMPLE_overture(id3) on delete cascade on update cascade , primary key(id2,id3) )
 
 
 create table order_service(id_order int primary key identity(1,1) , date_orderService date , délai_Initial int, délai_restant int  , Etat int , id_Overture int foreign key references SIMPLE_overture(id3) on delete cascade on update cascade , validate int DEFAULT 0 )
@@ -38,8 +41,18 @@ create table order_service(id_order int primary key identity(1,1) , date_orderSe
 
 create table  Etat_order(id_etat int primary key identity(1,1)  , date_deffet date , etat_objet varchar(50)  , order_service int  foreign key references order_service(id_order) on delete cascade on update cascade  )
 
+select * from etude
+
+select * from fk
+
+select * from publication
 
 go
+select id2 , Aop   from [publication]  where validate  = 1 and id2  not in ( select id2  from fk2 )
+
+select e.[délai_dexecution] from etude e inner join  fk f on e.id1 = f.id1 inner join  publication p on p.id2 = f.id2 where p.Aop = 'test3'
+
+select id2 , Aop   from [publication]  where validate  = 1 and id2  not in ( select id2  from fk2 )
 
 select id2 , Aop , date_jornal , date_portail , date_convocation , validate  , duree_portail , duree_Jornal   from publication where deleted = 0
 
@@ -71,15 +84,18 @@ INSERT INTO Nature VALUES ('Formitaire');
 
 -------procedure notify 1    if(validate  = 0) --------------
 ----- triger after insert update --------------
-create trigger s1
+alter trigger s1
  on publication
 
 after insert , update 
 as
 begin 
 declare @id int,
+
 @jornal date ,
-@date_op date 
+@date_op date ,
+@validate int
+
 
 set @id = cast((select top 1 id2 from inserted  )as int)
 
@@ -87,8 +103,15 @@ set @jornal = cast((select top 1 date_jornal from inserted) as date)
 
 set @date_op = cast((select top 1 date_op from inserted) as date)
 
+set @validate = (select validate from publication where id2 = @id)
+
+if(@validate =0)
+
+begin
+
 EXEC p1 @id , @jornal  , @date_op 
  
+ end
 end
 
 
@@ -236,7 +259,7 @@ begin
  as
  begin
  declare @validate int ,
- declare @idPUB int 
+  @idPUB int 
 
  set @validate  = (select top 1 validate from inserted)
  set @idPUB  = (select top 1 id2 from inserted)

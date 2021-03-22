@@ -51,6 +51,12 @@ namespace DXApplication2
             this.barButtonItemedit_pub = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_valider_pub = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_annuler_pub = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_approbation = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_modifier = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_confirmer_caution = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_m = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_order_service = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_suivi = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupNavigation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -105,6 +111,7 @@ namespace DXApplication2
             this.coldate_approbation = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalide_approbation = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colduree_approbation = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTrackBar_approb = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.coldélai_dexecution1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcaution_definitif = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcaution_return = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -112,8 +119,10 @@ namespace DXApplication2
             this.coldate_caution = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalide_caution = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colduree_caution = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTrackBar_caution = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.colvalide_order_service = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colduree_order_service = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTrackBar_overt = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.popupMenuetude = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -123,6 +132,10 @@ namespace DXApplication2
             this.popupMenu_validate = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenupub = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuPub_validate = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.popupMenuapprob = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.popupMenucaution = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.popupMenu_order_s = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.popupMenu_suivi_orders = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -143,11 +156,18 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOvert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOvert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar_approb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar_caution)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar_overt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuetude)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu_validate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenupub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuPub_validate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuapprob)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenucaution)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu_order_s)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu_suivi_orders)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonStatusBar
@@ -179,9 +199,15 @@ namespace DXApplication2
             this.barButtonItem2,
             this.barButtonItemedit_pub,
             this.barButtonItem_valider_pub,
-            this.barButtonItem_annuler_pub});
+            this.barButtonItem_annuler_pub,
+            this.barButtonItem_approbation,
+            this.barButtonItem_modifier,
+            this.barButtonItem_confirmer_caution,
+            this.barButtonItem_m,
+            this.barButtonItem_order_service,
+            this.barButtonItem_suivi});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 57;
+            this.ribbonControl.MaxItemId = 63;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -267,6 +293,7 @@ namespace DXApplication2
             this.barButtonouverture.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonouverture.ImageOptions.Image")));
             this.barButtonouverture.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonouverture.ImageOptions.LargeImage")));
             this.barButtonouverture.Name = "barButtonouverture";
+            this.barButtonouverture.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonouverture_ItemClick);
             // 
             // barButtonItemedit_Etude
             // 
@@ -329,6 +356,52 @@ namespace DXApplication2
             this.barButtonItem_annuler_pub.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_annuler_pub.ImageOptions.LargeImage")));
             this.barButtonItem_annuler_pub.Name = "barButtonItem_annuler_pub";
             this.barButtonItem_annuler_pub.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_annuler_pub_ItemClick);
+            // 
+            // barButtonItem_approbation
+            // 
+            this.barButtonItem_approbation.Caption = "Valider Approbation";
+            this.barButtonItem_approbation.Id = 57;
+            this.barButtonItem_approbation.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_approbation.ImageOptions.Image")));
+            this.barButtonItem_approbation.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_approbation.ImageOptions.LargeImage")));
+            this.barButtonItem_approbation.Name = "barButtonItem_approbation";
+            // 
+            // barButtonItem_modifier
+            // 
+            this.barButtonItem_modifier.Caption = "Modifier";
+            this.barButtonItem_modifier.Id = 58;
+            this.barButtonItem_modifier.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_modifier.ImageOptions.Image")));
+            this.barButtonItem_modifier.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_modifier.ImageOptions.LargeImage")));
+            this.barButtonItem_modifier.Name = "barButtonItem_modifier";
+            // 
+            // barButtonItem_confirmer_caution
+            // 
+            this.barButtonItem_confirmer_caution.Caption = "Confirmer Caution";
+            this.barButtonItem_confirmer_caution.Id = 59;
+            this.barButtonItem_confirmer_caution.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_confirmer_caution.ImageOptions.Image")));
+            this.barButtonItem_confirmer_caution.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_confirmer_caution.ImageOptions.LargeImage")));
+            this.barButtonItem_confirmer_caution.Name = "barButtonItem_confirmer_caution";
+            // 
+            // barButtonItem_m
+            // 
+            this.barButtonItem_m.Caption = "Modifier";
+            this.barButtonItem_m.Id = 60;
+            this.barButtonItem_m.Name = "barButtonItem_m";
+            // 
+            // barButtonItem_order_service
+            // 
+            this.barButtonItem_order_service.Caption = "Valide Order service";
+            this.barButtonItem_order_service.Id = 61;
+            this.barButtonItem_order_service.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_order_service.ImageOptions.Image")));
+            this.barButtonItem_order_service.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_order_service.ImageOptions.LargeImage")));
+            this.barButtonItem_order_service.Name = "barButtonItem_order_service";
+            // 
+            // barButtonItem_suivi
+            // 
+            this.barButtonItem_suivi.Caption = "Suivi Order de Service";
+            this.barButtonItem_suivi.Id = 62;
+            this.barButtonItem_suivi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_suivi.ImageOptions.Image")));
+            this.barButtonItem_suivi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_suivi.ImageOptions.LargeImage")));
+            this.barButtonItem_suivi.Name = "barButtonItem_suivi";
             // 
             // ribbonPage
             // 
@@ -489,8 +562,6 @@ namespace DXApplication2
             // 
             this.colid1.FieldName = "id1";
             this.colid1.Name = "colid1";
-            this.colid1.Visible = true;
-            this.colid1.VisibleIndex = 0;
             this.colid1.Width = 60;
             // 
             // colobjet
@@ -498,7 +569,7 @@ namespace DXApplication2
             this.colobjet.FieldName = "objet";
             this.colobjet.Name = "colobjet";
             this.colobjet.Visible = true;
-            this.colobjet.VisibleIndex = 1;
+            this.colobjet.VisibleIndex = 0;
             this.colobjet.Width = 126;
             // 
             // colestimation
@@ -506,7 +577,7 @@ namespace DXApplication2
             this.colestimation.FieldName = "estimation";
             this.colestimation.Name = "colestimation";
             this.colestimation.Visible = true;
-            this.colestimation.VisibleIndex = 2;
+            this.colestimation.VisibleIndex = 1;
             this.colestimation.Width = 113;
             // 
             // colmontant
@@ -514,7 +585,7 @@ namespace DXApplication2
             this.colmontant.FieldName = "montant";
             this.colmontant.Name = "colmontant";
             this.colmontant.Visible = true;
-            this.colmontant.VisibleIndex = 3;
+            this.colmontant.VisibleIndex = 2;
             this.colmontant.Width = 94;
             // 
             // colenvoyer_tresoryer
@@ -522,7 +593,7 @@ namespace DXApplication2
             this.colenvoyer_tresoryer.FieldName = "envoyer_tresoryer";
             this.colenvoyer_tresoryer.Name = "colenvoyer_tresoryer";
             this.colenvoyer_tresoryer.Visible = true;
-            this.colenvoyer_tresoryer.VisibleIndex = 4;
+            this.colenvoyer_tresoryer.VisibleIndex = 3;
             this.colenvoyer_tresoryer.Width = 108;
             // 
             // colvalidate
@@ -536,7 +607,7 @@ namespace DXApplication2
             this.coldélai_dexecution.FieldName = "délai_dexecution";
             this.coldélai_dexecution.Name = "coldélai_dexecution";
             this.coldélai_dexecution.Visible = true;
-            this.coldélai_dexecution.VisibleIndex = 5;
+            this.coldélai_dexecution.VisibleIndex = 4;
             this.coldélai_dexecution.Width = 108;
             // 
             // coldeleted
@@ -612,50 +683,46 @@ namespace DXApplication2
             // 
             this.colid2.FieldName = "id2";
             this.colid2.Name = "colid2";
-            this.colid2.Visible = true;
-            this.colid2.VisibleIndex = 0;
             // 
             // colAop
             // 
             this.colAop.FieldName = "Aop";
             this.colAop.Name = "colAop";
             this.colAop.Visible = true;
-            this.colAop.VisibleIndex = 1;
+            this.colAop.VisibleIndex = 0;
             // 
             // coldate_jornal
             // 
             this.coldate_jornal.FieldName = "date_jornal";
             this.coldate_jornal.Name = "coldate_jornal";
             this.coldate_jornal.Visible = true;
-            this.coldate_jornal.VisibleIndex = 2;
+            this.coldate_jornal.VisibleIndex = 1;
             // 
             // coldate_portail
             // 
             this.coldate_portail.FieldName = "date_portail";
             this.coldate_portail.Name = "coldate_portail";
             this.coldate_portail.Visible = true;
-            this.coldate_portail.VisibleIndex = 3;
+            this.coldate_portail.VisibleIndex = 2;
             // 
             // coldate_convocation
             // 
             this.coldate_convocation.FieldName = "date_convocation";
             this.coldate_convocation.Name = "coldate_convocation";
             this.coldate_convocation.Visible = true;
-            this.coldate_convocation.VisibleIndex = 4;
+            this.coldate_convocation.VisibleIndex = 3;
             // 
             // coldate_OP
             // 
             this.coldate_OP.FieldName = "date_OP";
             this.coldate_OP.Name = "coldate_OP";
             this.coldate_OP.Visible = true;
-            this.coldate_OP.VisibleIndex = 5;
+            this.coldate_OP.VisibleIndex = 4;
             // 
             // colvalidate1
             // 
             this.colvalidate1.FieldName = "validate";
             this.colvalidate1.Name = "colvalidate1";
-            this.colvalidate1.Visible = true;
-            this.colvalidate1.VisibleIndex = 6;
             // 
             // colduree_portail
             // 
@@ -663,7 +730,7 @@ namespace DXApplication2
             this.colduree_portail.FieldName = "duree_portail";
             this.colduree_portail.Name = "colduree_portail";
             this.colduree_portail.Visible = true;
-            this.colduree_portail.VisibleIndex = 7;
+            this.colduree_portail.VisibleIndex = 5;
             // 
             // repositoryItemProgressBar_Portail
             // 
@@ -675,7 +742,7 @@ namespace DXApplication2
             this.colduree_Jornal.FieldName = "duree_Jornal";
             this.colduree_Jornal.Name = "colduree_Jornal";
             this.colduree_Jornal.Visible = true;
-            this.colduree_Jornal.VisibleIndex = 8;
+            this.colduree_Jornal.VisibleIndex = 6;
             // 
             // repositoryItemProgressBar_jornal
             // 
@@ -712,10 +779,16 @@ namespace DXApplication2
             this.gridControlOvert.MainView = this.gridViewOvert;
             this.gridControlOvert.MenuManager = this.ribbonControl;
             this.gridControlOvert.Name = "gridControlOvert";
+            this.gridControlOvert.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTrackBar_approb,
+            this.repositoryItemTrackBar_caution,
+            this.repositoryItemTrackBar_overt});
             this.gridControlOvert.Size = new System.Drawing.Size(979, 373);
             this.gridControlOvert.TabIndex = 0;
             this.gridControlOvert.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewOvert});
+            this.gridControlOvert.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gridControlOvert_KeyUp);
+            this.gridControlOvert.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gridControlOvert_MouseUp);
             // 
             // classSIMPLEovertureBindingSource
             // 
@@ -744,7 +817,10 @@ namespace DXApplication2
             this.gridViewOvert.GridControl = this.gridControlOvert;
             this.gridViewOvert.Name = "gridViewOvert";
             this.gridViewOvert.OptionsBehavior.Editable = false;
+            this.gridViewOvert.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridViewOvert_CustomDrawCell);
             this.gridViewOvert.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridViewOvert_RowCellStyle);
+            this.gridViewOvert.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewOvert_RowStyle);
+            this.gridViewOvert.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewOvert_FocusedRowChanged);
             // 
             // colid3
             // 
@@ -752,6 +828,7 @@ namespace DXApplication2
             this.colid3.Name = "colid3";
             this.colid3.Visible = true;
             this.colid3.VisibleIndex = 0;
+            this.colid3.Width = 56;
             // 
             // colattributaire
             // 
@@ -759,6 +836,7 @@ namespace DXApplication2
             this.colattributaire.Name = "colattributaire";
             this.colattributaire.Visible = true;
             this.colattributaire.VisibleIndex = 1;
+            this.colattributaire.Width = 56;
             // 
             // colMontant1
             // 
@@ -766,6 +844,7 @@ namespace DXApplication2
             this.colMontant1.Name = "colMontant1";
             this.colMontant1.Visible = true;
             this.colMontant1.VisibleIndex = 2;
+            this.colMontant1.Width = 56;
             // 
             // colnum_Marcher
             // 
@@ -773,6 +852,7 @@ namespace DXApplication2
             this.colnum_Marcher.Name = "colnum_Marcher";
             this.colnum_Marcher.Visible = true;
             this.colnum_Marcher.VisibleIndex = 3;
+            this.colnum_Marcher.Width = 56;
             // 
             // coldate_Visa
             // 
@@ -780,6 +860,7 @@ namespace DXApplication2
             this.coldate_Visa.Name = "coldate_Visa";
             this.coldate_Visa.Visible = true;
             this.coldate_Visa.VisibleIndex = 4;
+            this.coldate_Visa.Width = 56;
             // 
             // coldate_approbation
             // 
@@ -787,83 +868,113 @@ namespace DXApplication2
             this.coldate_approbation.Name = "coldate_approbation";
             this.coldate_approbation.Visible = true;
             this.coldate_approbation.VisibleIndex = 5;
+            this.coldate_approbation.Width = 88;
             // 
             // colvalide_approbation
             // 
             this.colvalide_approbation.FieldName = "valide_approbation";
             this.colvalide_approbation.Name = "colvalide_approbation";
-            this.colvalide_approbation.Visible = true;
-            this.colvalide_approbation.VisibleIndex = 6;
+            this.colvalide_approbation.Width = 97;
             // 
             // colduree_approbation
             // 
+            this.colduree_approbation.ColumnEdit = this.repositoryItemTrackBar_approb;
             this.colduree_approbation.FieldName = "duree_approbation";
             this.colduree_approbation.Name = "colduree_approbation";
             this.colduree_approbation.Visible = true;
-            this.colduree_approbation.VisibleIndex = 7;
+            this.colduree_approbation.VisibleIndex = 6;
+            this.colduree_approbation.Width = 78;
+            // 
+            // repositoryItemTrackBar_approb
+            // 
+            this.repositoryItemTrackBar_approb.LabelAppearance.Options.UseTextOptions = true;
+            this.repositoryItemTrackBar_approb.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.repositoryItemTrackBar_approb.Maximum = 100;
+            this.repositoryItemTrackBar_approb.Name = "repositoryItemTrackBar_approb";
             // 
             // coldélai_dexecution1
             // 
             this.coldélai_dexecution1.FieldName = "délai_dexecution";
             this.coldélai_dexecution1.Name = "coldélai_dexecution1";
             this.coldélai_dexecution1.Visible = true;
-            this.coldélai_dexecution1.VisibleIndex = 8;
+            this.coldélai_dexecution1.VisibleIndex = 7;
+            this.coldélai_dexecution1.Width = 43;
             // 
             // colcaution_definitif
             // 
             this.colcaution_definitif.FieldName = "caution_definitif";
             this.colcaution_definitif.Name = "colcaution_definitif";
             this.colcaution_definitif.Visible = true;
-            this.colcaution_definitif.VisibleIndex = 9;
+            this.colcaution_definitif.VisibleIndex = 8;
+            this.colcaution_definitif.Width = 43;
             // 
             // colcaution_return
             // 
             this.colcaution_return.FieldName = "caution_return";
             this.colcaution_return.Name = "colcaution_return";
             this.colcaution_return.Visible = true;
-            this.colcaution_return.VisibleIndex = 10;
+            this.colcaution_return.VisibleIndex = 9;
+            this.colcaution_return.Width = 43;
             // 
             // coldatenotifiy
             // 
             this.coldatenotifiy.FieldName = "datenotifiy";
             this.coldatenotifiy.Name = "coldatenotifiy";
             this.coldatenotifiy.Visible = true;
-            this.coldatenotifiy.VisibleIndex = 11;
+            this.coldatenotifiy.VisibleIndex = 10;
+            this.coldatenotifiy.Width = 43;
             // 
             // coldate_caution
             // 
             this.coldate_caution.FieldName = "date_caution";
             this.coldate_caution.Name = "coldate_caution";
             this.coldate_caution.Visible = true;
-            this.coldate_caution.VisibleIndex = 12;
+            this.coldate_caution.VisibleIndex = 11;
+            this.coldate_caution.Width = 43;
             // 
             // colvalide_caution
             // 
             this.colvalide_caution.FieldName = "valide_caution";
             this.colvalide_caution.Name = "colvalide_caution";
-            this.colvalide_caution.Visible = true;
-            this.colvalide_caution.VisibleIndex = 13;
+            this.colvalide_caution.Width = 43;
             // 
             // colduree_caution
             // 
+            this.colduree_caution.ColumnEdit = this.repositoryItemTrackBar_caution;
             this.colduree_caution.FieldName = "duree_caution";
             this.colduree_caution.Name = "colduree_caution";
             this.colduree_caution.Visible = true;
-            this.colduree_caution.VisibleIndex = 14;
+            this.colduree_caution.VisibleIndex = 12;
+            this.colduree_caution.Width = 43;
+            // 
+            // repositoryItemTrackBar_caution
+            // 
+            this.repositoryItemTrackBar_caution.LabelAppearance.Options.UseTextOptions = true;
+            this.repositoryItemTrackBar_caution.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.repositoryItemTrackBar_caution.Maximum = 100;
+            this.repositoryItemTrackBar_caution.Name = "repositoryItemTrackBar_caution";
             // 
             // colvalide_order_service
             // 
             this.colvalide_order_service.FieldName = "valide_order_service";
             this.colvalide_order_service.Name = "colvalide_order_service";
-            this.colvalide_order_service.Visible = true;
-            this.colvalide_order_service.VisibleIndex = 15;
+            this.colvalide_order_service.Width = 43;
             // 
             // colduree_order_service
             // 
+            this.colduree_order_service.ColumnEdit = this.repositoryItemTrackBar_overt;
             this.colduree_order_service.FieldName = "duree_order_service";
             this.colduree_order_service.Name = "colduree_order_service";
             this.colduree_order_service.Visible = true;
-            this.colduree_order_service.VisibleIndex = 16;
+            this.colduree_order_service.VisibleIndex = 13;
+            this.colduree_order_service.Width = 67;
+            // 
+            // repositoryItemTrackBar_overt
+            // 
+            this.repositoryItemTrackBar_overt.LabelAppearance.Options.UseTextOptions = true;
+            this.repositoryItemTrackBar_overt.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.repositoryItemTrackBar_overt.Maximum = 100;
+            this.repositoryItemTrackBar_overt.Name = "repositoryItemTrackBar_overt";
             // 
             // popupMenuetude
             // 
@@ -933,6 +1044,33 @@ namespace DXApplication2
             this.popupMenuPub_validate.Name = "popupMenuPub_validate";
             this.popupMenuPub_validate.Ribbon = this.ribbonControl;
             // 
+            // popupMenuapprob
+            // 
+            this.popupMenuapprob.ItemLinks.Add(this.barButtonItem_approbation);
+            this.popupMenuapprob.ItemLinks.Add(this.barButtonItem_modifier);
+            this.popupMenuapprob.Name = "popupMenuapprob";
+            this.popupMenuapprob.Ribbon = this.ribbonControl;
+            // 
+            // popupMenucaution
+            // 
+            this.popupMenucaution.ItemLinks.Add(this.barButtonItem_confirmer_caution);
+            this.popupMenucaution.ItemLinks.Add(this.barButtonItem_modifier);
+            this.popupMenucaution.Name = "popupMenucaution";
+            this.popupMenucaution.Ribbon = this.ribbonControl;
+            // 
+            // popupMenu_order_s
+            // 
+            this.popupMenu_order_s.ItemLinks.Add(this.barButtonItem_modifier);
+            this.popupMenu_order_s.ItemLinks.Add(this.barButtonItem_order_service);
+            this.popupMenu_order_s.Name = "popupMenu_order_s";
+            this.popupMenu_order_s.Ribbon = this.ribbonControl;
+            // 
+            // popupMenu_suivi_orders
+            // 
+            this.popupMenu_suivi_orders.ItemLinks.Add(this.barButtonItem_suivi);
+            this.popupMenu_suivi_orders.Name = "popupMenu_suivi_orders";
+            this.popupMenu_suivi_orders.Ribbon = this.ribbonControl;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -973,11 +1111,18 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOvert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOvert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar_approb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar_caution)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar_overt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuetude)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu_validate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenupub)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuPub_validate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuapprob)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenucaution)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu_order_s)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu_suivi_orders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1076,5 +1221,18 @@ namespace DXApplication2
         private DevExpress.XtraGrid.Columns.GridColumn colduree_caution;
         private DevExpress.XtraGrid.Columns.GridColumn colvalide_order_service;
         private DevExpress.XtraGrid.Columns.GridColumn colduree_order_service;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar_approb;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar_caution;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar_overt;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_approbation;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_modifier;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_confirmer_caution;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_m;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_order_service;
+        private DevExpress.XtraBars.PopupMenu popupMenuapprob;
+        private DevExpress.XtraBars.PopupMenu popupMenucaution;
+        private DevExpress.XtraBars.PopupMenu popupMenu_order_s;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_suivi;
+        private DevExpress.XtraBars.PopupMenu popupMenu_suivi_orders;
     }
 }

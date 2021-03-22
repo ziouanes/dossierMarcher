@@ -132,6 +132,8 @@ namespace DXApplication2
             select_Etude_Data();
             select_Publication_Data();
             select_Overt_Data();
+            gridViewOvert.OptionsSelection.EnableAppearanceFocusedRow = false;
+
         }
 
         private void barButtonPublication_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -155,13 +157,13 @@ namespace DXApplication2
                 GridView View = sender as GridView;
                 if (e.RowHandle >= 0)
                 {
-                        string validate = View.GetRowCellDisplayText(e.RowHandle, View.Columns["validate"]);
-                        if (validate == "0")
-                        {
-                            e.Appearance.BackColor = Color.Cyan;
-                            e.Appearance.BackColor2 = Color.SeaShell;
-                            e.HighPriority = true;
-                        }
+                     string validate = View.GetRowCellDisplayText(e.RowHandle, View.Columns["validate"]);
+                     if (validate == "0")
+                     {
+                         e.Appearance.BackColor = Color.Cyan;
+                         e.Appearance.BackColor2 = Color.SeaShell;
+                         e.HighPriority = true;
+                     }
                     if (validate == "1")
                     {
                         e.Appearance.BackColor = Color.GreenYellow;
@@ -493,18 +495,164 @@ namespace DXApplication2
 
         private void gridViewOvert_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            GridView View = sender as GridView;
-            if (e.RowHandle == View.FocusedRowHandle) return;
-            if (e.Column.FieldName != "valide_approbation") 
-            {
-
-                if (Convert.ToInt32(e.CellValue) == 1)
-                    e.Appearance.BackColor = Color.FromArgb(60, Color.Salmon);
-                if (Convert.ToInt32(e.CellValue) == 0)
-                    e.Appearance.BackColor = Color.FromArgb(60, Color.Red);
-            };
+            
            
 
+        }
+
+        private void gridViewOvert_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            GridView view = sender as GridView;
+
+            if (e.RowHandle == view.FocusedRowHandle) return;
+            if (e.Column.FieldName == "date_approbation")
+            {
+            int valide_app = int.Parse(view.GetRowCellValue(e.RowHandle, view.Columns["valide_approbation"]).ToString());
+            if (valide_app == 1)
+            {
+                e.Appearance.BackColor2 = Color.FromArgb(60, Color.Green);
+            }
+            else
+            {
+                e.Appearance.BackColor2 = Color.FromArgb(60, Color.Red);
+            }
+
+            }
+
+
+            //////////////
+            GridView view1 = sender as GridView;
+
+            if (e.RowHandle == view1.FocusedRowHandle) return ;
+
+            if (e.Column.FieldName == "date_caution")
+            {
+
+            int valide_caution = int.Parse(view1.GetRowCellValue(e.RowHandle, view1.Columns["valide_caution"]).ToString());
+            if (valide_caution == 1)
+            {
+                e.Appearance.BackColor2 = Color.FromArgb(60, Color.Green);
+            }
+            else
+            {
+                e.Appearance.BackColor2 = Color.FromArgb(60, Color.Red);
+            }
+
+            }
+
+            ////////
+            GridView view2 = sender as GridView;
+
+            if (e.RowHandle == view1.FocusedRowHandle) return;
+
+            if (e.Column.FieldName == "duree_order_service")
+            {
+                
+                int valide_order_service = int.Parse(view1.GetRowCellValue(e.RowHandle, view1.Columns["valide_order_service"]).ToString());
+                if (valide_order_service == 1)
+                {
+                    e.Appearance.BackColor2 = Color.FromArgb(60, Color.Green);
+                }
+                else
+                {
+                    e.Appearance.BackColor2 = Color.FromArgb(60, Color.Red);
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        private void gridViewOvert_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            //gridViewOvert.Appearance.FocusedRow.BackColor = Color.FromArgb(100, 180, 80); //Applied when the grid is focused
+
+            //gridViewOvert.Appearance.FocusedRow.ForeColor = Color.LightYellow;
+
+
+           // gridViewOvert.OptionsSelection.EnableAppearanceFocusedRow = false;
+            gridViewOvert.OptionsSelection.EnableAppearanceFocusedCell = false;
+
+
+        }
+
+        private void gridControlOvert_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void gridControlOvert_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right) return;
+            var rowM = gridViewOvert.FocusedRowHandle;
+
+            string validate_approbation;
+            string valide_caution;
+            string valide_order_s;
+            validate_approbation = gridViewOvert.GetRowCellValue(rowM, "valide_approbation").ToString();
+            valide_caution = gridViewOvert.GetRowCellValue(rowM, "valide_caution").ToString();
+            valide_order_s = gridViewOvert.GetRowCellValue(rowM, "valide_order_service").ToString();
+            if (int.Parse(validate_approbation) == 0)
+            {
+
+                if (rowM >= 0)
+                    popupMenucaution.ShowPopup(barManager1, new Point(MousePosition.X, MousePosition.Y));
+                else
+                    popupMenucaution.HidePopup();
+            }
+            else if (int.Parse(valide_caution) == 0)
+            {
+                if (rowM >= 0)
+                    popupMenucaution.ShowPopup(barManager1, new Point(MousePosition.X, MousePosition.Y));
+                else
+                    popupMenucaution.HidePopup();
+
+            }
+            else if (int.Parse(valide_order_s) == 0)
+            {
+                if (rowM >= 0)
+                    popupMenu_order_s.ShowPopup(barManager1, new Point(MousePosition.X, MousePosition.Y));
+                else
+                    popupMenu_order_s.HidePopup();
+            }
+            else if (int.Parse(valide_order_s) == 1)
+            {
+                if (rowM >= 0)
+                    popupMenu_suivi_orders.ShowPopup(barManager1, new Point(MousePosition.X, MousePosition.Y));
+                else
+                    popupMenu_suivi_orders.HidePopup();
+            }
+        }
+
+        private void gridViewOvert_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            GridView View = sender as GridView;
+            if (e.RowHandle >= 0)
+            {
+                string validate = View.GetRowCellDisplayText(e.RowHandle, View.Columns["valide_order_service"]);
+                if (validate == "1")
+                {
+                    e.Appearance.BackColor = Color.Orange;
+                    
+                    e.HighPriority = true;
+                }
+               
+            }
+        }
+
+        private void barButtonouverture_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            overt ov = new overt();
+            ov.ShowDialog();
         }
     }
 }

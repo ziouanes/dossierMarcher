@@ -29,16 +29,16 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions10 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions11 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions12 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.editable = new DevExpress.XtraEditors.CheckEdit();
             this.dateEdit_caution = new DevExpress.XtraEditors.DateEdit();
             this.dateEditreception = new DevExpress.XtraEditors.DateEdit();
             this.dateEditdate_approbation = new DevExpress.XtraEditors.DateEdit();
             this.dateEditvisa = new DevExpress.XtraEditors.DateEdit();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxAoo = new System.Windows.Forms.ComboBox();
             this.windowsUIButtonPanelMain = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.attributaire = new DevExpress.XtraEditors.TextEdit();
             this.num_Marcher = new DevExpress.XtraEditors.TextEdit();
@@ -148,7 +148,7 @@ namespace DXApplication2
             this.layoutControl1.Controls.Add(this.dateEditreception);
             this.layoutControl1.Controls.Add(this.dateEditdate_approbation);
             this.layoutControl1.Controls.Add(this.dateEditvisa);
-            this.layoutControl1.Controls.Add(this.comboBox1);
+            this.layoutControl1.Controls.Add(this.comboBoxAoo);
             this.layoutControl1.Controls.Add(this.windowsUIButtonPanelMain);
             this.layoutControl1.Controls.Add(this.attributaire);
             this.layoutControl1.Controls.Add(this.num_Marcher);
@@ -175,6 +175,7 @@ namespace DXApplication2
             this.editable.Size = new System.Drawing.Size(1218, 18);
             this.editable.StyleController = this.layoutControl1;
             this.editable.TabIndex = 14;
+            this.editable.CheckedChanged += new System.EventHandler(this.editable_CheckedChanged);
             // 
             // dateEdit_caution
             // 
@@ -228,13 +229,14 @@ namespace DXApplication2
             this.dateEditvisa.StyleController = this.layoutControl1;
             this.dateEditvisa.TabIndex = 9;
             // 
-            // comboBox1
+            // comboBoxAoo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(206, 78);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(1048, 21);
-            this.comboBox1.TabIndex = 8;
+            this.comboBoxAoo.FormattingEnabled = true;
+            this.comboBoxAoo.Location = new System.Drawing.Point(206, 78);
+            this.comboBoxAoo.Name = "comboBoxAoo";
+            this.comboBoxAoo.Size = new System.Drawing.Size(1048, 21);
+            this.comboBoxAoo.TabIndex = 8;
+            this.comboBoxAoo.SelectionChangeCommitted += new System.EventHandler(this.comboBoxAoo_SelectionChangeCommitted);
             // 
             // windowsUIButtonPanelMain
             // 
@@ -253,13 +255,13 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions1.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions2.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions3.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions10.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions11.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions12.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
             this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions10, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions11, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions12, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanelMain.EnableImageTransparency = true;
             this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 520);
@@ -271,6 +273,7 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.TabIndex = 7;
             this.windowsUIButtonPanelMain.Text = "windowsUIButtonPanelMain";
             this.windowsUIButtonPanelMain.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanelMain.ButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanelMain_ButtonClick);
             // 
             // attributaire
             // 
@@ -415,6 +418,7 @@ namespace DXApplication2
             // layoutControlGroup8
             // 
             this.layoutControlGroup8.CustomizationFormText = "layoutControlGroup7";
+            this.layoutControlGroup8.Enabled = false;
             this.layoutControlGroup8.ExpandButtonVisible = true;
             this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8,
@@ -731,7 +735,7 @@ namespace DXApplication2
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.comboBox1;
+            this.layoutControlItem2.Control = this.comboBoxAoo;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(1222, 25);
@@ -820,7 +824,7 @@ namespace DXApplication2
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup8;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxAoo;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.TextEdit attributaire;
