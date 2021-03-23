@@ -15,6 +15,15 @@ namespace DXApplication2
 {
     public partial class overt : DevExpress.XtraEditors.XtraForm
     {
+
+        int idOvert = 0;
+
+        public overt(int id3 ,string attributaire, string Montant, string num_Marcher, int délai_dexecution, int caution_return, int caution_definitif, DateTime date_Visa,  DateTime date_approbation, DateTime datenotifiy, DateTime date_caution)
+        {
+            idOvert = id3;
+            
+        }
+
         public overt()
         {
             InitializeComponent();
@@ -157,66 +166,206 @@ namespace DXApplication2
                         XtraMessageBox.Show("champs obligatoires");
 
                     }
-                    //else
+                    else
 
-                    //{
-
-                    //    if (idEtude == 0)
-                    //    {
-                    //        string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature]) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature)";
+                    {
 
 
-                    //        Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@objet", richTextBoxobject.Text);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@estimation", textEditestimation.Text);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@montant", textEditCaution.Text);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@envoyer", dateEditTresorier.Text);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@delai", textEditdélai.Text);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
+                        if (idOvert == 0)
+                        {
+                            if(editable_ == false)
+                            {
+                            string sql = "insert into [SIMPLE_overture](attributaire ,[Montant],[num_Marcher],[date_Visa],[date_approbation] , [délai_dexecution]  , [caution_definitif] , [caution_return]) VALUES(@attributaire,@Montant,@num_Marcher , @date_Visa , @date_approbation  ,@délai_dexecution , @caution_definitif  ,@caution_return)";
 
 
-
-                    //        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-                    //        Program.sql_cmd.ExecuteNonQuery();
-                    //        Program.sql_con.Close();
-                    //        XtraMessageBox.Show("good");
-
-                    //        // toastNotificationsManager1.ShowNotification("677ae63a-96ce-4b84-bb50-c3feef4564ce");
-                    //        this.Close();
-
-
-                    //    }
-                    //    else
-                    //    {
-                    //        string sql = "update  [etude] set objet = @objet ,[estimation] = @estimation ,[montant] = @montant ,[envoyer_tresoryer]  = @envoyer,[délai_dexecution] =  @delai , [localite]  = @localisation , [Type_marcher] = @type_marcher , [Nature]  = @nature where id1 = @id ";
-
-
-                    //        Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@objet", richTextBoxobject.Text);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@estimation", textEditestimation.Text);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@montant", textEditCaution.Text);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@envoyer", dateEditTresorier.Text);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@delai", textEditdélai.Text);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
-                    //        Program.sql_cmd.Parameters.AddWithValue("@id", idEtude);
+                            Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
+                            Program.sql_cmd.Parameters.AddWithValue("@attributaire", attributaire.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@Montant", Montant.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@date_Visa", dateEditvisa.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@date_approbation", dateEditdate_approbation.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@caution_definitif", textEditdefinitif.Text);
+                            Program.sql_cmd.Parameters.AddWithValue("@caution_return", caution_return.Text);
 
 
 
-                    //        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-                    //        Program.sql_cmd.ExecuteNonQuery();
-                    //        Program.sql_con.Close();
-                    //        XtraMessageBox.Show("good");
+                            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                            Program.sql_cmd.ExecuteNonQuery();
+                            Program.sql_con.Close();
+                            XtraMessageBox.Show("good");
+
+                              
 
 
-                    //        this.Close();
-                    //    }
+                                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                                Program.sql_cmd = new SqlCommand("SELECT TOP 1 id3 FROM [SIMPLE_overture] ORDER BY id3 DESC", Program.sql_con);
+                                string id = "";
+                                Program.db = Program.sql_cmd.ExecuteReader();
+                                if (Program.db.HasRows)
+                                {
 
 
-                   // }
+                                    Program.db.Read();
+
+
+                                    id = Program.db[0].ToString();
+
+                                }
+
+                                string sql2 = "insert into [fk2](id2 ,id3 ) VALUES(@id2,@id3) ";
+
+
+                                Program.sql_cmd = new SqlCommand(sql2, Program.sql_con);
+                                Program.sql_cmd.Parameters.AddWithValue("@id1", comboBoxAoo.SelectedValue.ToString());
+                                Program.sql_cmd.Parameters.AddWithValue("@id2", id);
+
+
+
+
+                                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                                Program.sql_cmd.ExecuteNonQuery();
+                                Program.sql_con.Close();
+                                ///toastNotificationsManager1.ShowNotification("677ae63a-96ce-4b84-bb50-c3feef4564ce");
+
+
+                                // toastNotificationsManager1.ShowNotification("1d00270b-1651-4ed4-a139-bd59d5d8cf8e");
+
+                                // toastNotificationsManager1.ShowNotification("677ae63a-96ce-4b84-bb50-c3feef4564ce");
+                                this.Close();
+
+                            }
+                            else
+                            {
+
+                                string sql = "insert into [SIMPLE_overture](attributaire ,[Montant],[num_Marcher],[date_Visa],[date_approbation] , [délai_dexecution]  , [caution_definitif] , [caution_return] , [datenotifiy] ,[date_caution] ) VALUES(@attributaire,@Montant,@num_Marcher , @date_Visa , @date_approbation  ,@délai_dexecution , @caution_definitif  ,@caution_return,@datenotifiy,@date_caution)";
+
+
+                                Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
+                                Program.sql_cmd.Parameters.AddWithValue("@attributaire", attributaire.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@Montant", Montant.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_Visa", dateEditvisa.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_approbation", dateEditdate_approbation.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@caution_definitif", textEditdefinitif.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@caution_return", caution_return.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@datenotifiy", datenotifiy.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_caution", dateEdit_caution.Text);
+
+
+
+
+                                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                                Program.sql_cmd.ExecuteNonQuery();
+                                Program.sql_con.Close();
+                                XtraMessageBox.Show("good");
+
+
+
+
+                                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                                Program.sql_cmd = new SqlCommand("SELECT TOP 1 id3 FROM [SIMPLE_overture] ORDER BY id3 DESC", Program.sql_con);
+                                string id = "";
+                                Program.db = Program.sql_cmd.ExecuteReader();
+                                if (Program.db.HasRows)
+                                {
+
+
+                                    Program.db.Read();
+
+
+                                    id = Program.db[0].ToString();
+
+                                }
+
+                                string sql2 = "insert into [fk2](id2 ,id3 ) VALUES(@id2,@id3) ";
+
+
+                                Program.sql_cmd = new SqlCommand(sql2, Program.sql_con);
+                                Program.sql_cmd.Parameters.AddWithValue("@id1", comboBoxAoo.SelectedValue.ToString());
+                                Program.sql_cmd.Parameters.AddWithValue("@id2", id);
+
+
+
+
+                                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                                Program.sql_cmd.ExecuteNonQuery();
+                                Program.sql_con.Close();
+                                ///toastNotificationsManager1.ShowNotification("677ae63a-96ce-4b84-bb50-c3feef4564ce");
+
+
+                                // toastNotificationsManager1.ShowNotification("1d00270b-1651-4ed4-a139-bd59d5d8cf8e");
+
+                                // toastNotificationsManager1.ShowNotification("677ae63a-96ce-4b84-bb50-c3feef4564ce");
+                                this.Close();
+
+                            }
+
+
+                        }
+                        else
+                        {
+                            if (editable_ == false)
+                            {
+                                string sql = "update  [SIMPLE_overture] set attributaire = @attributaire ,[Montant] = @Montant ,[num_Marcher] = @num_Marcher ,[date_Visa]  = @date_Visa,[date_approbation] =  @date_approbation , [délai_dexecution]  = @délai_dexecution , [caution_definitif] = @caution_definitif , [caution_return]  = @caution_return where id3 = @id ";
+
+
+                            Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
+                                Program.sql_cmd.Parameters.AddWithValue("@attributaire", attributaire.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@Montant", Montant.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_Visa", dateEditvisa.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_approbation", dateEditdate_approbation.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@caution_definitif", textEditdefinitif.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@caution_return", caution_return.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@id", idOvert);
+
+
+
+                            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                            Program.sql_cmd.ExecuteNonQuery();
+                            Program.sql_con.Close();
+                            XtraMessageBox.Show("good");
+
+
+                            this.Close();
+
+                            }
+                            else
+                            {
+                                string sql = "update  [SIMPLE_overture] set attributaire = @attributaire ,[Montant] = @Montant ,[num_Marcher] = @num_Marcher ,[date_Visa]  = @date_Visa,[date_approbation] =  @date_approbation , [délai_dexecution]  = @délai_dexecution , [caution_definitif] = @caution_definitif , [caution_return]  = @caution_return , datenotifiy = @datenotifiy , date_caution = @date_caution  where id3 = @id ";
+
+
+                                Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
+                                Program.sql_cmd.Parameters.AddWithValue("@attributaire", attributaire.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@Montant", Montant.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_Visa", dateEditvisa.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_approbation", dateEditdate_approbation.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@caution_definitif", textEditdefinitif.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@caution_return", caution_return.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@datenotifiy", datenotifiy.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_caution", dateEdit_caution.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@id", idOvert);
+
+
+
+                                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                                Program.sql_cmd.ExecuteNonQuery();
+                                Program.sql_con.Close();
+                                XtraMessageBox.Show("good");
+
+
+                                this.Close();
+                            }
+
+                        }
+
+
+                    }
                 }
 
 
@@ -236,6 +385,20 @@ namespace DXApplication2
                 }
 
             }
+            if (e.Button == windowsUIButtonPanelMain.Buttons[2])
+            {
+                attributaire.Text = "";
+                Montant.Text = "";
+                num_Marcher.Text = "";
+                comboBoxAoo.SelectedIndex = -1;
+                dateEditdate_approbation.Text = "";
+                délai_dexecution.Text = "";
+                
+
+
+
+            }
+
 
         }
         bool editable_  = false;

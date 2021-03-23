@@ -29,9 +29,9 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions10 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions11 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions12 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.editable = new DevExpress.XtraEditors.CheckEdit();
             this.dateEdit_caution = new DevExpress.XtraEditors.DateEdit();
@@ -255,13 +255,13 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions10.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions11.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions12.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions1.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions2.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions3.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
             this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions10, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions11, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions12, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanelMain.EnableImageTransparency = true;
             this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 520);

@@ -1,5 +1,7 @@
 ﻿using Dapper;
+using DevExpress.Utils;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
@@ -115,6 +117,61 @@ namespace DXApplication2
 
 
 
+                //Changing the appearance settings of column cells dynamically
+                gridViewOvert.RowCellStyle += (sender, e) =>
+                {
+                    GridView view = sender as GridView;
+                    int valide_order_service = int.Parse(view.GetRowCellValue(e.RowHandle, view.Columns["valide_order_service"]).ToString());
+
+                    if (valide_order_service != 1)
+                    {
+                        int valide_caution = int.Parse(view.GetRowCellValue(e.RowHandle, view.Columns["valide_caution"]).ToString());
+                        if (e.Column.FieldName == "date_caution")
+                        {
+
+                            if (valide_caution == 1)
+
+                            {
+                                e.Appearance.BackColor = Color.LightGreen;
+                                //e.Appearance.TextOptions.HAlignment = _mark ? HorzAlignment.Far : HorzAlignment.Near;
+                            }
+                            else
+                            {
+                                e.Appearance.BackColor = Color.LightSalmon;
+
+                            }
+
+                        }
+                        //
+                        int valide_Approbation = int.Parse(view.GetRowCellValue(e.RowHandle, view.Columns["valide_approbation"]).ToString());
+
+                        if (e.Column.FieldName == "date_approbation")
+                        {
+
+                            if (valide_Approbation == 1)
+
+                            {
+                                e.Appearance.BackColor = Color.LightGreen;
+                                //e.Appearance.TextOptions.HAlignment = _mark ? HorzAlignment.Far : HorzAlignment.Near;
+                            }
+                            else
+                            {
+                                e.Appearance.BackColor = Color.LightSalmon;
+
+                            }
+
+
+
+                        }
+
+                    }
+
+                    ////
+
+
+
+
+                };
             }
             catch (Exception ex)
             {
@@ -500,67 +557,68 @@ namespace DXApplication2
 
         }
 
-        private void gridViewOvert_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
-        {
-            GridView view = sender as GridView;
+        //private void gridViewOvert_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        //{
+        //    GridView view = sender as GridView;
 
-            if (e.RowHandle == view.FocusedRowHandle) return;
-            if (e.Column.FieldName == "date_approbation")
-            {
-            int valide_app = int.Parse(view.GetRowCellValue(e.RowHandle, view.Columns["valide_approbation"]).ToString());
-            if (valide_app == 1)
-            {
-                e.Appearance.BackColor2 = Color.FromArgb(60, Color.Green);
-            }
-            else
-            {
-                e.Appearance.BackColor2 = Color.FromArgb(60, Color.Red);
-            }
+        //    if (e.RowHandle == view.FocusedRowHandle) return;
+        //    if (e.Column.FieldName == "date_approbation")
+        //    {
+        //    int valide_app = int.Parse(view.GetRowCellValue(e.RowHandle, view.Columns["valide_approbation"]).ToString());
+        //    if (valide_app == 1)
+        //    {
+        //        e.Appearance.BackColor2 = Color.FromArgb(60, Color.Green);
+        //    }
+        //    else
+        //    {
+        //        e.Appearance.BackColor2 = Color.FromArgb(60, Color.Red);
+        //    }
 
-            }
+        //    }
 
 
-            //////////////
-            GridView view1 = sender as GridView;
+        //    //////////////
+        //    GridView view1 = sender as GridView;
 
-            if (e.RowHandle == view1.FocusedRowHandle) return ;
+        //    if (e.RowHandle == view1.FocusedRowHandle) return ;
 
-            if (e.Column.FieldName == "date_caution")
-            {
+        //    if (e.Column.FieldName == "date_caution")
+        //    {
 
-            int valide_caution = int.Parse(view1.GetRowCellValue(e.RowHandle, view1.Columns["valide_caution"]).ToString());
-            if (valide_caution == 1)
-            {
-                e.Appearance.BackColor2 = Color.FromArgb(60, Color.Green);
-            }
-            else
-            {
-                e.Appearance.BackColor2 = Color.FromArgb(60, Color.Red);
-            }
+        //    int valide_caution = int.Parse(view1.GetRowCellValue(e.RowHandle, view1.Columns["valide_caution"]).ToString());
+        //    if (valide_caution == 1)
+        //    {
+        //        e.Appearance.BackColor = Color.FromArgb(60, Color.Green);
 
-            }
+        //        }
+        //        else
+        //    {
+        //        e.Appearance.BackColor = Color.FromArgb(60, Color.Red);
 
-            ////////
-            GridView view2 = sender as GridView;
+        //        }
 
-            if (e.RowHandle == view1.FocusedRowHandle) return;
 
-            if (e.Column.FieldName == "duree_order_service")
-            {
+        //    }
+
+        //    ////////
+        //    GridView view2 = sender as GridView;
+
+        //    if (e.RowHandle == view1.FocusedRowHandle) return;
+
+        //    if (e.Column.FieldName == "duree_order_service")
+        //    {
                 
-                int valide_order_service = int.Parse(view1.GetRowCellValue(e.RowHandle, view1.Columns["valide_order_service"]).ToString());
-                if (valide_order_service == 1)
-                {
-                    e.Appearance.BackColor2 = Color.FromArgb(60, Color.Green);
-                }
-                else
-                {
-                    e.Appearance.BackColor2 = Color.FromArgb(60, Color.Red);
-                }
+        //        int valide_order_service = int.Parse(view1.GetRowCellValue(e.RowHandle, view1.Columns["valide_order_service"]).ToString());
+        //        if (valide_order_service == 1)
+        //        {
+        //            e.Appearance.BackColor2 = Color.FromArgb(60, Color.Green);
+        //        }
+        //        else
+        //        {
+        //            e.Appearance.BackColor2 = Color.FromArgb(60, Color.Red);
+        //        }
 
-            }
-
-
+        //    }
 
 
 
@@ -570,7 +628,9 @@ namespace DXApplication2
 
 
 
-        }
+
+
+        //}
 
         private void gridViewOvert_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
@@ -643,7 +703,7 @@ namespace DXApplication2
                 {
                     e.Appearance.BackColor = Color.Orange;
                     
-                    e.HighPriority = true;
+                    //e.HighPriority = true;
                 }
                
             }
@@ -653,6 +713,42 @@ namespace DXApplication2
         {
             overt ov = new overt();
             ov.ShowDialog();
+        }
+
+        private void barButtonItem_modifier_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row2 = gridViewEtude.FocusedRowHandle;
+            int id3;
+            string   cellattributaire;
+            string   cellMontant;
+            string cellnum_Marcher;
+            int celldélai_dexecution;
+            int cellcaution_return;
+            int cellcaution_definitif;
+            DateTime celldate_Visa;
+            DateTime celldate_approbation;
+            DateTime celldatenotifiy;
+            DateTime delldate_caution;
+
+            int cell_validate;
+
+
+
+            id3 = int.Parse(gridViewEtude.GetRowCellValue(row2, "id3").ToString());
+            cellattributaire = gridViewEtude.GetRowCellValue(row2, "attributaire").ToString();
+            cellMontant = gridViewEtude.GetRowCellValue(row2, "Montant").ToString();
+            cellnum_Marcher = gridViewEtude.GetRowCellValue(row2, "num_Marcher").ToString();
+            celldélai_dexecution = int.Parse(gridViewEtude.GetRowCellValue(row2, "délai_dexecution").ToString());
+            cellcaution_return = int.Parse(gridViewEtude.GetRowCellValue(row2, "caution_return").ToString());
+            cellcaution_definitif = int.Parse(gridViewEtude.GetRowCellValue(row2, "caution_definitif").ToString());
+            celldate_Visa = Convert.ToDateTime(gridViewEtude.GetRowCellValue(row2, "date_Visa").ToString());
+            celldate_approbation  = Convert.ToDateTime(gridViewEtude.GetRowCellValue(row2, "date_approbation").ToString());
+            celldatenotifiy = Convert.ToDateTime(gridViewEtude.GetRowCellValue(row2, "datenotifiy").ToString());
+            delldate_caution = Convert.ToDateTime(gridViewEtude.GetRowCellValue(row2, "date_caution").ToString());
+
+            overt ov = new overt(id3, cellattributaire, cellMontant, cellnum_Marcher, celldélai_dexecution, cellcaution_return, cellcaution_definitif, celldate_Visa, celldate_approbation, celldatenotifiy, delldate_caution);
+            ov.ShowDialog();
+            select_Publication_Data();
         }
     }
 }
