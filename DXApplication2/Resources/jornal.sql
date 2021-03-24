@@ -24,6 +24,9 @@ select * from publication
 
 create table fk(id1 int foreign key references etude(id1) on delete cascade on update cascade , id2 int foreign key references publication(id2) on delete cascade on update cascade , primary key(id1,id2)  )
 
+
+SELECT *   FROM fk2 
+
 select * from SIMPLE_overture
 
 create table SIMPLE_overture(id3 int primary key identity(1,1) , attributaire varchar(50) ,Montant varchar(10) , num_Marcher varchar(30)  , date_Visa date , date_approbation date  , valide_approbation int default 0 , duree_approbation int default 0, délai_dexecution int , caution_definitif varchar(10)  , caution_return varchar(10) , datenotifiy date , date_caution date , valide_caution int default 0 , duree_caution int default 0 ,valide_order_service int default 0 , duree_order_service int default 0  )
@@ -253,7 +256,7 @@ begin
 
 
  -------------trigger validate 1 ----------------
- create trigger Validate1
+ alter trigger Validate1
  on publication
  after update 
  as
@@ -270,7 +273,59 @@ begin
  update publication set duree_Jornal = 100 , duree_portail  = 100 where id2 = @idPUB
 
  end
+
+  if(@validate = -1)
+ begin
+
+ update publication set duree_Jornal = 0 , duree_portail  = 0 where id2 = @idPUB
+
  end
+ end
+
+
+
+
+
+ ------------------trigger validate simple overt-------------------
+  ALTER trigger Validate_overt
+  on SIMPLE_overture
+  after update 
+ as
+ begin
+  declare @validateapprobation int ,
+   @validatecaution int ,
+   @validatesimpleovert int ,
+   @id3 int 
+   set @validateapprobation  = (select top 1 valide_approbation from inserted)
+   set @validatecaution  = (select top 1 valide_caution from inserted)
+   set @validatesimpleovert  = (select top 1 valide_order_service from inserted)
+   set @id3  = (select top 1 id3 from inserted)
+   if(@validateapprobation = 1)
+ begin
+
+ update SIMPLE_overture set duree_approbation = 100  where id3 = @id3
+
+ end
+  if(@validatecaution = 1)
+
+ begin
+
+ update SIMPLE_overture set duree_caution = 100  where id3 = @id3
+
+ end
+
+  if(@validatesimpleovert = 1)
+ begin
+
+ update SIMPLE_overture set duree_order_service = 100  where id3 = @id3
+
+ INSERT INTO order_service 
+
+ end
+   
+
+   end
+ 
 
 
  -------trigger etatorder --------

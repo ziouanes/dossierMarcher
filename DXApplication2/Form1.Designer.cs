@@ -364,6 +364,7 @@ namespace DXApplication2
             this.barButtonItem_approbation.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_approbation.ImageOptions.Image")));
             this.barButtonItem_approbation.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_approbation.ImageOptions.LargeImage")));
             this.barButtonItem_approbation.Name = "barButtonItem_approbation";
+            this.barButtonItem_approbation.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_approbation_ItemClick);
             // 
             // barButtonItem_modifier
             // 
@@ -381,6 +382,7 @@ namespace DXApplication2
             this.barButtonItem_confirmer_caution.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_confirmer_caution.ImageOptions.Image")));
             this.barButtonItem_confirmer_caution.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_confirmer_caution.ImageOptions.LargeImage")));
             this.barButtonItem_confirmer_caution.Name = "barButtonItem_confirmer_caution";
+            this.barButtonItem_confirmer_caution.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_confirmer_caution_ItemClick);
             // 
             // barButtonItem_m
             // 
@@ -395,6 +397,7 @@ namespace DXApplication2
             this.barButtonItem_order_service.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_order_service.ImageOptions.Image")));
             this.barButtonItem_order_service.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_order_service.ImageOptions.LargeImage")));
             this.barButtonItem_order_service.Name = "barButtonItem_order_service";
+            this.barButtonItem_order_service.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_order_service_ItemClick);
             // 
             // barButtonItem_suivi
             // 
@@ -1067,8 +1070,8 @@ namespace DXApplication2
             // 
             // popupMenu_order_s
             // 
-            this.popupMenu_order_s.ItemLinks.Add(this.barButtonItem_modifier);
             this.popupMenu_order_s.ItemLinks.Add(this.barButtonItem_order_service);
+            this.popupMenu_order_s.ItemLinks.Add(this.barButtonItem_modifier);
             this.popupMenu_order_s.Name = "popupMenu_order_s";
             this.popupMenu_order_s.Ribbon = this.ribbonControl;
             // 
@@ -1097,6 +1100,7 @@ namespace DXApplication2
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "accueil";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();

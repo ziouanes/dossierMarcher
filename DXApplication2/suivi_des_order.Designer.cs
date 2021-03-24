@@ -163,6 +163,7 @@ namespace DXApplication2
             this.layoutControlItem6});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(1126, 454);
+            this.Root.Text = "%";
             this.Root.TextVisible = false;
             // 
             // emptySpaceItem1
@@ -278,6 +279,7 @@ namespace DXApplication2
             this.Name = "suivi_des_order";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "suivi_des_order";
+            this.Load += new System.EventHandler(this.suivi_des_order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

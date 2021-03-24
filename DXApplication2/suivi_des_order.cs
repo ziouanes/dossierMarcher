@@ -17,5 +17,10 @@ namespace DXApplication2
         {
             InitializeComponent();
         }
+
+        private void suivi_des_order_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

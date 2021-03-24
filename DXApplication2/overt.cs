@@ -132,8 +132,8 @@ namespace DXApplication2
             {
                 SqlCommand cmd = Program.sql_con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                s = comboBoxAoo.SelectedItem.ToString();
-                cmd.CommandText = "select e.[délai_dexecution] as délai_dexecution  from etude e inner join  fk f on e.id1 = f.id1 inner join  publication p on p.id2 = f.id2 where p.Aop = '" + s + "'";
+                s = comboBoxAoo.SelectedValue.ToString();
+                cmd.CommandText = "select e.[délai_dexecution] as délai_dexecution  from etude e inner join  fk f on e.id1 = f.id1 inner join  publication p on p.id2 = f.id2 where p.id2 = '" + s + "'";
 
                 DataTable table = new DataTable();
                 cmd.ExecuteNonQuery();
@@ -141,7 +141,7 @@ namespace DXApplication2
                 da.Fill(table);
                 foreach (DataRow row in table.Rows)
                 {
-                    MessageBox.Show(row["délai_dexecution"].ToString());
+                    
 
                     délai_dexecution.EditValue = row["délai_dexecution"].ToString();
 
@@ -173,6 +173,8 @@ namespace DXApplication2
 
                         if (idOvert == 0)
                         {
+
+
                             if(editable_ == false)
                             {
                             string sql = "insert into [SIMPLE_overture](attributaire ,[Montant],[num_Marcher],[date_Visa],[date_approbation] , [délai_dexecution]  , [caution_definitif] , [caution_return]) VALUES(@attributaire,@Montant,@num_Marcher , @date_Visa , @date_approbation  ,@délai_dexecution , @caution_definitif  ,@caution_return)";
@@ -213,12 +215,13 @@ namespace DXApplication2
 
                                 }
 
-                                string sql2 = "insert into [fk2](id2 ,id3 ) VALUES(@id2,@id3) ";
+                                string sql2 = "insert into [fk2](id2 ,id3 )VALUES(@id2,@id3) ";
 
 
                                 Program.sql_cmd = new SqlCommand(sql2, Program.sql_con);
-                                Program.sql_cmd.Parameters.AddWithValue("@id1", comboBoxAoo.SelectedValue.ToString());
-                                Program.sql_cmd.Parameters.AddWithValue("@id2", id);
+                                Program.sql_cmd.Parameters.AddWithValue("@id2", comboBoxAoo.SelectedValue.ToString());
+                                Program.sql_cmd.Parameters.AddWithValue("@id3", id);
+
 
 
 
@@ -250,7 +253,7 @@ namespace DXApplication2
                                 Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@caution_definitif", textEditdefinitif.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@caution_return", caution_return.Text);
-                                Program.sql_cmd.Parameters.AddWithValue("@datenotifiy", datenotifiy.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@datenotifiy", dateEditreception.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@date_caution", dateEdit_caution.Text);
 
 
@@ -283,8 +286,8 @@ namespace DXApplication2
 
 
                                 Program.sql_cmd = new SqlCommand(sql2, Program.sql_con);
-                                Program.sql_cmd.Parameters.AddWithValue("@id1", comboBoxAoo.SelectedValue.ToString());
-                                Program.sql_cmd.Parameters.AddWithValue("@id2", id);
+                                Program.sql_cmd.Parameters.AddWithValue("@id2", comboBoxAoo.SelectedValue.ToString());
+                                Program.sql_cmd.Parameters.AddWithValue("@id3", id);
 
 
 
@@ -347,7 +350,7 @@ namespace DXApplication2
                                 Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@caution_definitif", textEditdefinitif.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@caution_return", caution_return.Text);
-                                Program.sql_cmd.Parameters.AddWithValue("@datenotifiy", datenotifiy.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@datenotifiy", dateEditreception.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@date_caution", dateEdit_caution.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@id", idOvert);
 

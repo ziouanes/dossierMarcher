@@ -86,6 +86,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="openOrderService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="openOrderService.Designer.cs">
+      <DependentUpon>openOrderService.cs</DependentUpon>
+    </Compile>
     <Compile Include="overt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="openOrderService.resx">
+      <DependentUpon>openOrderService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="overt.resx">
       <DependentUpon>overt.cs</DependentUpon>

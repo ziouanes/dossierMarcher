@@ -665,9 +665,9 @@ namespace DXApplication2
             {
 
                 if (rowM >= 0)
-                    popupMenucaution.ShowPopup(barManager1, new Point(MousePosition.X, MousePosition.Y));
+                    popupMenuapprob.ShowPopup(barManager1, new Point(MousePosition.X, MousePosition.Y));
                 else
-                    popupMenucaution.HidePopup();
+                    popupMenuapprob.HidePopup();
             }
             else if (int.Parse(valide_caution) == 0)
             {
@@ -713,6 +713,9 @@ namespace DXApplication2
         {
             overt ov = new overt();
             ov.ShowDialog();
+            select_Overt_Data();
+
+
         }
 
         private void barButtonItem_modifier_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -749,6 +752,129 @@ namespace DXApplication2
             overt ov = new overt(id3, cellattributaire, cellMontant, cellnum_Marcher, celldélai_dexecution, cellcaution_return, cellcaution_definitif, celldate_Visa, celldate_approbation, celldatenotifiy, delldate_caution);
             ov.ShowDialog();
             select_Publication_Data();
+        }
+
+        private void barButtonItem_approbation_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row2 = gridViewOvert.FocusedRowHandle;
+            string cellid;
+            cellid = gridViewOvert.GetRowCellValue(row2, "id3").ToString();
+
+            if (MessageBox.Show("Voulez-vous vraiment validate cette approbation   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+
+
+                    using (SqlCommand deleteCommand = new SqlCommand("update SIMPLE_overture set valide_approbation = 1 WHERE id3 = @id", Program.sql_con))
+                    {
+
+
+                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+                        deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
+
+                        deleteCommand.ExecuteNonQuery();
+
+
+
+                    }
+                    select_Overt_Data();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    //this.Dispose();
+                }
+
+            }
+        }
+
+        private void barButtonItem_confirmer_caution_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row2 = gridViewOvert.FocusedRowHandle;
+            string cellid;
+            cellid = gridViewOvert.GetRowCellValue(row2, "id3").ToString();
+
+            if (MessageBox.Show("Voulez-vous vraiment Validate cette caution   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+
+
+                    using (SqlCommand deleteCommand = new SqlCommand("update SIMPLE_overture set valide_caution = 1 WHERE id3 = @id", Program.sql_con))
+                    {
+
+
+                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+                        deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
+
+                        deleteCommand.ExecuteNonQuery();
+
+
+
+                    }
+                    select_Overt_Data();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    //this.Dispose();
+                }
+
+            }
+        }
+
+        private void barButtonItem_order_service_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row2 = gridViewOvert.FocusedRowHandle;
+            int cellid_Overture;
+            int celldélai_dexecution;
+            cellid_Overture = int.Parse(gridViewOvert.GetRowCellValue(row2, "id3").ToString());
+            celldélai_dexecution = int.Parse(gridViewOvert.GetRowCellValue(row2, "délai_dexecution").ToString());
+
+
+            openOrderService openOrder = new openOrderService(cellid_Overture, celldélai_dexecution);
+            openOrder.ShowDialog();
+
+            //if (MessageBox.Show("Voulez-vous vraiment Validate order service   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+            //    try
+            //    {
+
+
+            //        using (SqlCommand deleteCommand = new SqlCommand("update SIMPLE_overture set valide_order_service = 1 WHERE id3 = @id", Program.sql_con))
+            //        {
+
+
+            //            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+            //            deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
+
+            //            deleteCommand.ExecuteNonQuery();
+
+
+
+            //        }
+            //        select_Overt_Data();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message);
+            //    }
+            //    finally
+            //    {
+            //        //this.Dispose();
+            //    }
+
+            //}
         }
     }
 }
