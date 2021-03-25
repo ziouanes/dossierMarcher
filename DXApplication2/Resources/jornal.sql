@@ -282,9 +282,11 @@ begin
  end
  end
 
+ select  o.[id_order] , f.[date_deffet] , f.[etat_objet]  , o.[délai_restant] from   order_service o   inner join Etat_order f on   f.order_service = o.id_order where o.[id_order] = 6 
 
+ select * from etude
 
-
+ select  v.[num_Marcher] , e.id_etat , o.date_orderService , o.Etat , o.délai_Initial , o.délai_restant , o.id_order  from SIMPLE_overture v  inner join order_service o  on o.id_Overture = v.id3 inner join Etat_order  e on e.order_service = o.id_order  where o.id_Overture = 10
 
  ------------------trigger validate simple overt-------------------
   ALTER trigger Validate_overt
@@ -330,19 +332,19 @@ begin
 
  -------trigger etatorder --------
 
- create trigger addON_EtatOrder
- on order_service
- after insert , update
- as
- begin
- declare @etat varchar(50)  , 
+ create trigger addON_EtatOrder 
+ on order_service 
+ after insert , update 
+ as 
+ begin 
+ declare @etat varchar(50), 
   @date_orderService DATE ,
   @id_order int
 
 
  set @id_order = (select id_order from inserted)
 
- set @etat = (select Etat from inserted) 
+ set @etat = (select Etat from inserted ) 
 
  set @date_orderService = (select date_orderService from inserted )
 
@@ -353,7 +355,7 @@ if not exists ( select @id_order from Etat_order )
 
  else
  begin
- update Etat_order set date_orderService = @date_orderService , Etat  = @etat  where  id_order =  @id_order 
+ update Etat_order set date_deffet = @date_orderService , etat_objet  = @etat  where  order_service =  @id_order 
  end
 
  end

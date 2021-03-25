@@ -29,14 +29,20 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.textEditnummarche = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.textEdit11 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            this.colid_order = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_deffet = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coletat_objet = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldélai_restant = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.textEditdelaiinit = new DevExpress.XtraEditors.TextEdit();
+            this.textEditdelairestant = new DevExpress.XtraEditors.TextEdit();
+            this.textEditetat = new DevExpress.XtraEditors.TextEdit();
+            this.dateorderservice = new DevExpress.XtraEditors.DateEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -48,14 +54,19 @@ namespace DXApplication2
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.classEtatOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditnummarche.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditdelaiinit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditdelairestant.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditetat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateorderservice.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateorderservice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -67,16 +78,20 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classEtatOrderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.textEditnummarche);
             this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Controls.Add(this.gridControl1);
-            this.layoutControl1.Controls.Add(this.textEdit11);
-            this.layoutControl1.Controls.Add(this.textEdit2);
-            this.layoutControl1.Controls.Add(this.textEdit3);
-            this.layoutControl1.Controls.Add(this.textEdit4);
+            this.layoutControl1.Controls.Add(this.textEditdelaiinit);
+            this.layoutControl1.Controls.Add(this.textEditdelairestant);
+            this.layoutControl1.Controls.Add(this.textEditetat);
+            this.layoutControl1.Controls.Add(this.dateorderservice);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -86,9 +101,18 @@ namespace DXApplication2
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // textEditnummarche
+            // 
+            this.textEditnummarche.Location = new System.Drawing.Point(127, 80);
+            this.textEditnummarche.Name = "textEditnummarche";
+            this.textEditnummarche.Properties.ReadOnly = true;
+            this.textEditnummarche.Size = new System.Drawing.Size(399, 20);
+            this.textEditnummarche.StyleController = this.layoutControl1;
+            this.textEditnummarche.TabIndex = 9;
+            // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(12, 82);
+            this.simpleButton1.Location = new System.Drawing.Point(12, 104);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(1102, 22);
             this.simpleButton1.StyleController = this.layoutControl1;
@@ -97,54 +121,99 @@ namespace DXApplication2
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 108);
+            this.gridControl1.DataSource = this.classEtatOrderBindingSource;
+            this.gridControl1.Location = new System.Drawing.Point(12, 130);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1102, 334);
+            this.gridControl1.Size = new System.Drawing.Size(1102, 312);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid_order,
+            this.coldate_deffet,
+            this.coletat_objet,
+            this.coldélai_restant});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
-            // textEdit11
+            // colid_order
             // 
-            this.textEdit11.Location = new System.Drawing.Point(115, 12);
-            this.textEdit11.Name = "textEdit11";
-            this.textEdit11.Properties.ReadOnly = true;
-            this.textEdit11.Size = new System.Drawing.Size(411, 20);
-            this.textEdit11.StyleController = this.layoutControl1;
-            this.textEdit11.TabIndex = 4;
+            this.colid_order.FieldName = "id_order";
+            this.colid_order.Name = "colid_order";
+            this.colid_order.Visible = true;
+            this.colid_order.VisibleIndex = 0;
             // 
-            // textEdit2
+            // coldate_deffet
             // 
-            this.textEdit2.Location = new System.Drawing.Point(704, 12);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.ReadOnly = true;
-            this.textEdit2.Size = new System.Drawing.Size(410, 20);
-            this.textEdit2.StyleController = this.layoutControl1;
-            this.textEdit2.TabIndex = 5;
+            this.coldate_deffet.FieldName = "date_deffet";
+            this.coldate_deffet.Name = "coldate_deffet";
+            this.coldate_deffet.Visible = true;
+            this.coldate_deffet.VisibleIndex = 1;
             // 
-            // textEdit3
+            // coletat_objet
             // 
-            this.textEdit3.Location = new System.Drawing.Point(115, 46);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.ReadOnly = true;
-            this.textEdit3.Size = new System.Drawing.Size(411, 20);
-            this.textEdit3.StyleController = this.layoutControl1;
-            this.textEdit3.TabIndex = 6;
+            this.coletat_objet.FieldName = "etat_objet";
+            this.coletat_objet.Name = "coletat_objet";
+            this.coletat_objet.Visible = true;
+            this.coletat_objet.VisibleIndex = 2;
             // 
-            // textEdit4
+            // coldélai_restant
             // 
-            this.textEdit4.Location = new System.Drawing.Point(704, 46);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Properties.ReadOnly = true;
-            this.textEdit4.Size = new System.Drawing.Size(410, 20);
-            this.textEdit4.StyleController = this.layoutControl1;
-            this.textEdit4.TabIndex = 7;
+            this.coldélai_restant.FieldName = "délai_restant";
+            this.coldélai_restant.Name = "coldélai_restant";
+            this.coldélai_restant.Visible = true;
+            this.coldélai_restant.VisibleIndex = 3;
+            // 
+            // textEditdelaiinit
+            // 
+            this.textEditdelaiinit.Location = new System.Drawing.Point(127, 12);
+            this.textEditdelaiinit.Name = "textEditdelaiinit";
+            this.textEditdelaiinit.Properties.ReadOnly = true;
+            this.textEditdelaiinit.Size = new System.Drawing.Size(399, 20);
+            this.textEditdelaiinit.StyleController = this.layoutControl1;
+            this.textEditdelaiinit.TabIndex = 4;
+            // 
+            // textEditdelairestant
+            // 
+            this.textEditdelairestant.Location = new System.Drawing.Point(127, 46);
+            this.textEditdelairestant.Name = "textEditdelairestant";
+            this.textEditdelairestant.Properties.ReadOnly = true;
+            this.textEditdelairestant.Size = new System.Drawing.Size(399, 20);
+            this.textEditdelairestant.StyleController = this.layoutControl1;
+            this.textEditdelairestant.TabIndex = 6;
+            // 
+            // textEditetat
+            // 
+            this.textEditetat.Location = new System.Drawing.Point(716, 46);
+            this.textEditetat.Name = "textEditetat";
+            this.textEditetat.Properties.ReadOnly = true;
+            this.textEditetat.Size = new System.Drawing.Size(398, 20);
+            this.textEditetat.StyleController = this.layoutControl1;
+            this.textEditetat.TabIndex = 7;
+            // 
+            // dateorderservice
+            // 
+            this.dateorderservice.EditValue = null;
+            this.dateorderservice.Location = new System.Drawing.Point(716, 12);
+            this.dateorderservice.Name = "dateorderservice";
+            this.dateorderservice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateorderservice.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateorderservice.Properties.DisplayFormat.FormatString = "";
+            this.dateorderservice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateorderservice.Properties.EditFormat.FormatString = "";
+            this.dateorderservice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateorderservice.Properties.Mask.EditMask = "";
+            this.dateorderservice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.dateorderservice.Properties.ReadOnly = true;
+            this.dateorderservice.Size = new System.Drawing.Size(398, 20);
+            this.dateorderservice.StyleController = this.layoutControl1;
+            this.dateorderservice.TabIndex = 5;
             // 
             // Root
             // 
@@ -160,7 +229,9 @@ namespace DXApplication2
             this.emptySpaceItem2,
             this.emptySpaceItem3,
             this.emptySpaceItem4,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutControlItem7,
+            this.emptySpaceItem5});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(1126, 454);
             this.Root.Text = "%";
@@ -171,65 +242,65 @@ namespace DXApplication2
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 58);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(1106, 12);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1106, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 118);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1106, 338);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1106, 316);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.textEdit11;
+            this.layoutControlItem2.Control = this.textEditdelaiinit;
             this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(518, 24);
-            this.layoutControlItem2.Text = "Délai restant : ";
+            this.layoutControlItem2.Text = "Délai initial par jour : ";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(100, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(112, 13);
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.textEdit2;
+            this.layoutControlItem3.Control = this.dateorderservice;
             this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem2";
             this.layoutControlItem3.Location = new System.Drawing.Point(589, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(517, 24);
-            this.layoutControlItem3.Text = "Date prévue de fin : ";
+            this.layoutControlItem3.Text = "Date Order service : ";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(100, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(112, 13);
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.textEdit3;
+            this.layoutControlItem4.Control = this.textEditdelairestant;
             this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem3";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(518, 24);
-            this.layoutControlItem4.Text = "layoutControlItem3";
+            this.layoutControlItem4.Text = "Délai restant  par jour: ";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(100, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(112, 13);
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.textEdit4;
+            this.layoutControlItem5.Control = this.textEditetat;
             this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem4";
             this.layoutControlItem5.Location = new System.Drawing.Point(589, 34);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(517, 24);
-            this.layoutControlItem5.Text = "layoutControlItem4";
+            this.layoutControlItem5.Text = "Etat : ";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(100, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(112, 13);
             // 
             // emptySpaceItem2
             // 
@@ -264,11 +335,32 @@ namespace DXApplication2
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.simpleButton1;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 70);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 92);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(1106, 26);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.textEditnummarche;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 68);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(518, 24);
+            this.layoutControlItem7.Text = "num_Marcher : ";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(112, 13);
+            // 
+            // emptySpaceItem5
+            // 
+            this.emptySpaceItem5.AllowHotTrack = false;
+            this.emptySpaceItem5.Location = new System.Drawing.Point(518, 68);
+            this.emptySpaceItem5.Name = "emptySpaceItem5";
+            this.emptySpaceItem5.Size = new System.Drawing.Size(588, 24);
+            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // classEtatOrderBindingSource
+            // 
+            this.classEtatOrderBindingSource.DataSource = typeof(DXApplication2.class_EtatOrder);
             // 
             // suivi_des_order
             // 
@@ -282,12 +374,14 @@ namespace DXApplication2
             this.Load += new System.EventHandler(this.suivi_des_order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEditnummarche.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditdelaiinit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditdelairestant.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditetat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateorderservice.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateorderservice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -299,6 +393,9 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classEtatOrderBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -312,10 +409,9 @@ namespace DXApplication2
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.TextEdit textEdit11;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit textEditdelaiinit;
+        private DevExpress.XtraEditors.TextEdit textEditdelairestant;
+        private DevExpress.XtraEditors.TextEdit textEditetat;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
@@ -324,5 +420,14 @@ namespace DXApplication2
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraEditors.DateEdit dateorderservice;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_order;
+        private DevExpress.XtraGrid.Columns.GridColumn coldate_deffet;
+        private DevExpress.XtraGrid.Columns.GridColumn coletat_objet;
+        private DevExpress.XtraGrid.Columns.GridColumn coldélai_restant;
+        private DevExpress.XtraEditors.TextEdit textEditnummarche;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
+        private System.Windows.Forms.BindingSource classEtatOrderBindingSource;
     }
 }

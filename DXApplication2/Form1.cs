@@ -843,38 +843,22 @@ namespace DXApplication2
 
             openOrderService openOrder = new openOrderService(cellid_Overture, celldélai_dexecution);
             openOrder.ShowDialog();
-
-            //if (MessageBox.Show("Voulez-vous vraiment Validate order service   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //{
-            //    try
-            //    {
+             select_Overt_Data();
 
 
-            //        using (SqlCommand deleteCommand = new SqlCommand("update SIMPLE_overture set valide_order_service = 1 WHERE id3 = @id", Program.sql_con))
-            //        {
+           
+        }
+
+        private void barButtonItem_suivi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row2 = gridViewOvert.FocusedRowHandle;
+            int cellid_Overture;
+            cellid_Overture = int.Parse(gridViewOvert.GetRowCellValue(row2, "id3").ToString());
 
 
-            //            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-
-            //            deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
-
-            //            deleteCommand.ExecuteNonQuery();
-
-
-
-            //        }
-            //        select_Overt_Data();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message);
-            //    }
-            //    finally
-            //    {
-            //        //this.Dispose();
-            //    }
-
-            //}
+            suivi_des_order opensuivi = new suivi_des_order(cellid_Overture);
+            opensuivi.ShowDialog();
+            select_Overt_Data();
         }
     }
 }

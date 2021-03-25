@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassEtude.cs" />
+    <Compile Include="class_EtatOrder.cs" />
     <Compile Include="Class_publication.cs" />
     <Compile Include="Etude.cs">
       <SubType>Form</SubType>
@@ -145,6 +146,7 @@
     <None Include="App.config" />
     <None Include="Properties\DataSources\ClassEtude.datasource" />
     <None Include="Properties\DataSources\ClassSIMPLE_overture.datasource" />
+    <None Include="Properties\DataSources\class_EtatOrder.datasource" />
     <None Include="Properties\DataSources\Class_publication.datasource" />
     <None Include="Properties\DataSources\Etude.datasource" />
     <None Include="Properties\Settings.settings">

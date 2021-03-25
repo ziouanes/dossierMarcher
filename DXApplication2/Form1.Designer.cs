@@ -101,7 +101,6 @@ namespace DXApplication2
             this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControlOvert = new DevExpress.XtraGrid.GridControl();
-            this.classSIMPLEovertureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewOvert = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colattributaire = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -136,6 +135,7 @@ namespace DXApplication2
             this.popupMenucaution = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenu_order_s = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenu_suivi_orders = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.classSIMPLEovertureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -154,7 +154,6 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar_jornal)).BeginInit();
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOvert)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOvert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar_approb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar_caution)).BeginInit();
@@ -168,6 +167,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.popupMenucaution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu_order_s)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu_suivi_orders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonStatusBar
@@ -406,6 +406,7 @@ namespace DXApplication2
             this.barButtonItem_suivi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_suivi.ImageOptions.Image")));
             this.barButtonItem_suivi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_suivi.ImageOptions.LargeImage")));
             this.barButtonItem_suivi.Name = "barButtonItem_suivi";
+            this.barButtonItem_suivi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_suivi_ItemClick);
             // 
             // ribbonPage
             // 
@@ -794,10 +795,6 @@ namespace DXApplication2
             this.gridControlOvert.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gridControlOvert_KeyUp);
             this.gridControlOvert.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gridControlOvert_MouseUp);
             // 
-            // classSIMPLEovertureBindingSource
-            // 
-            this.classSIMPLEovertureBindingSource.DataSource = typeof(DXApplication2.ClassSIMPLE_overture);
-            // 
             // gridViewOvert
             // 
             this.gridViewOvert.Appearance.FocusedCell.BackColor = System.Drawing.Color.Transparent;
@@ -1081,6 +1078,10 @@ namespace DXApplication2
             this.popupMenu_suivi_orders.Name = "popupMenu_suivi_orders";
             this.popupMenu_suivi_orders.Ribbon = this.ribbonControl;
             // 
+            // classSIMPLEovertureBindingSource
+            // 
+            this.classSIMPLEovertureBindingSource.DataSource = typeof(DXApplication2.ClassSIMPLE_overture);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1120,7 +1121,6 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar_jornal)).EndInit();
             this.navigationPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOvert)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOvert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar_approb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar_caution)).EndInit();
@@ -1134,6 +1134,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.popupMenucaution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu_order_s)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu_suivi_orders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1214,7 +1215,6 @@ namespace DXApplication2
         private DevExpress.XtraGrid.Columns.GridColumn colvalidate1;
         private DevExpress.XtraGrid.Columns.GridColumn colduree_portail;
         private DevExpress.XtraGrid.Columns.GridColumn colduree_Jornal;
-        private System.Windows.Forms.BindingSource classSIMPLEovertureBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colid3;
         private DevExpress.XtraGrid.Columns.GridColumn colattributaire;
         private DevExpress.XtraGrid.Columns.GridColumn colMontant1;
@@ -1245,5 +1245,6 @@ namespace DXApplication2
         private DevExpress.XtraBars.PopupMenu popupMenu_order_s;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_suivi;
         private DevExpress.XtraBars.PopupMenu popupMenu_suivi_orders;
+        private System.Windows.Forms.BindingSource classSIMPLEovertureBindingSource;
     }
 }

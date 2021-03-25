@@ -29,15 +29,19 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(openOrderService));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.windowsUIButtonPanelMain = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.textEditdelai_initail = new DevExpress.XtraEditors.TextEdit();
+            this.textEditdelai_restant = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit_etat_opposition = new DevExpress.XtraEditors.TextEdit();
+            this.dateeditorderservice = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.textEdit_etat_opposition = new DevExpress.XtraEditors.TextEdit();
-            this.textEditdelai_restant = new DevExpress.XtraEditors.TextEdit();
-            this.textEditdelai_initail = new DevExpress.XtraEditors.TextEdit();
             this.date_orderService = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -45,18 +49,19 @@ namespace DXApplication2
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.windowsUIButtonPanelMain = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dateeditorderservice = new DevExpress.XtraEditors.DateEdit();
+            this.toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditdelai_initail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditdelai_restant.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit_etat_opposition.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateeditorderservice.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateeditorderservice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit_etat_opposition.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditdelai_restant.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditdelai_initail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_orderService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -65,8 +70,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateeditorderservice.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateeditorderservice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -84,6 +88,87 @@ namespace DXApplication2
             this.layoutControl1.Size = new System.Drawing.Size(630, 398);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // windowsUIButtonPanelMain
+            // 
+            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.FontSizeDelta = -1;
+            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.Options.UseBackColor = true;
+            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.Options.UseFont = true;
+            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanelMain.AppearanceButton.Normal.FontSizeDelta = -1;
+            this.windowsUIButtonPanelMain.AppearanceButton.Normal.Options.UseFont = true;
+            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
+            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.FontSizeDelta = -1;
+            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
+            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
+            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            windowsUIButtonImageOptions2.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            this.windowsUIButtonPanelMain.EnableImageTransparency = true;
+            this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 326);
+            this.windowsUIButtonPanelMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.windowsUIButtonPanelMain.MaximumSize = new System.Drawing.Size(0, 60);
+            this.windowsUIButtonPanelMain.MinimumSize = new System.Drawing.Size(60, 60);
+            this.windowsUIButtonPanelMain.Name = "windowsUIButtonPanelMain";
+            this.windowsUIButtonPanelMain.Size = new System.Drawing.Size(606, 60);
+            this.windowsUIButtonPanelMain.TabIndex = 8;
+            this.windowsUIButtonPanelMain.Text = "windowsUIButtonPanelMain";
+            this.windowsUIButtonPanelMain.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanelMain.ButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanelMain_ButtonClick);
+            // 
+            // textEditdelai_initail
+            // 
+            this.textEditdelai_initail.Location = new System.Drawing.Point(439, 45);
+            this.textEditdelai_initail.Name = "textEditdelai_initail";
+            this.textEditdelai_initail.Properties.ReadOnly = true;
+            this.textEditdelai_initail.Size = new System.Drawing.Size(167, 20);
+            this.textEditdelai_initail.StyleController = this.layoutControl1;
+            this.textEditdelai_initail.TabIndex = 5;
+            // 
+            // textEditdelai_restant
+            // 
+            this.textEditdelai_restant.Location = new System.Drawing.Point(128, 119);
+            this.textEditdelai_restant.Name = "textEditdelai_restant";
+            this.textEditdelai_restant.Properties.ReadOnly = true;
+            this.textEditdelai_restant.Size = new System.Drawing.Size(166, 20);
+            this.textEditdelai_restant.StyleController = this.layoutControl1;
+            this.textEditdelai_restant.TabIndex = 6;
+            // 
+            // textEdit_etat_opposition
+            // 
+            this.textEdit_etat_opposition.EditValue = "Order de Commencement";
+            this.textEdit_etat_opposition.Location = new System.Drawing.Point(439, 119);
+            this.textEdit_etat_opposition.Name = "textEdit_etat_opposition";
+            this.textEdit_etat_opposition.Properties.ReadOnly = true;
+            this.textEdit_etat_opposition.Size = new System.Drawing.Size(167, 20);
+            this.textEdit_etat_opposition.StyleController = this.layoutControl1;
+            this.textEdit_etat_opposition.TabIndex = 7;
+            // 
+            // dateeditorderservice
+            // 
+            this.dateeditorderservice.EditValue = null;
+            this.dateeditorderservice.Location = new System.Drawing.Point(128, 45);
+            this.dateeditorderservice.Name = "dateeditorderservice";
+            this.dateeditorderservice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateeditorderservice.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateeditorderservice.Properties.DisplayFormat.FormatString = "";
+            this.dateeditorderservice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateeditorderservice.Properties.EditFormat.FormatString = "";
+            this.dateeditorderservice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateeditorderservice.Properties.Mask.EditMask = "";
+            this.dateeditorderservice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.dateeditorderservice.Size = new System.Drawing.Size(166, 20);
+            this.dateeditorderservice.StyleController = this.layoutControl1;
+            this.dateeditorderservice.TabIndex = 4;
+            this.dateeditorderservice.EditValueChanged += new System.EventHandler(this.dateeditorderservice_EditValueChanged);
             // 
             // layoutControlGroup1
             // 
@@ -128,34 +213,6 @@ namespace DXApplication2
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(586, 171);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // textEdit_etat_opposition
-            // 
-            this.textEdit_etat_opposition.EditValue = "Order de Commencement";
-            this.textEdit_etat_opposition.Location = new System.Drawing.Point(448, 119);
-            this.textEdit_etat_opposition.Name = "textEdit_etat_opposition";
-            this.textEdit_etat_opposition.Properties.ReadOnly = true;
-            this.textEdit_etat_opposition.Size = new System.Drawing.Size(158, 20);
-            this.textEdit_etat_opposition.StyleController = this.layoutControl1;
-            this.textEdit_etat_opposition.TabIndex = 7;
-            // 
-            // textEditdelai_restant
-            // 
-            this.textEditdelai_restant.Location = new System.Drawing.Point(137, 119);
-            this.textEditdelai_restant.Name = "textEditdelai_restant";
-            this.textEditdelai_restant.Properties.ReadOnly = true;
-            this.textEditdelai_restant.Size = new System.Drawing.Size(157, 20);
-            this.textEditdelai_restant.StyleController = this.layoutControl1;
-            this.textEditdelai_restant.TabIndex = 6;
-            // 
-            // textEditdelai_initail
-            // 
-            this.textEditdelai_initail.Location = new System.Drawing.Point(448, 45);
-            this.textEditdelai_initail.Name = "textEditdelai_initail";
-            this.textEditdelai_initail.Properties.ReadOnly = true;
-            this.textEditdelai_initail.Size = new System.Drawing.Size(158, 20);
-            this.textEditdelai_initail.StyleController = this.layoutControl1;
-            this.textEditdelai_initail.TabIndex = 5;
             // 
             // date_orderService
             // 
@@ -235,38 +292,6 @@ namespace DXApplication2
             this.emptySpaceItem4.Text = "emptySpaceItem3";
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // windowsUIButtonPanelMain
-            // 
-            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.FontSizeDelta = -1;
-            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.Options.UseBackColor = true;
-            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.Options.UseFont = true;
-            this.windowsUIButtonPanelMain.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanelMain.AppearanceButton.Normal.FontSizeDelta = -1;
-            this.windowsUIButtonPanelMain.AppearanceButton.Normal.Options.UseFont = true;
-            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
-            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.FontSizeDelta = -1;
-            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
-            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
-            this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions5.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
-            this.windowsUIButtonPanelMain.EnableImageTransparency = true;
-            this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 326);
-            this.windowsUIButtonPanelMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.windowsUIButtonPanelMain.MaximumSize = new System.Drawing.Size(0, 60);
-            this.windowsUIButtonPanelMain.MinimumSize = new System.Drawing.Size(60, 60);
-            this.windowsUIButtonPanelMain.Name = "windowsUIButtonPanelMain";
-            this.windowsUIButtonPanelMain.Size = new System.Drawing.Size(606, 60);
-            this.windowsUIButtonPanelMain.TabIndex = 8;
-            this.windowsUIButtonPanelMain.Text = "windowsUIButtonPanelMain";
-            this.windowsUIButtonPanelMain.UseButtonBackgroundImages = false;
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.windowsUIButtonPanelMain;
@@ -276,23 +301,11 @@ namespace DXApplication2
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // dateeditorderservice
+            // toastNotificationsManager1
             // 
-            this.dateeditorderservice.EditValue = null;
-            this.dateeditorderservice.Location = new System.Drawing.Point(137, 45);
-            this.dateeditorderservice.Name = "dateeditorderservice";
-            this.dateeditorderservice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateeditorderservice.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateeditorderservice.Properties.DisplayFormat.FormatString = "";
-            this.dateeditorderservice.Properties.EditFormat.FormatString = "";
-            this.dateeditorderservice.Properties.Mask.EditMask = "";
-            this.dateeditorderservice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.dateeditorderservice.Size = new System.Drawing.Size(157, 20);
-            this.dateeditorderservice.StyleController = this.layoutControl1;
-            this.dateeditorderservice.TabIndex = 4;
-            this.dateeditorderservice.EditValueChanged += new System.EventHandler(this.dateeditorderservice_EditValueChanged);
+            this.toastNotificationsManager1.ApplicationId = "0ce85068-7b9b-4772-9c52-a4112a0c02e1";
+            this.toastNotificationsManager1.Notifications.AddRange(new DevExpress.XtraBars.ToastNotifications.IToastNotificationProperties[] {
+            new DevExpress.XtraBars.ToastNotifications.ToastNotification("1b695207-79a7-48d8-9452-76499dcc43ca", ((System.Drawing.Image)(resources.GetObject("toastNotificationsManager1.Notifications"))), "", "Overture Order service success", "", DevExpress.XtraBars.ToastNotifications.ToastNotificationTemplate.ImageAndText01)});
             // 
             // openOrderService
             // 
@@ -306,13 +319,15 @@ namespace DXApplication2
             this.Load += new System.EventHandler(this.openOrderService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEditdelai_initail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditdelai_restant.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit_etat_opposition.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateeditorderservice.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateeditorderservice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit_etat_opposition.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditdelai_restant.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditdelai_initail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_orderService)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -321,8 +336,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateeditorderservice.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateeditorderservice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -346,5 +360,6 @@ namespace DXApplication2
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanelMain;
         private DevExpress.XtraEditors.DateEdit dateeditorderservice;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager1;
     }
 }
