@@ -363,6 +363,9 @@ if not exists ( select @id_order from Etat_order )
  end
 
 
+ -----procedure calcule delai restant--------
+
+ exec suivi_delai 0 , '2021-12-12' , 6
 create Procedure suivi_delai( @Etat int , @dateEffet date , @id_order int)
 
  as 
