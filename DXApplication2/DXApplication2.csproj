@@ -72,8 +72,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="change Operation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="change Operation.Designer.cs">
+      <DependentUpon>change Operation.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClassEtude.cs" />
-    <Compile Include="class_EtatOrder.cs" />
+    <Compile Include="Resources\class_EtatOrder.cs" />
     <Compile Include="Class_publication.cs" />
     <Compile Include="Etude.cs">
       <SubType>Form</SubType>
@@ -114,6 +120,9 @@
     <Compile Include="suivi_des_order.Designer.cs">
       <DependentUpon>suivi_des_order.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="change Operation.resx">
+      <DependentUpon>change Operation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Etude.resx">
       <DependentUpon>Etude.cs</DependentUpon>
     </EmbeddedResource>

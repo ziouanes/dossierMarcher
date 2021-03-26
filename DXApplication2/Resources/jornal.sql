@@ -8,6 +8,8 @@ go
 
 drop table etude
 
+
+
 select id1 , objet  from [etude]  where validate  = 1 and id1  not in ( select id1  from fk )
 
 create table etude( id1 int primary key identity(1,1) ,  objet text , estimation text , montant varchar(10) , envoyer_tresoryer date , validate int DEFAULT 0 , délai_dexecution int   , deleted int default 0  , localite int  foreign key references localite(id_l)  , Type_marcher int foreign key references Type_marcher (id_type)  , Nature int foreign key references Nature(id_N)   )

@@ -34,6 +34,7 @@ namespace DXApplication2
             this.textEditnummarche = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.classEtatOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_order = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldate_deffet = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,11 +57,11 @@ namespace DXApplication2
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.classEtatOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditnummarche.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classEtatOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditdelaiinit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditdelairestant.Properties)).BeginInit();
@@ -80,7 +81,6 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classEtatOrderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -129,6 +129,11 @@ namespace DXApplication2
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
+            // 
+            // classEtatOrderBindingSource
+            // 
+            this.classEtatOrderBindingSource.DataSource = typeof(DXApplication2.class_EtatOrder);
             // 
             // gridView1
             // 
@@ -358,10 +363,6 @@ namespace DXApplication2
             this.emptySpaceItem5.Size = new System.Drawing.Size(588, 24);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // classEtatOrderBindingSource
-            // 
-            this.classEtatOrderBindingSource.DataSource = typeof(DXApplication2.class_EtatOrder);
-            // 
             // suivi_des_order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,6 +377,7 @@ namespace DXApplication2
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEditnummarche.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classEtatOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditdelaiinit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditdelairestant.Properties)).EndInit();
@@ -395,7 +397,6 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classEtatOrderBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

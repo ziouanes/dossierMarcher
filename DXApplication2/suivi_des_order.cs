@@ -68,11 +68,46 @@ namespace DXApplication2
 
         private void suivi_des_order_Load(object sender, EventArgs e)
         {
+            RunStoredProc();
             this.dateorderservice.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dateorderservice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateorderservice.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateorderservice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             select_Etat_Data();
+        }
+
+
+        //call procedure
+
+        public void RunStoredProc()
+        {
+          
+
+
+            try
+            {
+                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.suivi_delai", Program.sql_con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Etat", 0);
+                cmd.Parameters.AddWithValue("@dateEffet", "2021-12-12");
+                cmd.Parameters.AddWithValue("@id_order", 6);
+                cmd.ExecuteNonQuery();
+               
+                
+                
+            }
+            finally
+            {
+                if (Program.sql_con != null)
+                {
+                    Program.sql_con.Close();
+                }
+                if (Program.db != null)
+                {
+                    Program.db.Close();
+                }
+            }
         }
 
         private void select_Etat_Data()
@@ -99,6 +134,11 @@ namespace DXApplication2
             {
                 //this.Dispose();
             }
+
+        }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
 
         }
     }
