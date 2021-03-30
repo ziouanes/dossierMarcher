@@ -118,6 +118,7 @@ namespace DXApplication2
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 8;
             this.simpleButton1.Text = "Change Opperation ";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // gridControl1
             // 
@@ -149,29 +150,25 @@ namespace DXApplication2
             // 
             this.colid_order.FieldName = "id_order";
             this.colid_order.Name = "colid_order";
-            this.colid_order.Visible = true;
-            this.colid_order.VisibleIndex = 0;
             // 
             // coldate_deffet
             // 
             this.coldate_deffet.FieldName = "date_deffet";
             this.coldate_deffet.Name = "coldate_deffet";
             this.coldate_deffet.Visible = true;
-            this.coldate_deffet.VisibleIndex = 1;
+            this.coldate_deffet.VisibleIndex = 0;
             // 
             // coletat_objet
             // 
             this.coletat_objet.FieldName = "etat_objet";
             this.coletat_objet.Name = "coletat_objet";
             this.coletat_objet.Visible = true;
-            this.coletat_objet.VisibleIndex = 2;
+            this.coletat_objet.VisibleIndex = 1;
             // 
             // coldélai_restant
             // 
             this.coldélai_restant.FieldName = "délai_restant";
             this.coldélai_restant.Name = "coldélai_restant";
-            this.coldélai_restant.Visible = true;
-            this.coldélai_restant.VisibleIndex = 3;
             // 
             // textEditdelaiinit
             // 

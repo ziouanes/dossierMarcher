@@ -111,5 +111,10 @@ namespace DXApplication2
                 }
             }
         }
+
+        private void windowsUIButtonPanelMain_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

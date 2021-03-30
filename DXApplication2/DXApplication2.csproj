@@ -79,7 +79,7 @@
       <DependentUpon>change Operation.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassEtude.cs" />
-    <Compile Include="Resources\class_EtatOrder.cs" />
+    <Compile Include="class_EtatOrder.cs" />
     <Compile Include="Class_publication.cs" />
     <Compile Include="Etude.cs">
       <SubType>Form</SubType>
@@ -174,7 +174,6 @@
   <ItemGroup>
     <Content Include="icons8_commercial..ico" />
     <Content Include="icons8_commercial.ico" />
-    <Content Include="icons8_moka_pot.ico" />
     <Content Include="icons8_thanksgiving.ico" />
     <Content Include="icons8_thanksgiving_32.ico" />
     <Content Include="Resources\jornal.sql" />

@@ -123,12 +123,12 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="toastNotificationsManager1.Notifications" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAIXRFWHRUaXRsZQBCcmluZztG
-        b3J3YXJkO0FycmFuZ2U7T3JkZXJwL7LgAAAApUlEQVRYR+3OwQ2DMBSD4czMDBmt87DCKz0g2ZJdqTUE
-        JHL4Dg7Sz2tVdSn5OJJ8HInG+lrqSNh2aKhIAtsODRVJYNuhoSIJbDs0VCSBbYeGiiSw7dBQkQS2HRoq
-        ksC2Q0NFEth2aKhIAtsODRVJYNuhoSKJ3ruE/zz7gCZsv3rKAdjezQPmAfc+4Bef0EZ++2YeMA84+oC/
-        YIeiV5CPI8nHcaq9AbkOCRjSq4eBAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAhdEVYdFRpdGxlAEJyaW5nO0ZvcndhcmQ7QXJyYW5n
+        ZTtPcmRlcnAvsuAAAAClSURBVFhH7c7BDYMwFIPhzMwMGa3zsMIrPSDZkl2pNQQkcvgODtLPa1V1Kfk4
+        knwcicb6WupI2HZoqEgC2w4NFUlg26GhIglsOzRUJIFth4aKJLDt0FCRBLYdGiqSwLZDQ0US2HZoqEgC
+        2w4NFUlg26GhIoneu4T/PPuAJmy/esoB2N7NA+YB9z7gF5/QRn77Zh4wDzj6gL9gh6JXkI8jycdxqr0B
+        uQ4JGNKrh4EAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

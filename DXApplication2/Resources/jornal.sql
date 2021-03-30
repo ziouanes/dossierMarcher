@@ -2,13 +2,12 @@ create database dossierMarcher
 
 go
 
-use dossierMarcher
 
 go
 
 drop table etude
 
-
+select * from etude
 
 select id1 , objet  from [etude]  where validate  = 1 and id1  not in ( select id1  from fk )
 
@@ -89,7 +88,9 @@ INSERT INTO Nature VALUES ('Formitaire');
 
 -------procedure notify 1    if(validate  = 0) --------------
 ----- triger after insert update --------------
-alter trigger s1
+
+
+CREATE trigger s1
  on publication
 
 after insert , update 
@@ -118,6 +119,7 @@ EXEC p1 @id , @jornal  , @date_op
  
  end
 end
+
 
 
 
@@ -159,16 +161,23 @@ begin
 
  end
 
+ exec aprobation 10 
+
 -------procedure notify 1    if(validate  = 0) --------------
 -------procedure notify 2 APPROBATION     if(validate  = 0) --------------
-create procedure aprobation (@id int ,  @date_approbation date , @date_overture date )
+alter procedure aprobation (@id int  )
 as
+BEGIN
 
-declare	@validate int ,
-		@duree_approbation int 
-		
-		
+declare @date_approbation date,
+@date_overture date , 
 
+	@validate int ,
+		@DUREE_app int 
+	
+set	@date_overture = (select p.date_op from publication p inner join fk2 k on p.id2 = k.id2 inner join SIMPLE_overture s on s.id3 = k.id3 where s.id3 = @id )
+		
+set @date_approbation = (select date_approbation from SIMPLE_overture where id3  = @id)
 
 set @validate = (select valide_approbation from SIMPLE_overture where id3 = @id)
 
@@ -177,10 +186,11 @@ set @validate = (select valide_approbation from SIMPLE_overture where id3 = @id)
 if(@validate =0)
 begin
 
- set @duree_approbation =  cast(((datediff(day,@date_overture,getdate()))*100)/75) as int)
+SET @DUREE_app = cast((datediff(day,@date_overture,GETDATE()))*100/datediff(day,@date_overture ,@date_approbation) as int)
 
 
- update SIMPLE_overture set duree_approbation = @duree_approbation where id3 = @id
+
+ update SIMPLE_overture set duree_approbation = @DUREE_app where id3 = @id
 
 
  end
@@ -194,20 +204,43 @@ begin
 
 -------procedure notify 2 APPROBATION     if(validate  = 0)  END--------------
 -------procedure notify 2 CAUTION     if(validate  = 0) --------------
-create procedure CAUTION (@id int ,  @date_notificatin date , @date_caution date )
+create procedure CAUTION (@id int )
 as
 
 declare	@validate int ,
-		@duree_caution int 
+		@duree_caution int ,
+		@date_notificatin date ,
+		@date_caution date , 
+		@boolnoty int,
+		@boolcaution int
 		
-		
+		if exists ( select   datenotifiy from SIMPLE_overture where id3 = @id  )
+		begin
+
+		set @date_notificatin = ( select   datenotifiy from SIMPLE_overture where id3 = @id ) ;
+		set @boolnoty = 1
+
+		end
+		else
+		set @boolnoty = 0
+
+		------------
+		if exists ( select   date_caution from SIMPLE_overture where id3 = @id   )
+		begin
+
+		set @date_notificatin = ( select   date_caution from SIMPLE_overture where id3 = @id ) ;
+		set @boolnoty = 1
+
+		end
+		else
+		set @boolnoty = 0
 
 
 set @validate = (select valide_caution from SIMPLE_overture where id3 = @id)
 
 --set @duree_Jornal = (select duree_Jornal from publication where id2 = @id)
 
-if(@validate =0)
+if(@validate =0 and @boolnoty = 1 and @boolcaution = 1)
 begin
 
  set @duree_caution =  cast(((datediff(day,@date_notificatin,getdate()))*100)/(datediff(day,@date_notificatin,@date_caution))) as int)
@@ -332,9 +365,11 @@ begin
  
 
 
+ select  v.[num_Marcher] , e.id_etat , o.date_orderService , o.Etat , o.délai_Initial , o.délai_restant, o.id_order   from SIMPLE_overture v  inner join order_service o  on o.id_Overture = v.id3 inner join Etat_order  e on e.order_service = o.id_order  where o.id_Overture = 10 
+
  -------trigger etatorder --------
 
- create trigger addON_EtatOrder 
+ alter trigger addON_EtatOrder 
  on order_service 
  after insert , update 
  as 
@@ -350,35 +385,76 @@ begin
 
  set @date_orderService = (select date_orderService from inserted )
 
-if not exists ( select @id_order from Etat_order )
+if not exists ( select id_order = @id_order  from Etat_order )
  begin
  insert into Etat_order values (@date_orderService , @etat , @id_order )
  end
 
- else
- begin
- update Etat_order set date_deffet = @date_orderService , etat_objet  = @etat  where  order_service =  @id_order 
- end
+ 
 
  end
 
+ -----trriger update etat order service ---------
+
+ alter trigger update_EtatOrder 
+ on Etat_order 
+ after insert 
+ as 
+ begin 
+ declare @etat varchar(50), 
+  
+  @id_order int , 
+
+  @date_orderService date
+
+
+ set @id_order = (select top 1 order_service from inserted order by date_deffet desc )
+
+ set @etat = (select top 1 etat_objet  from inserted order by date_deffet desc  ) 
+
+ set @date_orderService = (select top 1 date_deffet from inserted order by date_deffet desc )
+
+
+
+
+
+--if  exists ( select top 1 order_service  , date_deffet  from Etat_order where order_service = @id_order order by date_deffet desc )
+
+-- begin
+
+ update order_service set Etat = @etat where id_order =  @id_order 
+
+ --end
+
+ 
+
+ end
 
  -----procedure calcule delai restant--------
 
  exec suivi_delai 0 , '2021-12-12' , 6
-create Procedure suivi_delai( @Etat int , @dateEffet date , @id_order int)
+alter Procedure suivi_delai( @Etat int , @dateEffet date , @id_order int)
 
  as 
  begin
 
  declare @new_delai int
  
- if(@Etat = 0 )
+ if(@Etat = 1 )
  begin
+
+
 set @new_delai = cast(datediff(day , @dateEffet , getdate()) as int)
 
-update order_service set délai_restant  = @new_delai where id_order = @id_order
+if(@new_delai>=0)
+begin
 
+update order_service set délai_restant  = @new_delai where id_order = @id_order
+end
+else
+begin
+update order_service set délai_restant  = 0 where id_order = @id_order
+end
 
 
  end
@@ -403,4 +479,3 @@ update order_service set délai_restant  = @new_delai where id_order = @id_order
 end
 
 
- 
