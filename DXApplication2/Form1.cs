@@ -29,6 +29,7 @@ namespace DXApplication2
         }
         void barButtonNavigation_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //
             int barItemIndex = barSubItemNavigation.ItemLinks.IndexOf(e.Link);
             navBarControl.ActiveGroup = navBarControl.Groups[barItemIndex];
         }
@@ -200,7 +201,7 @@ namespace DXApplication2
         }
 
 
-        public void RunStoredProc_p1()
+        public void RunStoredProc_duree_portail()
         {
 
 
@@ -209,8 +210,7 @@ namespace DXApplication2
             {
                 for (int i = 0; i < gridViewPub.DataRowCount; i++)
                 {
-                  if(  int.Parse(gridViewPub.GetRowCellValue(i, "duree_portail").ToString()) < 100) {
-                    
+                  if(  int.Parse(gridViewPub.GetRowCellValue(i, "duree_portail").ToString()) < 100 && int.Parse(gridViewPub.GetRowCellValue(i, "duree_portail").ToString())>=0) {
                     if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
                     SqlCommand cmd = new SqlCommand("dbo.p1", Program.sql_con);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -218,9 +218,7 @@ namespace DXApplication2
                     cmd.Parameters.AddWithValue("@jornal", gridViewPub.GetRowCellValue(i, "date_jornal").ToString());
                     cmd.Parameters.AddWithValue("@date_op", gridViewPub.GetRowCellValue(i, "date_portail").ToString());
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("good");
                     }
-
                     //do something  
                 }  
 
@@ -265,7 +263,100 @@ namespace DXApplication2
                         cmd.Parameters.AddWithValue("@id", int.Parse(gridViewOvert.GetRowCellValue(i, "id3").ToString()));
                        
                         cmd.ExecuteNonQuery();
+                    }
+
+                    //do something  
+                }
+
+
+
+
+
+
+
+
+            }
+            finally
+            {
+                if (Program.sql_con != null)
+                {
+                    Program.sql_con.Close();
+                }
+                if (Program.db != null)
+                {
+                    Program.db.Close();
+                }
+            }
+            select_Overt_Data();
+
+        }
+
+        public void RunStoredProc_caution()
+        {
+
+
+
+            try
+            {
+                for (int i = 0; i < gridViewOvert.DataRowCount; i++)
+                {
+                    if (int.Parse(gridViewOvert.GetRowCellValue(i, "duree_caution").ToString()) < 100)
+                    {
+
+                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                        SqlCommand cmd = new SqlCommand("dbo.CAUTION", Program.sql_con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id", int.Parse(gridViewOvert.GetRowCellValue(i, "id3").ToString()));
+
+                        cmd.ExecuteNonQuery();
                         MessageBox.Show("good");
+                    }
+
+                    //do something  
+                }
+
+
+
+
+
+
+
+
+            }
+            finally
+            {
+                if (Program.sql_con != null)
+                {
+                    Program.sql_con.Close();
+                }
+                if (Program.db != null)
+                {
+                    Program.db.Close();
+                }
+            }
+            select_Overt_Data();
+
+        }
+
+        public void RunStoredProc_duree_order_service()
+        {
+
+
+
+            try
+            {
+                for (int i = 0; i < gridViewOvert.DataRowCount; i++)
+                {
+                    if (int.Parse(gridViewOvert.GetRowCellValue(i, "duree_order_service").ToString()) < 100)
+                    {
+
+                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                        SqlCommand cmd = new SqlCommand("dbo._order_service", Program.sql_con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id", int.Parse(gridViewOvert.GetRowCellValue(i, "id3").ToString()));
+
+                        cmd.ExecuteNonQuery();
+                       
                     }
 
                     //do something  
@@ -965,8 +1056,7 @@ namespace DXApplication2
 
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            RunStoredProc_p1();
-            RunStoredProc_Approbation();
+            RunStoredProc_duree_portail();
 
         }
     }

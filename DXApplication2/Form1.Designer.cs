@@ -57,11 +57,13 @@ namespace DXApplication2
             this.barButtonItem_m = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_order_service = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_suivi = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupNavigation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.officeNavigationBar = new DevExpress.XtraBars.Navigation.OfficeNavigationBar();
@@ -136,8 +138,7 @@ namespace DXApplication2
             this.popupMenucaution = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenu_order_s = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenu_suivi_orders = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_print = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -177,7 +178,7 @@ namespace DXApplication2
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 577);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1199, 22);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1544, 22);
             // 
             // ribbonControl
             // 
@@ -208,9 +209,10 @@ namespace DXApplication2
             this.barButtonItem_m,
             this.barButtonItem_order_service,
             this.barButtonItem_suivi,
-            this.barButtonItem3});
+            this.barButtonItem3,
+            this.barButtonItem_print});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 64;
+            this.ribbonControl.MaxItemId = 65;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -218,7 +220,7 @@ namespace DXApplication2
             this.ribbonPage1});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.Size = new System.Drawing.Size(1199, 158);
+            this.ribbonControl.Size = new System.Drawing.Size(1544, 158);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.ribbonControl.Click += new System.EventHandler(this.ribbonControl_Click);
@@ -258,7 +260,7 @@ namespace DXApplication2
             this.barButtonItem1.Caption = "Overture";
             this.barButtonItem1.Id = 49;
             this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
             // 
             // skinDropDownButtonItem
             // 
@@ -411,6 +413,13 @@ namespace DXApplication2
             this.barButtonItem_suivi.Name = "barButtonItem_suivi";
             this.barButtonItem_suivi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_suivi_ItemClick);
             // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "barButtonItem3";
+            this.barButtonItem3.Id = 63;
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -443,6 +452,12 @@ namespace DXApplication2
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonouverture);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem_print);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -465,7 +480,7 @@ namespace DXApplication2
             this.officeNavigationBar.Location = new System.Drawing.Point(0, 531);
             this.officeNavigationBar.Name = "officeNavigationBar";
             this.officeNavigationBar.NavigationClient = this.navBarControl;
-            this.officeNavigationBar.Size = new System.Drawing.Size(1199, 46);
+            this.officeNavigationBar.Size = new System.Drawing.Size(1544, 46);
             this.officeNavigationBar.TabIndex = 1;
             this.officeNavigationBar.Text = "officeNavigationBar";
             this.officeNavigationBar.Click += new System.EventHandler(this.officeNavigationBar_Click);
@@ -519,7 +534,7 @@ namespace DXApplication2
             this.navigationPage1});
             this.navigationFrame.RibbonAndBarsMergeStyle = DevExpress.XtraBars.Docking2010.Views.RibbonAndBarsMergeStyle.Always;
             this.navigationFrame.SelectedPage = this.employeesNavigationPage;
-            this.navigationFrame.Size = new System.Drawing.Size(1034, 373);
+            this.navigationFrame.Size = new System.Drawing.Size(1379, 373);
             this.navigationFrame.TabIndex = 0;
             this.navigationFrame.Text = "navigationFrame";
             // 
@@ -528,7 +543,7 @@ namespace DXApplication2
             this.employeesNavigationPage.Controls.Add(this.gridControlEtude);
             this.employeesNavigationPage.Controls.Add(this.employeesLabelControl);
             this.employeesNavigationPage.Name = "employeesNavigationPage";
-            this.employeesNavigationPage.Size = new System.Drawing.Size(1034, 373);
+            this.employeesNavigationPage.Size = new System.Drawing.Size(1379, 373);
             // 
             // gridControlEtude
             // 
@@ -539,7 +554,7 @@ namespace DXApplication2
             this.gridControlEtude.MainView = this.gridViewEtude;
             this.gridControlEtude.MenuManager = this.ribbonControl;
             this.gridControlEtude.Name = "gridControlEtude";
-            this.gridControlEtude.Size = new System.Drawing.Size(1034, 373);
+            this.gridControlEtude.Size = new System.Drawing.Size(1379, 373);
             this.gridControlEtude.TabIndex = 1;
             this.gridControlEtude.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewEtude});
@@ -638,7 +653,7 @@ namespace DXApplication2
             this.employeesLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeesLabelControl.Location = new System.Drawing.Point(0, 0);
             this.employeesLabelControl.Name = "employeesLabelControl";
-            this.employeesLabelControl.Size = new System.Drawing.Size(1034, 373);
+            this.employeesLabelControl.Size = new System.Drawing.Size(1379, 373);
             this.employeesLabelControl.TabIndex = 0;
             this.employeesLabelControl.Text = "Etude";
             // 
@@ -647,7 +662,7 @@ namespace DXApplication2
             this.customersNavigationPage.Controls.Add(this.gridControlPub);
             this.customersNavigationPage.Controls.Add(this.customersLabelControl);
             this.customersNavigationPage.Name = "customersNavigationPage";
-            this.customersNavigationPage.Size = new System.Drawing.Size(1034, 373);
+            this.customersNavigationPage.Size = new System.Drawing.Size(1379, 373);
             // 
             // gridControlPub
             // 
@@ -660,7 +675,7 @@ namespace DXApplication2
             this.gridControlPub.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemProgressBar_Portail,
             this.repositoryItemProgressBar_jornal});
-            this.gridControlPub.Size = new System.Drawing.Size(1034, 373);
+            this.gridControlPub.Size = new System.Drawing.Size(1379, 373);
             this.gridControlPub.TabIndex = 2;
             this.gridControlPub.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPub});
@@ -770,7 +785,7 @@ namespace DXApplication2
             this.customersLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customersLabelControl.Location = new System.Drawing.Point(0, 0);
             this.customersLabelControl.Name = "customersLabelControl";
-            this.customersLabelControl.Size = new System.Drawing.Size(1034, 373);
+            this.customersLabelControl.Size = new System.Drawing.Size(1379, 373);
             this.customersLabelControl.TabIndex = 1;
             this.customersLabelControl.Text = "Publication";
             // 
@@ -778,7 +793,7 @@ namespace DXApplication2
             // 
             this.navigationPage1.Controls.Add(this.gridControlOvert);
             this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(1034, 373);
+            this.navigationPage1.Size = new System.Drawing.Size(1379, 373);
             // 
             // gridControlOvert
             // 
@@ -792,7 +807,7 @@ namespace DXApplication2
             this.repositoryItemTrackBar_approb,
             this.repositoryItemTrackBar_caution,
             this.repositoryItemTrackBar_overt});
-            this.gridControlOvert.Size = new System.Drawing.Size(1034, 373);
+            this.gridControlOvert.Size = new System.Drawing.Size(1379, 373);
             this.gridControlOvert.TabIndex = 0;
             this.gridControlOvert.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewOvert});
@@ -843,7 +858,7 @@ namespace DXApplication2
             this.colid3.Name = "colid3";
             this.colid3.Visible = true;
             this.colid3.VisibleIndex = 0;
-            this.colid3.Width = 69;
+            this.colid3.Width = 97;
             // 
             // colattributaire
             // 
@@ -851,7 +866,7 @@ namespace DXApplication2
             this.colattributaire.Name = "colattributaire";
             this.colattributaire.Visible = true;
             this.colattributaire.VisibleIndex = 1;
-            this.colattributaire.Width = 69;
+            this.colattributaire.Width = 97;
             // 
             // colMontant1
             // 
@@ -859,7 +874,7 @@ namespace DXApplication2
             this.colMontant1.Name = "colMontant1";
             this.colMontant1.Visible = true;
             this.colMontant1.VisibleIndex = 2;
-            this.colMontant1.Width = 69;
+            this.colMontant1.Width = 97;
             // 
             // colnum_Marcher
             // 
@@ -867,7 +882,7 @@ namespace DXApplication2
             this.colnum_Marcher.Name = "colnum_Marcher";
             this.colnum_Marcher.Visible = true;
             this.colnum_Marcher.VisibleIndex = 3;
-            this.colnum_Marcher.Width = 69;
+            this.colnum_Marcher.Width = 97;
             // 
             // coldate_Visa
             // 
@@ -875,7 +890,7 @@ namespace DXApplication2
             this.coldate_Visa.Name = "coldate_Visa";
             this.coldate_Visa.Visible = true;
             this.coldate_Visa.VisibleIndex = 4;
-            this.coldate_Visa.Width = 69;
+            this.coldate_Visa.Width = 97;
             // 
             // coldate_approbation
             // 
@@ -883,7 +898,7 @@ namespace DXApplication2
             this.coldate_approbation.Name = "coldate_approbation";
             this.coldate_approbation.Visible = true;
             this.coldate_approbation.VisibleIndex = 5;
-            this.coldate_approbation.Width = 80;
+            this.coldate_approbation.Width = 113;
             // 
             // colvalide_approbation
             // 
@@ -898,7 +913,7 @@ namespace DXApplication2
             this.colduree_approbation.Name = "colduree_approbation";
             this.colduree_approbation.Visible = true;
             this.colduree_approbation.VisibleIndex = 6;
-            this.colduree_approbation.Width = 100;
+            this.colduree_approbation.Width = 141;
             // 
             // repositoryItemTrackBar_approb
             // 
@@ -913,7 +928,7 @@ namespace DXApplication2
             this.coldélai_dexecution1.Name = "coldélai_dexecution1";
             this.coldélai_dexecution1.Visible = true;
             this.coldélai_dexecution1.VisibleIndex = 7;
-            this.coldélai_dexecution1.Width = 55;
+            this.coldélai_dexecution1.Width = 78;
             // 
             // colcaution_definitif
             // 
@@ -921,7 +936,7 @@ namespace DXApplication2
             this.colcaution_definitif.Name = "colcaution_definitif";
             this.colcaution_definitif.Visible = true;
             this.colcaution_definitif.VisibleIndex = 8;
-            this.colcaution_definitif.Width = 55;
+            this.colcaution_definitif.Width = 78;
             // 
             // colcaution_return
             // 
@@ -929,7 +944,7 @@ namespace DXApplication2
             this.colcaution_return.Name = "colcaution_return";
             this.colcaution_return.Visible = true;
             this.colcaution_return.VisibleIndex = 9;
-            this.colcaution_return.Width = 55;
+            this.colcaution_return.Width = 78;
             // 
             // coldatenotifiy
             // 
@@ -937,7 +952,7 @@ namespace DXApplication2
             this.coldatenotifiy.Name = "coldatenotifiy";
             this.coldatenotifiy.Visible = true;
             this.coldatenotifiy.VisibleIndex = 10;
-            this.coldatenotifiy.Width = 55;
+            this.coldatenotifiy.Width = 78;
             // 
             // coldate_caution
             // 
@@ -945,7 +960,7 @@ namespace DXApplication2
             this.coldate_caution.Name = "coldate_caution";
             this.coldate_caution.Visible = true;
             this.coldate_caution.VisibleIndex = 11;
-            this.coldate_caution.Width = 71;
+            this.coldate_caution.Width = 83;
             // 
             // colvalide_caution
             // 
@@ -960,7 +975,7 @@ namespace DXApplication2
             this.colduree_caution.Name = "colduree_caution";
             this.colduree_caution.Visible = true;
             this.colduree_caution.VisibleIndex = 12;
-            this.colduree_caution.Width = 64;
+            this.colduree_caution.Width = 97;
             // 
             // repositoryItemTrackBar_caution
             // 
@@ -982,7 +997,7 @@ namespace DXApplication2
             this.colduree_order_service.Name = "colduree_order_service";
             this.colduree_order_service.Visible = true;
             this.colduree_order_service.VisibleIndex = 13;
-            this.colduree_order_service.Width = 74;
+            this.colduree_order_service.Width = 123;
             // 
             // repositoryItemTrackBar_overt
             // 
@@ -1013,7 +1028,7 @@ namespace DXApplication2
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1199, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1544, 0);
             // 
             // barDockControlBottom
             // 
@@ -1021,7 +1036,7 @@ namespace DXApplication2
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 599);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1199, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1544, 0);
             // 
             // barDockControlLeft
             // 
@@ -1035,7 +1050,7 @@ namespace DXApplication2
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1199, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1544, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 599);
             // 
@@ -1086,24 +1101,18 @@ namespace DXApplication2
             this.popupMenu_suivi_orders.Name = "popupMenu_suivi_orders";
             this.popupMenu_suivi_orders.Ribbon = this.ribbonControl;
             // 
-            // ribbonPageGroup4
+            // barButtonItem_print
             // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "barButtonItem3";
-            this.barButtonItem3.Id = 63;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            this.barButtonItem_print.Caption = "Imprimer";
+            this.barButtonItem_print.Id = 64;
+            this.barButtonItem_print.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
+            this.barButtonItem_print.Name = "barButtonItem_print";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 599);
+            this.ClientSize = new System.Drawing.Size(1544, 599);
             this.Controls.Add(this.navigationFrame);
             this.Controls.Add(this.navBarControl);
             this.Controls.Add(this.officeNavigationBar);
@@ -1265,5 +1274,6 @@ namespace DXApplication2
         private System.Windows.Forms.BindingSource classSIMPLEovertureBindingSource;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_print;
     }
 }

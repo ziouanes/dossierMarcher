@@ -206,7 +206,7 @@ SET @DUREE_app = cast((datediff(day,@date_overture,GETDATE()))*100/datediff(day,
 -------procedure notify 2 CAUTION     if(validate  = 0) --------------
 create procedure CAUTION (@id int )
 as
-
+BEGIN
 declare	@validate int ,
 		@duree_caution int ,
 		@date_notificatin date ,
@@ -214,7 +214,7 @@ declare	@validate int ,
 		@boolnoty int,
 		@boolcaution int
 		
-		if exists ( select   datenotifiy from SIMPLE_overture where id3 = @id  )
+		if exists ( select  datenotifiy from SIMPLE_overture where id3 = @id  )
 		begin
 
 		set @date_notificatin = ( select   datenotifiy from SIMPLE_overture where id3 = @id ) ;
@@ -243,7 +243,7 @@ set @validate = (select valide_caution from SIMPLE_overture where id3 = @id)
 if(@validate =0 and @boolnoty = 1 and @boolcaution = 1)
 begin
 
- set @duree_caution =  cast(((datediff(day,@date_notificatin,getdate()))*100)/(datediff(day,@date_notificatin,@date_caution))) as int)
+ set @duree_caution =  cast(((datediff(day,@date_notificatin,getdate()))*100)/datediff(day,@date_notificatin,@date_caution) as int)
 
 
  update SIMPLE_overture set duree_caution = @duree_caution where id3 = @id
@@ -260,12 +260,25 @@ begin
 
 -------procedure notify 3 order service   if(validate  = 0)  END --------------
 
-create procedure order_service (@id int ,  @date_notificatin date , @date_order_service date)
+create procedure _order_service (@id int )
 
 as
+begin
 
 declare	@validate int ,
-		@duree_order_service int 
+		@duree_order_service int ,
+		@date_notification date ,
+				@boolnoty int
+if exists ( select  datenotifiy from SIMPLE_overture where id3 = @id  )
+		begin
+
+		set @date_notification = ( select   datenotifiy from SIMPLE_overture where id3 = @id ) ;
+		set @boolnoty = 1
+
+		end
+		else
+		set @boolnoty = 0
+
 		
 		
 
@@ -274,21 +287,23 @@ set @validate = (select valide_order_service from SIMPLE_overture where id3 = @i
 
 --set @duree_Jornal = (select duree_Jornal from publication where id2 = @id)
 
-if ( @validate = 0 )
+if ( @validate = 0 and @boolnoty = 1)
 begin
-
- set @duree_order_service =  cast(((datediff(day,@date_notificatin,getdate()))*100)/30) as int)
+			
+ set @duree_order_service =  cast(((datediff(day,@date_notification,getdate()))*100)/(30) as int)
 
 
  update SIMPLE_overture set duree_order_service = @duree_order_service where id3 = @id
+	
 
+ end
 
  end
 
- end
+
 
 -------procedure notify 3 order service    if(validate  = 0)  END --------------
-
+	
 
  -------------trigger validate 1 ----------------
  alter trigger Validate1
@@ -312,17 +327,12 @@ begin
   if(@validate = -1)
  begin
 
- update publication set duree_Jornal = 0 , duree_portail  = 0 where id2 = @idPUB
+ update publication set duree_Jornal = -1 , duree_portail  = -1 where id2 = @idPUB
 
  end
  end
 
- select  o.[id_order] , f.[date_deffet] , f.[etat_objet]  , o.[délai_restant] from   order_service o   inner join Etat_order f on   f.order_service = o.id_order where o.[id_order] = 6 
-
- select * from etude
-
- select  v.[num_Marcher] , e.id_etat , o.date_orderService , o.Etat , o.délai_Initial , o.délai_restant , o.id_order  from SIMPLE_overture v  inner join order_service o  on o.id_Overture = v.id3 inner join Etat_order  e on e.order_service = o.id_order  where o.id_Overture = 10
-
+ 
  ------------------trigger validate simple overt-------------------
   ALTER trigger Validate_overt
   on SIMPLE_overture
