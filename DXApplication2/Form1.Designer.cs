@@ -58,6 +58,7 @@ namespace DXApplication2
             this.barButtonItem_order_service = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_suivi = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_print = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupNavigation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -138,7 +139,8 @@ namespace DXApplication2
             this.popupMenucaution = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenu_order_s = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenu_suivi_orders = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.barButtonItem_print = new DevExpress.XtraBars.BarButtonItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -420,6 +422,13 @@ namespace DXApplication2
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
+            // barButtonItem_print
+            // 
+            this.barButtonItem_print.Caption = "Imprimer";
+            this.barButtonItem_print.Id = 64;
+            this.barButtonItem_print.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_print.ImageOptions.SvgImage")));
+            this.barButtonItem_print.Name = "barButtonItem_print";
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -455,7 +464,6 @@ namespace DXApplication2
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem_print);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             // 
             // ribbonPage1
@@ -1101,18 +1109,29 @@ namespace DXApplication2
             this.popupMenu_suivi_orders.Name = "popupMenu_suivi_orders";
             this.popupMenu_suivi_orders.Ribbon = this.ribbonControl;
             // 
-            // barButtonItem_print
+            // label1
             // 
-            this.barButtonItem_print.Caption = "Imprimer";
-            this.barButtonItem_print.Id = 64;
-            this.barButtonItem_print.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
-            this.barButtonItem_print.Name = "barButtonItem_print";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.LawnGreen;
+            this.label1.Location = new System.Drawing.Point(1292, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Admin";
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1544, 599);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.navigationFrame);
             this.Controls.Add(this.navBarControl);
             this.Controls.Add(this.officeNavigationBar);
@@ -1128,7 +1147,10 @@ namespace DXApplication2
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "accueil";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).EndInit();
@@ -1275,5 +1297,7 @@ namespace DXApplication2
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_print;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

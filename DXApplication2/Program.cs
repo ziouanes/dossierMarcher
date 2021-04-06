@@ -4,6 +4,7 @@ using DevExpress.UserSkins;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -18,9 +19,28 @@ namespace DXApplication2
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            //get current proccess name
+            string strProcessName = Process.GetCurrentProcess().ProcessName;
+
+            //chech if this process name is existing in the current name
+            Process[] Oprocesses = Process.GetProcessesByName(strProcessName);
+            //if its existing then exit
+
+            if (Oprocesses.Length > 1)
+            {
+
+                MessageBox.Show("cette application est déjà en cours d'exécution");
+            }
+            else
+            {
+
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Form1());
+
+            }
         }
 
 

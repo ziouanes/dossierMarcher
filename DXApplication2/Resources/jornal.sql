@@ -337,8 +337,8 @@ begin
   ALTER trigger Validate_overt
   on SIMPLE_overture
   after update 
- as
- begin
+  as
+  begin
   declare @validateapprobation int ,
    @validatecaution int ,
    @validatesimpleovert int ,
@@ -348,7 +348,7 @@ begin
    set @validatesimpleovert  = (select top 1 valide_order_service from inserted)
    set @id3  = (select top 1 id3 from inserted)
    if(@validateapprobation = 1)
- begin
+   begin
 
  update SIMPLE_overture set duree_approbation = 100  where id3 = @id3
 

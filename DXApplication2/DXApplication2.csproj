@@ -120,6 +120,18 @@
     <Compile Include="suivi_des_order.Designer.cs">
       <DependentUpon>suivi_des_order.cs</DependentUpon>
     </Compile>
+    <Compile Include="valide caution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="valide caution.Designer.cs">
+      <DependentUpon>valide caution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Valide_approbation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Valide_approbation.Designer.cs">
+      <DependentUpon>Valide_approbation.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="change Operation.resx">
       <DependentUpon>change Operation.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +163,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="suivi_des_order.resx">
       <DependentUpon>suivi_des_order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="valide caution.resx">
+      <DependentUpon>valide caution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Valide_approbation.resx">
+      <DependentUpon>Valide_approbation.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\DataSources\ClassEtude.datasource" />

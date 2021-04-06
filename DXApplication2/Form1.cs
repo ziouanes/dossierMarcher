@@ -3,12 +3,14 @@ using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -189,6 +191,13 @@ namespace DXApplication2
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            reg.SetValue("dossierMarche", Application.ExecutablePath.ToString());
+
+            label1.Visible = false;
+
+            this.KeyPreview = true;
+
             select_Etude_Data();
             select_Publication_Data();
             select_Overt_Data();
@@ -197,6 +206,8 @@ namespace DXApplication2
 
 
             gridViewOvert.OptionsSelection.EnableAppearanceFocusedRow = false;
+
+            valide_sms(); 
 
         }
 
@@ -913,6 +924,9 @@ namespace DXApplication2
 
         private void barButtonItem_modifier_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //modification 
+
+
             var row2 = gridViewEtude.FocusedRowHandle;
             int id3;
             string   cellattributaire;
@@ -949,9 +963,17 @@ namespace DXApplication2
 
         private void barButtonItem_approbation_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //valide approbation  change date approbation
+
             var row2 = gridViewOvert.FocusedRowHandle;
             string cellid;
+            DateTime date_approbation =  Convert.ToDateTime(gridViewOvert.GetRowCellValue(row2, "date_approbation").ToString());
             cellid = gridViewOvert.GetRowCellValue(row2, "id3").ToString();
+
+            Valide_approbation valide_ = new  Valide_approbation(int.Parse(cellid), date_approbation);
+
+            select_Overt_Data();
+
 
             if (MessageBox.Show("Voulez-vous vraiment validate cette approbation   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -988,41 +1010,14 @@ namespace DXApplication2
 
         private void barButtonItem_confirmer_caution_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var row2 = gridViewOvert.FocusedRowHandle;
-            string cellid;
+            var row2 = gridViewOvert.FocusedRowHandle ;
+            string cellid ;
             cellid = gridViewOvert.GetRowCellValue(row2, "id3").ToString();
-
-            if (MessageBox.Show("Voulez-vous vraiment Validate cette caution   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                try
-                {
-
-
-                    using (SqlCommand deleteCommand = new SqlCommand("update SIMPLE_overture set valide_caution = 1 WHERE id3 = @id", Program.sql_con))
-                    {
-
-
-                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-
-                        deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
-
-                        deleteCommand.ExecuteNonQuery();
+            DateTime date_caution = Convert.ToDateTime(gridViewOvert.GetRowCellValue(row2, "date_caution").ToString());
+            valide_caution valide_ = new valide_caution( int.Parse(cellid), date_caution);
 
 
 
-                    }
-                    select_Overt_Data();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    //this.Dispose();
-                }
-
-            }
         }
 
         private void barButtonItem_order_service_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -1057,7 +1052,124 @@ namespace DXApplication2
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             RunStoredProc_duree_portail();
+            valide_sms();
 
+        }
+                private string[] lines;
+                private int index = 0;
+                    string ss = "";
+
+        static string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+
+        public void valide_sms()
+        {
+            if (File.Exists(filePath + " / FILE_SMS.txt"))  // If file does not exists
+            {
+
+                lines = lines ?? File.ReadAllLines(filePath + " / FILE_SMS.txt");
+
+                // sanity check 
+                if (index < lines.Length)
+                    ss = lines[index++]; // index++ increments after use
+
+
+
+                MessageBox.Show(ss);
+                label1.Visible = true;
+            }
+
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+           
+
+
+
+            if (e.Control && e.Alt && e.KeyCode == Keys.F10)//here you can choose any key you want
+            {
+
+                if (MessageBox.Show("Create Admin  ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+
+                        if (!File.Exists(filePath + " / FILE_SMS.txt")) // If file does not exists
+                        {
+                            File.Create(filePath + " / FILE_SMS.txt").Close(); // Create file
+                            using (StreamWriter sw = File.AppendText(filePath + " / FILE_SMS.txt"))
+                            {
+                                sw.WriteLine("911"); // Write text to .txt file
+                                MessageBox.Show("Create success");
+                            }
+                            File.SetAttributes(
+                             filePath + " / FILE_SMS.txt",
+                             FileAttributes.Hidden |
+                             FileAttributes.ReadOnly
+                             );
+                            label1.Visible = true;
+
+                        }
+                        else // If file already exists
+                        {
+
+
+
+
+                            MessageBox.Show("elredy_exist");
+
+
+
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        //this.Dispose();
+                    }
+
+
+
+                }
+
+
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.ShowInTaskbar = true;
+                notifyIcon1.Visible = false;
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                WindowState = FormWindowState.Minimized;
+                this.ShowInTaskbar = false;
+                notifyIcon1.BalloonTipText = "votre application a été réduite dans la barre d'état système";
+                notifyIcon1.ShowBalloonTip(1000);
+                notifyIcon1.Visible = true;
+
+
+            }
         }
     }
 }
