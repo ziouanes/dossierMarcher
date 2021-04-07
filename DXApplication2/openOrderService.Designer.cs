@@ -164,8 +164,6 @@ namespace DXApplication2
             this.dateeditorderservice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateeditorderservice.Properties.EditFormat.FormatString = "";
             this.dateeditorderservice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateeditorderservice.Properties.Mask.EditMask = "";
-            this.dateeditorderservice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.dateeditorderservice.Size = new System.Drawing.Size(166, 20);
             this.dateeditorderservice.StyleController = this.layoutControl1;
             this.dateeditorderservice.TabIndex = 4;

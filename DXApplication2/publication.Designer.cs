@@ -30,9 +30,9 @@ namespace DXApplication2
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(publication));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.comboBoxObject = new System.Windows.Forms.ComboBox();
@@ -130,13 +130,13 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions1.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions2.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions3.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions7.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions8.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions9.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
             this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanelMain.EnableImageTransparency = true;
             this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 332);
@@ -169,10 +169,9 @@ namespace DXApplication2
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.textEditJornal.Properties.DisplayFormat.FormatString = "";
             this.textEditJornal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEditJornal.Properties.EditFormat.FormatString = "";
+            this.textEditJornal.Properties.EditFormat.FormatString = "dd/mm/yyyy";
             this.textEditJornal.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEditJornal.Properties.Mask.EditMask = "";
-            this.textEditJornal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.textEditJornal.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.textEditJornal.Size = new System.Drawing.Size(429, 20);
             this.textEditJornal.StyleController = this.layoutControl1;
             this.textEditJornal.TabIndex = 6;
@@ -191,8 +190,6 @@ namespace DXApplication2
             this.textEditconvocation.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.textEditconvocation.Properties.EditFormat.FormatString = "";
             this.textEditconvocation.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEditconvocation.Properties.Mask.EditMask = "";
-            this.textEditconvocation.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.textEditconvocation.Size = new System.Drawing.Size(434, 20);
             this.textEditconvocation.StyleController = this.layoutControl1;
             this.textEditconvocation.TabIndex = 5;
@@ -211,8 +208,6 @@ namespace DXApplication2
             this.textEditportai.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.textEditportai.Properties.EditFormat.FormatString = "";
             this.textEditportai.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEditportai.Properties.Mask.EditMask = "";
-            this.textEditportai.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.textEditportai.Size = new System.Drawing.Size(434, 20);
             this.textEditportai.StyleController = this.layoutControl1;
             this.textEditportai.TabIndex = 7;
@@ -230,8 +225,6 @@ namespace DXApplication2
             this.dateEditop.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEditop.Properties.EditFormat.FormatString = "";
             this.dateEditop.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEditop.Properties.Mask.EditMask = "";
-            this.dateEditop.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.dateEditop.Size = new System.Drawing.Size(985, 20);
             this.dateEditop.StyleController = this.layoutControl1;
             this.dateEditop.TabIndex = 6;
@@ -456,7 +449,6 @@ namespace DXApplication2
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private System.Windows.Forms.ComboBox comboBoxObject;
         private DevExpress.XtraEditors.TextEdit textEditAop;
-        private DevExpress.XtraEditors.DateEdit textEditJornal;
         private DevExpress.XtraEditors.DateEdit textEditconvocation;
         private DevExpress.XtraEditors.DateEdit textEditportai;
         private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup1;
@@ -474,5 +466,6 @@ namespace DXApplication2
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager1;
+        public DevExpress.XtraEditors.DateEdit textEditJornal;
     }
 }

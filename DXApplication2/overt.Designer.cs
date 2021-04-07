@@ -29,9 +29,9 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.editable = new DevExpress.XtraEditors.CheckEdit();
             this.dateEdit_caution = new DevExpress.XtraEditors.DateEdit();
@@ -169,10 +169,14 @@ namespace DXApplication2
             // 
             // editable
             // 
-            this.editable.Location = new System.Drawing.Point(36, 358);
+            this.editable.Location = new System.Drawing.Point(36, 357);
             this.editable.Name = "editable";
             this.editable.Properties.Caption = "Editable";
-            this.editable.Size = new System.Drawing.Size(1218, 18);
+            this.editable.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgCheckBox1;
+            this.editable.Properties.CheckBoxOptions.SvgColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.editable.Properties.CheckBoxOptions.SvgColorGrayed = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.editable.Properties.CheckBoxOptions.SvgColorUnchecked = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.editable.Size = new System.Drawing.Size(1218, 22);
             this.editable.StyleController = this.layoutControl1;
             this.editable.TabIndex = 14;
             this.editable.CheckedChanged += new System.EventHandler(this.editable_CheckedChanged);
@@ -180,7 +184,7 @@ namespace DXApplication2
             // dateEdit_caution
             // 
             this.dateEdit_caution.EditValue = null;
-            this.dateEdit_caution.Location = new System.Drawing.Point(863, 413);
+            this.dateEdit_caution.Location = new System.Drawing.Point(863, 416);
             this.dateEdit_caution.Name = "dateEdit_caution";
             this.dateEdit_caution.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -193,7 +197,7 @@ namespace DXApplication2
             // dateEditreception
             // 
             this.dateEditreception.EditValue = null;
-            this.dateEditreception.Location = new System.Drawing.Point(218, 413);
+            this.dateEditreception.Location = new System.Drawing.Point(218, 416);
             this.dateEditreception.Name = "dateEditreception";
             this.dateEditreception.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -255,13 +259,13 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions1.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions2.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions3.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions7.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions8.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions9.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
             this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanelMain.EnableImageTransparency = true;
             this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 520);
@@ -294,7 +298,7 @@ namespace DXApplication2
             // 
             // textEditdefinitif
             // 
-            this.textEditdefinitif.Location = new System.Drawing.Point(218, 302);
+            this.textEditdefinitif.Location = new System.Drawing.Point(218, 301);
             this.textEditdefinitif.Name = "textEditdefinitif";
             this.textEditdefinitif.Properties.ReadOnly = true;
             this.textEditdefinitif.Size = new System.Drawing.Size(399, 20);
@@ -303,7 +307,7 @@ namespace DXApplication2
             // 
             // caution_return
             // 
-            this.caution_return.Location = new System.Drawing.Point(863, 302);
+            this.caution_return.Location = new System.Drawing.Point(863, 301);
             this.caution_return.Name = "caution_return";
             this.caution_return.Properties.ReadOnly = true;
             this.caution_return.Size = new System.Drawing.Size(379, 20);
@@ -428,9 +432,9 @@ namespace DXApplication2
             this.emptySpaceItem15,
             this.datenotifiy,
             this.layoutControlItem7});
-            this.layoutControlGroup8.Location = new System.Drawing.Point(0, 216);
+            this.layoutControlGroup8.Location = new System.Drawing.Point(0, 219);
             this.layoutControlGroup8.Name = "layoutControlGroup8";
-            this.layoutControlGroup8.Size = new System.Drawing.Size(1222, 106);
+            this.layoutControlGroup8.Size = new System.Drawing.Size(1222, 103);
             this.layoutControlGroup8.Text = "layoutControlGroup7";
             // 
             // layoutControlItem8
@@ -438,7 +442,7 @@ namespace DXApplication2
             this.layoutControlItem8.Control = this.textEdit3;
             this.layoutControlItem8.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 37);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(568, 24);
             this.layoutControlItem8.Text = "layoutControlItem3";
@@ -450,7 +454,7 @@ namespace DXApplication2
             this.layoutControlItem9.Control = this.textEdit4;
             this.layoutControlItem9.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem9.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem9.Location = new System.Drawing.Point(645, 37);
+            this.layoutControlItem9.Location = new System.Drawing.Point(645, 34);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(553, 24);
             this.layoutControlItem9.Text = "layoutControlItem4";
@@ -527,7 +531,7 @@ namespace DXApplication2
             this.layoutControlItem11});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(1222, 174);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1222, 173);
             this.layoutControlGroup3.Text = "layoutControlGroup2";
             // 
             // azze
@@ -609,7 +613,7 @@ namespace DXApplication2
             this.layoutControlItem12.Control = this.textEditdefinitif;
             this.layoutControlItem12.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem12.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 105);
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 104);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(573, 24);
             this.layoutControlItem12.Text = "caution definitif : ";
@@ -621,7 +625,7 @@ namespace DXApplication2
             this.layoutControlItem13.Control = this.caution_return;
             this.layoutControlItem13.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem13.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem13.Location = new System.Drawing.Point(645, 105);
+            this.layoutControlItem13.Location = new System.Drawing.Point(645, 104);
             this.layoutControlItem13.Name = "layoutControlItem13";
             this.layoutControlItem13.Size = new System.Drawing.Size(553, 24);
             this.layoutControlItem13.Text = "Caution return : ";
@@ -708,9 +712,9 @@ namespace DXApplication2
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.editable;
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 194);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 193);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(1222, 22);
+            this.layoutControlItem14.Size = new System.Drawing.Size(1222, 26);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 

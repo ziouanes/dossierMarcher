@@ -107,8 +107,6 @@ namespace DXApplication2
             this.date_change.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.date_change.Properties.EditFormat.FormatString = "";
             this.date_change.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.date_change.Properties.Mask.EditMask = "";
-            this.date_change.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.date_change.Size = new System.Drawing.Size(328, 20);
             this.date_change.StyleController = this.layoutControl1;
             this.date_change.TabIndex = 5;
