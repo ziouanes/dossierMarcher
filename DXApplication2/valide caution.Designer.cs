@@ -79,7 +79,7 @@ namespace DXApplication2
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.simpleButtonLCI});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(417, 76);
             this.layoutControlGroup1.TextVisible = false;
             // 

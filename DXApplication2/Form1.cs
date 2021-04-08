@@ -3,6 +3,7 @@ using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraSplashScreen;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -41,8 +43,21 @@ namespace DXApplication2
 
         }
 
+        public void run()
+        {
+            SplashScreenManager.ShowForm(this, typeof(WaitFormsplach), true, true, false);
+
+            SplashScreenManager.Default.SetWaitFormCaption("en cours d'exécution");
+            for (int i = 0; i < 100; i++)
+            {
+                Thread.Sleep(5);
+            }
+            SplashScreenManager.CloseForm();
+        }
+
         private void barButtonEtude_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            run();
             Etude fm = new Etude();
 
             fm.ShowDialog();
@@ -399,6 +414,7 @@ namespace DXApplication2
 
         private void barButtonPublication_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            run();
             publication fm = new publication();
 
             fm.ShowDialog();
@@ -915,6 +931,7 @@ namespace DXApplication2
 
         private void barButtonouverture_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            run();
             overt ov = new overt();
             ov.ShowDialog();
             select_Overt_Data();

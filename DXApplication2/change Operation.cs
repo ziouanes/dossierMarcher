@@ -36,7 +36,7 @@ namespace DXApplication2
                     SqlCommand cmd = Program.sql_con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
 
-                    cmd.CommandText = " select TOP  1 date_deffet , etat_objet   from Etat_order    where order_service = " + _order_service + " order by date_deffet desc ";
+                    cmd.CommandText = " select TOP  1 date_deffet , etat_objet   from Etat_order    where order_service = " + _order_service + " order by id_etat desc ";
 
                     DataTable table = new DataTable();
                     cmd.ExecuteNonQuery();

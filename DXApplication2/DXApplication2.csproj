@@ -114,6 +114,12 @@
       <DependentUpon>publication.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassSIMPLE_overture.cs" />
+    <Compile Include="report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="report.Designer.cs">
+      <DependentUpon>report.cs</DependentUpon>
+    </Compile>
     <Compile Include="suivi_des_order.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
     </Compile>
     <Compile Include="Valide_approbation.Designer.cs">
       <DependentUpon>Valide_approbation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitFormsplach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitFormsplach.Designer.cs">
+      <DependentUpon>WaitFormsplach.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="change Operation.resx">
       <DependentUpon>change Operation.cs</DependentUpon>
@@ -161,6 +173,9 @@
     <EmbeddedResource Include="publication.resx">
       <DependentUpon>publication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="report.resx">
+      <DependentUpon>report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="suivi_des_order.resx">
       <DependentUpon>suivi_des_order.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Valide_approbation.resx">
       <DependentUpon>Valide_approbation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitFormsplach.resx">
+      <DependentUpon>WaitFormsplach.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\DataSources\ClassEtude.datasource" />
