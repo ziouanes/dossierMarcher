@@ -489,3 +489,10 @@ update order_service set délai_restant  = @new_delai where id_order = @id_order
 end
 
 
+
+
+select  e.validate as 'etude_V'  ,   p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet from etude e inner join fk k on e.id1 = k.id1 inner join publication p on p.id2 = k.id2 inner join fk2 pk on pk.id2 =  p.id2 inner join SIMPLE_overture s on s.id3 = pk.id3 inner join order_service o on o.id_order = s.id3  where s.num_Marcher = '12AA'
+
+
+
+select p.id2 , p.Aop  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1  where  e.id1 = 5   ;
