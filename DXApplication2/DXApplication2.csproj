@@ -212,7 +212,12 @@
     <Content Include="icons8_commercial.ico" />
     <Content Include="icons8_thanksgiving.ico" />
     <Content Include="icons8_thanksgiving_32.ico" />
+    <Content Include="Resources\cancel.svg" />
+    <None Include="Resources\cancel_48px.png" />
+    <None Include="Resources\checked_40px.png" />
+    <Content Include="Resources\delete_64px.png" />
     <Content Include="Resources\jornal.sql" />
+    <Content Include="Resources\synchronize_40px.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Dapper">

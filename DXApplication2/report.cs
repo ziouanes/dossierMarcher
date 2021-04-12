@@ -1,6 +1,8 @@
 ﻿using Dapper;
+using DevExpress.Utils.Svg;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
+using DXApplication2.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +31,7 @@ namespace DXApplication2
                 label_objet.Text ="";
                 labelAop.Text = "";
                 labeln_marche.Text = "";
-                stepProgressBar1.SelectedItemIndex = -1;
+                //stepProgressBar1.SelectedItemIndex = -1;
 
                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
@@ -73,7 +75,7 @@ namespace DXApplication2
                 label_objet.Text = "";
                 labelAop.Text = "";
                 labeln_marche.Text = "";
-                stepProgressBar1.SelectedItemIndex = -1;
+                //stepProgressBar1.SelectedItemIndex = -1;
                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
 
@@ -116,7 +118,7 @@ namespace DXApplication2
                 label_objet.Text = "";
                 labelAop.Text = "";
                 labeln_marche.Text = "";
-                stepProgressBar1.SelectedItemIndex = -1;
+                //stepProgressBar1.SelectedItemIndex = -1;
                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
 
@@ -219,7 +221,10 @@ namespace DXApplication2
                 Thread.Sleep(5);
             }
             SplashScreenManager.CloseForm();
+            stepProgressBar1.SelectedItemIndex = -1;
+
         }
+
 
         private void simpleButton11_Click(object sender, EventArgs e)
         {
@@ -228,7 +233,7 @@ namespace DXApplication2
             try
             {
 
-                if(lookUpEdit1.EditValue != null && lookUpEdit2.EditValue == null && lookUpEdit3.EditValue == null)
+                if(lookUpEdit1.ItemIndex != -1 && lookUpEdit2.ItemIndex == -1 && lookUpEdit3.ItemIndex == -1)
                 {
                     //etude
                     if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
@@ -237,7 +242,7 @@ namespace DXApplication2
                         SqlCommand cmd = Program.sql_con.CreateCommand();
                         cmd.CommandType = CommandType.Text;
 
-                        cmd.CommandText = $" select  [id1] , [validate] from etude where id1  = {lookUpEdit1.EditValue.ToString()} ";
+                        cmd.CommandText = " select  [id1] , envoyer_tresoryer , [validate] from etude where id1  = " + lookUpEdit1.EditValue.ToString()+" ";
 
                         DataTable table = new DataTable();
                         cmd.ExecuteNonQuery();
@@ -245,19 +250,33 @@ namespace DXApplication2
                         da.Fill(table);
                         foreach (DataRow row in table.Rows)
                         {
-                            if (int.Parse(row["validate"].ToString()) == 0)
+                             if (int.Parse(row["validate"].ToString()) == -1)
                             {
                                 stepProgressBar1.SelectedItemIndex = 0;
+                                stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.cancel_48px;
+
+
                             }
-                        else if (int.Parse(row["validate"].ToString()) == 1)
+                          else if (int.Parse(row["validate"].ToString()) == 0 )
+                            {
+                                stepProgressBar1.SelectedItemIndex = 0;
+                                stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.synchronize_40px;
+                               // stepProgressBarItem1.ContentBlock2.Description = row["envoyer_tresoryer"].ToString();
+
+
+                            }
+                            else if (int.Parse(row["validate"].ToString()) == 1)
                         {
-                            stepProgressBar1.SelectedItemIndex = 1;
+                                stepProgressBar1.SelectedItemIndex = 1;
+                                stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                
+
+                            }
+
+
 
                         }
-
-
-
-                    }
 
                     }
 
@@ -266,7 +285,7 @@ namespace DXApplication2
 
                 //pub
 
-                else if(lookUpEdit1.EditValue != null && lookUpEdit2.EditValue != null && lookUpEdit3.EditValue == null)
+                else if (lookUpEdit1.ItemIndex != -1 && lookUpEdit2.ItemIndex != -1 && lookUpEdit3.ItemIndex == -1)
                 {
                     if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
@@ -282,12 +301,33 @@ namespace DXApplication2
                         da.Fill(table);
                         foreach (DataRow row in table.Rows)
                         {
-                            if (int.Parse(row["validate"].ToString()) == 1)
+                             if ( int.Parse(row["validate"].ToString()) == -1)
                             {
-                                stepProgressBar1.SelectedItemIndex = 2;
+                                stepProgressBar1.SelectedItemIndex = 1;
+
+                                stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.cancel_48px;
 
                             }
-                           
+                            else if(int.Parse(row["validate"].ToString()) == 0)
+                            {
+                                stepProgressBar1.SelectedItemIndex = 1;
+                                //stepProgressBar1.ItemOptions.Indicator.ActiveStateImageOptions.SvgImage = Resources.
+                                stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.synchronize_40px;
+
+
+                            }
+                            else if (int.Parse(row["validate"].ToString()) == 1)
+                            {
+                                stepProgressBar1.SelectedItemIndex = 2;
+                                stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+
+                            }
+
 
 
 
@@ -297,8 +337,8 @@ namespace DXApplication2
 
                 }
 
-                //
-                else if (lookUpEdit1.EditValue != null && lookUpEdit2.EditValue != null && lookUpEdit3.EditValue != null)
+
+                else if (lookUpEdit1.ItemIndex != -1 && lookUpEdit2.ItemIndex != -1 && lookUpEdit3.ItemIndex != -1)
                 {
                     if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
@@ -306,7 +346,7 @@ namespace DXApplication2
                         SqlCommand cmd = Program.sql_con.CreateCommand();
                         cmd.CommandType = CommandType.Text;
 
-                        cmd.CommandText = $" select  e.validate as 'etude_V'  ,   p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet from etude e inner join fk k on e.id1 = k.id1 inner join publication p on p.id2 = k.id2 inner join fk2 pk on pk.id2 =  p.id2 inner join SIMPLE_overture s on s.id3 = pk.id3 inner join order_service o on o.id_order = s.id3  where s.id3 = {lookUpEdit2.EditValue.ToString()} ";
+                        cmd.CommandText = $" select e.validate as 'etude_V' , p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet from etude e inner join fk k on e.id1 = k.id1 inner join publication p on p.id2 = k.id2 inner join fk2 pk on pk.id2 =  p.id2 inner join SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where e.id1 = {lookUpEdit1.EditValue.ToString()} ";
 
                         DataTable table = new DataTable();
                         cmd.ExecuteNonQuery();
@@ -314,38 +354,134 @@ namespace DXApplication2
                         da.Fill(table);
                         foreach (DataRow row in table.Rows)
                         {
-                            if (int.Parse(row["etat"].ToString()) == 3)
-                            {
-                                stepProgressBar1.SelectedItemIndex = 7;
-                            }
-                            else if (int.Parse(row["etat"].ToString()) == 2)
-                            {
-                                stepProgressBar1.SelectedItemIndex = 6;
-                            }
-                            else if (int.Parse(row["etat"].ToString()) == 1 || int.Parse(row["etat"].ToString()) == 0)
-                            {
-                                stepProgressBar1.SelectedItemIndex = 5;
-                            }
-                            else if (int.Parse(row["etat"].ToString()) == -1 )
-                            {
-                                if(int.Parse(row["valide_order_service"].ToString()) == 1)
-                                {
-                                    stepProgressBar1.SelectedItemIndex = 5;
+                            MessageBox.Show(row["valide_order_service"].ToString());
 
-                                }
-                                else if(int.Parse(row["valide_caution"].ToString()) == 1)
+                            if (row["etat"].ToString() == "" )
+                            {
+                                if (int.Parse(row["valide_approbation"].ToString()) == 0)
                                 {
-                                    stepProgressBar1.SelectedItemIndex = 4;
+                                    stepProgressBar1.SelectedItemIndex = 3;
+                                    stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.synchronize_40px;
 
+                                    stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                    stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
                                 }
                                 else if (int.Parse(row["valide_approbation"].ToString()) == 1)
                                 {
                                     stepProgressBar1.SelectedItemIndex = 3;
+                                    stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                    stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                    stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                }
+                                if (int.Parse(row["valide_caution"].ToString()) == 0)
+                                {
+                                    stepProgressBar1.SelectedItemIndex = 4;
+                                    stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image = Resources.synchronize_40px;
+
+                                    stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                    stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                    stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
 
                                 }
+                                else if (int.Parse(row["valide_caution"].ToString()) == 1)
+                                {
+                                    stepProgressBar1.SelectedItemIndex = 4;
+                                    stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
 
+                                    stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                    stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                    stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+
+                                }
+                                if (int.Parse(row["valide_order_service"].ToString()) == 0)
+                                {
+                                    stepProgressBar1.SelectedItemIndex = 5;
+                                    stepProgressBarItem6.Options.Indicator.ActiveStateImageOptions.Image = Resources.synchronize_40px;
+
+                                    stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                    stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+
+
+                                }
+                                else if (int.Parse(row["valide_order_service"].ToString()) == 1)
+                                {
+                                    stepProgressBar1.SelectedItemIndex = 5;
+                                    stepProgressBarItem6.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                    stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                    stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                    stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                    stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                }
+                                
+                               
+                            }
+                            else if (int.Parse(row["etat"].ToString()) == 0)
+                            {
+                                stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                stepProgressBarItem6.Options.Indicator.ActiveStateImageOptions.Image = Resources.synchronize_40px;
+                                stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                stepProgressBar1.SelectedItemIndex = 5;
+                            }
+                            else if (int.Parse(row["etat"].ToString()) == 1)
+                            {
+                                stepProgressBarItem6.Options.Indicator.ActiveStateImageOptions.Image = Resources.synchronize_40px;
+                                stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+
+                                stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBar1.SelectedItemIndex = 5;
 
                             }
+
+                            else if (int.Parse(row["etat"].ToString()) == 2)
+                            {
+                                stepProgressBarItem6.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem7.Options.Indicator.ActiveStateImageOptions.Image = Resources.synchronize_40px;
+
+                                stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBar1.SelectedItemIndex = 6;
+                            }
+                            else if (int.Parse(row["etat"].ToString()) == 3)
+                            {
+                                stepProgressBarItem6.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem8.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                stepProgressBarItem7.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBar1.SelectedItemIndex = 7;
+                            }
+                                        
+
+
+                            
 
 
                         }
@@ -354,7 +490,7 @@ namespace DXApplication2
                 }
 
 
-                    
+
                 label_objet.Text = "objet :  " + lookUpEdit1.Text;
                 labelAop.Text = "référence ° " + lookUpEdit2.Text;
                 labeln_marche.Text = "n° marchée :" + lookUpEdit3.Text;
@@ -411,6 +547,11 @@ namespace DXApplication2
         }
 
         private void lookUpEdit2_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stepProgressBar1_Click_1(object sender, EventArgs e)
         {
 
         }

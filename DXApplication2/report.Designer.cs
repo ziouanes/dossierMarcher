@@ -127,62 +127,58 @@ namespace DXApplication2
             this.stepProgressBar1.LayoutMode = DevExpress.XtraEditors.StepProgressBarLayoutMode.FullSize;
             this.stepProgressBar1.Location = new System.Drawing.Point(24, 242);
             this.stepProgressBar1.Name = "stepProgressBar1";
-            this.stepProgressBar1.SelectedItemIndex = 2;
             this.stepProgressBar1.Size = new System.Drawing.Size(1150, 90);
             this.stepProgressBar1.StyleController = this.layoutControl1;
             this.stepProgressBar1.TabIndex = 7;
-            this.stepProgressBar1.Visible = false;
+            this.stepProgressBar1.Click += new System.EventHandler(this.stepProgressBar1_Click_1);
             // 
             // stepProgressBarItem1
             // 
             this.stepProgressBarItem1.ContentBlock2.Caption = "Etude";
             this.stepProgressBarItem1.Name = "stepProgressBarItem1";
-            this.stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image")));
-            this.stepProgressBarItem1.State = DevExpress.XtraEditors.StepProgressBarItemState.Active;
+            this.stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = global::DXApplication2.Properties.Resources.checked_40px;
             // 
             // stepProgressBarItem2
             // 
             this.stepProgressBarItem2.ContentBlock2.Caption = "Publication";
             this.stepProgressBarItem2.Name = "stepProgressBarItem2";
-            this.stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image")));
-            this.stepProgressBarItem2.State = DevExpress.XtraEditors.StepProgressBarItemState.Active;
+            this.stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = global::DXApplication2.Properties.Resources.checked_40px;
             // 
             // stepProgressBarItem3
             // 
             this.stepProgressBarItem3.ContentBlock2.Caption = "Overture";
             this.stepProgressBarItem3.Name = "stepProgressBarItem3";
-            this.stepProgressBarItem3.Options.Indicator.ActiveStateImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("stepProgressBarItem3.Options.Indicator.ActiveStateImageOptions.Image")));
-            this.stepProgressBarItem3.State = DevExpress.XtraEditors.StepProgressBarItemState.Active;
+            this.stepProgressBarItem3.Options.Indicator.ActiveStateImageOptions.Image = global::DXApplication2.Properties.Resources.checked_40px;
             // 
             // stepProgressBarItem4
             // 
             this.stepProgressBarItem4.ContentBlock2.Caption = "Approbation";
             this.stepProgressBarItem4.Name = "stepProgressBarItem4";
-            this.stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image")));
+            this.stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = global::DXApplication2.Properties.Resources.checked_40px;
             // 
             // stepProgressBarItem5
             // 
             this.stepProgressBarItem5.ContentBlock2.Caption = "Caution";
             this.stepProgressBarItem5.Name = "stepProgressBarItem5";
-            this.stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image")));
+            this.stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image = global::DXApplication2.Properties.Resources.checked_40px;
             // 
             // stepProgressBarItem6
             // 
             this.stepProgressBarItem6.ContentBlock2.Caption = "Order service";
             this.stepProgressBarItem6.Name = "stepProgressBarItem6";
-            this.stepProgressBarItem6.Options.Indicator.ActiveStateImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("stepProgressBarItem6.Options.Indicator.ActiveStateImageOptions.Image")));
+            this.stepProgressBarItem6.Options.Indicator.ActiveStateImageOptions.Image = global::DXApplication2.Properties.Resources.checked_40px;
             // 
             // stepProgressBarItem7
             // 
             this.stepProgressBarItem7.ContentBlock2.Caption = "réception provisoire";
             this.stepProgressBarItem7.Name = "stepProgressBarItem7";
-            this.stepProgressBarItem7.Options.Indicator.ActiveStateImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("stepProgressBarItem7.Options.Indicator.ActiveStateImageOptions.Image")));
+            this.stepProgressBarItem7.Options.Indicator.ActiveStateImageOptions.Image = global::DXApplication2.Properties.Resources.checked_40px;
             // 
             // stepProgressBarItem8
             // 
             this.stepProgressBarItem8.ContentBlock2.Caption = "réception définitive";
             this.stepProgressBarItem8.Name = "stepProgressBarItem8";
-            this.stepProgressBarItem8.Options.Indicator.ActiveStateImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("stepProgressBarItem8.Options.Indicator.ActiveStateImageOptions.Image")));
+            this.stepProgressBarItem8.Options.Indicator.ActiveStateImageOptions.Image = global::DXApplication2.Properties.Resources.checked_40px;
             // 
             // lookUpEdit3
             // 
