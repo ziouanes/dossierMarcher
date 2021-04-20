@@ -29,10 +29,11 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.checkEditFDR = new DevExpress.XtraEditors.CheckEdit();
             this.textEditdélai = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxnature = new System.Windows.Forms.ComboBox();
             this.comboBoxtype = new System.Windows.Forms.ComboBox();
@@ -41,6 +42,7 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.textEditCaution = new DevExpress.XtraEditors.TextEdit();
             this.textEditestimation = new DevExpress.XtraEditors.TextEdit();
+            this.richTextBoxobject = new DevExpress.XtraEditors.MemoExEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
@@ -60,14 +62,16 @@ namespace DXApplication2
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.délai_dexecution = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.richTextBoxobject = new DevExpress.XtraEditors.MemoExEdit();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditFDR.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditdélai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditTresorier.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditTresorier.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCaution.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditestimation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.richTextBoxobject.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
@@ -87,11 +91,12 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.délai_dexecution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.richTextBoxobject.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.checkEditFDR);
             this.layoutControl1.Controls.Add(this.textEditdélai);
             this.layoutControl1.Controls.Add(this.comboBoxnature);
             this.layoutControl1.Controls.Add(this.comboBoxtype);
@@ -110,6 +115,15 @@ namespace DXApplication2
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // checkEditFDR
+            // 
+            this.checkEditFDR.Location = new System.Drawing.Point(598, 216);
+            this.checkEditFDR.Name = "checkEditFDR";
+            this.checkEditFDR.Properties.Caption = "/ FDR";
+            this.checkEditFDR.Size = new System.Drawing.Size(502, 18);
+            this.checkEditFDR.StyleController = this.layoutControl1;
+            this.checkEditFDR.TabIndex = 18;
+            // 
             // textEditdélai
             // 
             this.textEditdélai.Location = new System.Drawing.Point(162, 216);
@@ -125,6 +139,7 @@ namespace DXApplication2
             this.comboBoxnature.Name = "comboBoxnature";
             this.comboBoxnature.Size = new System.Drawing.Size(364, 21);
             this.comboBoxnature.TabIndex = 15;
+            this.comboBoxnature.SelectedIndexChanged += new System.EventHandler(this.comboBoxnature_SelectedIndexChanged);
             // 
             // comboBoxtype
             // 
@@ -172,13 +187,13 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions7.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions8.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions9.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions1.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions2.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions3.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
             this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanelMain.EnableImageTransparency = true;
             this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 252);
@@ -211,6 +226,18 @@ namespace DXApplication2
             this.textEditestimation.Size = new System.Drawing.Size(337, 20);
             this.textEditestimation.StyleController = this.layoutControl1;
             this.textEditestimation.TabIndex = 12;
+            // 
+            // richTextBoxobject
+            // 
+            this.richTextBoxobject.Location = new System.Drawing.Point(162, 45);
+            this.richTextBoxobject.Name = "richTextBoxobject";
+            this.richTextBoxobject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.richTextBoxobject.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.richTextBoxobject.Properties.ShowIcon = false;
+            this.richTextBoxobject.Size = new System.Drawing.Size(938, 20);
+            this.richTextBoxobject.StyleController = this.layoutControl1;
+            this.richTextBoxobject.TabIndex = 17;
             // 
             // Root
             // 
@@ -258,7 +285,8 @@ namespace DXApplication2
             this.layoutControlItem9,
             this.layoutControlItem6,
             this.délai_dexecution,
-            this.layoutControlItem8});
+            this.layoutControlItem8,
+            this.layoutControlItem7});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1080, 195);
@@ -348,7 +376,7 @@ namespace DXApplication2
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(479, 171);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(601, 24);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(95, 24);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
@@ -403,17 +431,14 @@ namespace DXApplication2
             this.layoutControlItem8.Text = "Objet : ";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(135, 13);
             // 
-            // richTextBoxobject
+            // layoutControlItem7
             // 
-            this.richTextBoxobject.Location = new System.Drawing.Point(162, 45);
-            this.richTextBoxobject.Name = "richTextBoxobject";
-            this.richTextBoxobject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.richTextBoxobject.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.richTextBoxobject.Properties.ShowIcon = false;
-            this.richTextBoxobject.Size = new System.Drawing.Size(938, 20);
-            this.richTextBoxobject.StyleController = this.layoutControl1;
-            this.richTextBoxobject.TabIndex = 17;
+            this.layoutControlItem7.Control = this.checkEditFDR;
+            this.layoutControlItem7.Location = new System.Drawing.Point(574, 171);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(506, 24);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
             // 
             // Etude
             // 
@@ -428,11 +453,13 @@ namespace DXApplication2
             this.Load += new System.EventHandler(this.Etude_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditFDR.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditdélai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditTresorier.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditTresorier.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCaution.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditestimation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.richTextBoxobject.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
@@ -452,7 +479,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.délai_dexecution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.richTextBoxobject.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -488,5 +515,7 @@ namespace DXApplication2
         private DevExpress.XtraLayout.LayoutControlItem délai_dexecution;
         private DevExpress.XtraEditors.MemoExEdit richTextBoxobject;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraEditors.CheckEdit checkEditFDR;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
     }
 }

@@ -29,7 +29,7 @@ namespace DXApplication2
             textEditCaution.Text = montant;
             dateenvoyer = envoyer_tresoryer;
             textEditdélai.Text = délai_dexecution.ToString();
-
+           
 
             try
             {
@@ -39,7 +39,7 @@ namespace DXApplication2
                     SqlCommand cmd = Program.sql_con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
 
-                    cmd.CommandText = "SELECT [localite] , [Type_marcher]  , [Nature] from etude where id1 =" + id1 + "";
+                    cmd.CommandText = "SELECT [localite] , [Type_marcher]  , [Nature] , fdr from etude where id1 =" + id1 + "";
                     DataTable table = new DataTable();
                     cmd.ExecuteNonQuery();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -49,6 +49,11 @@ namespace DXApplication2
                         comboBoxcocalite.SelectedValue = row["localite"].ToString();
                         comboBoxnature.SelectedValue = row["Nature"].ToString();
                         comboBoxtype.SelectedValue = row["Type_marcher"].ToString();
+                        if (int.Parse(row["fdr"].ToString()) == 1)
+                        {
+                            checkEditFDR.Checked = true;
+                        }
+                        else { checkEditFDR.Checked = false; }
 
                     }
 
@@ -242,6 +247,7 @@ namespace DXApplication2
             }
 
         }
+        int fdr = 0;
 
         private void windowsUIButtonPanelMain_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
         {
@@ -251,6 +257,15 @@ namespace DXApplication2
             {
                 try
                 {
+
+                    if (checkEditFDR.Checked == true)
+                    {
+                        fdr = 1;
+                    }
+                    else
+                    {
+                        fdr = 0;
+                    }
 
                     if (richTextBoxobject.Text == "" || textEditCaution.Text == "" || dateEditTresorier.Text == "" || comboBoxcocalite.SelectedIndex == -1 || comboBoxnature.SelectedIndex == -1 || comboBoxtype.SelectedIndex == -1)
                     {
@@ -263,7 +278,7 @@ namespace DXApplication2
 
                         if (idEtude == 0)
                         {
-                            string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature]) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature)";
+                            string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature] , fdr) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature , @fdr)";
 
 
                             Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
@@ -275,6 +290,8 @@ namespace DXApplication2
                             Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@fdr", fdr);
+
 
 
 
@@ -290,7 +307,7 @@ namespace DXApplication2
                         }
                         else
                         {
-                            string sql = "update  [etude] set objet = @objet ,[estimation] = @estimation ,[montant] = @montant ,[envoyer_tresoryer]  = @envoyer,[délai_dexecution] =  @delai , [localite]  = @localisation , [Type_marcher] = @type_marcher , [Nature]  = @nature where id1 = @id ";
+                            string sql = "update  [etude] set objet = @objet ,[estimation] = @estimation ,[montant] = @montant ,[envoyer_tresoryer]  = @envoyer,[délai_dexecution] =  @delai , [localite]  = @localisation , [Type_marcher] = @type_marcher , [Nature]  = @nature , fdr = @fdr where id1 = @id ";
 
 
                             Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
@@ -302,6 +319,8 @@ namespace DXApplication2
                             Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@fdr", fdr);
+
                             Program.sql_cmd.Parameters.AddWithValue("@id", idEtude);
 
 
@@ -336,11 +355,21 @@ namespace DXApplication2
                 }
 
             }
+           
 
             if (e.Button == windowsUIButtonPanelMain.Buttons[1])
             {
                 try
                 {
+                    if(checkEditFDR.Checked == true)
+                    {
+                        fdr = 1;
+                    }
+                    else
+                    {
+                        fdr = 0;
+                    }
+
 
                     if (richTextBoxobject.Text == "" || textEditCaution.Text == "" || dateEditTresorier.Text == "" || comboBoxcocalite.SelectedIndex == -1 || comboBoxnature.SelectedIndex == -1 || comboBoxtype.SelectedIndex == -1)
                     {
@@ -353,7 +382,7 @@ namespace DXApplication2
 
                         if (idEtude == 0)
                         {
-                            string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature]) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature)";
+                            string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature],[fdr]) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature , @fdr)";
 
 
                             Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
@@ -365,6 +394,10 @@ namespace DXApplication2
                             Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@fdr", fdr);
+
+
 
 
 
@@ -385,7 +418,7 @@ namespace DXApplication2
                         }
                         else
                         {
-                            string sql = "update  [etude] set objet = @objet ,[estimation] = @estimation ,[montant] = @montant ,[envoyer_tresoryer]  = @envoyer,[délai_dexecution] =  @delai , [localite]  = @localisation , [Type_marcher] = @type_marcher , [Nature]  = @nature where id1 = @id ";
+                            string sql = "update  [etude] set objet = @objet ,[estimation] = @estimation ,[montant] = @montant ,[envoyer_tresoryer]  = @envoyer,[délai_dexecution] =  @delai , [localite]  = @localisation , [Type_marcher] = @type_marcher , [Nature]  = @nature , fdr = @fdr where id1 = @id ";
 
 
                             Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
@@ -398,6 +431,8 @@ namespace DXApplication2
                             Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@id", idEtude);
+                            Program.sql_cmd.Parameters.AddWithValue("@fdr", fdr);
+
 
 
 
@@ -413,6 +448,7 @@ namespace DXApplication2
                             comboBoxcocalite.SelectedIndex = -1;
                             comboBoxnature.SelectedIndex = -1;
                             comboBoxtype.SelectedIndex = -1;
+                            checkEditFDR.Checked = true;
                         }
 
 
@@ -444,7 +480,13 @@ namespace DXApplication2
                 comboBoxcocalite.SelectedIndex = -1;
                 comboBoxnature.SelectedIndex = -1;
                 comboBoxtype.SelectedIndex = -1;
+                checkEditFDR.Checked = false;
             }
+        }
+
+        private void comboBoxnature_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -494,5 +494,24 @@ end
 select  e.validate as 'etude_V'  ,   p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet from etude e inner join fk k on e.id1 = k.id1 inner join publication p on p.id2 = k.id2 inner join fk2 pk on pk.id2 =  p.id2 inner join SIMPLE_overture s on s.id3 = pk.id3 inner join order_service o on o.id_order = s.id3  where s.num_Marcher = '12AA'
 
 
+select p.id2 , p.validate  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1  where  e.id1 = 5   ;
+
+
+select  [id1] , [validate] from etude where id1 = 
 
 select p.id2 , p.Aop  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1  where  e.id1 = 5   ;
+
+select s.id3 , s.num_Marcher  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 inner join fk2 k2 on k2.id2 = p.id2 inner join SIMPLE_overture s on s.id3 = k2.id3  where  e.id1 = 5    ;
+
+
+select  [id1] , [validate] from etude where id1 = '3'
+
+
+select e.validate as 'etude_V' , p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet from etude e FULL OUTER JOIN fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where e.id1 = 2
+
+
+
+select e.validate as 'etude_V' , p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet from etude e inner join fk k on e.id1 = k.id1 inner join publication p on p.id2 = k.id2 inner join fk2 pk on pk.id2 =  p.id2 inner join SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3
+
+
+select  p.Aop , s.attributaire , o.délai_Initial  , e.montant , p.date_op , p.date_portail  ,  o.etat  ,    s.num_Marcher ,   e.id1 , e.objet , et.date_deffet from etude e FULL OUTER JOIN fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3 FULL OUTER JOIN Etat_order et on o.id_order = et.order_service   where e.id1 = 1 and et.etat_objet = 1  

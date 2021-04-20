@@ -1188,5 +1188,11 @@ namespace DXApplication2
 
             }
         }
+
+        private void barButtonItem_print_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            report rp = new report();
+            rp.ShowDialog();
+        }
     }
 }

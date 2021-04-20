@@ -32,6 +32,9 @@ namespace DXApplication2
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(report));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelAop = new System.Windows.Forms.Label();
+            this.labeln_marche = new System.Windows.Forms.Label();
+            this.label_objet = new System.Windows.Forms.Label();
             this.stepProgressBar1 = new DevExpress.XtraEditors.StepProgressBar();
             this.stepProgressBarItem1 = new DevExpress.XtraEditors.StepProgressBarItem();
             this.stepProgressBarItem2 = new DevExpress.XtraEditors.StepProgressBarItem();
@@ -57,16 +60,16 @@ namespace DXApplication2
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.label_objet = new System.Windows.Forms.Label();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labeln_marche = new System.Windows.Forms.Label();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelAop = new System.Windows.Forms.Label();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.simpleButton_print = new DevExpress.XtraEditors.SimpleButton();
             this.classSIMPLEovertureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classpublicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classEtudeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepProgressBar1)).BeginInit();
@@ -85,17 +88,20 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classEtudeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.simpleButton_print);
             this.layoutControl1.Controls.Add(this.labelAop);
             this.layoutControl1.Controls.Add(this.labeln_marche);
             this.layoutControl1.Controls.Add(this.label_objet);
@@ -109,9 +115,36 @@ namespace DXApplication2
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(950, 45, 650, 400);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1198, 366);
+            this.layoutControl1.Size = new System.Drawing.Size(1198, 441);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // labelAop
+            // 
+            this.labelAop.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAop.ForeColor = System.Drawing.Color.DarkGray;
+            this.labelAop.Location = new System.Drawing.Point(24, 198);
+            this.labelAop.Name = "labelAop";
+            this.labelAop.Size = new System.Drawing.Size(437, 40);
+            this.labelAop.TabIndex = 10;
+            // 
+            // labeln_marche
+            // 
+            this.labeln_marche.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeln_marche.ForeColor = System.Drawing.Color.DarkGray;
+            this.labeln_marche.Location = new System.Drawing.Point(564, 198);
+            this.labeln_marche.Name = "labeln_marche";
+            this.labeln_marche.Size = new System.Drawing.Size(610, 40);
+            this.labeln_marche.TabIndex = 9;
+            // 
+            // label_objet
+            // 
+            this.label_objet.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_objet.ForeColor = System.Drawing.Color.DarkGray;
+            this.label_objet.Location = new System.Drawing.Point(24, 152);
+            this.label_objet.Name = "label_objet";
+            this.label_objet.Size = new System.Drawing.Size(1150, 42);
+            this.label_objet.TabIndex = 8;
             // 
             // stepProgressBar1
             // 
@@ -247,7 +280,7 @@ namespace DXApplication2
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup6});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1198, 366);
+            this.Root.Size = new System.Drawing.Size(1198, 441);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup6
@@ -268,10 +301,12 @@ namespace DXApplication2
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.emptySpaceItem6,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem8,
+            this.emptySpaceItem7});
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(1178, 346);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(1178, 421);
             // 
             // layoutControlItem1
             // 
@@ -371,36 +406,6 @@ namespace DXApplication2
             this.emptySpaceItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // label_objet
-            // 
-            this.label_objet.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_objet.ForeColor = System.Drawing.Color.DarkGray;
-            this.label_objet.Location = new System.Drawing.Point(24, 152);
-            this.label_objet.Name = "label_objet";
-            this.label_objet.Size = new System.Drawing.Size(1150, 42);
-            this.label_objet.TabIndex = 8;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.label_objet;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 107);
-            this.layoutControlItem5.MaxSize = new System.Drawing.Size(0, 46);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(24, 46);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1154, 46);
-            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
-            // labeln_marche
-            // 
-            this.labeln_marche.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeln_marche.ForeColor = System.Drawing.Color.DarkGray;
-            this.labeln_marche.Location = new System.Drawing.Point(564, 198);
-            this.labeln_marche.Name = "labeln_marche";
-            this.labeln_marche.Size = new System.Drawing.Size(610, 40);
-            this.labeln_marche.TabIndex = 9;
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.labeln_marche;
@@ -409,15 +414,6 @@ namespace DXApplication2
             this.layoutControlItem6.Size = new System.Drawing.Size(614, 44);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
-            // 
-            // labelAop
-            // 
-            this.labelAop.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAop.ForeColor = System.Drawing.Color.DarkGray;
-            this.labelAop.Location = new System.Drawing.Point(24, 198);
-            this.labelAop.Name = "labelAop";
-            this.labelAop.Size = new System.Drawing.Size(437, 40);
-            this.labelAop.TabIndex = 10;
             // 
             // layoutControlItem7
             // 
@@ -439,6 +435,42 @@ namespace DXApplication2
             this.emptySpaceItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.label_objet;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 107);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(0, 46);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(24, 46);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(1154, 46);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // emptySpaceItem7
+            // 
+            this.emptySpaceItem7.AllowHotTrack = false;
+            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 301);
+            this.emptySpaceItem7.MaxSize = new System.Drawing.Size(1154, 49);
+            this.emptySpaceItem7.MinSize = new System.Drawing.Size(1154, 49);
+            this.emptySpaceItem7.Name = "emptySpaceItem7";
+            this.emptySpaceItem7.Size = new System.Drawing.Size(1154, 49);
+            this.emptySpaceItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // simpleButton_print
+            // 
+            this.simpleButton_print.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_print.ImageOptions.Image")));
+            this.simpleButton_print.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton_print.Location = new System.Drawing.Point(24, 395);
+            this.simpleButton_print.Name = "simpleButton_print";
+            this.simpleButton_print.Size = new System.Drawing.Size(1150, 22);
+            this.simpleButton_print.StyleController = this.layoutControl1;
+            this.simpleButton_print.TabIndex = 11;
+            this.simpleButton_print.Text = "Imprimer Report";
+            this.simpleButton_print.Visible = false;
+            this.simpleButton_print.Click += new System.EventHandler(this.simpleButton_print_Click);
+            // 
             // classSIMPLEovertureBindingSource
             // 
             this.classSIMPLEovertureBindingSource.DataSource = typeof(DXApplication2.ClassSIMPLE_overture);
@@ -451,14 +483,24 @@ namespace DXApplication2
             // 
             this.classEtudeBindingSource.DataSource = typeof(DXApplication2.ClassEtude);
             // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.simpleButton_print;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 350);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(1154, 26);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
             // report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1198, 366);
+            this.ClientSize = new System.Drawing.Size(1198, 441);
             this.Controls.Add(this.layoutControl1);
             this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("report.IconOptions.SvgImage")));
             this.Name = "report";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "report";
             this.Load += new System.EventHandler(this.report_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -479,13 +521,15 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classEtudeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -528,5 +572,8 @@ namespace DXApplication2
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_print;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
     }
 }

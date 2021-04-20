@@ -428,6 +428,7 @@ namespace DXApplication2
             this.barButtonItem_print.Id = 64;
             this.barButtonItem_print.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_print.ImageOptions.SvgImage")));
             this.barButtonItem_print.Name = "barButtonItem_print";
+            this.barButtonItem_print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_print_ItemClick);
             // 
             // ribbonPage
             // 
