@@ -23,11 +23,13 @@ namespace DXApplication2
         {
             InitializeComponent();
         }
+            int id_order = 0;
+
+            int id_etude = 0;
 
         private void select_Publication_Data()
         {
 
-            int id_etat  =0;
             try
             {
                 label_objet.Text ="";
@@ -234,6 +236,8 @@ namespace DXApplication2
 
             try
             {
+            id_etude =  int.Parse(lookUpEdit1.EditValue.ToString());
+            //MessageBox.Show(lookUpEdit1.EditValue.ToString());
 
                 if(lookUpEdit1.ItemIndex != -1 && lookUpEdit2.ItemIndex == -1 && lookUpEdit3.ItemIndex == -1)
                 {
@@ -348,7 +352,7 @@ namespace DXApplication2
                         SqlCommand cmd = Program.sql_con.CreateCommand();
                         cmd.CommandType = CommandType.Text;
 
-                        cmd.CommandText = $" select e.validate as 'etude_V' , p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet from etude e inner join fk k on e.id1 = k.id1 inner join publication p on p.id2 = k.id2 inner join fk2 pk on pk.id2 =  p.id2 inner join SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where e.id1 = {lookUpEdit1.EditValue.ToString()} ";
+                        cmd.CommandText = $" select e.validate as 'etude_V' , p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet , o.id_order from etude e inner join fk k on e.id1 = k.id1 inner join publication p on p.id2 = k.id2 inner join fk2 pk on pk.id2 =  p.id2 inner join SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where e.id1 = {lookUpEdit1.EditValue.ToString()} ";
 
                         DataTable table = new DataTable();
                         cmd.ExecuteNonQuery();
@@ -356,7 +360,13 @@ namespace DXApplication2
                         da.Fill(table);
                         foreach (DataRow row in table.Rows)
                         {
-                            //MessageBox.Show(row["valide_order_service"].ToString());
+                            if ((row["id_order"].ToString()) != "")
+                                {
+
+                            id_order = int.Parse(row["id_order"].ToString());
+                            }
+
+                            //MessageBox.Show(row["id_order"].ToString());
 
                             if (row["etat"].ToString() == "" )
                             {
@@ -563,11 +573,11 @@ namespace DXApplication2
         {
             if (Program.sql_con.State == ConnectionState.Closed)
                 Program.sql_con.Open();
-            string query = $" select  [délai_Initial] , [Etat] , [date_deffet] from [dbo].[Etat_order] where [id_etat] = { id_etat}";
+            string query = $" select  o.[délai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service o inner join  [dbo].[Etat_order] t on o.id_order = t.order_service where o.id_order = { id_order}";
             List<class_reportData> reportData = Program.sql_con.Query<class_reportData>(query, commandType: CommandType.Text).ToList();
-            using (printfrm frm = new printfrm())
+            using (form_report frm = new form_report())
             {
-                frm.PrintInvoice(idEdit, descriptions);
+                frm.Printreport(id_etude, reportData);
                 frm.WindowState = FormWindowState.Maximized;
                 frm.ShowDialog();
 

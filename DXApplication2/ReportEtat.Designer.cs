@@ -47,8 +47,6 @@ namespace DXApplication2
             this.xrTableRow11 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell45 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell46 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell47 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell48 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -331,9 +329,7 @@ namespace DXApplication2
             // 
             this.xrTableRow11.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.xrTableCell45,
-            this.xrTableCell46,
-            this.xrTableCell47,
-            this.xrTableCell48});
+            this.xrTableCell46});
             this.xrTableRow11.Name = "xrTableRow11";
             this.xrTableRow11.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.xrTableRow11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -359,30 +355,7 @@ namespace DXApplication2
             this.xrTableCell46.Name = "xrTableCell46";
             this.xrTableCell46.Padding = new DevExpress.XtraPrinting.PaddingInfo(12, 2, 0, 0, 100F);
             this.xrTableCell46.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell46.Weight = 0.29613615963120032D;
-            // 
-            // xrTableCell47
-            // 
-            this.xrTableCell47.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrTableCell47.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.xrTableCell47.ForeColor = System.Drawing.Color.Black;
-            this.xrTableCell47.Name = "xrTableCell47";
-            this.xrTableCell47.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrTableCell47.StyleName = "SupplierInfo";
-            this.xrTableCell47.Text = "Intitulé de la consultation :";
-            this.xrTableCell47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell47.Weight = 0.21924845575341503D;
-            // 
-            // xrTableCell48
-            // 
-            this.xrTableCell48.BorderColor = System.Drawing.Color.Black;
-            this.xrTableCell48.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrTableCell48.BorderWidth = 1F;
-            this.xrTableCell48.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.xrTableCell48.Name = "xrTableCell48";
-            this.xrTableCell48.Padding = new DevExpress.XtraPrinting.PaddingInfo(12, 2, 0, 0, 100F);
-            this.xrTableCell48.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell48.Weight = 0.26923076923076922D;
+            this.xrTableCell46.Weight = 0.78461538461538449D;
             // 
             // xrTableRow2
             // 
@@ -1498,7 +1471,7 @@ namespace DXApplication2
             this.xrPageInfo2.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
             this.xrPageInfo2.SizeF = new System.Drawing.SizeF(292F, 23F);
             this.xrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            this.xrPageInfo2.TextFormatString = "{0:\"Current Date: \" dddd, dd MMMM yyyy}";
+            this.xrPageInfo2.TextFormatString = "{0:\" Date: \" dddd, dd MMMM yyyy}";
             // 
             // topMarginBand1
             // 
@@ -1621,7 +1594,7 @@ namespace DXApplication2
             this.Version = "20.1";
             this.Watermark.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Bold);
             this.Watermark.ForeColor = System.Drawing.Color.Gray;
-            this.Watermark.Text = "COPY";
+            this.Watermark.Text = "REGION";
             this.Watermark.TextTransparency = 207;
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
@@ -1649,8 +1622,6 @@ namespace DXApplication2
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow11;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell45;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell46;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell47;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell48;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow12;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell49;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell50;
