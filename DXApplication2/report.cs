@@ -25,7 +25,7 @@ namespace DXApplication2
         }
             int id_order = 0;
 
-            int id_etude = 0;
+            int id_etude = 1;
 
         private void select_Publication_Data()
         {

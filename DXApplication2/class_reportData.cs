@@ -10,7 +10,39 @@ namespace DXApplication2
     {
         public int délai_Initial { get; set; }
 
-        public int Etat { get; set; }
+        //public int etat_objet { get; set; }
+
+        private string _etat_objet;
+
+
+        public string etat_objet
+        {
+            get
+            {
+                return _etat_objet;
+            }
+            set
+            {
+                if (value == "0")
+                {
+                    _etat_objet = "order d'arrêt";
+                }
+                else if (value == "1")
+                {
+                    _etat_objet = "order de reprise";
+                }
+                else if (value == "2")
+                {
+                    _etat_objet = "réception provisoire";
+
+                }
+                else if (value == "3")
+                {
+                    _etat_objet = "réception définitive";
+
+                }
+            }
+        }
 
         public DateTime date_deffet { get; set; }
 
