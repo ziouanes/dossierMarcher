@@ -7,7 +7,7 @@ go
 
 drop table etude
 
-select * from etude
+select Aop , num_Marcher  , 'REGION MARRAKECH SAFI'  , 'MARCHE'  , 'MARCHE UNIQUE'  , localité , date_op , estimation , attributaire , montant , Etat  from localite l inner join etude , publication , SIMPLE_overture , localite
 
 select id1 , objet  from [etude]  where validate  = 1 and id1  not in ( select id1  from fk )
 
@@ -518,4 +518,11 @@ select e.validate as 'etude_V' , p.validate as 'public_V'   ,  o.etat ,  s.valid
 
 select  o.[délai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service o inner join  [dbo].[Etat_order] t on o.id_order = t.order_service where o.id_order = 6
 
-select top 1  p.Aop , s.attributaire , o.délai_Initial  , e.montant , p.date_op , p.date_portail  ,  o.etat  ,    s.num_Marcher ,   e.id1 , e.objet , et.date_deffet from etude e FULL OUTER JOIN fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3 FULL OUTER JOIN Etat_order et on o.id_order = et.order_service   where e.id1 = 1 and et.etat_objet = 1  order by et.date_deffet desc
+select top 1  p.Aop , o.délai_restant , e.estimation ,  s.attributaire , o.délai_Initial  , e.montant , p.date_op , p.date_portail  ,  o.etat  ,    s.num_Marcher ,   e.id1 , e.objet , et.date_deffet from etude e FULL OUTER JOIN fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3 FULL OUTER JOIN Etat_order et on o.id_order = et.order_service   where e.id1 = 1 and et.etat_objet = 1  order by et.date_deffet desc
+
+
+select  o.[délai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service o inner join  [dbo].[Etat_order] t on o.id_order = t.order_service where o.id_order = 6
+
+
+
+select p.Aop as 'N°AOP' , e.fdr , e.délai_dexecution , s.num_Marcher as 'N°MARCHE'  , l.localite as 'Localité des Tran' ,e.objet, p.date_op as 'Date ouverture des Plis' , e.estimation as 'Estimation' , s.attributaire as 'ATTRIBUTAIRE' , e.montant as 'MONTANT' , CAST(o.Etat as varchar(20))    from localite l FULL OUTER JOIN  etude e on l.id_l = e.localite inner join fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where 1=1

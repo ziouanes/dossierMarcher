@@ -68,7 +68,7 @@ namespace DXApplication2
                     Program.sql_cmd.Parameters.AddWithValue("@date_orderService", dateeditorderservice.Text);
                     Program.sql_cmd.Parameters.AddWithValue("@délai_Initial", textEditdelai_initail.Text);
                     Program.sql_cmd.Parameters.AddWithValue("@délai_restant", textEditdelai_restant.Text);
-                    Program.sql_cmd.Parameters.AddWithValue("@Etat", "0");
+                    Program.sql_cmd.Parameters.AddWithValue("@Etat", "-1");
                     Program.sql_cmd.Parameters.AddWithValue("@id_Overture", _id_overt);
 
 

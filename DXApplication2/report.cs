@@ -187,6 +187,8 @@ namespace DXApplication2
             simpleButton_print.Enabled = false;
             stepProgressBar1.Enabled = false;
 
+
+            lookUpEdit1.EditValue = 2;
         }
 
         private void Worksetude(object sender, EventArgs e)
@@ -245,6 +247,7 @@ namespace DXApplication2
                     if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
                     {
+                        
                         SqlCommand cmd = Program.sql_con.CreateCommand();
                         cmd.CommandType = CommandType.Text;
 

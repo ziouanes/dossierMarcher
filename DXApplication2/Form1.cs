@@ -1191,8 +1191,16 @@ namespace DXApplication2
 
         private void barButtonItem_print_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            run();
             report rp = new report();
             rp.ShowDialog();
+        }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            run();
+            situation st = new situation();
+            st.ShowDialog();
         }
     }
 }

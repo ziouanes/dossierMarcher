@@ -141,6 +141,8 @@ namespace DXApplication2
             this.popupMenu_suivi_orders = new DevExpress.XtraBars.PopupMenu(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -212,9 +214,10 @@ namespace DXApplication2
             this.barButtonItem_order_service,
             this.barButtonItem_suivi,
             this.barButtonItem3,
-            this.barButtonItem_print});
+            this.barButtonItem_print,
+            this.barButtonItem4});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 65;
+            this.ribbonControl.MaxItemId = 66;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -437,7 +440,8 @@ namespace DXApplication2
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
             this.ribbonPageGroup3,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup5});
             this.ribbonPage.Name = "ribbonPage";
             this.ribbonPage.Text = "View";
             // 
@@ -1127,6 +1131,19 @@ namespace DXApplication2
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "Plan de Situation";
+            this.barButtonItem4.Id = 65;
+            this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
+            this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1300,5 +1317,7 @@ namespace DXApplication2
         private DevExpress.XtraBars.BarButtonItem barButtonItem_print;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }
