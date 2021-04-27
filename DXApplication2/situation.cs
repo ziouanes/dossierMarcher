@@ -208,7 +208,11 @@ namespace DXApplication2
 
         private void situation_Load(object sender, EventArgs e)
         {
-           
+
+            this.mask.Properties.DisplayFormat.FormatString = "yyyy";
+            this.mask.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.mask.Properties.EditFormat.FormatString = "yyyy";
+            this.mask.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
 
 
 
