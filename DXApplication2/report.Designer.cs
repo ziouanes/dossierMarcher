@@ -32,6 +32,7 @@ namespace DXApplication2
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(report));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.simpleButton_print = new DevExpress.XtraEditors.SimpleButton();
             this.labelAop = new System.Windows.Forms.Label();
             this.labeln_marche = new System.Windows.Forms.Label();
             this.label_objet = new System.Windows.Forms.Label();
@@ -64,9 +65,8 @@ namespace DXApplication2
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.simpleButton_print = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.classSIMPLEovertureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classpublicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classEtudeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -92,8 +92,8 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classEtudeBindingSource)).BeginInit();
@@ -118,6 +118,19 @@ namespace DXApplication2
             this.layoutControl1.Size = new System.Drawing.Size(1198, 441);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // simpleButton_print
+            // 
+            this.simpleButton_print.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_print.ImageOptions.Image")));
+            this.simpleButton_print.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton_print.Location = new System.Drawing.Point(24, 395);
+            this.simpleButton_print.Name = "simpleButton_print";
+            this.simpleButton_print.Size = new System.Drawing.Size(1150, 22);
+            this.simpleButton_print.StyleController = this.layoutControl1;
+            this.simpleButton_print.TabIndex = 11;
+            this.simpleButton_print.Text = "Imprimer Report";
+            this.simpleButton_print.Visible = false;
+            this.simpleButton_print.Click += new System.EventHandler(this.simpleButton_print_Click);
             // 
             // labelAop
             // 
@@ -447,6 +460,15 @@ namespace DXApplication2
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.simpleButton_print;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 350);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(1154, 26);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
@@ -457,28 +479,6 @@ namespace DXApplication2
             this.emptySpaceItem7.Size = new System.Drawing.Size(1154, 49);
             this.emptySpaceItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // simpleButton_print
-            // 
-            this.simpleButton_print.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_print.ImageOptions.Image")));
-            this.simpleButton_print.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton_print.Location = new System.Drawing.Point(24, 395);
-            this.simpleButton_print.Name = "simpleButton_print";
-            this.simpleButton_print.Size = new System.Drawing.Size(1150, 22);
-            this.simpleButton_print.StyleController = this.layoutControl1;
-            this.simpleButton_print.TabIndex = 11;
-            this.simpleButton_print.Text = "Imprimer Report";
-            this.simpleButton_print.Visible = false;
-            this.simpleButton_print.Click += new System.EventHandler(this.simpleButton_print_Click);
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.simpleButton_print;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 350);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(1154, 26);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
             // 
             // classSIMPLEovertureBindingSource
             // 
@@ -525,8 +525,8 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classEtudeBindingSource)).EndInit();

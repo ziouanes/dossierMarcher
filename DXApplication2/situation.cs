@@ -17,6 +17,8 @@ using System.Data.SqlClient;
 using DevExpress.XtraBars.Helpers;
 using DevExpress.XtraBars.Ribbon;
 using Table = DevExpress.ClipboardSource.SpreadsheetML.Table;
+using DevExpress.XtraSplashScreen;
+using System.Threading;
 
 namespace DXApplication2
 {
@@ -33,23 +35,34 @@ namespace DXApplication2
             Workbook.LoadDocument(@"Document\situation.xlsx", DocumentFormat.Xlsx);
 
             //CreateDataSourse();
-            selectData();
-            BindingDataSource();
+            
+            
         }
 
         private void BindingDataSource()
         {
-            IWorkbook workbook = spreadsheetControl1.Document;
+            run();
 
+            Workbook = spreadsheetControl1.Document;
+            Workbook.LoadDocument(@"Document\situation.xlsx", DocumentFormat.Xlsx);
+
+            IWorkbook workbook = spreadsheetControl1.Document;
+            
             Worksheet worksheet = Workbook.Worksheets[0];
+
             workbook.BeginUpdate();
             try
             {
-
+               
                 ExternalDataSourceOptions options = new ExternalDataSourceOptions() { ImportHeaders = true };
 
 
+                worksheet.DataBindings.Clear();
+                worksheet.Columns.ClearOutline();
+                
+                
 
+                //worksheet.DataBindings.BindTableToDataSource(null);
                 worksheet.DataBindings.BindTableToDataSource(dataView, 4, 1,options);
 
                 worksheet.Cells.AutoFitColumns();
@@ -69,73 +82,73 @@ namespace DXApplication2
             }
         }
 
-        private void selectData()
-        {
-            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+        //private void selectData()
+        //{
+        //    if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
             
-                SqlCommand cmd = Program.sql_con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = $"select p.Aop as 'N°AOP' ,CAST(e.fdr as varchar(10)) as 'FDR'  , e.délai_dexecution , s.num_Marcher as 'N°MARCHE'  , l.localite as 'Localité des Tran' ,e.objet, p.date_op as 'Date ouverture des Plis' , e.estimation as 'Estimation' , s.attributaire as 'ATTRIBUTAIRE' , e.montant as 'MONTANT' , CAST(o.Etat as varchar(20)) as 'Etat'   from localite l FULL OUTER JOIN  etude e on l.id_l = e.localite inner join fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where 1=1";
+        //        SqlCommand cmd = Program.sql_con.CreateCommand();
+        //        cmd.CommandType = CommandType.Text;
+        //        cmd.CommandText = $"select p.Aop as 'N°AOP' ,CAST(e.fdr as varchar(10)) as 'FDR'  , e.délai_dexecution , s.num_Marcher as 'N°MARCHE'  , l.localite as 'Localité des Tran' ,e.objet, p.date_op as 'Date ouverture des Plis' , e.estimation as 'Estimation' , s.attributaire as 'ATTRIBUTAIRE' , e.montant as 'MONTANT' , CAST(o.Etat as varchar(20)) as 'Etat'   from localite l FULL OUTER JOIN  etude e on l.id_l = e.localite inner join fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where 1=1";
 
 
-                DataTable dt1 = new DataTable();
+        //        DataTable dt1 = new DataTable();
 
 
-                SqlDataAdapter da1 = new SqlDataAdapter(cmd);
-                da1.Fill(dt1);
+        //        SqlDataAdapter da1 = new SqlDataAdapter(cmd);
+        //        da1.Fill(dt1);
 
 
 
 
-                foreach (DataRow row in dt1.Rows)
-                {
-                    //do what you need to calculate myNewValue here
-                    if (row["Etat"].ToString() == "-1")
-                    {
+        //        foreach (DataRow row in dt1.Rows)
+        //        {
+        //            //do what you need to calculate myNewValue here
+        //            if (row["Etat"].ToString() == "-1")
+        //            {
 
-                        row["Etat"] = "order de commencement";
-                    }
-                   else if (row["Etat"].ToString() == "0"){
+        //                row["Etat"] = "order de commencement";
+        //            }
+        //           else if (row["Etat"].ToString() == "0"){
 
-                    row["Etat"] = "order d'arrêt";
-                    }
-                    else if (row["Etat"].ToString() == "1")
-                    {
+        //            row["Etat"] = "order d'arrêt";
+        //            }
+        //            else if (row["Etat"].ToString() == "1")
+        //            {
 
-                        row["Etat"] = "order de reprise";
-                    }
-                    else if (row["Etat"].ToString() == "2")
-                    {
+        //                row["Etat"] = "order de reprise";
+        //            }
+        //            else if (row["Etat"].ToString() == "2")
+        //            {
 
-                        row["Etat"] = "réception provisoire";
-                    }
-                    else if (row["Etat"].ToString() == "3")
-                    {
+        //                row["Etat"] = "réception provisoire";
+        //            }
+        //            else if (row["Etat"].ToString() == "3")
+        //            {
 
-                        row["Etat"] = "réception définitive";
-                    }
+        //                row["Etat"] = "réception définitive";
+        //            }
 
-                    if (row["FDR"].ToString() == "0")
-                    {
+        //            if (row["FDR"].ToString() == "0")
+        //            {
 
-                        row["FDR"] = "Non";
-                    }
-                    else
-                    {
-                        row["FDR"] = "Oui";
-                    }
+        //                row["FDR"] = "Non";
+        //            }
+        //            else
+        //            {
+        //                row["FDR"] = "Oui";
+        //            }
 
 
-                }
-                //gridControl1.DataSource = dt1;
+        //        }
+        //        //gridControl1.DataSource = dt1;
 
-                DataSet ds = new DataSet("tab");
-                ds.Tables.Add(dt1);
+        //        DataSet ds = new DataSet("tab");
+        //        ds.Tables.Add(dt1);
 
-                dataView = new DataView(ds.Tables[0]);
+        //        dataView = new DataView(ds.Tables[0]);
             
-        }
+        //}
 
         private void CreateDataSourse()
         {
@@ -201,13 +214,64 @@ namespace DXApplication2
 
 
         }
-       
+
+        public void GetTable_LOCALITE()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("id", typeof(int));
+            table.Columns.Add("localite", typeof(string));
 
 
-        
+
+            table.Rows.Add(1, "Marrakech");
+            table.Rows.Add(2, "Chichaoua");
+            table.Rows.Add(3, "Al Haouz");
+            table.Rows.Add(4, "El Kelâa des Sraghna");
+            table.Rows.Add(5, "Essaouira");
+            table.Rows.Add(6, "Rehamna");
+            table.Rows.Add(7, "Safi");
+            table.Rows.Add(8, "Youssoufia");
+
+            DISTINATION.Properties.DataSource = table;
+            DISTINATION.Properties.DisplayMember = "localite";
+            DISTINATION.Properties.ValueMember = "id";
+
+            DISTINATION.Properties.PopulateColumns();
+
+            DISTINATION.Properties.Columns[DISTINATION.Properties.ValueMember].Visible = false;
+        }
+
+            public void GetTable_ETAT()
+        {
+            DataTable table1 = new DataTable();
+            table1.Columns.Add("id", typeof(int));
+            table1.Columns.Add("Etat", typeof(string));
+
+
+            table1.Rows.Add(-1,"order de commencement");
+            table1.Rows.Add(0, "order d'arrêt");
+            table1.Rows.Add(1, "order de reprise");
+            table1.Rows.Add(2, "réception provisoire");
+            table1.Rows.Add(3, "réception définitive");
+
+            edProductName.Properties.DataSource = table1;
+            edProductName.Properties.DisplayMember = "Etat";
+            edProductName.Properties.ValueMember = "id";
+
+            edProductName.Properties.PopulateColumns();
+
+            edProductName.Properties.Columns[edProductName.Properties.ValueMember].Visible = false;
+
+            }
+
+
+
 
         private void situation_Load(object sender, EventArgs e)
         {
+            GetTable_LOCALITE();
+            GetTable_ETAT();
+
 
             this.mask.Properties.DisplayFormat.FormatString = "yyyy";
             this.mask.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -230,6 +294,171 @@ namespace DXApplication2
 
         private void panel_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void simpleButtoncherch_Click(object sender, EventArgs e)
+        {
+
+
+
+            string req = "", req1 = "", req2 = "", req3 = "" , req4 ="";
+
+            req = "select p.Aop as 'N°AOP' ,CAST(e.fdr as varchar(10)) as 'FDR'  , e.délai_dexecution , s.num_Marcher as 'N°MARCHE'  , l.localite as 'Localité des Tran' ,e.objet, p.date_op as 'Date ouverture des Plis' , e.estimation as 'Estimation' , s.attributaire as 'ATTRIBUTAIRE' , e.montant as 'MONTANT' , CAST(o.Etat as varchar(20)) as 'Etat'   from localite l FULL OUTER JOIN  etude e on l.id_l = e.localite inner join fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where 1=1 ";
+
+
+            if (mask.Text !="")
+            {
+                
+                    req1 = "and YEAR( p.date_op)  = '"+ mask.Text +"' ";
+
+
+             }
+              
+
+            
+
+            if (edProductName.ItemIndex != -1)
+            {
+               
+                    req2 = "and   o.Etat =  '" + edProductName.EditValue.ToString() + "'";
+
+
+                
+
+            }
+
+            if (DISTINATION.ItemIndex != -1)
+            {
+                
+                    req3 = "  and l.localite =  '" + DISTINATION.EditValue.ToString() + "'";
+
+
+               
+
+            }
+            if(checkEdit_fdr.Checked == true)
+            {
+                req4 = "and e.fdr   = 1";
+            }
+            
+
+            req += req1 + req2 + req3 +req4 +  "order by p.date_op desc";
+
+
+               if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+
+            SqlCommand cmd = Program.sql_con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = req;
+
+
+            
+                DataTable dt1 = new DataTable();
+                
+
+
+                SqlDataAdapter da1 = new SqlDataAdapter(cmd);
+                da1.Fill(dt1);
+
+
+
+
+                foreach (DataRow row in dt1.Rows)
+                {
+                    //do what you need to calculate myNewValue here
+                    if (row["Etat"].ToString() == "-1")
+                    {
+
+                        row["Etat"] = "order de commencement";
+                    }
+                    else if (row["Etat"].ToString() == "0")
+                    {
+
+                        row["Etat"] = "order d'arrêt";
+                    }
+                    else if (row["Etat"].ToString() == "1")
+                    {
+
+                        row["Etat"] = "order de reprise";
+                    }
+                    else if (row["Etat"].ToString() == "2")
+                    {
+
+                        row["Etat"] = "réception provisoire";
+                    }
+                    else if (row["Etat"].ToString() == "3")
+                    {
+
+                        row["Etat"] = "réception définitive";
+                    }
+
+                    if (row["FDR"].ToString() == "0")
+                    {
+
+                        row["FDR"] = "Non";
+                    }
+                    else
+                    {
+                        row["FDR"] = "Oui";
+                    }
+
+
+                }
+                //gridControl1.DataSource = dt1;
+
+                DataSet ds = new DataSet("tab");
+            ds.Clear();
+                ds.Tables.Add(dt1);
+
+                dataView = new DataView(ds.Tables[0]);
+
+            //if (dataView.Table.Rows.Count > 0)
+            //{
+            //dataView.Table.Rows.Clear();
+
+            //}
+
+
+
+
+            
+           
+
+            Program.sql_con.Close();
+
+
+
+            BindingDataSource();
+
+            mask.Text = ""; edProductName.ItemIndex = -1; DISTINATION.ItemIndex = -1; checkEdit_fdr.Checked = false;
+
+        }
+
+        public void run()
+        {
+            SplashScreenManager.ShowForm(this, typeof(WaitFormsplach), true, true, false);
+
+            SplashScreenManager.Default.SetWaitFormCaption("en cours d'exécution");
+            for (int i = 0; i < 100; i++)
+            {
+                Thread.Sleep(5);
+            }
+            SplashScreenManager.CloseForm();
+            
+
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            run();
+
+            Workbook = spreadsheetControl1.Document;
+            Workbook.LoadDocument(@"Document\situation.xlsx", DocumentFormat.Xlsx);
+
+
+            mask.Text = ""; edProductName.EditValue = -2; DISTINATION.ItemIndex = -1; checkEdit_fdr.Checked = false; 
 
         }
     }

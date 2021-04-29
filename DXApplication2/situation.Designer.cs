@@ -1412,16 +1412,16 @@ namespace DXApplication2
             this.galleryPivotStylesItem1 = new DevExpress.XtraSpreadsheet.UI.GalleryPivotStylesItem();
             this.spreadsheetBarController1 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetBarController(this.components);
             this.panel = new DevExpress.XtraEditors.PanelControl();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_fdr = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtoncherch = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lbBindToData = new DevExpress.XtraEditors.LabelControl();
-            this.cbxBindToData = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lbOrderId = new DevExpress.XtraEditors.LabelControl();
             this.lbProduct = new DevExpress.XtraEditors.LabelControl();
             this.edProductName = new DevExpress.XtraEditors.LookUpEdit();
             this.mask = new DevExpress.XtraEditors.DateEdit();
+            this.DISTINATION = new DevExpress.XtraEditors.LookUpEdit();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit2)).BeginInit();
@@ -1484,11 +1484,11 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.spreadsheetBarController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbxBindToData.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_fdr.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edProductName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mask.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mask.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DISTINATION.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -10501,16 +10501,16 @@ namespace DXApplication2
             // 
             this.panel.AutoSize = true;
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel.Controls.Add(this.checkEdit1);
+            this.panel.Controls.Add(this.checkEdit_fdr);
             this.panel.Controls.Add(this.simpleButton1);
             this.panel.Controls.Add(this.simpleButtoncherch);
             this.panel.Controls.Add(this.labelControl1);
             this.panel.Controls.Add(this.lbBindToData);
-            this.panel.Controls.Add(this.cbxBindToData);
             this.panel.Controls.Add(this.lbOrderId);
             this.panel.Controls.Add(this.lbProduct);
             this.panel.Controls.Add(this.edProductName);
             this.panel.Controls.Add(this.mask);
+            this.panel.Controls.Add(this.DISTINATION);
             this.panel.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel.Location = new System.Drawing.Point(912, 158);
             this.panel.Name = "panel";
@@ -10518,14 +10518,14 @@ namespace DXApplication2
             this.panel.TabIndex = 55;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
-            // checkEdit1
+            // checkEdit_fdr
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(75, 138);
-            this.checkEdit1.MenuManager = this.ribbonControl1;
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "";
-            this.checkEdit1.Size = new System.Drawing.Size(137, 18);
-            this.checkEdit1.TabIndex = 12;
+            this.checkEdit_fdr.Location = new System.Drawing.Point(75, 138);
+            this.checkEdit_fdr.MenuManager = this.ribbonControl1;
+            this.checkEdit_fdr.Name = "checkEdit_fdr";
+            this.checkEdit_fdr.Properties.Caption = "";
+            this.checkEdit_fdr.Size = new System.Drawing.Size(137, 18);
+            this.checkEdit_fdr.TabIndex = 12;
             // 
             // simpleButton1
             // 
@@ -10544,6 +10544,7 @@ namespace DXApplication2
             this.simpleButton1.Size = new System.Drawing.Size(100, 23);
             this.simpleButton1.TabIndex = 11;
             this.simpleButton1.Text = "Initialiser";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButtoncherch
             // 
@@ -10562,6 +10563,7 @@ namespace DXApplication2
             this.simpleButtoncherch.Size = new System.Drawing.Size(100, 23);
             this.simpleButtoncherch.TabIndex = 10;
             this.simpleButtoncherch.Text = "Rechercher";
+            this.simpleButtoncherch.Click += new System.EventHandler(this.simpleButtoncherch_Click);
             // 
             // labelControl1
             // 
@@ -10578,20 +10580,6 @@ namespace DXApplication2
             this.lbBindToData.Size = new System.Drawing.Size(57, 13);
             this.lbBindToData.TabIndex = 7;
             this.lbBindToData.Text = "destination:";
-            // 
-            // cbxBindToData
-            // 
-            this.cbxBindToData.Location = new System.Drawing.Point(75, 96);
-            this.cbxBindToData.Name = "cbxBindToData";
-            this.cbxBindToData.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbxBindToData.Properties.DropDownRows = 2;
-            this.cbxBindToData.Properties.Items.AddRange(new object[] {
-            "Range",
-            "Table"});
-            this.cbxBindToData.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cbxBindToData.Size = new System.Drawing.Size(140, 20);
-            this.cbxBindToData.TabIndex = 6;
             // 
             // lbOrderId
             // 
@@ -10618,12 +10606,6 @@ namespace DXApplication2
             this.edProductName.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.edProductName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.edProductName.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name1", "order de commencement"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name2", "order d\'arrêt"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name3", "order de reprise"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name4", "réception provisoire"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name29", "réception définitive")});
             this.edProductName.Properties.NullText = "";
             this.edProductName.Properties.ShowFooter = false;
             this.edProductName.Properties.ShowHeader = false;
@@ -10654,6 +10636,17 @@ namespace DXApplication2
             this.mask.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView;
             this.mask.Size = new System.Drawing.Size(108, 20);
             this.mask.TabIndex = 0;
+            // 
+            // DISTINATION
+            // 
+            this.DISTINATION.Location = new System.Drawing.Point(75, 96);
+            this.DISTINATION.Name = "DISTINATION";
+            this.DISTINATION.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DISTINATION.Properties.NullText = "";
+            this.DISTINATION.Properties.PopupSizeable = false;
+            this.DISTINATION.Size = new System.Drawing.Size(140, 20);
+            this.DISTINATION.TabIndex = 6;
             // 
             // panel1
             // 
@@ -10742,11 +10735,11 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbxBindToData.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_fdr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edProductName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mask.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mask.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DISTINATION.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -11649,7 +11642,6 @@ namespace DXApplication2
         public DevExpress.XtraSpreadsheet.UI.SpreadsheetBarController spreadsheetBarController1;
         private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.LabelControl lbBindToData;
-        private DevExpress.XtraEditors.ComboBoxEdit cbxBindToData;
         private DevExpress.XtraEditors.LabelControl lbOrderId;
         private DevExpress.XtraEditors.LabelControl lbProduct;
         private DevExpress.XtraEditors.LookUpEdit edProductName;
@@ -11667,7 +11659,8 @@ namespace DXApplication2
         private DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar repositoryItemZoomTrackBar1;
         private DevExpress.XtraSpreadsheet.UI.ShowZoomButtonItem showZoomButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_fdr;
         private DevExpress.XtraEditors.DateEdit mask;
+        private DevExpress.XtraEditors.LookUpEdit DISTINATION;
     }
 }
