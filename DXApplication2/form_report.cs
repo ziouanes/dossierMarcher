@@ -29,9 +29,7 @@ namespace DXApplication2
 
             foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
                 p.Visible = false;
-            using (Program.sql_con)
-
-            {
+            
                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
                 SqlCommand cmd = Program.sql_con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
@@ -50,7 +48,7 @@ namespace DXApplication2
                 }
 
 
-            }
+            
         }
     }
 }

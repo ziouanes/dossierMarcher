@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -158,6 +159,9 @@ namespace DXApplication2
 
             if (e.Button == windowsUIButtonPanelMain.Buttons[0])
             {
+                
+
+                MessageBox.Show(Regex.Match(Montant.Text, @"\d+").Value);
                 try
                 {
 

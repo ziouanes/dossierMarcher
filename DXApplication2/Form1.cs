@@ -1092,7 +1092,7 @@ namespace DXApplication2
 
 
 
-                MessageBox.Show(ss);
+                //MessageBox.Show(ss);
                 label1.Visible = true;
             }
 

@@ -519,8 +519,13 @@ namespace DXApplication2
                 //this.Dispose();
             }
 
+            if (stepProgressBar1.SelectedItemIndex >= 4)
+            {
 
             simpleButton_print.Enabled = true;
+
+            }
+
 
         }
 
@@ -574,8 +579,7 @@ namespace DXApplication2
 
         private void simpleButton_print_Click(object sender, EventArgs e)
         {
-            if (Program.sql_con.State == ConnectionState.Closed)
-                Program.sql_con.Open();
+            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
             string query = $" select  o.[délai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service o inner join  [dbo].[Etat_order] t on o.id_order = t.order_service where o.id_order = { id_order}";
             List<class_reportData> reportData = Program.sql_con.Query<class_reportData>(query, commandType: CommandType.Text).ToList();
             using (form_report frm = new form_report())
