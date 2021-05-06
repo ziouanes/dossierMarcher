@@ -526,3 +526,57 @@ select  o.[délai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service 
 
 
 select p.Aop as 'N°AOP' , e.fdr , e.délai_dexecution , s.num_Marcher as 'N°MARCHE'  , l.localite as 'Localité des Tran' ,e.objet, p.date_op as 'Date ouverture des Plis' , e.estimation as 'Estimation' , s.attributaire as 'ATTRIBUTAIRE' , e.montant as 'MONTANT' , CAST(o.Etat as varchar(20)) as 'Etat'    from localite l FULL OUTER JOIN  etude e on l.id_l = e.localite inner join fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where 1=1 and YEAR( p.date_op)  = '2021' order by p.date_op desc
+
+
+--------------------------------------
+
+
+CREATE TABLE [dbo].[Appointments] (
+        [UniqueID] [int] IDENTITY (1, 1) NOT NULL,
+        [Type] [int] NULL,
+        [StartDate] [smalldatetime] NULL,
+        [EndDate] [smalldatetime] NULL,
+        [AllDay] [bit] NULL,
+        [Subject] [nvarchar] (50) NULL,
+        [Location] [nvarchar] (50) NULL,
+        [Description] [nvarchar](max) NULL,
+        [Status] [int] NULL,
+        [Label] [int] NULL,
+        [ResourceID] [int] NULL,
+        [ResourceIDs] [nvarchar](max) NULL,
+        [ReminderInfo] [nvarchar](max) NULL,
+        [RecurrenceInfo] [nvarchar](max) NULL,
+        [TimeZoneId] [nvarchar](max) NULL,
+        [CustomField1] [nvarchar](max) NULL 
+CONSTRAINT [PK_Appointments] PRIMARY KEY CLUSTERED
+(
+        [UniqueID] ASC
+)
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+select * from [Appointments]
+
+CREATE TABLE [dbo].[Resources] (
+        [UniqueID] [int] IDENTITY (1, 1) NOT NULL,
+        [ResourceID] [int] NOT NULL,
+        [ResourceName] [nvarchar] (50) NULL,
+        [Color] [int] NULL,
+        [Image] [image] NULL,
+        [CustomField1] [nvarchar](max) NULL 
+CONSTRAINT [PK_Resources] PRIMARY KEY CLUSTERED
+(
+        [UniqueID] ASC
+)
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET IDENTITY_INSERT [dbo].[Resources] ON
+INSERT [dbo].[Resources] ([UniqueID], [ResourceID], [ResourceName], [Color], [Image], [CustomField1]) VALUES (1, 1, N'Resource One', NULL, NULL, NULL)
+INSERT [dbo].[Resources] ([UniqueID], [ResourceID], [ResourceName], [Color], [Image], [CustomField1]) VALUES (2, 2, N'Resource Two', NULL, NULL, NULL)
+INSERT [dbo].[Resources] ([UniqueID], [ResourceID], [ResourceName], [Color], [Image], [CustomField1]) VALUES (3, 3, N'Resource Three', NULL, NULL, NULL)
+SET IDENTITY_INSERT [dbo].[Resources] OFF
+
+GO
