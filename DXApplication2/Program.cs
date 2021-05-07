@@ -54,7 +54,7 @@ namespace DXApplication2
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
 
-                Application.Run(new Form1());
+                Application.Run(new calendrier());
 
 
             }

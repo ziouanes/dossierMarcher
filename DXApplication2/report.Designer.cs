@@ -32,7 +32,6 @@ namespace DXApplication2
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(report));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButton_print = new DevExpress.XtraEditors.SimpleButton();
             this.labelAop = new System.Windows.Forms.Label();
             this.labeln_marche = new System.Windows.Forms.Label();
             this.label_objet = new System.Windows.Forms.Label();
@@ -46,11 +45,8 @@ namespace DXApplication2
             this.stepProgressBarItem7 = new DevExpress.XtraEditors.StepProgressBarItem();
             this.stepProgressBarItem8 = new DevExpress.XtraEditors.StepProgressBarItem();
             this.lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
-            this.classSIMPLEovertureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-            this.classpublicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.classEtudeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -68,17 +64,18 @@ namespace DXApplication2
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.simpleButton_print = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.classSIMPLEovertureBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.classpublicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.classEtudeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classEtudeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -95,8 +92,11 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classEtudeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -118,19 +118,6 @@ namespace DXApplication2
             this.layoutControl1.Size = new System.Drawing.Size(1198, 441);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // simpleButton_print
-            // 
-            this.simpleButton_print.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_print.ImageOptions.Image")));
-            this.simpleButton_print.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton_print.Location = new System.Drawing.Point(24, 395);
-            this.simpleButton_print.Name = "simpleButton_print";
-            this.simpleButton_print.Size = new System.Drawing.Size(1150, 22);
-            this.simpleButton_print.StyleController = this.layoutControl1;
-            this.simpleButton_print.TabIndex = 11;
-            this.simpleButton_print.Text = "Imprimer Report";
-            this.simpleButton_print.Visible = false;
-            this.simpleButton_print.Click += new System.EventHandler(this.simpleButton_print_Click);
             // 
             // labelAop
             // 
@@ -241,10 +228,6 @@ namespace DXApplication2
             this.lookUpEdit3.StyleController = this.layoutControl1;
             this.lookUpEdit3.TabIndex = 6;
             // 
-            // classSIMPLEovertureBindingSource
-            // 
-            this.classSIMPLEovertureBindingSource.DataSource = typeof(DXApplication2.ClassSIMPLE_overture);
-            // 
             // lookUpEdit2
             // 
             this.lookUpEdit2.Location = new System.Drawing.Point(442, 45);
@@ -260,10 +243,6 @@ namespace DXApplication2
             this.lookUpEdit2.StyleController = this.layoutControl1;
             this.lookUpEdit2.TabIndex = 5;
             this.lookUpEdit2.EditValueChanged += new System.EventHandler(this.lookUpEdit2_EditValueChanged);
-            // 
-            // classpublicationBindingSource
-            // 
-            this.classpublicationBindingSource.DataSource = typeof(DXApplication2.Class_publication);
             // 
             // lookUpEdit1
             // 
@@ -281,10 +260,6 @@ namespace DXApplication2
             this.lookUpEdit1.StyleController = this.layoutControl1;
             this.lookUpEdit1.TabIndex = 4;
             this.lookUpEdit1.EditValueChanged += new System.EventHandler(this.lookUpEdit1_EditValueChanged);
-            // 
-            // classEtudeBindingSource
-            // 
-            this.classEtudeBindingSource.DataSource = typeof(DXApplication2.ClassEtude);
             // 
             // simpleButton11
             // 
@@ -472,15 +447,6 @@ namespace DXApplication2
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.simpleButton_print;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 350);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(1154, 26);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
-            // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
@@ -491,6 +457,40 @@ namespace DXApplication2
             this.emptySpaceItem7.Size = new System.Drawing.Size(1154, 49);
             this.emptySpaceItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // simpleButton_print
+            // 
+            this.simpleButton_print.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_print.ImageOptions.Image")));
+            this.simpleButton_print.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton_print.Location = new System.Drawing.Point(24, 395);
+            this.simpleButton_print.Name = "simpleButton_print";
+            this.simpleButton_print.Size = new System.Drawing.Size(1150, 22);
+            this.simpleButton_print.StyleController = this.layoutControl1;
+            this.simpleButton_print.TabIndex = 11;
+            this.simpleButton_print.Text = "Imprimer Report";
+            this.simpleButton_print.Visible = false;
+            this.simpleButton_print.Click += new System.EventHandler(this.simpleButton_print_Click);
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.simpleButton_print;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 350);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(1154, 26);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // classSIMPLEovertureBindingSource
+            // 
+            this.classSIMPLEovertureBindingSource.DataSource = typeof(DXApplication2.ClassSIMPLE_overture);
+            // 
+            // classpublicationBindingSource
+            // 
+            this.classpublicationBindingSource.DataSource = typeof(DXApplication2.Class_publication);
+            // 
+            // classEtudeBindingSource
+            // 
+            this.classEtudeBindingSource.DataSource = typeof(DXApplication2.ClassEtude);
             // 
             // report
             // 
@@ -507,11 +507,8 @@ namespace DXApplication2
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.stepProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classEtudeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -528,8 +525,11 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classSIMPLEovertureBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classpublicationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classEtudeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
