@@ -104,6 +104,7 @@ namespace DXApplication2
             this.schedulerBarController1 = new DevExpress.XtraScheduler.UI.SchedulerBarController(this.components);
             this.appointmentsTableAdapter = new DXApplication2.dossierMarcherDataSetTableAdapters.AppointmentsTableAdapter();
             this.resourcesTableAdapter = new DXApplication2.dossierMarcherDataSetTableAdapters.ResourcesTableAdapter();
+            this.gcSyncComponent = new DevExpress.XtraScheduler.GoogleCalendar.DXGoogleCalendarSync(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).BeginInit();
@@ -724,6 +725,13 @@ namespace DXApplication2
             // 
             this.resourcesTableAdapter.ClearBeforeFill = true;
             // 
+            // gcSyncComponent
+            // 
+            this.gcSyncComponent.CalendarId = null;
+            this.gcSyncComponent.CalendarService = null;
+            this.gcSyncComponent.Storage = this.schedulerDataStorage1;
+            this.gcSyncComponent.ConflictDetected += new DevExpress.XtraScheduler.GoogleCalendar.ConflictDetectedEventHandler(this.gcSyncComponent_ConflictDetected);
+            // 
             // calendrier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -828,5 +836,6 @@ namespace DXApplication2
         private dossierMarcherDataSetTableAdapters.AppointmentsTableAdapter appointmentsTableAdapter;
         private System.Windows.Forms.BindingSource resourcesBindingSource;
         private dossierMarcherDataSetTableAdapters.ResourcesTableAdapter resourcesTableAdapter;
+        private DevExpress.XtraScheduler.GoogleCalendar.DXGoogleCalendarSync gcSyncComponent;
     }
 }
