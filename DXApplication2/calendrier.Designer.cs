@@ -35,6 +35,9 @@ namespace DXApplication2
             DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
+            this.appointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dossierMarcherDataSet = new DXApplication2.dossierMarcherDataSet();
+            this.resourcesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.openScheduleItem1 = new DevExpress.XtraScheduler.UI.OpenScheduleItem();
             this.saveScheduleItem1 = new DevExpress.XtraScheduler.UI.SaveScheduleItem();
@@ -99,13 +102,13 @@ namespace DXApplication2
             this.dateNavigator1 = new DevExpress.XtraScheduler.DateNavigator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.schedulerBarController1 = new DevExpress.XtraScheduler.UI.SchedulerBarController(this.components);
-            this.dossierMarcherDataSet = new DXApplication2.dossierMarcherDataSet();
-            this.appointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentsTableAdapter = new DXApplication2.dossierMarcherDataSetTableAdapters.AppointmentsTableAdapter();
-            this.resourcesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.resourcesTableAdapter = new DXApplication2.dossierMarcherDataSetTableAdapters.ResourcesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dossierMarcherDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).BeginInit();
@@ -115,20 +118,18 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1.CalendarTimeProperties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerBarController1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dossierMarcherDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // schedulerControl1
             // 
+            this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.Month;
             this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
             this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
             this.schedulerControl1.MenuManager = this.ribbonControl1;
             this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.Size = new System.Drawing.Size(892, 287);
-            this.schedulerControl1.Start = new System.DateTime(2021, 5, 7, 0, 0, 0, 0);
+            this.schedulerControl1.Size = new System.Drawing.Size(939, 372);
+            this.schedulerControl1.Start = new System.DateTime(2021, 5, 2, 0, 0, 0, 0);
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
             this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
@@ -173,6 +174,21 @@ namespace DXApplication2
             this.schedulerDataStorage1.AppointmentsInserted += new DevExpress.XtraScheduler.PersistentObjectsEventHandler(this.schedulerDataStorage1_AppointmentsChanged);
             this.schedulerDataStorage1.AppointmentsChanged += new DevExpress.XtraScheduler.PersistentObjectsEventHandler(this.schedulerDataStorage1_AppointmentsChanged);
             this.schedulerDataStorage1.AppointmentsDeleted += new DevExpress.XtraScheduler.PersistentObjectsEventHandler(this.schedulerDataStorage1_AppointmentsChanged);
+            // 
+            // appointmentsBindingSource
+            // 
+            this.appointmentsBindingSource.DataMember = "Appointments";
+            this.appointmentsBindingSource.DataSource = this.dossierMarcherDataSet;
+            // 
+            // dossierMarcherDataSet
+            // 
+            this.dossierMarcherDataSet.DataSetName = "dossierMarcherDataSet";
+            this.dossierMarcherDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // resourcesBindingSource
+            // 
+            this.resourcesBindingSource.DataMember = "Resources";
+            this.resourcesBindingSource.DataSource = this.dossierMarcherDataSet;
             // 
             // ribbonControl1
             // 
@@ -233,7 +249,7 @@ namespace DXApplication2
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemSpinEdit1,
             this.repositoryItemDuration1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1092, 158);
+            this.ribbonControl1.Size = new System.Drawing.Size(1179, 158);
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // openScheduleItem1
@@ -625,9 +641,9 @@ namespace DXApplication2
             // 
             this.panelControl1.Controls.Add(this.dateNavigator1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl1.Location = new System.Drawing.Point(892, 158);
+            this.panelControl1.Location = new System.Drawing.Point(939, 158);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(200, 287);
+            this.panelControl1.Size = new System.Drawing.Size(240, 372);
             this.panelControl1.TabIndex = 1;
             // 
             // dateNavigator1
@@ -636,12 +652,14 @@ namespace DXApplication2
             this.dateNavigator1.CalendarAppearance.DayCellSpecial.Options.UseFont = true;
             this.dateNavigator1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNavigator1.DateTime = new System.DateTime(2021, 5, 2, 0, 0, 0, 0);
             this.dateNavigator1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateNavigator1.EditValue = new System.DateTime(2021, 5, 2, 0, 0, 0, 0);
             this.dateNavigator1.FirstDayOfWeek = System.DayOfWeek.Sunday;
             this.dateNavigator1.Location = new System.Drawing.Point(2, 2);
             this.dateNavigator1.Name = "dateNavigator1";
             this.dateNavigator1.SchedulerControl = this.schedulerControl1;
-            this.dateNavigator1.Size = new System.Drawing.Size(196, 283);
+            this.dateNavigator1.Size = new System.Drawing.Size(236, 368);
             this.dateNavigator1.TabIndex = 0;
             // 
             // panel1
@@ -650,7 +668,7 @@ namespace DXApplication2
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 158);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(892, 287);
+            this.panel1.Size = new System.Drawing.Size(939, 372);
             this.panel1.TabIndex = 2;
             // 
             // schedulerBarController1
@@ -698,24 +716,9 @@ namespace DXApplication2
             this.schedulerBarController1.BarItems.Add(this.changeAppointmentReminderItem1);
             this.schedulerBarController1.Control = this.schedulerControl1;
             // 
-            // dossierMarcherDataSet
-            // 
-            this.dossierMarcherDataSet.DataSetName = "dossierMarcherDataSet";
-            this.dossierMarcherDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // appointmentsBindingSource
-            // 
-            this.appointmentsBindingSource.DataMember = "Appointments";
-            this.appointmentsBindingSource.DataSource = this.dossierMarcherDataSet;
-            // 
             // appointmentsTableAdapter
             // 
             this.appointmentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // resourcesBindingSource
-            // 
-            this.resourcesBindingSource.DataMember = "Resources";
-            this.resourcesBindingSource.DataSource = this.dossierMarcherDataSet;
             // 
             // resourcesTableAdapter
             // 
@@ -725,7 +728,7 @@ namespace DXApplication2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1092, 445);
+            this.ClientSize = new System.Drawing.Size(1179, 530);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.ribbonControl1);
@@ -735,6 +738,9 @@ namespace DXApplication2
             this.Load += new System.EventHandler(this.calendrier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dossierMarcherDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).EndInit();
@@ -744,9 +750,6 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerBarController1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dossierMarcherDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
