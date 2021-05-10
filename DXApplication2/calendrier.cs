@@ -64,19 +64,14 @@ namespace DXApplication2
         #region Authorization
         async protected override void OnLoad(EventArgs e)
         {
-            XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-            args.AutoCloseOptions.Delay = 3000;
-            args.Caption = "Auto-close message";
-            args.Text = "This message closes automatically after 3 seconds.";
-            args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
 
 
 
             ////////////:
             base.OnLoad(e);
             Directory.CreateDirectory(Environment.CurrentDirectory + @"\xml");
-            //try
-            //{
+            try
+            {
                 this.credential = await AuthorizeToGoogle();
                 this.service = new CalendarService(new BaseClientService.Initializer()
                 {
@@ -90,17 +85,23 @@ namespace DXApplication2
                 this.gcSyncComponent.Storage = schedulerDataStorage1;
 
 
-            //  this.gcSyncComponent.CalendarId = "652ilqp8u3ikeur3ac2uqd1t8s@group.calendar.google.com";
-              this.gcSyncComponent.CalendarId = "zioianhamza@gmail.com";
+              this.gcSyncComponent.CalendarId = "46o41vhg3e1o0m0d2kmkomlvtg@group.calendar.google.com";
+            //  this.gcSyncComponent.CalendarId = "zioianhamza@gmail.com";
 
               this.gcSyncComponent.Synchronize();
-            //}
-            //catch (Exception ex)
-            //{
-            //     MessageBox.Show(ex.Message);
-            //   // XtraMessageBox.Show(args).ToString();
+            }
+            catch (Exception ex)
+            {
 
-            //}
+                XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                args.AutoCloseOptions.Delay = 3000;
+                args.Caption = "Auto-close message";
+                args.Text = ex.Message;
+                args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                //     MessageBox.Show(ex.Message);
+                XtraMessageBox.Show(args).ToString();
+
+            }
         }
 
         async Task<UserCredential> AuthorizeToGoogle()
