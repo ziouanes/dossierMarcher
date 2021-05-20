@@ -18,7 +18,8 @@ namespace DXApplication2
 
         public Valide_approbation(int order_service, DateTime date_approbation)
         {
-            dateEdit1.DateTime = date_approbation;
+            MessageBox.Show(date_approbation.ToString());
+            dateEdit1.EditValue = date_approbation;
             _order_service = order_service;
             InitializeComponent();
             

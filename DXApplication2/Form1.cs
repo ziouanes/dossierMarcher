@@ -988,41 +988,41 @@ namespace DXApplication2
             cellid = gridViewOvert.GetRowCellValue(row2, "id3").ToString();
 
             Valide_approbation valide_ = new  Valide_approbation(int.Parse(cellid), date_approbation);
-
+            valide_.ShowDialog();
             select_Overt_Data();
 
 
-            if (MessageBox.Show("Voulez-vous vraiment validate cette approbation   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                try
-                {
+            //if (MessageBox.Show("Voulez-vous vraiment validate cette approbation   ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+            //    try
+            //    {
 
 
-                    using (SqlCommand deleteCommand = new SqlCommand("update SIMPLE_overture set valide_approbation = 1 WHERE id3 = @id", Program.sql_con))
-                    {
+            //        using (SqlCommand deleteCommand = new SqlCommand("update SIMPLE_overture set valide_approbation = 1 WHERE id3 = @id", Program.sql_con))
+            //        {
 
 
-                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+            //            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
-                        deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
+            //            deleteCommand.Parameters.AddWithValue("@id", int.Parse(cellid));
 
-                        deleteCommand.ExecuteNonQuery();
+            //            deleteCommand.ExecuteNonQuery();
 
 
 
-                    }
-                    select_Overt_Data();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    //this.Dispose();
-                }
+            //        }
+            //        select_Overt_Data();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message);
+            //    }
+            //    finally
+            //    {
+            //        //this.Dispose();
+            //    }
 
-            }
+           // }
         }
 
         private void barButtonItem_confirmer_caution_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -1201,6 +1201,12 @@ namespace DXApplication2
             run();
             situation st = new situation();
             st.ShowDialog();
+        }
+
+        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            calendrier cd = new calendrier();
+            cd.ShowDialog();
         }
     }
 }

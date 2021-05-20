@@ -33,6 +33,7 @@ namespace DXApplication2
             DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
             DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
             DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(calendrier));
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.appointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -82,6 +83,7 @@ namespace DXApplication2
             this.toggleRecurrenceItem1 = new DevExpress.XtraScheduler.UI.ToggleRecurrenceItem();
             this.changeAppointmentReminderItem1 = new DevExpress.XtraScheduler.UI.ChangeAppointmentReminderItem();
             this.repositoryItemDuration1 = new DevExpress.XtraScheduler.UI.RepositoryItemDuration();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
             this.appointmentRibbonPage1 = new DevExpress.XtraScheduler.UI.AppointmentRibbonPage();
             this.actionsRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.ActionsRibbonPageGroup();
@@ -237,9 +239,10 @@ namespace DXApplication2
             this.changeAppointmentStatusItem1,
             this.changeAppointmentLabelItem1,
             this.toggleRecurrenceItem1,
-            this.changeAppointmentReminderItem1});
+            this.changeAppointmentReminderItem1,
+            this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 42;
+            this.ribbonControl1.MaxItemId = 43;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.calendarToolsRibbonPageCategory1});
@@ -498,6 +501,13 @@ namespace DXApplication2
             this.repositoryItemDuration1.ShowEmptyItem = true;
             this.repositoryItemDuration1.ValidateOnEnterKey = true;
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 42;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // calendarToolsRibbonPageCategory1
             // 
             this.calendarToolsRibbonPageCategory1.Control = this.schedulerControl1;
@@ -740,9 +750,12 @@ namespace DXApplication2
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("calendrier.IconOptions.LargeImage")));
             this.Name = "calendrier";
             this.Ribbon = this.ribbonControl1;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "calendrier";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.calendrier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
@@ -837,5 +850,6 @@ namespace DXApplication2
         private System.Windows.Forms.BindingSource resourcesBindingSource;
         private dossierMarcherDataSetTableAdapters.ResourcesTableAdapter resourcesTableAdapter;
         private DevExpress.XtraScheduler.GoogleCalendar.DXGoogleCalendarSync gcSyncComponent;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

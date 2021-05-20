@@ -18,7 +18,7 @@ namespace DXApplication2
         public int duree_approbation { get; set; }
         public int délai_dexecution { get; set; }
         public int caution_definitif { get; set; }
-        public int caution_return { get; set; }
+        public string caution_return { get; set; }
         public DateTime datenotifiy { get; set; }
         public DateTime date_caution { get; set; }
         public int valide_caution { get; set; }

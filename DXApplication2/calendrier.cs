@@ -61,74 +61,108 @@ namespace DXApplication2
         }
 
 
-        #region Authorization
-        async protected override void OnLoad(EventArgs e)
-        {
+        //#region Authorization
+        //async protected override void OnLoad(EventArgs e)
+        //{
+
+        //    //////
+
+        //    ////////////////////::/
+        //    ////////////:
+        //    ///
+
+        //    base.OnLoad(e);
+        //    Directory.CreateDirectory(Environment.CurrentDirectory + @"\xml");
+        //    try
+        //    {
+        //        this.credential = await AuthorizeToGoogle();
+        //        this.service = new CalendarService(new BaseClientService.Initializer()
+        //        {
+        //            HttpClientInitializer = this.credential,
+        //            ApplicationName = "Other client 1"
+        //        });
+        //        this.gcSyncComponent.CalendarService = this.service;
+        //        // await UpdateCalendarListUI();
+        //        this.allowEventLoad = true;
+        //        // UpdateBbiAvailability();
+        //        this.gcSyncComponent.Storage = schedulerDataStorage1;
 
 
+        //      //  this.gcSyncComponent.CalendarId = "46o41vhg3e1o0m0d2kmkomlvtg@group.calendar.google.com";
+        //        //  this.gcSyncComponent.CalendarId = "zioianhamza@gmail.com";
 
-            ////////////:
-            base.OnLoad(e);
-            Directory.CreateDirectory(Environment.CurrentDirectory + @"\xml");
-            try
-            {
-                this.credential = await AuthorizeToGoogle();
-                this.service = new CalendarService(new BaseClientService.Initializer()
-                {
-                    HttpClientInitializer = this.credential,
-                    ApplicationName = "Other client 1"
-                });
-                this.gcSyncComponent.CalendarService = this.service;
-                // await UpdateCalendarListUI();
-                this.allowEventLoad = true;
-               // UpdateBbiAvailability();
-                this.gcSyncComponent.Storage = schedulerDataStorage1;
+        //      //  this.gcSyncComponent.Synchronize();
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+        //        args.AutoCloseOptions.Delay = 3000;
+        //        args.Caption = "Auto-close message";
+        //        args.Text = ex.Message;
+        //        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+        //        //     MessageBox.Show(ex.Message);
+        //        XtraMessageBox.Show(args).ToString();
+
+        //    }
+        //}
+
+        //async Task<UserCredential> AuthorizeToGoogle()
+        //{
+        //    using (FileStream stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+        //    {
+        //        string credPath = Environment.GetFolderPath(
+        //            Environment.SpecialFolder.Personal);
+        //        credPath = Path.Combine(credPath, ".credentials/GoogleSchedulerSync.json");
+
+        //        return await GoogleWebAuthorizationBroker.AuthorizeAsync(
+        //            GoogleClientSecrets.Load(stream).Secrets,
+        //            new String[] { CalendarService.Scope.Calendar },
+        //            "user",
+        //            CancellationToken.None,
+        //            new FileDataStore(credPath, true));
+        //    }
+        //}
+        //#endregion
 
 
-              this.gcSyncComponent.CalendarId = "46o41vhg3e1o0m0d2kmkomlvtg@group.calendar.google.com";
-            //  this.gcSyncComponent.CalendarId = "zioianhamza@gmail.com";
-
-              this.gcSyncComponent.Synchronize();
-            }
-            catch (Exception ex)
-            {
-
-                XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                args.AutoCloseOptions.Delay = 3000;
-                args.Caption = "Auto-close message";
-                args.Text = ex.Message;
-                args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                //     MessageBox.Show(ex.Message);
-                XtraMessageBox.Show(args).ToString();
-
-            }
-        }
-
-        async Task<UserCredential> AuthorizeToGoogle()
-        {
-            using (FileStream stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
-            {
-                string credPath = Environment.GetFolderPath(
-                    Environment.SpecialFolder.Personal);
-                credPath = Path.Combine(credPath, ".credentials/GoogleSchedulerSync.json");
-
-                return await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.Load(stream).Secrets,
-                    new String[] { CalendarService.Scope.Calendar },
-                    "user",
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true));
-            }
-        }
-        #endregion
 
         private void gcSyncComponent_ConflictDetected(object sender, ConflictDetectedEventArgs e)
         {
-            XtraMessageBox.Show("Google '" + e.Event.Summary + "' Event conflicts with the Scheduler '" +
-                e.Appointment.Subject + "' Appointment." + Environment.NewLine + "Synchronizing by the Google Event.",
-                "Conflict detected", MessageBoxButtons.OK);
-            //uncomment the following line to sync by Scheduler Appointments instead
+         //   XtraMessageBox.Show("Google '" + e.Event.Summary + "' Event conflicts with the Scheduler '" +
+         //       e.Appointment.Subject + "' Appointment." + Environment.NewLine + "Synchronizing by the Google Event.",
+         //       "Conflict detected", MessageBoxButtons.OK);
+         //   //uncomment the following line to sync by Scheduler Appointments instead
             e.GoogleEventIsValid = false;
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //deleted
+
+
+            //schedulerDataStorage1.Appointments.Clear();
+
+            //XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+            //args.AutoCloseOptions.Delay = 3000;
+            //args.Caption = "Auto-close message";
+            //args.Text = "This message closes automatically after 3 seconds.";
+            //args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+            //try
+            //{
+            //    dossierMarcherDataSet.Appointments.Clear();
+            //    appointmentsTableAdapter.Update(this.dossierMarcherDataSet.Appointments);
+            //    this.gcSyncComponent.CalendarId = "46o41vhg3e1o0m0d2kmkomlvtg@group.calendar.google.com";
+            //    this.gcSyncComponent.Synchronize();
+            //    appointmentsTableAdapter.Update(this.dossierMarcherDataSet.Appointments);
+            //}
+            //catch (Exception ex)
+            //{
+            //    XtraMessageBox.Show(args + ex.Message).ToString();
+            //}
+
+
+            /// <summary>
         }
     }
 }
