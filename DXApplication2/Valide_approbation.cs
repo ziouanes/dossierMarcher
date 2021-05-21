@@ -15,11 +15,13 @@ namespace DXApplication2
     public partial class Valide_approbation : DevExpress.XtraEditors.XtraForm
     {
         int _order_service;
+        DateTime dt;
 
         public Valide_approbation(int order_service, DateTime date_approbation)
         {
-            MessageBox.Show(date_approbation.ToString());
-            dateEdit1.EditValue = date_approbation;
+
+            dt = date_approbation;
+
             _order_service = order_service;
             InitializeComponent();
             
@@ -31,6 +33,9 @@ namespace DXApplication2
             this.dateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEdit1.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+
+            dateEdit1.EditValue = dt;
+
         }
 
         private void simpleButton11_Click(object sender, EventArgs e)

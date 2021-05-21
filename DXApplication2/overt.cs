@@ -72,7 +72,7 @@ namespace DXApplication2
                 comboBoxAoo.DataSource = dt;
                 comboBoxAoo.ValueMember = "id2";
                 comboBoxAoo.DisplayMember = "Aop";
-                //comboBox1.SelectedIndex = -1;
+                comboBoxAoo.SelectedIndex = -1;
 
 
 
@@ -134,7 +134,7 @@ namespace DXApplication2
                 SqlCommand cmd = Program.sql_con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 s = comboBoxAoo.SelectedValue.ToString();
-                cmd.CommandText = "select e.[délai_dexecution] as délai_dexecution  from etude e inner join  fk f on e.id1 = f.id1 inner join  publication p on p.id2 = f.id2 where p.id2 = '" + s + "'";
+                cmd.CommandText = "select e.[délai_dexecution] as délai_dexecution , p.date_op   from etude e inner join  fk f on e.id1 = f.id1 inner join  publication p on p.id2 = f.id2 where p.id2 = '" + s + "'";
 
                 DataTable table = new DataTable();
                 cmd.ExecuteNonQuery();
@@ -146,8 +146,39 @@ namespace DXApplication2
 
                     délai_dexecution.EditValue = row["délai_dexecution"].ToString();
 
+                    DateTime dt = Convert.ToDateTime(row["date_op"].ToString());
+                    dt = dt.AddDays(+75);
+                    dateEditdate_approbation.EditValue = dt;
+
+                }
+
+                if (dateEditdate_approbation.DateTime < DateTime.Now)
+                {
+                    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                    args.AutoCloseOptions.Delay = 6000;
+                    args.Caption = "Auto-close message";
+                    args.Text = "Date approbation a expiré";
+                    args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                    XtraMessageBox.Show(args).ToString();
+
+                }
+
+                else if(dateEditdate_approbation.DateTime > DateTime.Now)
+                {
+                    if(dateEditdate_approbation.DateTime <  DateTime.Now.AddDays(+15))
+                    {
+
+                    TimeSpan difference =  DateTime.Now - dateEditdate_approbation.DateTime ; //create TimeSpan object
 
 
+                    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                    args.AutoCloseOptions.Delay = 6000;
+                    args.Caption = "Auto-close message";
+                    args.Text = "Il reste " + difference.Days + " jour d'expiration de la date d'approbation";
+                    args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                    XtraMessageBox.Show(args).ToString();
+
+                    }
                 }
 
             }

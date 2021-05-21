@@ -144,12 +144,11 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="calendrier.IconOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAHXRFWHRUaXRsZQBDYWxlbmRh
-        cjtTY2hlZHVsZXI7Vmlld4WpMlIAAACRSURBVFhH7ZBBCoAwDAT9oJ/yVf4uIhgYy6o9mDSHHubgljCD
-        i5kNRY6ZyNFZt91O2r2Xnns5OukBfnDB7/ath8d7Or8CCN96eLyn8y0gDDpLBvgvc37f6JwBJQPCoVMF
-        sDZko3MGlAwIh04VwNqQjc4ZUDIgHDpVAGtDNjpnQMmAcOi8BYxAjpnIMRM55mHLAaVbhAzmmsolAAAA
-        AElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAddEVYdFRpdGxlAENhbGVuZGFyO1NjaGVkdWxlcjtW
+        aWV3hakyUgAAAJFJREFUWEftkEEKgDAMBP2gn/JV/i4iGBjLqj2YNIce5uCWMIOLmQ1FjpnI0Vm33U7a
+        vZeeezk66QF+cMHv9q2Hx3s6vwII33p4vKfzLSAMOksG+C9zft/onAElA8KhUwWwNmSjcwaUDAiHThXA
+        2pCNzhlQMiAcOlUAa0M2OmdAyYBw6LwFjECOmcgxEznmYcsBpVuEDOaayiUAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

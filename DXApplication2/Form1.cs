@@ -1032,6 +1032,8 @@ namespace DXApplication2
             cellid = gridViewOvert.GetRowCellValue(row2, "id3").ToString();
             DateTime date_caution = Convert.ToDateTime(gridViewOvert.GetRowCellValue(row2, "date_caution").ToString());
             valide_caution valide_ = new valide_caution( int.Parse(cellid), date_caution);
+            valide_.ShowDialog();
+            select_Overt_Data();
 
 
 

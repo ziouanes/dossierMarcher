@@ -16,10 +16,12 @@ namespace DXApplication2
     {
 
         int _order_service;
+        DateTime dt;
+
 
         public valide_caution(int order_service, DateTime date_caution)
         {
-            dateEdit1.DateTime = date_caution;
+            dt = date_caution;
             _order_service = order_service;
             InitializeComponent();
         }
@@ -30,6 +32,9 @@ namespace DXApplication2
             this.dateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEdit1.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+
+            dateEdit1.DateTime = dt ;
+
         }
 
         private void simpleButton11_Click(object sender, EventArgs e)
@@ -40,7 +45,7 @@ namespace DXApplication2
                 {
 
 
-                    using (SqlCommand deleteCommand = new SqlCommand("update SIMPLE_overture set valide_caution = 1 , dt_caution = dt_caution  WHERE id3 = @id", Program.sql_con))
+                    using (SqlCommand deleteCommand = new SqlCommand("update SIMPLE_overture set valide_caution = 1 , date_caution = @dt_caution  WHERE id3 = @id", Program.sql_con))
                     {
 
 
