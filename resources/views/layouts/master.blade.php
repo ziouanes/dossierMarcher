@@ -20,20 +20,32 @@
    
     <!-- /Loader -->
     @include('layouts.main-header')
-    <!-- main-content -->
- {{--  <div class="main-content app-content">
-        @include('layouts.main-header')
-        <!-- container -->
-        <div class="container-fluid">
-           @yield('page-header')
-            @yield('content')
-            @include('layouts.sidebar')
-            @include('layouts.models')
-            @include('layouts.footer')
-            --}}
-            @include('layouts.main-footer')
+<!--------------------------->
+    @yield('content')
+
+<!--------------------------->
+
+     @include('layouts.main-footer')
+
+	<!-- End footer -->
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
+	<!-- Search Menu -->
+	<div class="search-overlay-menu">
+		<span class="search-overlay-close"><i class="icon_close"></i></span>
+		<form role="search" id="searchform" method="get">
+			<input value="" name="q" type="search" placeholder="Search..." />
+			<button type="submit"><i class="icon-search-6"></i>
+			</button>
+		</form>
+	</div>
+	<!-- End Search Menu -->
+
 
      @include('layouts.footer-scripts')
+
+
 </body>
 
 </html>
