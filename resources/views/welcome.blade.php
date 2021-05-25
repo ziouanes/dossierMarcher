@@ -4,7 +4,7 @@
     <div id="layerslider" style="width:100%;height:600px;">
         <!-- first slide -->
         <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:85;">
-            <img src="img/slides/slide_1.jpg" class="ls-bg" alt="Slide background">
+            <img src="assets/img/slides/slide_1.jpg" class="ls-bg" alt="Slide background">
             <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">High Atlas Hiking</h3>
             <p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
                 Stay Home, Stay Safe - Until We Meet Again
@@ -34,7 +34,7 @@
                     </div>
                     <div class="img_container">
                         <a href="hikes_in_imlil.html">
-                            <img src="img/tours/imlil.jpg" width="800" height="533" class="img-responsive" alt="">
+                            <img src="assets/img/tours/imlil.jpg" width="800" height="533" class="img-responsive" alt="">
                             <div class="short_info">
                                 <h3>Imlil Valley Treks</h3>
                                 <em>Duration: 4 to 8 hours</em>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="img_container">
                         <a href="mount_toubkal_climb.html">
-                            <img src="img/tours/toubkal.jpg" width="800" height="533" class="img-responsive" alt="">
+                            <img src="assets/img/tours/toubkal.jpg" width="800" height="533" class="img-responsive" alt="">
                             <div class="short_info">
                                 <h3>Mount Toubkal Climb</h3>
                                 <em>Duration: 2 - 6 Days</em>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="img_container">
                         <a href="atlas_valleys_trek.html">
-                            <img src="img/tours/berber_villages.jpg" width="800" height="533" class="img-responsive" alt="">
+                            <img src="assets/img/tours/berber_villages.jpg" width="800" height="533" class="img-responsive" alt="">
                             <div class="short_info">
                                 <h3>Valleys and Berber Villages</h3>
                                 <em>Duration: 2 - 3 Days</em>
@@ -97,7 +97,7 @@
                     </div>
                     <div class="img_container">
                         <a href="imlil_setti_fadma.html">
-                            <img src="img/tours/setti_fadma.jpg" width="800" height="533" class="img-responsive" alt="">
+                            <img src="assets/img/tours/setti_fadma.jpg" width="800" height="533" class="img-responsive" alt="">
                             <div class="short_info">
                                 <h3>Imlil to Setti Fadma</h3>
                                 <em>Duration: 3 Days</em>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="img_container">
                         <a href="toubkal_circuit.html">
-                            <img src="img/tours/circuit.jpg" width="800" height="533" class="img-responsive" alt="">
+                            <img src="assets/img/tours/circuit.jpg" width="800" height="533" class="img-responsive" alt="">
                             <div class="short_info">
                                 <h3>Toubkal Circuit Trek</h3>
                                 <em>Duration: 6 Days</em>
@@ -139,7 +139,7 @@
                     </div>
                     <div class="img_container">
                         <a href="ait_bougmez_traverse.html">
-                            <img src="img/tours/bougmez.jpg" width="800" height="533" class="img-responsive" alt="">
+                            <img src="assets/img/tours/bougmez.jpg" width="800" height="533" class="img-responsive" alt="">
                             <div class="short_info">
                                 <h3>Ait Bougmez Traverse</h3>
                                 <em>Duration: 5 Days</em>
@@ -167,7 +167,7 @@
                     <li>
                         <div>
                             <a href="high_atlas_excursion.html">
-                                <figure><img src="img/thumb_tabs_1.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                <figure><img src="assets/img/thumb_tabs_1.jpg" alt="thumb" class="img-rounded" width="60" height="60">
                                 </figure>
                                 <h4>Imlil Valley Day Tour</h4>
                                 <small>Duration 7/8 hours</small>
@@ -177,7 +177,7 @@
                     <li>
                         <div>
                             <a href="ijoukak_valley_day_tour.html">
-                                <figure><img src="img/thumb_tabs_2.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                <figure><img src="assets/img/thumb_tabs_2.jpg" alt="thumb" class="img-rounded" width="60" height="60">
                                 </figure>
                                 <h4>Ijoukak Valley Day Tour</h4>
                                 <small>Duration 8/10 hours</small>
@@ -193,7 +193,7 @@
                     <li>
                         <div>
                             <a href="sahara_tour.html">
-                                <figure><img src="img/thumb_tabs_3.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                <figure><img src="assets/img/thumb_tabs_3.jpg" alt="thumb" class="img-rounded" width="60" height="60">
                                 </figure>
                                 <h4>Sahara Tour</h4>
                                 <small>Duration 3 Days</small>
@@ -203,7 +203,7 @@
                     <li>
                         <div>
                             <a href="oualidia_essaouira.html">
-                                <figure><img src="img/thumb_tabs_4.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                <figure><img src="assets/img/thumb_tabs_4.jpg" alt="thumb" class="img-rounded" width="60" height="60">
                                 </figure>
                                 <h4>Oualidia, Essaouira &amp; Agafay Desert</h4>
                                 <small>Duration 5 Days</small>
@@ -328,7 +328,7 @@
                 </p>
             </div>
             <div class="col-sm-6">
-                <p class="advertise"><img src="img/trip-advisor.jpg" alt="" class="img-responsive">
+                <p class="advertise"><img src="assets/img/trip-advisor.jpg" alt="" class="img-responsive">
                 </p>
             </div>
         </div>
@@ -419,7 +419,7 @@
         <br>
         <div class="row">
          <p>
-          <img src="img/sponsors.jpg" class="img-responsive" alt="sponsor">
+          <img src="assets/img/sponsors.jpg" class="img-responsive" alt="sponsor">
          </p>
         </div>
     </div>
