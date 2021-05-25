@@ -21,7 +21,7 @@
 <link href="{{URL::asset('assets/css-rtl/icon_fonts/css/all_icons.min.css')}}" rel="stylesheet">  <!--- 3ndaak hadi -->
 
 <!--- SPECIFIC CSS -->
-<link href="{{URL::asset('assets/css-rtl/layerslider/layerslider.css')}}" rel="stylesheet">
+<link href="{{URL::asset('assets/layerslider/css/layerslider.css')}}" rel="stylesheet">
 <link href="{{URL::asset('assets/css-rtl/jquery.cookiebar.css')}}" rel="stylesheet">
 <!---YOUR CUSTOM CSS -->
 <link href="{{URL::asset('assets/css-rtl/custom.css')}}" rel="stylesheet">
