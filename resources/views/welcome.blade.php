@@ -414,7 +414,7 @@
 
     <div class="container">
         <div class="main_title">
-            <h2>As<span> featured </span> in:</h2>
+            <h2>As<span> featuredd </span> in:</h2>
         </div>
         <br>
         <div class="row">
