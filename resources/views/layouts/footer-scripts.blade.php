@@ -43,3 +43,4 @@
         $("img").lazy();
     })
 </script>
+@yield('js')

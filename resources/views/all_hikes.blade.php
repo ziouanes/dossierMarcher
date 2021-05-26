@@ -1,14 +1,21 @@
 @extends('layouts.master')
 @section('content')
 
-<section class="parallax_window_in" data-parallax="scroll" data-image-src="img/2_day_toubkal_trek.jpg" data-natural-width="1400" data-natural-height="470">
-    <div id="sub_content_in">
-        <div id="animate_intro">
-            <h1>Some of our favourite Hikes</h1>
-            <p>Get around the High Atlas and beyond the best way</p>
+
+<div id="full-slider-wrapper">
+    <div id="layerslider" style="width:100%;height:600px;">
+        <!-- first slide -->
+        <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:85;">
+            <img src="assets/img/2_day_toubkal_trek.jpg" class="ls-bg" alt="Slide background">
+            
+                <h1>Some of our favourite Hikes</h1>
+                <p>Get around the High Atlas and beyond the best way</p>
+           
+          
         </div>
     </div>
-</section>
+</div>
+
 <!-- End section -->
 <!-- End SubHeader ============================================ -->
 
@@ -62,4 +69,13 @@
     </div>
     <!-- End container -->
 </section>
+@endsection
+@section('js')
+<!--Internal  Chart.bundle js -->
+<script src="{{URL::asset('assets/plugins/jquery.selectbox-0.2.js')}}"></script>
+
+
+<script>
+    $(".selectbox").selectbox();
+</script>
 @endsection
