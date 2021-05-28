@@ -1,0 +1,85 @@
+[
+
+
+    {
+      "userId": 1,
+      "title": "Imlil Valley Treks",
+      "title1": "Duration: 4 to 8 hours",
+      "link":"hikes_in_imlil.html",
+      "img":"assets/img/tours/imlil.jpg",
+      "body": "If you like hiking, then this side trip from Marrakech is the right thing for you. We listed here some examples of short rambles through the villages that surround Imlil."
+    },
+    
+    {
+      "userId": 2,
+      "title": "Valleys and Berber Villages",
+      "title1": "Duration: 2 - 3 Days",
+      "link":"atlas_valleys_trek.html",
+      "img":"assets/img/tours/berber_villages.jpg",
+      "body": " These treks provides an excellent introduction to the high atlas mountains for the first time visitor"
+    },
+    {
+      "userId": 3,
+      "title": "Basic Mount Toubkal Climb",
+      "title1": "Duration: 2 Days",
+      "link":"2_day_toubkal_climb.html",
+      "img":"assets/img/tours/toubkal.jpg",
+      "body": "Two day basic climb from Imlil to the summit and back via the same route."
+    },
+    {
+      "userId": 4,
+      "title": "Toubkal trek via Azzaden valley",
+      "title1": "Duration: 3 Days",
+      "link":"mount_toubkal_via_azzaden_valley.html",
+      "img":"assets/img/tours/toubkal_via_azzaden_valley.jpg",
+      "body": "This 3 day trek will take you out of the busy Imlil Valley into the peace of the Azzaden Valley befor climbing Toubkal."
+    },
+    {
+      "userId": 5,
+      "title": "Imlil to Setti Fadma",
+      "title1": "Duration: 3 Days",
+      "link":"imlil_setti_fadma.html",
+      "img":"assets/img/tours/setti_fadma.jpg",
+      "body": "The trails leads through some outstandingly beutiful terrain and the views are the most far-reaching to be had in the High Atlas."
+    },
+    {
+      "userId": 6,
+      "title": "Ait Bougmez Traverse",
+      "title1": "Duration: 5 Days",
+      "link":"ait_bougmez_traverse.html",
+      "img":"assets/img/tours/bougmez.jpg",
+      "body": "Ait Bougmez Valley is among the most mystifying places in the mountain ranges of Atlas, leave the other places of Morocco for long vacations."
+    },
+    {
+      "userId": 7,
+      "title": "M’Goun Gorges and M’Goun summit",
+      "title1": "Duration: 7 Days",
+      "link":"m'goun_gorges_and_ighil_m'goun_summit.html",
+      "img":"assets/img/tours/m'goun.jpg",
+      "body": "The picturesque villages and green valleys of the lower reaches of this trek contract wonderfully with the remoteness of its dramatic passes and the approach to the summit of M'goun..."
+    },
+    {
+      "userId": 8,
+      "title": "Toubkal Winter Climb",
+      "title1": "Duration: 3 Days",
+      "link":"3_day_toubkal_winter_climb.html",
+      "img":"assets/img/tours/3_day_toubkal_winter_climb.jpg",
+      "body": "Im winter, Mount Toubkal and its surrounding peaks provides some of the most spectacular winter trekking on earth."
+    },
+    {
+      "userId": 9,
+      "title": "Toubkal Circuit Trek",
+      "title1": "Duration: 6 Days",
+      "link":"m'goun_gorges_and_ighil_m'goun_summit.html",
+      "img":"assets/img/tours/circuit.jpg",
+      "body": "The views. not only from the summit of Toubkal, but also from the three major approach passes are quite atunning."
+    },
+    {
+      "userId": 10,
+      "title": "Ait Bougmez and Sermt Valley Trek",
+      "title1": "Duration: 3 Days",
+      "link":"ait_bougmez%20_3_days.html",
+      "img":"assets/img/tours/bougmez_1.jpg",
+      "body": "On this hike, you’ll find a patchwork of green pastures, fertile lands, and windy valleys surrounded by peaks that higher than usual (including Mgoun, the second-highest mountain in Morocco)"
+    }
+  ]

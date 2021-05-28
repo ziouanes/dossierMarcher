@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index(){
        
-        $posts = file_get_contents(base_path('/storage/app/all_hikes.json'));
+        $posts = file_get_contents(base_path('/storage/all_hikes.json'));
         $posts = json_decode($posts, true);
         
        $collection=collect($posts);
