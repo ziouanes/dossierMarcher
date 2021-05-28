@@ -9,7 +9,7 @@
             <img src="assets/img/2_day_toubkal_trek.jpg" class="ls-bg" alt="Slide background">
             
                 <h1>Some of our favourite Hikes</h1>
-                <p>Get around the High Atlas and beyond the best way</p>
+                <p>Get around the High Atlas and beyond the best way.</p>
            
           
         </div>
