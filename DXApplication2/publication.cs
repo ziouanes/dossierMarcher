@@ -142,7 +142,7 @@ namespace DXApplication2
 
 
 
-            textEditportai.EditValue = textEditJornal.EditValue;
+           // textEditportai.EditValue = textEditJornal.EditValue;
 
 
             }
@@ -210,6 +210,11 @@ namespace DXApplication2
             DateTime dt = (DateTime)dateEditop.EditValue;
             dt = dt.AddDays(-8);
             textEditconvocation.EditValue = dt;
+
+
+            DateTime dt2 = (DateTime)dateEditop.EditValue;
+            dt2 = dt2.AddDays(-21);
+            textEditportai.EditValue = dt2;
 
             }
 

@@ -1,4 +1,4 @@
-create database dossierMarcher
+﻿create database dossierMarcher
 
 go
 
@@ -7,13 +7,13 @@ go
 
 drop table etude
 
-select Aop , num_Marcher  , 'REGION MARRAKECH SAFI'  , 'MARCHE'  , 'MARCHE UNIQUE'  , localit� , date_op , estimation , attributaire , montant , Etat  from localite l inner join etude , publication , SIMPLE_overture , localite
+select Aop , num_Marcher  , 'REGION MARRAKECH SAFI'  , 'MARCHE'  , 'MARCHE UNIQUE'  , localité , date_op , estimation , attributaire , montant , Etat  from localite l inner join etude , publication , SIMPLE_overture , localite
 
 select id1 , objet  from [etude]  where validate  = 1 and id1  not in ( select id1  from fk )
 
-create table etude( id1 int primary key identity(1,1) ,  objet text , estimation text , montant varchar(10) , envoyer_tresoryer date , validate int DEFAULT 0 , d�lai_dexecution int   , deleted int default 0  , localite int  foreign key references localite(id_l)  , Type_marcher int foreign key references Type_marcher (id_type)  , Nature int foreign key references Nature(id_N)   )
+create table etude( id1 int primary key identity(1,1) ,  objet text , estimation text , montant varchar(10) , envoyer_tresoryer date , validate int DEFAULT 0 , délai_dexecution int   , deleted int default 0  , localite int  foreign key references localite(id_l)  , Type_marcher int foreign key references Type_marcher (id_type)  , Nature int foreign key references Nature(id_N)   )
 
-select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , d�lai_dexecution  , deleted from etude where deleted = 0
+select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , délai_dexecution  , deleted from etude where deleted = 0
 
 select e.objet from etude e inner join fk f on e.id1 = f.id1 inner join publication p on f.id2 = p.id2 where p.id2 = 5
 
@@ -30,17 +30,17 @@ SELECT *   FROM fk2
 
 select * from SIMPLE_overture
 
-create table SIMPLE_overture(id3 int primary key identity(1,1) , attributaire varchar(50) ,Montant varchar(10) , num_Marcher varchar(30)  , date_Visa date , date_approbation date  , valide_approbation int default 0 , duree_approbation int default 0, d�lai_dexecution int , caution_definitif varchar(10)  , caution_return varchar(10) , datenotifiy date , date_caution date , valide_caution int default 0 , duree_caution int default 0 ,valide_order_service int default 0 , duree_order_service int default 0  )
+create table SIMPLE_overture(id3 int primary key identity(1,1) , attributaire varchar(50) ,Montant varchar(10) , num_Marcher varchar(30)  , date_Visa date , date_approbation date  , valide_approbation int default 0 , duree_approbation int default 0, délai_dexecution int , caution_definitif varchar(10)  , caution_return varchar(10) , datenotifiy date , date_caution date , valide_caution int default 0 , duree_caution int default 0 ,valide_order_service int default 0 , duree_order_service int default 0  )
 
 select * from SIMPLE_overture
 
-select id3 , attributaire , Montant , num_Marcher , date_Visa  , date_approbation  , valide_approbation  , duree_approbation , d�lai_dexecution  , caution_definitif , caution_return , datenotifiy , date_caution , valide_caution , duree_caution  , valide_order_service  , duree_order_service from SIMPLE_overture
+select id3 , attributaire , Montant , num_Marcher , date_Visa  , date_approbation  , valide_approbation  , duree_approbation , délai_dexecution  , caution_definitif , caution_return , datenotifiy , date_caution , valide_caution , duree_caution  , valide_order_service  , duree_order_service from SIMPLE_overture
 
-select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , d�lai_dexecution   from etude where deleted = 0   order by id1 desc ;
+select id1 , objet , estimation , montant , envoyer_tresoryer , validate  , délai_dexecution   from etude where deleted = 0   order by id1 desc ;
 create table fk2(id2 int foreign key references publication(id2) on delete cascade on update cascade ,id3 int foreign key references SIMPLE_overture(id3) on delete cascade on update cascade , primary key(id2,id3) )
 
 
-create table order_service(id_order int primary key identity(1,1) , date_orderService date , d�lai_Initial int, d�lai_restant int  , Etat int , id_Overture int foreign key references SIMPLE_overture(id3) on delete cascade on update cascade , validate int DEFAULT 0 )
+create table order_service(id_order int primary key identity(1,1) , date_orderService date , délai_Initial int, délai_restant int  , Etat int , id_Overture int foreign key references SIMPLE_overture(id3) on delete cascade on update cascade , validate int DEFAULT 0 )
 
 
 create table  Etat_order(id_etat int primary key identity(1,1)  , date_deffet date , etat_objet varchar(50)  , order_service int  foreign key references order_service(id_order) on delete cascade on update cascade  )
@@ -54,7 +54,7 @@ select * from publication
 go
 select id2 , Aop   from [publication]  where validate  = 1 and id2  not in ( select id2  from fk2 )
 
-select e.[d�lai_dexecution] from etude e inner join  fk f on e.id1 = f.id1 inner join  publication p on p.id2 = f.id2 where p.Aop = 'test3'
+select e.[délai_dexecution] from etude e inner join  fk f on e.id1 = f.id1 inner join  publication p on p.id2 = f.id2 where p.Aop = 'test3'
 
 select id2 , Aop   from [publication]  where validate  = 1 and id2  not in ( select id2  from fk2 )
 
@@ -65,7 +65,7 @@ create table localite (id_l int primary key identity(1,1) , localite varchar(30)
 INSERT INTO localite VALUES ('Marrakech');
 INSERT INTO localite VALUES ('Chichaoua');
 INSERT INTO localite VALUES ('Al Haouz');
-INSERT INTO localite VALUES ('El Kel�a des Sraghna');
+INSERT INTO localite VALUES ('El Kelâa des Sraghna');
 INSERT INTO localite VALUES ('Essaouira');
 INSERT INTO localite VALUES ('Rehamna');
 INSERT INTO localite VALUES ('Safi');
@@ -304,7 +304,7 @@ begin
 
 -------procedure notify 3 order service    if(validate  = 0)  END --------------
 	
-
+--//المعلومة
  -------------trigger validate 1 ----------------
  alter trigger Validate1
  on publication
@@ -375,7 +375,7 @@ begin
  
 
 
- select  v.[num_Marcher] , e.id_etat , o.date_orderService , o.Etat , o.d�lai_Initial , o.d�lai_restant, o.id_order   from SIMPLE_overture v  inner join order_service o  on o.id_Overture = v.id3 inner join Etat_order  e on e.order_service = o.id_order  where o.id_Overture = 10 
+ select  v.[num_Marcher] , e.id_etat , o.date_orderService , o.Etat , o.délai_Initial , o.délai_restant, o.id_order   from SIMPLE_overture v  inner join order_service o  on o.id_Overture = v.id3 inner join Etat_order  e on e.order_service = o.id_order  where o.id_Overture = 10 
 
  -------trigger etatorder --------
 
@@ -459,11 +459,11 @@ set @new_delai = cast(datediff(day , @dateEffet , getdate()) as int)
 if(@new_delai>=0)
 begin
 
-update order_service set d�lai_restant  = @new_delai where id_order = @id_order
+update order_service set délai_restant  = @new_delai where id_order = @id_order
 end
 else
 begin
-update order_service set d�lai_restant  = 0 where id_order = @id_order
+update order_service set délai_restant  = 0 where id_order = @id_order
 end
 
 
@@ -484,7 +484,7 @@ declare @date_effect date,
 set  @id_order = (select order_service from inserted)
 set @date_effect = (select date_deffet from inserted)
 set @new_delai  = cast(DATEDIFF(day , @date_effect  ,getdate()) as int)
-update order_service set d�lai_restant  = @new_delai where id_order = @id_order 
+update order_service set délai_restant  = @new_delai where id_order = @id_order 
 
 end
 
@@ -516,16 +516,129 @@ select e.validate as 'etude_V' , p.validate as 'public_V'   ,  o.etat ,  s.valid
 
  select e.validate as 'etude_V' , p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet , o.id_order from etude e inner join fk k on e.id1 = k.id1 inner join publication p on p.id2 = k.id2 inner join fk2 pk on pk.id2 =  p.id2 inner join SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where e.id1 =1 
 
-select  o.[d�lai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service o inner join  [dbo].[Etat_order] t on o.id_order = t.order_service where o.id_order = 6
+select  o.[délai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service o inner join  [dbo].[Etat_order] t on o.id_order = t.order_service where o.id_order = 6
 
-select top 1  p.Aop , o.d�lai_restant , e.estimation ,  s.attributaire , o.d�lai_Initial  , e.montant , p.date_op , p.date_portail  ,  o.etat  ,    s.num_Marcher ,   e.id1 , e.objet , et.date_deffet from etude e FULL OUTER JOIN fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3 FULL OUTER JOIN Etat_order et on o.id_order = et.order_service   where e.id1 = 1 and et.etat_objet = 1  order by et.date_deffet desc
-
-
-select  o.[d�lai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service o inner join  [dbo].[Etat_order] t on o.id_order = t.order_service where o.id_order = 6
+select top 1  p.Aop , o.délai_restant , e.estimation ,  s.attributaire , o.délai_Initial  , e.montant , p.date_op , p.date_portail  ,  o.etat  ,    s.num_Marcher ,   e.id1 , e.objet , et.date_deffet from etude e FULL OUTER JOIN fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3 FULL OUTER JOIN Etat_order et on o.id_order = et.order_service   where e.id1 = 1 and et.etat_objet = 1  order by et.date_deffet desc
 
 
-
-select p.Aop as 'N�AOP' , e.fdr , e.d�lai_dexecution , s.num_Marcher as 'N�MARCHE'  , l.localite as 'Localit� des Tran' ,e.objet, p.date_op as 'Date ouverture des Plis' , e.estimation as 'Estimation' , s.attributaire as 'ATTRIBUTAIRE' , e.montant as 'MONTANT' , CAST(o.Etat as varchar(20)) as 'Etat'    from localite l FULL OUTER JOIN  etude e on l.id_l = e.localite inner join fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where 1=1 and YEAR( p.date_op)  = '2021' order by p.date_op desc
+select  o.[délai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service o inner join  [dbo].[Etat_order] t on o.id_order = t.order_service where o.id_order = 6
 
 
 
+select p.Aop as 'N°AOP' , e.fdr , e.délai_dexecution , s.num_Marcher as 'N°MARCHE'  , l.localite as 'Localité des Tran' ,e.objet, p.date_op as 'Date ouverture des Plis' , e.estimation as 'Estimation' , s.attributaire as 'ATTRIBUTAIRE' , e.montant as 'MONTANT' , CAST(o.Etat as varchar(20)) as 'Etat'    from localite l FULL OUTER JOIN  etude e on l.id_l = e.localite inner join fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where 1=1 and YEAR( p.date_op)  = '2021' order by p.date_op desc
+
+--/////appointement
+drop trigger appointement
+create trigger appointement 
+ on publication 
+ after insert 
+ as 
+ begin 
+ declare @Aoo varchar(50), 
+ @datejornal date,
+ @dateconvocation date , 
+ @dateportail date ,
+ @dateop date
+
+  
+
+
+ set @Aoo = (select top 1 Aop from inserted c )
+
+ set @datejornal = (select top 1 date_jornal  from inserted ) 
+
+ set @dateconvocation = (select top 1 date_convocation  from inserted ) 
+
+
+ set @dateop = (select top 1 date_op from inserted  )
+
+ set @dateportail = (select top 1 date_portail  from inserted ) 
+
+ insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description],AllDay ) values (@datejornal , @datejornal ,'Date Jornal  Aop° '+@Aoo , '-','True' )
+ insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description] ,AllDay  ) values (@dateop , @dateop ,'Date op Aop° '+@Aoo , '-' ,'True' )
+ insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description] ,AllDay  ) values (@dateportail , @dateportail ,'date Portail Aop° '+@Aoo , '-','True' )
+ insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description] ,AllDay  ) values (@dateconvocation , @dateconvocation ,'date Convocation Aop° '+@Aoo , '-','True' )
+
+
+
+
+
+
+
+
+ end
+
+ --appointement date portail
+ --/////appointement
+ drop trigger appointement_portail
+alter trigger appointement_portail
+ on publication 
+  after update 
+ as 
+ begin 
+ declare @Aoo varchar(50), 
+ @dateapprobation date,
+ @validate int ,
+ @dateop date,
+ @idpub int ,
+ @deleted int
+
+  set @deleted =(select top 1 deleted from inserted)
+set @Aoo = (select top 1 Aop from inserted)
+ set @idpub = (select top 1 id2 from inserted )
+ set @dateop = (select top 1 date_op from inserted  )
+ set @validate = (select top 1 validate from inserted where id2 = @idpub)
+ set @dateapprobation = (DATEADD(DAY, 75, @dateop))
+ 
+
+ if(@validate = 1 and @deleted = 0)
+ begin
+
+
+  insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description],AllDay ) values (@dateapprobation , @dateapprobation ,'Date Approbation  Aop° '+@Aoo , '-','True' )
+  update publication set  deleted = -1 where id2 = @idpub
+
+ end
+
+ end
+
+
+ 
+-------procedure notify 3 order service    if(validate  = 0)  END --------------
+	
+--//المعلومة
+ -------------trigger validate 1 ----------------
+ alter trigger Validate1
+ on publication
+ after update 
+ as
+ begin
+ declare @validate int ,
+  @idPUB int ,
+  @Aoo varchar(50), 
+ @dateapprobation date,
+ @dateop date,
+ @deleted int
+
+ set @deleted =(select top 1 deleted from inserted)
+set @Aoo = (select top 1 Aop from inserted)
+ set @dateop = (select top 1 date_op from inserted  )
+ set @dateapprobation = (DATEADD(DAY, 75, @dateop))
+
+ set @validate  = (select top 1 validate from inserted)
+ set @idPUB  = (select top 1 id2 from inserted)
+
+ if(@validate = 1)
+ begin
+insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description],AllDay ) values (@dateapprobation , @dateapprobation ,'Date Approbation  Aop° '+@Aoo , '-','True' )
+ update publication set duree_Jornal = 100 , duree_portail  = 100 where id2 = @idPUB
+
+ end
+
+  if(@validate = -1)
+ begin
+
+ update publication set duree_Jornal = -1 , duree_portail  = -1 where id2 = @idPUB
+
+ end
+ end
