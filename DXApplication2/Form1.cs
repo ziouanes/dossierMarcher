@@ -944,14 +944,14 @@ namespace DXApplication2
             //modification 
 
 
-            var row2 = gridViewEtude.FocusedRowHandle;
+            var row2 = gridViewOvert.FocusedRowHandle;
             int id3;
-            string   cellattributaire;
-            string   cellMontant;
+            string cellattributaire;
+            string cellMontant;
             string cellnum_Marcher;
             int celldélai_dexecution;
-            int cellcaution_return;
-            int cellcaution_definitif;
+            string cellcaution_return;
+            string cellcaution_definitif;
             DateTime celldate_Visa;
             DateTime celldate_approbation;
             DateTime celldatenotifiy;
@@ -960,22 +960,21 @@ namespace DXApplication2
             int cell_validate;
 
 
+            id3 = int.Parse(gridViewOvert.GetRowCellValue(row2, "id3").ToString());
+            cellattributaire = gridViewOvert.GetRowCellValue(row2, "attributaire").ToString();
+            cellMontant = gridViewOvert.GetRowCellValue(row2, "Montant").ToString();
+            cellnum_Marcher = gridViewOvert.GetRowCellValue(row2, "num_Marcher").ToString();
+            celldélai_dexecution = int.Parse(gridViewOvert.GetRowCellValue(row2, "délai_dexecution").ToString());
+            cellcaution_return = (gridViewOvert.GetRowCellValue(row2, "caution_return").ToString());
+            cellcaution_definitif = (gridViewOvert.GetRowCellValue(row2, "caution_definitif").ToString());
+            celldate_Visa = Convert.ToDateTime(gridViewOvert.GetRowCellValue(row2, "date_Visa").ToString());
+            celldate_approbation = Convert.ToDateTime(gridViewOvert.GetRowCellValue(row2, "date_approbation").ToString());
+            celldatenotifiy = Convert.ToDateTime(gridViewOvert.GetRowCellValue(row2, "datenotifiy").ToString());
+            delldate_caution = Convert.ToDateTime(gridViewOvert.GetRowCellValue(row2, "date_caution").ToString());
 
-            id3 = int.Parse(gridViewEtude.GetRowCellValue(row2, "id3").ToString());
-            cellattributaire = gridViewEtude.GetRowCellValue(row2, "attributaire").ToString();
-            cellMontant = gridViewEtude.GetRowCellValue(row2, "Montant").ToString();
-            cellnum_Marcher = gridViewEtude.GetRowCellValue(row2, "num_Marcher").ToString();
-            celldélai_dexecution = int.Parse(gridViewEtude.GetRowCellValue(row2, "délai_dexecution").ToString());
-            cellcaution_return = int.Parse(gridViewEtude.GetRowCellValue(row2, "caution_return").ToString());
-            cellcaution_definitif = int.Parse(gridViewEtude.GetRowCellValue(row2, "caution_definitif").ToString());
-            celldate_Visa = Convert.ToDateTime(gridViewEtude.GetRowCellValue(row2, "date_Visa").ToString());
-            celldate_approbation  = Convert.ToDateTime(gridViewEtude.GetRowCellValue(row2, "date_approbation").ToString());
-            celldatenotifiy = Convert.ToDateTime(gridViewEtude.GetRowCellValue(row2, "datenotifiy").ToString());
-            delldate_caution = Convert.ToDateTime(gridViewEtude.GetRowCellValue(row2, "date_caution").ToString());
-
-            overt ov = new overt(id3, cellattributaire, cellMontant, cellnum_Marcher, celldélai_dexecution, cellcaution_return, cellcaution_definitif, celldate_Visa, celldate_approbation, celldatenotifiy, delldate_caution);
-            ov.ShowDialog();
-            select_Publication_Data();
+            overt ovs = new overt(id3, cellattributaire, cellMontant, cellnum_Marcher, celldélai_dexecution, cellcaution_return, cellcaution_definitif, celldate_Visa, celldate_approbation, celldatenotifiy, delldate_caution);
+            ovs.ShowDialog();
+            select_Overt_Data();
         }
 
         private void barButtonItem_approbation_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

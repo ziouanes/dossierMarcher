@@ -29,9 +29,9 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions13 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions14 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions15 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.editable = new DevExpress.XtraEditors.CheckEdit();
             this.dateEdit_caution = new DevExpress.XtraEditors.DateEdit();
@@ -44,8 +44,6 @@ namespace DXApplication2
             this.num_Marcher = new DevExpress.XtraEditors.TextEdit();
             this.textEditdefinitif = new DevExpress.XtraEditors.TextEdit();
             this.caution_return = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.Montant = new DevExpress.XtraEditors.TextEdit();
             this.délai_dexecution = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -55,10 +53,7 @@ namespace DXApplication2
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem10 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem11 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem15 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.datenotifiy = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -99,8 +94,6 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.num_Marcher.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditdefinitif.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.caution_return.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Montant.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.délai_dexecution.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -110,10 +103,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datenotifiy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
@@ -154,8 +144,6 @@ namespace DXApplication2
             this.layoutControl1.Controls.Add(this.num_Marcher);
             this.layoutControl1.Controls.Add(this.textEditdefinitif);
             this.layoutControl1.Controls.Add(this.caution_return);
-            this.layoutControl1.Controls.Add(this.textEdit3);
-            this.layoutControl1.Controls.Add(this.textEdit4);
             this.layoutControl1.Controls.Add(this.Montant);
             this.layoutControl1.Controls.Add(this.délai_dexecution);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -259,13 +247,13 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions1.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions2.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions3.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions13.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions14.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions15.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
             this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions13, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions14, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions15, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanelMain.EnableImageTransparency = true;
             this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 520);
@@ -313,22 +301,6 @@ namespace DXApplication2
             this.caution_return.Size = new System.Drawing.Size(379, 20);
             this.caution_return.StyleController = this.layoutControl1;
             this.caution_return.TabIndex = 7;
-            // 
-            // textEdit3
-            // 
-            this.textEdit3.Location = new System.Drawing.Point(218, 450);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(394, 20);
-            this.textEdit3.StyleController = this.layoutControl1;
-            this.textEdit3.TabIndex = 6;
-            // 
-            // textEdit4
-            // 
-            this.textEdit4.Location = new System.Drawing.Point(863, 450);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(379, 20);
-            this.textEdit4.StyleController = this.layoutControl1;
-            this.textEdit4.TabIndex = 7;
             // 
             // Montant
             // 
@@ -394,6 +366,8 @@ namespace DXApplication2
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1246, 463);
+            this.layoutControlGroup1.Text = "Group1";
+            this.layoutControlGroup1.TextLocation = DevExpress.Utils.Locations.Default;
             // 
             // layoutControlGroup5
             // 
@@ -409,14 +383,15 @@ namespace DXApplication2
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 86);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
             this.layoutControlGroup5.Size = new System.Drawing.Size(1246, 377);
+            this.layoutControlGroup5.Text = "Group3";
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 322);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 298);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(1222, 10);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(1222, 34);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup8
@@ -425,41 +400,14 @@ namespace DXApplication2
             this.layoutControlGroup8.Enabled = false;
             this.layoutControlGroup8.ExpandButtonVisible = true;
             this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem8,
-            this.layoutControlItem9,
             this.emptySpaceItem10,
-            this.emptySpaceItem11,
             this.emptySpaceItem15,
             this.datenotifiy,
             this.layoutControlItem7});
             this.layoutControlGroup8.Location = new System.Drawing.Point(0, 219);
             this.layoutControlGroup8.Name = "layoutControlGroup8";
-            this.layoutControlGroup8.Size = new System.Drawing.Size(1222, 103);
-            this.layoutControlGroup8.Text = "layoutControlGroup7";
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.textEdit3;
-            this.layoutControlItem8.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem8.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 34);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(568, 24);
-            this.layoutControlItem8.Text = "layoutControlItem3";
-            this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(167, 13);
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.textEdit4;
-            this.layoutControlItem9.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem9.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem9.Location = new System.Drawing.Point(645, 34);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(553, 24);
-            this.layoutControlItem9.Text = "layoutControlItem4";
-            this.layoutControlItem9.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(167, 13);
+            this.layoutControlGroup8.Size = new System.Drawing.Size(1222, 79);
+            this.layoutControlGroup8.Text = "Group4";
             // 
             // emptySpaceItem10
             // 
@@ -467,19 +415,9 @@ namespace DXApplication2
             this.emptySpaceItem10.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem10.Location = new System.Drawing.Point(568, 0);
             this.emptySpaceItem10.Name = "emptySpaceItem10";
-            this.emptySpaceItem10.Size = new System.Drawing.Size(77, 58);
+            this.emptySpaceItem10.Size = new System.Drawing.Size(77, 34);
             this.emptySpaceItem10.Text = "emptySpaceItem1";
             this.emptySpaceItem10.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem11
-            // 
-            this.emptySpaceItem11.AllowHotTrack = false;
-            this.emptySpaceItem11.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem11.Location = new System.Drawing.Point(0, 24);
-            this.emptySpaceItem11.Name = "emptySpaceItem11";
-            this.emptySpaceItem11.Size = new System.Drawing.Size(568, 10);
-            this.emptySpaceItem11.Text = "emptySpaceItem2";
-            this.emptySpaceItem11.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem15
             // 
@@ -496,7 +434,7 @@ namespace DXApplication2
             this.datenotifiy.Control = this.dateEditreception;
             this.datenotifiy.Location = new System.Drawing.Point(0, 0);
             this.datenotifiy.Name = "datenotifiy";
-            this.datenotifiy.Size = new System.Drawing.Size(568, 24);
+            this.datenotifiy.Size = new System.Drawing.Size(568, 34);
             this.datenotifiy.Text = "Date de reception de notification : ";
             this.datenotifiy.TextSize = new System.Drawing.Size(167, 13);
             // 
@@ -532,7 +470,7 @@ namespace DXApplication2
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Size = new System.Drawing.Size(1222, 172);
-            this.layoutControlGroup3.Text = "layoutControlGroup2";
+            this.layoutControlGroup3.Text = "-";
             // 
             // azze
             // 
@@ -728,6 +666,7 @@ namespace DXApplication2
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "layoutControlGroup6";
             this.layoutControlGroup6.Size = new System.Drawing.Size(1246, 86);
+            this.layoutControlGroup6.Text = "Group2";
             // 
             // emptySpaceItem4
             // 
@@ -771,8 +710,6 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.num_Marcher.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditdefinitif.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.caution_return.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Montant.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.délai_dexecution.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
@@ -782,10 +719,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datenotifiy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
@@ -835,12 +769,7 @@ namespace DXApplication2
         private DevExpress.XtraEditors.TextEdit num_Marcher;
         private DevExpress.XtraEditors.TextEdit textEditdefinitif;
         private DevExpress.XtraEditors.TextEdit caution_return;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem10;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem11;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem15;
         private DevExpress.XtraLayout.LayoutControlItem azze;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;

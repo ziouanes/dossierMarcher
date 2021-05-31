@@ -18,12 +18,68 @@ namespace DXApplication2
     {
 
         int idOvert = 0;
+        
 
-        public overt(int id3 ,string attributaire, string Montant, string num_Marcher, int délai_dexecution, int caution_return, int caution_definitif, DateTime date_Visa,  DateTime date_approbation, DateTime datenotifiy, DateTime date_caution)
+
+
+        public overt(int id3 ,string _attributaire, string _Montant, string _num_Marcher, int _délai_dexecution, string _caution_return, string _caution_definitif, DateTime _date_Visa,  DateTime _date_approbation, DateTime _datenotifiy, DateTime _date_caution)
         {
+            InitializeComponent();
+
             idOvert = id3;
-            
+            attributaire.EditValue = _attributaire;
+            Montant.EditValue = _Montant;
+            num_Marcher.EditValue = _num_Marcher;
+            délai_dexecution.EditValue = _délai_dexecution;
+            caution_return.EditValue = _caution_return;
+            textEditdefinitif.EditValue = _caution_definitif;
+            dateEditvisa.EditValue = _date_Visa;
+            dateEditdate_approbation.EditValue = _date_approbation;
+            dateEditreception.EditValue = _datenotifiy;
+            dateEdit_caution.EditValue = _date_caution;
+
+            try
+            {
+
+                MessageBox.Show(idOvert.ToString());
+                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+                {
+                    SqlCommand cmd = Program.sql_con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.CommandText = "select p.Aop from publication p inner join fk2 f on p.id2 = f.id2 inner join SIMPLE_overture s on f.id3 = s.id3 where f.id3 = " + idOvert    + " ";
+
+                    DataTable table = new DataTable();
+                    cmd.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(table);
+                    foreach (DataRow row in table.Rows)
+                    {
+
+                        comboBoxAoo.Text = row["Aop"].ToString();
+                    }
+                    
+
+                        comboBoxAoo.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //this.Dispose();
+            }
+
+
+
+
+
+
         }
+
 
         public overt()
         {
@@ -55,45 +111,45 @@ namespace DXApplication2
 
         private void ExecuteQueryoVERTURE()
         {
-            //if (id2 == 0)
-            //{
-            try
+            if (idOvert == 0)
             {
+                try
+                {
 
-                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                    if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
-                Program.sql_cmd = Program.sql_con.CreateCommand();
-                Program.sql_cmd.CommandType = CommandType.Text;
-                Program.sql_cmd.CommandText = " select id2 , Aop   from [publication]  where validate  = 1 and id2  not in ( select id2  from fk2 ) ";
-                Program.sql_cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                Program.adapter = new SqlDataAdapter(Program.sql_cmd);
-                Program.adapter.Fill(dt);
-                comboBoxAoo.DataSource = dt;
-                comboBoxAoo.ValueMember = "id2";
-                comboBoxAoo.DisplayMember = "Aop";
-                comboBoxAoo.SelectedIndex = -1;
-
-
+                    Program.sql_cmd = Program.sql_con.CreateCommand();
+                    Program.sql_cmd.CommandType = CommandType.Text;
+                    Program.sql_cmd.CommandText = " select id2 , Aop   from [publication]  where validate  = 1 and id2  not in ( select id2  from fk2 ) ";
+                    Program.sql_cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    Program.adapter = new SqlDataAdapter(Program.sql_cmd);
+                    Program.adapter.Fill(dt);
+                    comboBoxAoo.DataSource = dt;
+                    comboBoxAoo.ValueMember = "id2";
+                    comboBoxAoo.DisplayMember = "Aop";
+                    comboBoxAoo.SelectedIndex = -1;
 
 
 
-                Program.sql_con.Close();
+
+
+                    Program.sql_con.Close();
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    //this.Dispose();
+                }
+
+
+                comboBoxAoo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                //comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
+
             }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                //this.Dispose();
-            }
-
-
-            comboBoxAoo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-
         }
 
         private void Montant_KeyPress(object sender, KeyPressEventArgs e)
@@ -113,9 +169,9 @@ namespace DXApplication2
             textEditdefinitif.Properties.Mask.EditMask = "n0";
             textEditdefinitif.Properties.Mask.UseMaskAsDisplayFormat = true;
 
-            var roundedA = Math.Ceiling(1 + .00); // Output: 1
+           // var roundedA = Math.Ceiling(1 + .00); // Output: 1
 
-            textEdit3.Text = roundedA.ToString();
+           // textEdit3.Text = roundedA.ToString();
 
             editable.Checked = false;
 
@@ -192,15 +248,19 @@ namespace DXApplication2
             {
                 
 
-                MessageBox.Show(Regex.Match(Montant.Text, @"\d+").Value);
+              //  MessageBox.Show(Regex.Match(Montant.Text, @"\d+").Value);
                 try
                 {
-
-                    if (attributaire.Text == "" || Montant.Text == "" || num_Marcher.Text == "" || comboBoxAoo.SelectedIndex == -1 || dateEditdate_approbation.Text == "" || délai_dexecution.Text == "" )
+                    if(idOvert == 0)
                     {
-                        XtraMessageBox.Show("champs obligatoires");
+                        if (attributaire.Text == "" || Montant.Text == "" || num_Marcher.Text == "" || comboBoxAoo.SelectedIndex == -1 || dateEditdate_approbation.Text == "" || délai_dexecution.Text == "" )
+                        {
+                            XtraMessageBox.Show("champs obligatoires");
+
+                        }
 
                     }
+
                     else
 
                     {
