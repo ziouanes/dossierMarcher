@@ -30,3 +30,7 @@ Route::get('/health_and_safety', 'health_and_safetyController@index')->name('pos
 Route::get('/what_to_bring', 'what_to_bringController@index')->name('post.what_to_bring');
 Route::get('/our_grading', 'our_gradingController@index')->name('post.our_grading');
 Route::get('/kit_list_for_toubkal_climb', 'kit_listController@index')->name('post.kit_list');
+Route::get('/faq', 'faqController@index')->name('post.faq');
+Route::get('/terms_and_conditions', 'termsController@index')->name('post.terms');
+Route::get('/information', 'informationController@index')->name('post.information');
+Route::get('/privacy_policy', 'privacy_policyController@index')->name('post.privacy_policy');

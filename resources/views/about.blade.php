@@ -4,7 +4,7 @@
 
     <!-- SubHeader =============================================== -->
     <section class="parallax_window_in" data-parallax="scroll"
-        data-image-src="{{ url('assets/img/2_day_toubkal_trek.jpg') }}" data-natural-width="1400"
+        data-image-src="{{ URL::asset('assets/img/2_day_toubkal_trek.jpg') }}" data-natural-width="1400"
         data-natural-height="470">
         <div id="sub_content_in">
             <div id="animate_intro">
