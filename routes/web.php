@@ -14,8 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  
-    
-    return view('welcome');
+
+
+    return view('home');
 });
-Route::get('/all_hikes.html','PostController@index')->name('post.all_hikes');
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/all_hikes', 'PostController@index')->name('post.all_hikes');
+
+Route::get('/contacts', 'contacts@index')->name('post.contacts');
+Route::get('/about', 'aboutController@index')->name('post.about');
+Route::get('/food_on_trek', 'food_on_trekController@index')->name('post.food_on_trek');
+Route::get('/health_and_safety', 'health_and_safetyController@index')->name('post.health_and_safety');
+Route::get('/what_to_bring', 'what_to_bringController@index')->name('post.what_to_bring');
+Route::get('/our_grading', 'our_gradingController@index')->name('post.our_grading');
+Route::get('/kit_list_for_toubkal_climb', 'kit_listController@index')->name('post.kit_list');
