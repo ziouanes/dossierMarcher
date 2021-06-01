@@ -258,41 +258,34 @@ namespace DXApplication2
                             XtraMessageBox.Show("champs obligatoires");
 
                         }
-
-                    }
-
-                    else
-
-                    {
-
-
-                        if (idOvert == 0)
+                        else
                         {
-
-
-                            if(editable_ == false)
+                            if (editable_ == false)
                             {
-                            string sql = "insert into [SIMPLE_overture](attributaire ,[Montant],[num_Marcher],[date_Visa],[date_approbation] , [délai_dexecution]  , [caution_definitif] , [caution_return]) VALUES(@attributaire,@Montant,@num_Marcher , @date_Visa , @date_approbation  ,@délai_dexecution , @caution_definitif  ,@caution_return)";
+                                string sql = "insert into [SIMPLE_overture](attributaire ,[Montant],[num_Marcher],[date_Visa],[date_approbation] , [délai_dexecution]  , [caution_definitif] , [caution_return] , [datenotifiy] ,[date_caution] ) VALUES(@attributaire,@Montant,@num_Marcher , @date_Visa , @date_approbation  ,@délai_dexecution , @caution_definitif  ,@caution_return,@datenotifiy,@date_caution)";
 
 
-                            Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
-                            Program.sql_cmd.Parameters.AddWithValue("@attributaire", attributaire.Text);
-                            Program.sql_cmd.Parameters.AddWithValue("@Montant", Montant.Text);
-                            Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text);
-                            Program.sql_cmd.Parameters.AddWithValue("@date_Visa", dateEditvisa.Text);
-                            Program.sql_cmd.Parameters.AddWithValue("@date_approbation", dateEditdate_approbation.Text);
-                            Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
-                            Program.sql_cmd.Parameters.AddWithValue("@caution_definitif", textEditdefinitif.Text);
-                            Program.sql_cmd.Parameters.AddWithValue("@caution_return", caution_return.Text);
+                                Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
+                                Program.sql_cmd.Parameters.AddWithValue("@attributaire", attributaire.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@Montant", Montant.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_Visa", dateEditvisa.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_approbation", dateEditdate_approbation.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@caution_definitif", textEditdefinitif.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@caution_return", caution_return.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@datenotifiy", dateEditreception.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@date_caution", dateEdit_caution.Text);
 
 
 
-                            if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-                            Program.sql_cmd.ExecuteNonQuery();
-                            Program.sql_con.Close();
-                            XtraMessageBox.Show("good");
 
-                              
+                                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                                Program.sql_cmd.ExecuteNonQuery();
+                                Program.sql_con.Close();
+                               // XtraMessageBox.Show("good");
+
+
 
 
                                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
@@ -399,11 +392,19 @@ namespace DXApplication2
                                 this.Close();
 
                             }
-
-
                         }
-                        else
-                        {
+
+                            
+
+                    }
+
+                    else
+
+                    {
+
+
+                        
+                        
                             if (editable_ == false)
                             {
                                 string sql = "update  [SIMPLE_overture] set attributaire = @attributaire ,[Montant] = @Montant ,[num_Marcher] = @num_Marcher ,[date_Visa]  = @date_Visa,[date_approbation] =  @date_approbation , [délai_dexecution]  = @délai_dexecution , [caution_definitif] = @caution_definitif , [caution_return]  = @caution_return where id3 = @id ";
@@ -425,7 +426,7 @@ namespace DXApplication2
                             if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
                             Program.sql_cmd.ExecuteNonQuery();
                             Program.sql_con.Close();
-                            XtraMessageBox.Show("good");
+                         //  XtraMessageBox.Show("good");
 
 
                             this.Close();
@@ -454,13 +455,13 @@ namespace DXApplication2
                                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
                                 Program.sql_cmd.ExecuteNonQuery();
                                 Program.sql_con.Close();
-                                XtraMessageBox.Show("good");
+                               // XtraMessageBox.Show("good");
 
 
                                 this.Close();
                             }
 
-                        }
+                        
 
 
                     }
@@ -516,6 +517,20 @@ namespace DXApplication2
                 editable_ = false;
 
             }
+        }
+
+        private void dateEditdate_approbation_EditValueChanged(object sender, EventArgs e)
+        {
+            DateTime dt = (DateTime)dateEditdate_approbation.EditValue;
+            dt = dt.AddDays(2);
+            dateEditreception.EditValue = dt;
+        }
+
+        private void dateEditreception_EditValueChanged(object sender, EventArgs e)
+        {
+            DateTime dt = (DateTime)dateEditreception.EditValue;
+            dt = dt.AddDays(20);
+            dateEdit_caution.EditValue = dt;
         }
     }
 }

@@ -70,8 +70,12 @@ namespace DXApplication2
 
 
             textEdit_etat.SelectedIndex = 0;
-
-            if(Etat == 0) 
+            if (Etat == -1)
+            {
+                textEdit_etat.Properties.Items.Add(("order d'arrêt"));
+                
+            }
+            if (Etat == 0) 
             {
                 textEdit_etat.Properties.Items.Add(("order de reprise"));
             }

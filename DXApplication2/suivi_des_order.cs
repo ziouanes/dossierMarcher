@@ -117,8 +117,11 @@ namespace DXApplication2
 
             dateorderservice.DateTime = dts;
 
-
-            if(etat == 0)
+            if (etat == -1)
+            {
+                textEditetat.Text = "order de commencement";
+            }
+            else if (etat == 0)
             {
                 textEditetat.Text = "order d'arrêt";
             }else if(etat == 1)
@@ -144,9 +147,9 @@ namespace DXApplication2
 
         public void RunStoredProc()
         {
-          
 
-
+            MessageBox.Show(lastdate.ToString());
+            //error here
             try
             {
                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();

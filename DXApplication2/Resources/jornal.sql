@@ -450,7 +450,7 @@ alter Procedure suivi_delai( @Etat int , @dateEffet date , @id_order int)
 
  declare @new_delai int
  
- if(@Etat = 1 )
+ if(@Etat = 1 or @Etat = -1  )
  begin
 
 

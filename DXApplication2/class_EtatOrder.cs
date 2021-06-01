@@ -23,6 +23,10 @@ namespace DXApplication2
             }
             set
             {
+                if (value == "-1")
+                {
+                    _etat_objet = "order de commencement";
+                }
                 if (value == "0")
                 {
                     _etat_objet = "order d'arrêt";

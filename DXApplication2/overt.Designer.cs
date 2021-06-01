@@ -29,9 +29,9 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions13 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions14 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions15 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.editable = new DevExpress.XtraEditors.CheckEdit();
             this.dateEdit_caution = new DevExpress.XtraEditors.DateEdit();
@@ -194,6 +194,7 @@ namespace DXApplication2
             this.dateEditreception.Size = new System.Drawing.Size(394, 20);
             this.dateEditreception.StyleController = this.layoutControl1;
             this.dateEditreception.TabIndex = 12;
+            this.dateEditreception.EditValueChanged += new System.EventHandler(this.dateEditreception_EditValueChanged);
             // 
             // dateEditdate_approbation
             // 
@@ -207,6 +208,7 @@ namespace DXApplication2
             this.dateEditdate_approbation.Size = new System.Drawing.Size(399, 20);
             this.dateEditdate_approbation.StyleController = this.layoutControl1;
             this.dateEditdate_approbation.TabIndex = 10;
+            this.dateEditdate_approbation.EditValueChanged += new System.EventHandler(this.dateEditdate_approbation_EditValueChanged);
             // 
             // dateEditvisa
             // 
@@ -247,13 +249,13 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions13.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions14.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions15.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions4.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions5.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions6.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
             this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions13, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions14, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions15, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanelMain.EnableImageTransparency = true;
             this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 520);

@@ -25,6 +25,10 @@ namespace DXApplication2
             Parameters["param_date_op"].Value = date_op;
             Parameters["param_dateportail"].Value = dateportail;
             Parameters["param_estimation"].Value = estimation;
+            if (etat == "-1")
+            {
+                Parameters["param_etat"].Value = "order de commencement";
+            }
             if (etat == "0")
             {
                 Parameters["param_etat"].Value = "order d'arrêt";
