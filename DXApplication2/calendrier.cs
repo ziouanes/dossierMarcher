@@ -36,14 +36,29 @@ namespace DXApplication2
 
         private void calendrier_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dossierMarcherDataSet.Resources' table. You can move, or remove it, as needed.
-            this.resourcesTableAdapter.Fill(this.dossierMarcherDataSet.Resources);
-            // TODO: This line of code loads data into the 'dossierMarcherDataSet.Appointments' table. You can move, or remove it, as needed.
-            this.appointmentsTableAdapter.Fill(this.dossierMarcherDataSet.Appointments);
+            try
+            {
 
+                // TODO: This line of code loads data into the 'dossierMarcherDataSet.Resources' table. You can move, or remove it, as needed.
+                this.resourcesTableAdapter.Fill(this.dossierMarcherDataSet.Resources);
+                // TODO: This line of code loads data into the 'dossierMarcherDataSet.Appointments' table. You can move, or remove it, as needed.
+                this.appointmentsTableAdapter.Fill(this.dossierMarcherDataSet.Appointments);
+            }
+            catch (Exception ex)
+            {
+
+                XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                args.AutoCloseOptions.Delay = 3000;
+                args.Caption = "Auto-close message";
+                args.Text = ex.Message;
+                args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                //     MessageBox.Show(ex.Message);
+                XtraMessageBox.Show(args).ToString();
+
+            }
         }
 
-        private void ribbonControl1_Click(object sender, EventArgs e)
+            private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
 

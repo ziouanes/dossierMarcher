@@ -442,7 +442,7 @@ if not exists ( select id_order = @id_order  from Etat_order )
 
  -----procedure calcule delai restant--------
 
- exec suivi_delai 0 , '2021-12-12' , 6
+ exec suivi_delai -1 , '2021-12-12' , 8
 alter Procedure suivi_delai( @Etat int , @dateEffet date , @id_order int)
 
  as 

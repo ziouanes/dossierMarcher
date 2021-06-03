@@ -110,7 +110,8 @@ namespace DXApplication2
                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
                 Program.sql_cmd.ExecuteNonQuery();
                 Program.sql_con.Close();
-                XtraMessageBox.Show("good");
+                //XtraMessageBox.Show("good");
+                this.Close();
             }
 
             catch (Exception ex)

@@ -569,7 +569,39 @@ namespace DXApplication2
 
         private void lookUpEdit2_EditValueChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
+
+
+
+
+                string query = $"select e.id1 , e.objet  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 where  p.Aop ={lookUpEdit2.EditValue.ToString()}     ; ";
+                classEtudeBindingSource.DataSource = Program.sql_con.Query<Class_publication>(query, commandType: CommandType.Text);
+
+
+                string query2 = $"select s.id3 , s.num_Marcher  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 inner join fk2 k2 on k2.id2 = p.id2 inner join SIMPLE_overture s on s.id3 = k2.id3  where   p.Aop = {lookUpEdit2.EditValue.ToString()}     ; ";
+                classSIMPLEovertureBindingSource.DataSource = Program.sql_con.Query<ClassSIMPLE_overture>(query2, commandType: CommandType.Text);
+
+
+
+
+                lookUpEdit1.ItemIndex = 0;
+                lookUpEdit3.ItemIndex = 0;
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //this.Dispose();
+            }
         }
 
         private void stepProgressBar1_Click_1(object sender, EventArgs e)

@@ -107,7 +107,7 @@ namespace DXApplication2
         private void suivi_des_order_Load(object sender, EventArgs e)
         {
             RunStoredProc();
-           
+
             select_Etat_Data();
 
             this.dateorderservice.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
@@ -138,7 +138,10 @@ namespace DXApplication2
             }else if(etat == 3)
             {
                 textEditetat.Text = "réception définitive";
+                simpleButton1.Enabled = false;
             }
+
+           // MessageBox.Show(lastdate.ToString());
 
         }
 
@@ -159,9 +162,9 @@ namespace DXApplication2
                 cmd.Parameters.AddWithValue("@dateEffet", lastdate);
                 cmd.Parameters.AddWithValue("@id_order", order_service);
                 cmd.ExecuteNonQuery();
-               
-                
-                
+
+
+
             }
             finally
             {
