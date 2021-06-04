@@ -463,7 +463,8 @@ update order_service set délai_restant  = @new_delai where id_order = @id_order
 end
 else
 begin
-update order_service set délai_restant  = 0 where id_order = @id_order
+update 
+set délai_restant  = 0 where id_order = @id_order
 end
 
 

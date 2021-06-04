@@ -57,7 +57,6 @@ namespace DXApplication2
                 lookUpEdit2.Properties.Columns[7].Visible = false;
                 lookUpEdit2.Properties.Columns[8].Visible = false;
 
-
             }
             catch (Exception ex)
             {
@@ -90,6 +89,7 @@ namespace DXApplication2
                 classEtudeBindingSource.DataSource = Program.sql_con.Query<ClassEtude>(query, commandType: CommandType.Text);
 
 
+                
 
                 lookUpEdit1.Properties.PopulateColumns();
                 lookUpEdit1.Properties.Columns[0].Visible = false;
@@ -101,6 +101,7 @@ namespace DXApplication2
                 lookUpEdit1.Properties.Columns[7].Visible = false;
                 lookUpEdit1.Properties.Columns[8].Visible = false;
 
+               
 
 
             }
@@ -275,7 +276,7 @@ namespace DXApplication2
 
                             }
                             else if (int.Parse(row["validate"].ToString()) == 1)
-                        {
+                            {
                                 stepProgressBar1.SelectedItemIndex = 1;
                                 stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
 
@@ -536,11 +537,13 @@ namespace DXApplication2
             {
                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
+                select_Publication_Data();
+                select_Overt_Data();
+                select_Etude_Data();
 
 
 
-
-                string query = $"select p.id2 , p.Aop  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 where  e.id1 ={lookUpEdit1.EditValue.ToString()}     ; ";
+                string query = $"select p.id2 , p.Aop  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 where  e.id1 ={lookUpEdit1.EditValue.ToString()}      ";
                 classpublicationBindingSource.DataSource = Program.sql_con.Query<Class_publication>(query, commandType: CommandType.Text);
 
 
@@ -553,7 +556,7 @@ namespace DXApplication2
                 lookUpEdit2.ItemIndex = 0;
                 lookUpEdit3.ItemIndex = 0;
 
-               
+
 
 
             }
@@ -569,39 +572,7 @@ namespace DXApplication2
 
         private void lookUpEdit2_EditValueChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-
-
-
-
-
-                string query = $"select e.id1 , e.objet  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 where  p.Aop ={lookUpEdit2.EditValue.ToString()}     ; ";
-                classEtudeBindingSource.DataSource = Program.sql_con.Query<Class_publication>(query, commandType: CommandType.Text);
-
-
-                string query2 = $"select s.id3 , s.num_Marcher  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 inner join fk2 k2 on k2.id2 = p.id2 inner join SIMPLE_overture s on s.id3 = k2.id3  where   p.Aop = {lookUpEdit2.EditValue.ToString()}     ; ";
-                classSIMPLEovertureBindingSource.DataSource = Program.sql_con.Query<ClassSIMPLE_overture>(query2, commandType: CommandType.Text);
-
-
-
-
-                lookUpEdit1.ItemIndex = 0;
-                lookUpEdit3.ItemIndex = 0;
-
-
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                //this.Dispose();
-            }
+           
         }
 
         private void stepProgressBar1_Click_1(object sender, EventArgs e)
@@ -621,6 +592,55 @@ namespace DXApplication2
                 frm.ShowDialog();
 
             }
+        }
+
+        private void lookUpEdit2_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+
+            //try
+            //{
+            //    if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+
+            //    select_Publication_Data();
+            //    select_Overt_Data();
+            //    select_Etude_Data();
+            //    string query = $"select e.id1 , e.objet  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 where  p.id2 ={lookUpEdit2.EditValue.ToString()}     ; ";
+            //    classEtudeBindingSource.DataSource = Program.sql_con.Query<Class_publication>(query, commandType: CommandType.Text);
+
+
+            //    string query2 = $"select s.id3 , s.num_Marcher  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 inner join fk2 k2 on k2.id2 = p.id2 inner join SIMPLE_overture s on s.id3 = k2.id3  where   p.id2 = {lookUpEdit2.EditValue.ToString()}     ; ";
+            //    classSIMPLEovertureBindingSource.DataSource = Program.sql_con.Query<ClassSIMPLE_overture>(query2, commandType: CommandType.Text);
+
+
+
+
+            //    lookUpEdit1.ItemIndex = 0;
+            //    lookUpEdit3.ItemIndex = 0;
+
+
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //finally
+            //{
+            //    //this.Dispose();
+            //}
+        }
+
+        private void lookUpEdit1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+    
+
+        private void lookUpEdit2_MouseClick(object sender, MouseEventArgs e)
+        {
         }
     }
 }

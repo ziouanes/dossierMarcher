@@ -102,11 +102,13 @@ namespace DXApplication2
                 //this.Dispose();
             }
 
+            RunStoredProc();
+
         }
 
         private void suivi_des_order_Load(object sender, EventArgs e)
         {
-            RunStoredProc();
+          //  RunStoredProc();
 
             select_Etat_Data();
 
@@ -151,7 +153,7 @@ namespace DXApplication2
         public void RunStoredProc()
         {
 
-            MessageBox.Show(lastdate.ToString());
+           //MessageBox.Show(lastdate.ToString());
             //error here
             try
             {
@@ -161,8 +163,21 @@ namespace DXApplication2
                 cmd.Parameters.AddWithValue("@Etat", etat);
                 cmd.Parameters.AddWithValue("@dateEffet", lastdate);
                 cmd.Parameters.AddWithValue("@id_order", order_service);
-                cmd.ExecuteNonQuery();
 
+                //
+                SqlParameter param = new SqlParameter("@etatR", SqlDbType.Int);
+                param.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(param);
+
+
+
+
+
+
+
+                cmd.ExecuteNonQuery();
+               
+                textEditdelairestant.Text = param.Value.ToString();
 
 
             }

@@ -256,6 +256,8 @@ namespace DXApplication2
             this.lookUpEdit2.StyleController = this.layoutControl1;
             this.lookUpEdit2.TabIndex = 5;
             this.lookUpEdit2.EditValueChanged += new System.EventHandler(this.lookUpEdit2_EditValueChanged);
+            this.lookUpEdit2.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.lookUpEdit2_EditValueChanging);
+            this.lookUpEdit2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lookUpEdit2_MouseClick);
             // 
             // lookUpEdit1
             // 
@@ -273,6 +275,7 @@ namespace DXApplication2
             this.lookUpEdit1.StyleController = this.layoutControl1;
             this.lookUpEdit1.TabIndex = 4;
             this.lookUpEdit1.EditValueChanged += new System.EventHandler(this.lookUpEdit1_EditValueChanged);
+            this.lookUpEdit1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lookUpEdit1_MouseClick);
             // 
             // simpleButton11
             // 
