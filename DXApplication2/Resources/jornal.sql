@@ -441,14 +441,16 @@ if not exists ( select id_order = @id_order  from Etat_order )
  end
 
  -----procedure calcule delai restant--------
-
- exec suivi_delai -1 , '2021-12-12' , 8
-alter Procedure suivi_delai( @Etat int , @dateEffet date , @id_order int)
+ DECLARE @etat int;
+ exec suivi_delai  1,  '2021-03-06' , 14 ,  @etat OUTPUT
+SELECT @etat AS 'etat';
+alter Procedure suivi_delai( @Etat int , @dateEffet date , @id_order int ,  @etatR int OUTPUT)
 
  as 
  begin
 
  declare @new_delai int
+ 
  
  if(@Etat = 1 or @Etat = -1  )
  begin
@@ -460,15 +462,20 @@ if(@new_delai>=0)
 begin
 
 update order_service set délai_restant  = @new_delai where id_order = @id_order
+  select @etatR = @new_delai
+
 end
 else
 begin
-update 
+update order_service
 set délai_restant  = 0 where id_order = @id_order
+  select @etatR = 0
+
 end
 
 
  end
+
  end
 
  create trigger stop_order 
@@ -585,7 +592,7 @@ alter trigger appointement_portail
  @deleted int
 
   set @deleted =(select top 1 deleted from inserted)
-set @Aoo = (select top 1 Aop from inserted)
+  set @Aoo = (select top 1 Aop from inserted)
  set @idpub = (select top 1 id2 from inserted )
  set @dateop = (select top 1 date_op from inserted  )
  set @validate = (select top 1 validate from inserted where id2 = @idpub)
@@ -643,3 +650,9 @@ insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description],AllDay ) v
 
  end
  end
+
+
+ select p.id2 , p.Aop  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 where e.id1 = 1;
+
+
+select s.id3 , s.num_Marcher  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 inner join fk2 k2 on k2.id2 = p.id2 inner join SIMPLE_overture s on s.id3 = k2.id3  where   p.id2 = 13
