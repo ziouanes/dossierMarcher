@@ -206,6 +206,8 @@ namespace DXApplication2
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           
+
             RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             reg.SetValue("dossierMarche", Application.ExecutablePath.ToString());
 
@@ -223,6 +225,16 @@ namespace DXApplication2
             gridViewOvert.OptionsSelection.EnableAppearanceFocusedRow = false;
 
             valide_sms(); 
+
+            if(label1.Visible == true)
+            {
+                RunStoredProc_duree_portail();
+                RunStoredProc_Approbation();
+                RunStoredProc_caution();
+                RunStoredProc_duree_order_service();
+
+
+            }
 
         }
 
@@ -1172,7 +1184,7 @@ namespace DXApplication2
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+           
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

@@ -164,7 +164,7 @@ namespace DXApplication2
                 cmd.Parameters.AddWithValue("@dateEffet", lastdate);
                 cmd.Parameters.AddWithValue("@id_order", order_service);
 
-                //
+                //output
                 SqlParameter param = new SqlParameter("@etatR", SqlDbType.Int);
                 param.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(param);

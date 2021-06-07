@@ -430,7 +430,7 @@ namespace DXApplication2
             // 
             // barButtonItem_print
             // 
-            this.barButtonItem_print.Caption = "Imprimer";
+            this.barButtonItem_print.Caption = "Imprimer Report";
             this.barButtonItem_print.Id = 64;
             this.barButtonItem_print.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_print.ImageOptions.SvgImage")));
             this.barButtonItem_print.Name = "barButtonItem_print";
