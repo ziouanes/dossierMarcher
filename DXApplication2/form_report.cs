@@ -33,7 +33,7 @@ namespace DXApplication2
                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
                 SqlCommand cmd = Program.sql_con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select top 1  p.Aop , o.délai_restant, s.attributaire , e.estimation  , o.délai_Initial  , e.montant , p.date_op , p.date_portail  ,  o.etat  ,    s.num_Marcher ,   e.id1 , e.objet , et.date_deffet from etude e FULL OUTER JOIN fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3 FULL OUTER JOIN Etat_order et on o.id_order = et.order_service   where e.id1 = " + id_etude + " and et.etat_objet = 1  order by et.date_deffet desc";
+                cmd.CommandText = "SELECT TOP 1 e.id1 , p.Aop , o.délai_restant , s.attributaire , e.estimation , o.délai_Initial , e.montant , p.date_op , p.date_portail , o.Etat  ,s.num_Marcher , e.objet  from etude e  full outer join fk f on e.id1 = f.id1  full outer join publication p on p.id2 = f.id2  full outer join fk2 ff on p.id2 = ff.id2 full outer join	SIMPLE_overture s on s.id3 = ff.id3	full outer join order_service o on s.id3 = o.id_Overture full outer join Etat_order et on o.id_order = et.order_service  where e.id1 =  " + id_etude + " and et.etat_objet = -1  order by et.date_deffet desc";
                 DataTable table = new DataTable();
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter ad = new SqlDataAdapter(cmd);
@@ -41,7 +41,7 @@ namespace DXApplication2
                 foreach (DataRow row in table.Rows)
                 {
 
-                    report.InitData(row["num_Marcher"].ToString(), row["objet"].ToString(), row["Aop"].ToString(), row["attributaire"].ToString(), int.Parse(row["délai_Initial"].ToString()), row["montant"].ToString(), Convert.ToDateTime(row["date_op"].ToString()), Convert.ToDateTime(row["date_portail"].ToString()), row["estimation"].ToString() , row["etat"].ToString()  , Convert.ToDateTime(row["date_deffet"].ToString()), row["délai_restant"].ToString() ,   reportData);
+                    report.InitData(row["num_Marcher"].ToString(), row["objet"].ToString(), row["Aop"].ToString(), row["attributaire"].ToString(), int.Parse(row["délai_Initial"].ToString()), row["montant"].ToString(), Convert.ToDateTime(row["date_op"].ToString()), Convert.ToDateTime(row["date_portail"].ToString()), row["estimation"].ToString() , row["Etat"].ToString()  , Convert.ToDateTime(row["date_deffet"].ToString()), row["délai_restant"].ToString() ,   reportData);
                     documentViewer1.DocumentSource = report;
                     report.CreateDocument();
 

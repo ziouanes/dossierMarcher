@@ -356,7 +356,7 @@ namespace DXApplication2
                         SqlCommand cmd = Program.sql_con.CreateCommand();
                         cmd.CommandType = CommandType.Text;
 
-                        cmd.CommandText = $" select e.validate as 'etude_V' , p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet , o.id_order from etude e inner join fk k on e.id1 = k.id1 inner join publication p on p.id2 = k.id2 inner join fk2 pk on pk.id2 =  p.id2 inner join SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where e.id1 = {lookUpEdit1.EditValue.ToString()} ";
+                        cmd.CommandText = $" select e.validate as 'etude_V' , p.validate as 'public_V'   ,  o.etat ,  s.valide_approbation , s.valide_caution , s.valide_order_service  ,    s.num_Marcher ,   e.id1 , e.objet , o.id_order from etude e inner join fk k on e.id1 = k.id1 inner join publication p on p.id2 = k.id2 inner join fk2 pk on pk.id2 =  p.id2 inner join SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_Overture = s.id3  where e.id1 = {lookUpEdit1.EditValue.ToString()} ";
 
                         DataTable table = new DataTable();
                         cmd.ExecuteNonQuery();
@@ -443,6 +443,18 @@ namespace DXApplication2
                                 }
                                 
                                
+                            }
+                            else if (int.Parse(row["etat"].ToString()) == -1)
+                            {
+
+
+                                stepProgressBarItem6.Options.Indicator.ActiveStateImageOptions.Image = Resources.synchronize_40px;
+                                stepProgressBarItem5.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem4.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem2.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+                                stepProgressBarItem1.Options.Indicator.ActiveStateImageOptions.Image = Resources.checked_40px;
+
+                                stepProgressBar1.SelectedItemIndex = 5;
                             }
                             else if (int.Parse(row["etat"].ToString()) == 0)
                             {
@@ -582,6 +594,10 @@ namespace DXApplication2
 
         private void simpleButton_print_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(id_order.ToString());
+            //MessageBox.Show(lookUpEdit1.EditValue.ToString());
+            MessageBox.Show(id_etude.ToString());
+
             if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
             string query = $" select  o.[délai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service o inner join  [dbo].[Etat_order] t on o.id_order = t.order_service where o.id_order = { id_order}";
             List<class_reportData> reportData = Program.sql_con.Query<class_reportData>(query, commandType: CommandType.Text).ToList();

@@ -165,7 +165,7 @@ begin
 
 -------procedure notify 1    if(validate  = 0) --------------
 -------procedure notify 2 APPROBATION     if(validate  = 0) --------------
-alter procedure aprobation (@id int  )
+alter procedure aprobation (@id int)
 as
 BEGIN
 

@@ -29,7 +29,7 @@ namespace DXApplication2
             {
                 Parameters["param_etat"].Value = "order de commencement";
             }
-            if (etat == "0")
+            else if (etat == "0")
             {
                 Parameters["param_etat"].Value = "order d'arrêt";
             }
