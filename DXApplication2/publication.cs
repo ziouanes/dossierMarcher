@@ -54,7 +54,7 @@ namespace DXApplication2
                         
 
                     }
-                    MessageBox.Show(id2.ToString());
+                   // MessageBox.Show(id2.ToString());
 
                 }
             }

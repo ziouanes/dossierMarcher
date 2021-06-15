@@ -298,7 +298,7 @@ namespace DXApplication2
                             if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
                             Program.sql_cmd.ExecuteNonQuery();
                             Program.sql_con.Close();
-                            XtraMessageBox.Show("good");
+                         //   XtraMessageBox.Show("good");
 
                             // toastNotificationsManager1.ShowNotification("677ae63a-96ce-4b84-bb50-c3feef4564ce");
                             this.Close();
@@ -328,7 +328,7 @@ namespace DXApplication2
                             if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
                             Program.sql_cmd.ExecuteNonQuery();
                             Program.sql_con.Close();
-                            XtraMessageBox.Show("good");
+                           // XtraMessageBox.Show("good");
 
 
                             this.Close();
@@ -404,7 +404,7 @@ namespace DXApplication2
                             if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
                             Program.sql_cmd.ExecuteNonQuery();
                             Program.sql_con.Close();
-                            XtraMessageBox.Show("good");
+                         //   XtraMessageBox.Show("good");
 
                             // toastNotificationsManager1.ShowNotification("1d00270b-1651-4ed4-a139-bd59d5d8cf8e");
                             richTextBoxobject.Text = "";
@@ -439,7 +439,7 @@ namespace DXApplication2
                             if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
                             Program.sql_cmd.ExecuteNonQuery();
                             Program.sql_con.Close();
-                            XtraMessageBox.Show("good");
+                          //  XtraMessageBox.Show("good");
 
                             idEtude = 0;
                             richTextBoxobject.Text = "";

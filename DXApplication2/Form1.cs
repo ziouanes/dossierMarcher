@@ -50,7 +50,7 @@ namespace DXApplication2
             SplashScreenManager.Default.SetWaitFormCaption("en cours d'exécution");
             for (int i = 0; i < 100; i++)
             {
-                Thread.Sleep(5);
+                Thread.Sleep(1);
             }
             SplashScreenManager.CloseForm();
         }

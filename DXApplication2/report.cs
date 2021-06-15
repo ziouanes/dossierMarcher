@@ -594,9 +594,9 @@ namespace DXApplication2
 
         private void simpleButton_print_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(id_order.ToString());
+           // MessageBox.Show(id_order.ToString());
             //MessageBox.Show(lookUpEdit1.EditValue.ToString());
-            MessageBox.Show(id_etude.ToString());
+           // MessageBox.Show(id_etude.ToString());
 
             if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
             string query = $" select  o.[délai_Initial] , t.[etat_objet] , t.[date_deffet] from order_service o inner join  [dbo].[Etat_order] t on o.id_order = t.order_service where o.id_order = { id_order}";
@@ -606,6 +606,7 @@ namespace DXApplication2
                 frm.Printreport(id_etude, reportData);
                 frm.WindowState = FormWindowState.Maximized;
                 frm.ShowDialog();
+                simpleButton_print.Enabled = false;
 
             }
         }
