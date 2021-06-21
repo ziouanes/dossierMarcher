@@ -210,6 +210,12 @@ namespace DXApplication2
 
             RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             reg.SetValue("dossierMarche", Application.ExecutablePath.ToString());
+            
+            WindowState = FormWindowState.Minimized;
+            this.ShowInTaskbar = false;
+            notifyIcon1.BalloonTipText = "votre application a été réduite dans la barre d'état système";
+            notifyIcon1.ShowBalloonTip(1000);
+            notifyIcon1.Visible = true;
 
             label1.Visible = false;
 

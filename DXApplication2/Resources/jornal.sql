@@ -656,3 +656,61 @@ insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description],AllDay ) v
 
 
 select s.id3 , s.num_Marcher  from publication p inner join fk f on f.id2 = p.id2 inner join etude e on e.id1 = f.id1 inner join fk2 k2 on k2.id2 = p.id2 inner join SIMPLE_overture s on s.id3 = k2.id3  where   p.id2 = 13
+-----EDIT APPOINTEMENT
+
+USE [dossierMarcher]
+GO
+/****** Object:  Trigger [dbo].[appointement]    Script Date: 6/18/2021 11:01:38 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER trigger [dbo].[appointement] 
+ on [dbo].[publication] 
+ after insert , update
+ as 
+ begin 
+ declare @Aoo varchar(50), 
+ @datejornal date,
+ @dateconvocation date , 
+ @dateportail date ,
+ @dateop date ,
+ @description varchar(50)
+
+  
+
+
+ set @Aoo = (select top 1 Aop from inserted c )
+
+ set @datejornal = (select top 1 date_jornal  from inserted ) 
+
+ set @dateconvocation = (select top 1 date_convocation  from inserted ) 
+
+
+ set @dateop = (select top 1 date_op from inserted  )
+
+ set @dateportail = (select top 1 date_portail  from inserted ) 
+
+ 
+
+ if not exists(select * from Appointments where [Description] = @Aoo )
+
+ begin
+
+ insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description],AllDay ) values (@datejornal , @datejornal ,'Date Jornal  Aop° '+@Aoo ,@Aoo,'True' )
+ insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description] ,AllDay  ) values (@dateop , @dateop ,'Date op Aop° '+@Aoo ,@Aoo ,'True' )
+ insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description] ,AllDay  ) values (@dateportail , @dateportail ,'date Portail Aop° '+@Aoo ,@Aoo,'True' )
+ insert into Appointments(StartDate ,EndDate ,[Subject] ,[Description] ,AllDay  ) values (@dateconvocation , @dateconvocation ,'date Convocation Aop° '+@Aoo , @Aoo,'True' )
+
+ end
+
+ else
+ update Appointments set StartDate = @datejornal , EndDate = @datejornal where  [Description] = @Aoo and [Subject] like '%Date Jornal%'
+ update Appointments set StartDate = @dateop , EndDate = @dateop where  [Description] = @Aoo and [Subject] like '%Date op%'
+ update Appointments set StartDate = @dateportail , EndDate = @dateportail where  [Description] = @Aoo and [Subject] like '%Date Portail%'
+ update Appointments set StartDate = @dateconvocation , EndDate = @dateconvocation where  [Description] = @Aoo and [Subject] like '%Date Convocation%'
+
+
+ end
+
+ ------END EDIT

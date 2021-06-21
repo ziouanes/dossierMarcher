@@ -50,6 +50,7 @@ namespace DXApplication2
             this.progressPanel1.Size = new System.Drawing.Size(246, 39);
             this.progressPanel1.TabIndex = 0;
             this.progressPanel1.Text = "progressPanel1";
+            this.progressPanel1.Click += new System.EventHandler(this.progressPanel1_Click);
             // 
             // tableLayoutPanel1
             // 

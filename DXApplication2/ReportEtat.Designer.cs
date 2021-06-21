@@ -1420,7 +1420,7 @@ namespace DXApplication2
             this.xrTableCell48.StylePriority.UseBorderColor = false;
             this.xrTableCell48.StylePriority.UseFont = false;
             this.xrTableCell48.StylePriority.UseForeColor = false;
-            this.xrTableCell48.Text = "Date de Publication Jornal : ";
+            this.xrTableCell48.Text = "Date Publication Jornal : ";
             this.xrTableCell48.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell48.Weight = 0.21924851418775443D;
             // 

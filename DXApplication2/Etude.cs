@@ -89,6 +89,10 @@ namespace DXApplication2
             textEditCaution.Properties.Mask.UseMaskAsDisplayFormat = true;
 
 
+            textEditestimation.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            textEditestimation.Properties.Mask.EditMask = "n2";
+            textEditestimation.Properties.Mask.UseMaskAsDisplayFormat = true;
+
             textEditdélai.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             textEditdélai.Properties.Mask.EditMask = "n0";
             textEditdélai.Properties.Mask.UseMaskAsDisplayFormat = true;
@@ -382,7 +386,7 @@ namespace DXApplication2
 
                         if (idEtude == 0)
                         {
-                            string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature],[fdr]) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature , @fdr)";
+                            string sql = "insert into [etude](objet ,[estimation],[montant],[envoyer_tresoryer],[délai_dexecution] , [localite]  , [Type_marcher] , [Nature] , fdr) VALUES(@objet,@estimation,@montant , @envoyer , @delai  ,@localisation , @type_marcher  ,@nature , @fdr)";
 
 
                             Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
@@ -393,7 +397,6 @@ namespace DXApplication2
                             Program.sql_cmd.Parameters.AddWithValue("@delai", textEditdélai.Text);
                             Program.sql_cmd.Parameters.AddWithValue("@localisation", comboBoxcocalite.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@type_marcher", comboBoxtype.SelectedValue);
-                            Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@nature", comboBoxnature.SelectedValue);
                             Program.sql_cmd.Parameters.AddWithValue("@fdr", fdr);
 
@@ -413,7 +416,9 @@ namespace DXApplication2
                             comboBoxcocalite.SelectedIndex = -1;
                             comboBoxnature.SelectedIndex = -1;
                             comboBoxtype.SelectedIndex = -1;
-
+                            textEditestimation.Text = "";
+                            textEditdélai.Text = "";
+                            checkEditFDR.Checked = false;
 
                         }
                         else

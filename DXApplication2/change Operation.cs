@@ -73,7 +73,8 @@ namespace DXApplication2
             if (Etat == -1)
             {
                 textEdit_etat.Properties.Items.Add(("order d'arrêt"));
-                
+                textEdit_etat.Properties.Items.Add(("réception provisoire"));
+
             }
             if (Etat == 0) 
             {
