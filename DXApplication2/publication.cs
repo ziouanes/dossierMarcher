@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,8 +25,38 @@ namespace DXApplication2
 
             InitializeComponent();
 
+           
+
+
+            string[] digits = Regex.Split(aoo, @"\D");
+
+            //select only first item in string 
+
+            foreach (string value in digits)
+            {
+                int number;
+                if (int.TryParse(value, out number))
+                {
+                    textEditAop.Text = value.ToString();
+                    break;
+                }
+            }
+            string[] digits2 = Regex.Split(aoo, @"\D");
+
+
+            //select only seconde item in string 
+            foreach (string value in digits)
+            {
+                int number;
+                if (int.TryParse(value, out number))
+                {
+                    textEditaoodate.Text ="/" + value.ToString() + "/BR" ;
+                    continue;
+                }
+            }
+
             this.id2 = id2;
-            textEditAop.EditValue = aoo; 
+            //textEditAop.EditValue = aoo; 
             textEditJornal.EditValue = celldateJornal ;
             textEditconvocation.EditValue = celldateconvocation;
             textEditportai.EditValue = cellDatePortail;
@@ -71,10 +102,43 @@ namespace DXApplication2
 
         }
 
-
+        string aop = "";
         public publication()
         {
             InitializeComponent();
+            try
+            {
+                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+
+                {
+                    SqlCommand cmd = Program.sql_con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.CommandText = "select top 1 Aop  from publication order by Aop desc";
+
+                    DataTable table = new DataTable();
+                    cmd.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(table);
+                    foreach (DataRow row in table.Rows)
+                    {
+
+                        aop = row["Aop"].ToString();
+
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //this.Dispose();
+            }
+
         }
 
         private void ExecuteQueryobjects()
@@ -134,9 +198,9 @@ namespace DXApplication2
             try
             {
 
-            DateTime dt = (DateTime)textEditJornal.EditValue ;
-            dt = dt.AddDays(23);
-            dateEditop.EditValue = dt ;
+            //DateTime dt = (DateTime)textEditJornal.EditValue ;
+            //dt = dt.AddDays(23);
+            //dateEditop.EditValue = dt ;
 
 
 
@@ -188,6 +252,32 @@ namespace DXApplication2
             this.textEditportai.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.textEditportai.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
 
+
+            if (id2 == 0)
+            {
+
+                //date today
+                int i = 1;
+            double year = DateTime.Now.Year;
+            string this_Year = "/" + year.ToString() + "/BR" ;
+            textEditaoodate.Text = this_Year;
+            
+                //select only first item in string 
+            string[] digits = Regex.Split(aop, @"\D");
+
+            foreach (string value in digits)
+            {
+                int number;
+                if (int.TryParse(value, out number))
+                {
+                        i += int.Parse(value.ToString());
+                        MessageBox.Show(i.ToString());
+                    break;
+                }
+            }
+                    textEditAop.Text = i.ToString();
+
+            }
 
             ////
             if (validate == 1)
@@ -257,7 +347,7 @@ namespace DXApplication2
 
 
                             Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
-                            Program.sql_cmd.Parameters.AddWithValue("@Aop", textEditAop.EditValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@Aop", textEditAop.Text + textEditaoodate.Text);
                             Program.sql_cmd.Parameters.AddWithValue("@date_jornal", dtjORNAL);
                             Program.sql_cmd.Parameters.AddWithValue("@date_portail", dtpORTAIL);
                             Program.sql_cmd.Parameters.AddWithValue("@date_convocation", dtconvocation);
@@ -330,7 +420,7 @@ namespace DXApplication2
 
 
                             Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
-                            Program.sql_cmd.Parameters.AddWithValue("@Aop", textEditAop.EditValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@Aop", textEditAop.Text + textEditaoodate.Text);
                             Program.sql_cmd.Parameters.AddWithValue("@date_jornal", dtjORNAL);
                             Program.sql_cmd.Parameters.AddWithValue("@date_portail", dtpORTAIL);
                             Program.sql_cmd.Parameters.AddWithValue("@date_convocation", dtconvocation);
@@ -411,7 +501,7 @@ namespace DXApplication2
 
 
                             Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
-                            Program.sql_cmd.Parameters.AddWithValue("@Aop", textEditAop.EditValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@Aop", textEditAop.Text + textEditaoodate.Text);
                             Program.sql_cmd.Parameters.AddWithValue("@date_jornal", dtjORNAL);
                             Program.sql_cmd.Parameters.AddWithValue("@date_portail", dtpORTAIL);
                             Program.sql_cmd.Parameters.AddWithValue("@date_convocation", dtconvocation);
@@ -492,7 +582,7 @@ namespace DXApplication2
 
 
                             Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
-                            Program.sql_cmd.Parameters.AddWithValue("@Aop", textEditAop.EditValue);
+                            Program.sql_cmd.Parameters.AddWithValue("@Aop", textEditAop.Text + textEditaoodate.Text);
                             Program.sql_cmd.Parameters.AddWithValue("@date_jornal", dtjORNAL);
                             Program.sql_cmd.Parameters.AddWithValue("@date_portail", dtpORTAIL);
                             Program.sql_cmd.Parameters.AddWithValue("@date_convocation", dtconvocation);

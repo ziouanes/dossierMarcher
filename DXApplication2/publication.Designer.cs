@@ -58,6 +58,8 @@ namespace DXApplication2
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(this.components);
+            this.textEditaoodate = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditAop.Properties)).BeginInit();
@@ -85,10 +87,13 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditaoodate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.textEditaoodate);
             this.layoutControl1.Controls.Add(this.comboBoxObject);
             this.layoutControl1.Controls.Add(this.windowsUIButtonPanelMain);
             this.layoutControl1.Controls.Add(this.textEditAop);
@@ -154,7 +159,7 @@ namespace DXApplication2
             // 
             this.textEditAop.Location = new System.Drawing.Point(154, 168);
             this.textEditAop.Name = "textEditAop";
-            this.textEditAop.Size = new System.Drawing.Size(429, 20);
+            this.textEditAop.Size = new System.Drawing.Size(153, 20);
             this.textEditAop.StyleController = this.layoutControl1;
             this.textEditAop.TabIndex = 4;
             // 
@@ -306,7 +311,8 @@ namespace DXApplication2
             this.AOO,
             this.layoutControlItem3,
             this.layoutControlItem4,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem2});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 90);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Size = new System.Drawing.Size(1131, 93);
@@ -319,7 +325,7 @@ namespace DXApplication2
             this.AOO.CustomizationFormText = "layoutControlItem1";
             this.AOO.Location = new System.Drawing.Point(0, 0);
             this.AOO.Name = "AOO";
-            this.AOO.Size = new System.Drawing.Size(551, 24);
+            this.AOO.Size = new System.Drawing.Size(275, 24);
             this.AOO.Text = "A O O  n° ";
             this.AOO.TextLocation = DevExpress.Utils.Locations.Left;
             this.AOO.TextSize = new System.Drawing.Size(115, 13);
@@ -400,6 +406,23 @@ namespace DXApplication2
             new DevExpress.XtraBars.ToastNotifications.ToastNotification("677ae63a-96ce-4b84-bb50-c3feef4564ce", ((System.Drawing.Image)(resources.GetObject("toastNotificationsManager1.Notifications"))), "", "insert success", "", DevExpress.XtraBars.ToastNotifications.ToastNotificationTemplate.ImageAndText01),
             new DevExpress.XtraBars.ToastNotifications.ToastNotification("63e40279-d885-4efa-91fd-073fbda47ee2", ((System.Drawing.Image)(resources.GetObject("toastNotificationsManager1.Notifications1"))), "", "Modifier success", "", DevExpress.XtraBars.ToastNotifications.ToastNotificationTemplate.ImageAndText02)});
             // 
+            // textEditaoodate
+            // 
+            this.textEditaoodate.Location = new System.Drawing.Point(311, 168);
+            this.textEditaoodate.Name = "textEditaoodate";
+            this.textEditaoodate.Size = new System.Drawing.Size(272, 20);
+            this.textEditaoodate.StyleController = this.layoutControl1;
+            this.textEditaoodate.TabIndex = 8;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.textEditaoodate;
+            this.layoutControlItem2.Location = new System.Drawing.Point(275, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(276, 24);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
             // publication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +460,8 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditaoodate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,5 +492,7 @@ namespace DXApplication2
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager1;
         public DevExpress.XtraEditors.DateEdit textEditJornal;
+        private DevExpress.XtraEditors.TextEdit textEditaoodate;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

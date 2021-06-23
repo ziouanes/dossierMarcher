@@ -127,7 +127,7 @@ end
 
 
 
-create procedure p1 (@id int ,  @jornal date , @date_op date)
+alter procedure p1 (@id int ,  @jornal date , @date_op date)
 as
 begin
 
@@ -149,11 +149,36 @@ set @dateop = (select date_op from publication where id2 = @id)
 if(@validate =0)
 begin
 
- set @duree_Jornal =  cast(((datediff(day,@datejornal,getdate()))*100)/datediff(day,@datejornal,@dateop)as int)
+set @duree_Jornal = cast(  datediff(day,@datejornal,@dateop) - ((datediff(day,@datejornal,getdate())) )as int)
 
- set @duree_portail = cast(((datediff(day,@date_portail,getdate()))*100)/datediff(day,@date_portail,@dateop)as int)
+set @duree_portail = cast(  datediff(day,@date_portail,@dateop) - ((datediff(day,@date_portail,getdate())) )as int)
 
+ --set @duree_Jornal =  cast(((datediff(day,@datejornal,getdate()))*100)/datediff(day,@datejornal,@dateop)as int)
+
+ --set @duree_portail = cast(((datediff(day,@date_portail,getdate()))*100)/datediff(day,@date_portail,@dateop)as int)
+
+
+ if(@duree_Jornal<0 and @duree_portail<0)
+
+ begin
+  update publication set duree_portail = 0 , duree_Jornal = 0 where id2 = @id
+
+ end
+ else if(@duree_Jornal<0 and @duree_portail>=0)
+ begin
+   update publication set duree_portail = @duree_portail , duree_Jornal = 0 where id2 = @id
+
+ end
+ else if(@duree_Jornal>=0 and @duree_portail <0)
+ begin
+    update publication set duree_portail = 0 , duree_Jornal = @duree_Jornal where id2 = @id
+
+ end
+
+else
+begin
  update publication set duree_portail = @duree_portail , duree_Jornal = @duree_Jornal where id2 = @id
+ end
 
 
 

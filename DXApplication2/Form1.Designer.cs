@@ -301,7 +301,7 @@ namespace DXApplication2
             // 
             // barButtonouverture
             // 
-            this.barButtonouverture.Caption = "Overtutre";
+            this.barButtonouverture.Caption = "Ouverture";
             this.barButtonouverture.Id = 48;
             this.barButtonouverture.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonouverture.ImageOptions.Image")));
             this.barButtonouverture.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonouverture.ImageOptions.LargeImage")));
@@ -559,7 +559,7 @@ namespace DXApplication2
             // 
             // navBarGroup1
             // 
-            this.navBarGroup1.Caption = "Overture";
+            this.navBarGroup1.Caption = "Ouverture";
             this.navBarGroup1.Name = "navBarGroup1";
             // 
             // navigationFrame
@@ -803,6 +803,8 @@ namespace DXApplication2
             // repositoryItemProgressBar_Portail
             // 
             this.repositoryItemProgressBar_Portail.Name = "repositoryItemProgressBar_Portail";
+            this.repositoryItemProgressBar_Portail.PercentView = false;
+            this.repositoryItemProgressBar_Portail.ShowTitle = true;
             // 
             // colduree_Jornal
             // 
