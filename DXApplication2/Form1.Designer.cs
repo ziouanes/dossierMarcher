@@ -61,6 +61,7 @@ namespace DXApplication2
             this.barButtonItem_print = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupNavigation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -69,6 +70,7 @@ namespace DXApplication2
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.officeNavigationBar = new DevExpress.XtraBars.Navigation.OfficeNavigationBar();
@@ -218,9 +220,10 @@ namespace DXApplication2
             this.barButtonItem3,
             this.barButtonItem_print,
             this.barButtonItem4,
-            this.barButtonItem5});
+            this.barButtonItem5,
+            this.barButtonItem6});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 67;
+            this.ribbonControl.MaxItemId = 68;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -453,6 +456,14 @@ namespace DXApplication2
             this.barButtonItem5.Name = "barButtonItem5";
             this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
             // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "Recharge";
+            this.barButtonItem6.Id = 67;
+            this.barButtonItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem6.ImageOptions.SvgImage")));
+            this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -462,7 +473,8 @@ namespace DXApplication2
             this.ribbonPageGroup3,
             this.ribbonPageGroup4,
             this.ribbonPageGroup5,
-            this.ribbonPageGroup6});
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup7});
             this.ribbonPage.Name = "ribbonPage";
             this.ribbonPage.Text = "View";
             // 
@@ -501,6 +513,12 @@ namespace DXApplication2
             // 
             this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem5);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem6);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "ribbonPageGroup7";
             // 
             // ribbonPage1
             // 
@@ -794,6 +812,7 @@ namespace DXApplication2
             // 
             // colduree_portail
             // 
+            this.colduree_portail.Caption = "Delai Ouverture";
             this.colduree_portail.ColumnEdit = this.repositoryItemProgressBar_Portail;
             this.colduree_portail.FieldName = "duree_portail";
             this.colduree_portail.Name = "colduree_portail";
@@ -802,6 +821,7 @@ namespace DXApplication2
             // 
             // repositoryItemProgressBar_Portail
             // 
+            this.repositoryItemProgressBar_Portail.Maximum = 40;
             this.repositoryItemProgressBar_Portail.Name = "repositoryItemProgressBar_Portail";
             this.repositoryItemProgressBar_Portail.PercentView = false;
             this.repositoryItemProgressBar_Portail.ShowTitle = true;
@@ -811,8 +831,6 @@ namespace DXApplication2
             this.colduree_Jornal.ColumnEdit = this.repositoryItemProgressBar_jornal;
             this.colduree_Jornal.FieldName = "duree_Jornal";
             this.colduree_Jornal.Name = "colduree_Jornal";
-            this.colduree_Jornal.Visible = true;
-            this.colduree_Jornal.VisibleIndex = 6;
             // 
             // repositoryItemProgressBar_jornal
             // 
@@ -1341,5 +1359,7 @@ namespace DXApplication2
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
     }
 }

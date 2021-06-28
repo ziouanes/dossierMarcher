@@ -121,9 +121,95 @@ EXEC p1 @id , @jornal  , @date_op
 end
 
 
+----------------------------------EROR---------------------------------------------
+DECLARE @id int
+
+DECLARE MY_CURSOR CURSOR 
+  LOCAL STATIC READ_ONLY FORWARD_ONLY
+FOR 
+SELECT DISTINCT id2 
+FROM publication	
+
+OPEN MY_CURSOR
+
+FETCH NEXT FROM MY_CURSOR INTO @id
+WHILE @@FETCH_STATUS = 0
+BEGIN 
+--if(@id>1)
+--begin
+    --Do something with Id here
+    PRINT @id
+	exec p1 10
+    FETCH NEXT FROM MY_CURSOR INTO @id
+END
+--end
+CLOSE MY_CURSOR
+DEALLOCATE MY_CURSOR
+
+ALTER procedure [dbo].[p1] (@id int)
+as
+begin
+
+declare @validate int,
+		@datejornal date,
+		@date_portail date,
+		@dateop date,
+		@duree_Jornal int ,
+		@duree_portail int 
+		
+
+
+set @validate = (select validate from publication where id2 = @id)
+set @datejornal = (select date_jornal from publication where id2 = @id)
+set @date_portail = (select date_portail from publication where id2 = @id)
+set @dateop = (select date_op from publication where id2 = @id)
+--set @duree_Jornal = (select duree_Jornal from publication where id2 = @id)
+
+if(@validate =0)
+begin
+set @duree_Jornal = cast(  datediff(day,@datejornal,@dateop) - ((datediff(day,@datejornal,getdate())) )as int)
+
+set @duree_portail = cast(  datediff(day,@date_portail,@dateop) - ((datediff(day,@date_portail,getdate())) )as int)
 
 
 
+-- set @duree_Jornal =  cast(((datediff(day,@datejornal,getdate()))*100)/datediff(day,@datejornal,@dateop)as int)
+
+ --set @duree_portail = cast(((datediff(day,@date_portail,getdate()))*100)/datediff(day,@date_portail,@dateop)as int)
+
+ if(@duree_Jornal<0 and @duree_portail<0)
+
+ begin
+  update publication set duree_portail = 0 , duree_Jornal = 0 where id2 = @id
+
+ end
+ else if(@duree_Jornal<0 and @duree_portail>=0)
+ begin
+   update publication set duree_portail = @duree_portail , duree_Jornal = 0 where id2 = @id
+
+ end
+ else if(@duree_Jornal>=0 and @duree_portail <0)
+ begin
+    update publication set duree_portail = 0 , duree_Jornal = @duree_Jornal where id2 = @id
+
+ end
+
+else
+begin
+ update publication set duree_portail = @duree_portail , duree_Jornal = @duree_Jornal where id2 = @id
+ end
+
+
+ end
+
+ end
+
+
+
+
+
+
+ ----------------------------------EROR---------------------------------------------
 
 
 

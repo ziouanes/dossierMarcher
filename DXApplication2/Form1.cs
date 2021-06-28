@@ -225,6 +225,7 @@ namespace DXApplication2
             select_Publication_Data();
             select_Overt_Data();
 
+            RunStoredProc_duree_portail();
 
 
 
@@ -234,14 +235,13 @@ namespace DXApplication2
 
             if(label1.Visible == true)
             {
-                RunStoredProc_duree_portail();
-                RunStoredProc_Approbation();
-                RunStoredProc_caution();
-                RunStoredProc_duree_order_service();
+              //  RunStoredProc_caution();
+              //  RunStoredProc_duree_order_service();
 
+            RunStoredProc_duree_portail();
+            //RunStoredProc_Approbation();
 
             }
-
         }
 
 
@@ -252,28 +252,32 @@ namespace DXApplication2
 
             try
             {
-                for (int i = 0; i < gridViewPub.DataRowCount; i++)
-                {
-                  if(  int.Parse(gridViewPub.GetRowCellValue(i, "duree_portail").ToString()) < 100 && int.Parse(gridViewPub.GetRowCellValue(i, "duree_portail").ToString())>=0) {
-                    if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-                    SqlCommand cmd = new SqlCommand("dbo.p1", Program.sql_con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id", int.Parse(gridViewPub.GetRowCellValue(i, "id2").ToString()));
-                    cmd.Parameters.AddWithValue("@jornal", gridViewPub.GetRowCellValue(i, "date_jornal").ToString());
-                    cmd.Parameters.AddWithValue("@date_op", gridViewPub.GetRowCellValue(i, "date_portail").ToString());
-                    cmd.ExecuteNonQuery();
-                    }
-                    //do something  
-                }  
+                //    for (int i = 0; i < gridViewPub.DataRowCount; i++)
+                //    {
+                //      //if(  int.Parse(gridViewPub.GetRowCellValue(i, "duree_portail").ToString()) < 100 && int.Parse(gridViewPub.GetRowCellValue(i, "duree_portail").ToString())>=0) {
+                //        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                //        SqlCommand cmd = new SqlCommand("dbo.p1", Program.sql_con);
+                //        cmd.CommandType = CommandType.StoredProcedure;
+                //        cmd.Parameters.AddWithValue("@id", int.Parse(gridViewPub.GetRowCellValue(i, "id2").ToString()));
+                //        cmd.Parameters.AddWithValue("@jornal", gridViewPub.GetRowCellValue(i, "date_jornal").ToString());
+                //        cmd.Parameters.AddWithValue("@date_op", gridViewPub.GetRowCellValue(i, "date_portail").ToString());
+                //        cmd.ExecuteNonQuery();
+                //    MessageBox.Show("ss");
 
-            
+                //        //}
+                //        //do something  
+                //    }  
+                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.p1_cursor", Program.sql_con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
 
 
-                
 
 
 
             }
+
             finally
             {
                 if (Program.sql_con != null)
@@ -289,75 +293,28 @@ namespace DXApplication2
 
         }
 
-        public void RunStoredProc_Approbation()
-        {
+        //public void RunStoredProc_Approbation()
+        //{
 
 
 
-            try
-            {
-                for (int i = 0; i < gridViewOvert.DataRowCount; i++)
-                {
-                    if (int.Parse(gridViewOvert.GetRowCellValue(i, "duree_approbation").ToString()) < 100)
-                    {
+        //    try
+        //    {
+        //        //for (int i = 0; i < gridViewOvert.DataRowCount; i++)
+        //        //{
+        //            //if (int.Parse(gridViewOvert.GetRowCellValue(i, "duree_approbation").ToString()) < 100)
+        //            //{
 
-                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-                        SqlCommand cmd = new SqlCommand("dbo.aprobation", Program.sql_con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id", int.Parse(gridViewOvert.GetRowCellValue(i, "id3").ToString()));
+        //                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+        //                SqlCommand cmd = new SqlCommand("dbo.approbation_cursor", Program.sql_con);
+        //                cmd.CommandType = CommandType.StoredProcedure;
+        //                //cmd.Parameters.AddWithValue("@id", int.Parse(gridViewOvert.GetRowCellValue(i, "id3").ToString()));
                        
-                        cmd.ExecuteNonQuery();
-                    }
+        //                cmd.ExecuteNonQuery();
+        //           // }
 
-                    //do something  
-                }
-
-
-
-
-
-
-
-
-            }
-            finally
-            {
-                if (Program.sql_con != null)
-                {
-                    Program.sql_con.Close();
-                }
-                if (Program.db != null)
-                {
-                    Program.db.Close();
-                }
-            }
-            select_Overt_Data();
-
-        }
-
-        public void RunStoredProc_caution()
-        {
-
-
-
-            try
-            {
-                for (int i = 0; i < gridViewOvert.DataRowCount; i++)
-                {
-                    if (int.Parse(gridViewOvert.GetRowCellValue(i, "duree_caution").ToString()) < 100)
-                    {
-
-                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-                        SqlCommand cmd = new SqlCommand("dbo.CAUTION", Program.sql_con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id", int.Parse(gridViewOvert.GetRowCellValue(i, "id3").ToString()));
-
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("good");
-                    }
-
-                    //do something  
-                }
+        //            //do something  
+             
 
 
 
@@ -366,68 +323,115 @@ namespace DXApplication2
 
 
 
-            }
-            finally
-            {
-                if (Program.sql_con != null)
-                {
-                    Program.sql_con.Close();
-                }
-                if (Program.db != null)
-                {
-                    Program.db.Close();
-                }
-            }
-            select_Overt_Data();
+        //    }
+        //    finally
+        //    {
+        //        if (Program.sql_con != null)
+        //        {
+        //            Program.sql_con.Close();
+        //        }
+        //        if (Program.db != null)
+        //        {
+        //            Program.db.Close();
+        //        }
+        //    }
+        //    select_Overt_Data();
 
-        }
+        //}
 
-        public void RunStoredProc_duree_order_service()
-        {
+        //public void RunStoredProc_caution()
+        //{
 
 
 
-            try
-            {
-                for (int i = 0; i < gridViewOvert.DataRowCount; i++)
-                {
-                    if (int.Parse(gridViewOvert.GetRowCellValue(i, "duree_order_service").ToString()) < 100)
-                    {
+        //    try
+        //    {
+        //        for (int i = 0; i < gridViewOvert.DataRowCount; i++)
+        //        {
+        //            if (int.Parse(gridViewOvert.GetRowCellValue(i, "duree_caution").ToString()) < 100)
+        //            {
 
-                        if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
-                        SqlCommand cmd = new SqlCommand("dbo._order_service", Program.sql_con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id", int.Parse(gridViewOvert.GetRowCellValue(i, "id3").ToString()));
+        //                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+        //                SqlCommand cmd = new SqlCommand("dbo.CAUTION", Program.sql_con);
+        //                cmd.CommandType = CommandType.StoredProcedure;
+        //                cmd.Parameters.AddWithValue("@id", int.Parse(gridViewOvert.GetRowCellValue(i, "id3").ToString()));
 
-                        cmd.ExecuteNonQuery();
+        //                cmd.ExecuteNonQuery();
+        //                MessageBox.Show("good");
+        //            }
+
+        //            //do something  
+        //        }
+
+
+
+
+
+
+
+
+        //    }
+        //    finally
+        //    {
+        //        if (Program.sql_con != null)
+        //        {
+        //            Program.sql_con.Close();
+        //        }
+        //        if (Program.db != null)
+        //        {
+        //            Program.db.Close();
+        //        }
+        //    }
+        //    select_Overt_Data();
+
+        //}
+
+        //public void RunStoredProc_duree_order_service()
+        //{
+
+
+
+        //    try
+        //    {
+        //        for (int i = 0; i < gridViewOvert.DataRowCount; i++)
+        //        {
+        //            if (int.Parse(gridViewOvert.GetRowCellValue(i, "duree_order_service").ToString()) < 100)
+        //            {
+
+        //                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
+        //                SqlCommand cmd = new SqlCommand("dbo._order_service", Program.sql_con);
+        //                cmd.CommandType = CommandType.StoredProcedure;
+        //                cmd.Parameters.AddWithValue("@id", int.Parse(gridViewOvert.GetRowCellValue(i, "id3").ToString()));
+
+        //                cmd.ExecuteNonQuery();
                        
-                    }
+        //            }
 
-                    //do something  
-                }
-
-
+        //            //do something  
+        //        }
 
 
 
 
 
 
-            }
-            finally
-            {
-                if (Program.sql_con != null)
-                {
-                    Program.sql_con.Close();
-                }
-                if (Program.db != null)
-                {
-                    Program.db.Close();
-                }
-            }
-            select_Overt_Data();
 
-        }
+
+        //    }
+        //    finally
+        //    {
+        //        if (Program.sql_con != null)
+        //        {
+        //            Program.sql_con.Close();
+        //        }
+        //        if (Program.db != null)
+        //        {
+        //            Program.db.Close();
+        //        }
+        //    }
+        //    select_Overt_Data();
+
+        //}
 
 
         private void barButtonPublication_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -443,7 +447,7 @@ namespace DXApplication2
 
         private void officeNavigationBar_Click(object sender, EventArgs e)
         {
-
+            //MessageBox.Show("ff");
         }
 
         private void gridViewEtude_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
@@ -1226,6 +1230,24 @@ namespace DXApplication2
         {
             calendrier cd = new calendrier();
             cd.ShowDialog();
+        }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            select_Etude_Data();
+            select_Publication_Data();
+            select_Overt_Data();
+
+            if (label1.Visible == true)
+            {
+               
+
+            RunStoredProc_duree_portail();
+            //RunStoredProc_Approbation();
+            
+
+
+            }
         }
     }
 }
