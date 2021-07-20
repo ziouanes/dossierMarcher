@@ -304,7 +304,7 @@ namespace DXApplication2
 
             string req = "", req1 = "", req2 = "", req3 = "" , req4 ="";
 
-            req = "select p.Aop as 'N°AOP' ,CAST(e.fdr as varchar(10)) as 'FDR'  , e.délai_dexecution , s.num_Marcher as 'N°MARCHE'  , l.localite as 'Localité des Tran' ,e.objet, p.date_op as 'Date ouverture des Plis' , e.estimation as 'Estimation' , s.attributaire as 'ATTRIBUTAIRE' , e.montant as 'MONTANT' , CAST(o.Etat as varchar(20)) as 'Etat'   from localite l FULL OUTER JOIN  etude e on l.id_l = e.localite inner join fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3  where 1=1 ";
+            req = "select p.Aop as 'N°AOP' ,CAST(e.fdr as varchar(10)) as 'FDR'  , e.délai_dexecution , s.num_Marcher as 'N°MARCHE'  , l.localite as 'Localité des Tran' ,e.objet, p.date_op as 'Date ouverture des Plis' , e.estimation as 'Estimation'  , e.montant as 'Caution Provisoire' , s.attributaire as 'ATTRIBUTAIRE',s.Montant as 'Montant DU Marche', o.date_orderService as 'Date order Service' ,  CAST(o.Etat as varchar(20)) as 'Etat de Marche' , et.date_deffet as  [Date d'effet]   from localite l FULL OUTER JOIN  etude e on l.id_l = e.localite inner join fk k on e.id1 = k.id1 FULL OUTER JOIN publication p on p.id2 = k.id2 FULL OUTER JOIN fk2 pk on pk.id2 =  p.id2 FULL OUTER JOIN SIMPLE_overture s on s.id3 = pk.id3 FULL OUTER JOIN order_service o on o.id_order = s.id3 full outer join Etat_order et on o.id_order = et.order_service  where 1=1 ";
 
 
             if (mask.Text !="")
@@ -343,7 +343,7 @@ namespace DXApplication2
             }
             
 
-            req += req1 + req2 + req3 +req4 +  "order by p.date_op desc";
+            req += req1 + req2 + req3 +req4 + "order by p.date_op desc , et.date_deffet desc";
 
 
                if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
@@ -368,30 +368,30 @@ namespace DXApplication2
                 foreach (DataRow row in dt1.Rows)
                 {
                     //do what you need to calculate myNewValue here
-                    if (row["Etat"].ToString() == "-1")
+                    if (row["Etat de Marche"].ToString() == "-1")
                     {
 
-                        row["Etat"] = "order de commencement";
+                        row["Etat de Marche"] = "order de commencement";
                     }
-                    else if (row["Etat"].ToString() == "0")
+                    else if (row["Etat de Marche"].ToString() == "0")
                     {
 
-                        row["Etat"] = "order d'arrêt";
+                        row["Etat de Marche"] = "order d'arrêt";
                     }
-                    else if (row["Etat"].ToString() == "1")
+                    else if (row["Etat de Marche"].ToString() == "1")
                     {
 
-                        row["Etat"] = "order de reprise";
+                        row["Etat de Marche"] = "order de reprise";
                     }
-                    else if (row["Etat"].ToString() == "2")
+                    else if (row["Etat de Marche"].ToString() == "2")
                     {
 
-                        row["Etat"] = "réception provisoire";
+                        row["Etat de Marche"] = "réception provisoire";
                     }
-                    else if (row["Etat"].ToString() == "3")
+                    else if (row["Etat de Marche"].ToString() == "3")
                     {
 
-                        row["Etat"] = "réception définitive";
+                        row["Etat de Marche"] = "réception définitive";
                     }
 
                     if (row["FDR"].ToString() == "0")

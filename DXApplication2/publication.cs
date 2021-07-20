@@ -66,6 +66,8 @@ namespace DXApplication2
 
             try
             {
+
+
                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
 
                 {

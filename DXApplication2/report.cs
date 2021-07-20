@@ -659,5 +659,10 @@ namespace DXApplication2
         private void lookUpEdit2_MouseClick(object sender, MouseEventArgs e)
         {
         }
+
+        private void lookUpEdit1_Properties_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

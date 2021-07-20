@@ -124,6 +124,7 @@ namespace DXApplication2
 
         private void select_Overt_Data()
         {
+
             try
             {
                 if (Program.sql_con.State == ConnectionState.Closed) Program.sql_con.Open();
@@ -215,6 +216,7 @@ namespace DXApplication2
             this.ShowInTaskbar = false;
             notifyIcon1.BalloonTipText = "votre application a été réduite dans la barre d'état système";
             notifyIcon1.ShowBalloonTip(1000);
+            
             notifyIcon1.Visible = true;
 
             label1.Visible = false;

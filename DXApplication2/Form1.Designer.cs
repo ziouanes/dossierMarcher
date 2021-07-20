@@ -31,6 +31,7 @@ namespace DXApplication2
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -668,6 +669,7 @@ namespace DXApplication2
             // 
             // colmontant
             // 
+            this.colmontant.Caption = "Caution Provisoire";
             this.colmontant.FieldName = "montant";
             this.colmontant.Name = "colmontant";
             this.colmontant.Visible = true;
@@ -863,6 +865,9 @@ namespace DXApplication2
             // 
             this.gridControlOvert.DataSource = this.classSIMPLEovertureBindingSource;
             this.gridControlOvert.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode1.RelationName = "Level1";
+            this.gridControlOvert.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gridControlOvert.Location = new System.Drawing.Point(0, 0);
             this.gridControlOvert.MainView = this.gridViewOvert;
             this.gridControlOvert.MenuManager = this.ribbonControl;
@@ -920,8 +925,6 @@ namespace DXApplication2
             // 
             this.colid3.FieldName = "id3";
             this.colid3.Name = "colid3";
-            this.colid3.Visible = true;
-            this.colid3.VisibleIndex = 0;
             this.colid3.Width = 97;
             // 
             // colattributaire
@@ -929,7 +932,7 @@ namespace DXApplication2
             this.colattributaire.FieldName = "attributaire";
             this.colattributaire.Name = "colattributaire";
             this.colattributaire.Visible = true;
-            this.colattributaire.VisibleIndex = 1;
+            this.colattributaire.VisibleIndex = 0;
             this.colattributaire.Width = 97;
             // 
             // colMontant1
@@ -937,7 +940,7 @@ namespace DXApplication2
             this.colMontant1.FieldName = "Montant";
             this.colMontant1.Name = "colMontant1";
             this.colMontant1.Visible = true;
-            this.colMontant1.VisibleIndex = 2;
+            this.colMontant1.VisibleIndex = 1;
             this.colMontant1.Width = 97;
             // 
             // colnum_Marcher
@@ -945,7 +948,7 @@ namespace DXApplication2
             this.colnum_Marcher.FieldName = "num_Marcher";
             this.colnum_Marcher.Name = "colnum_Marcher";
             this.colnum_Marcher.Visible = true;
-            this.colnum_Marcher.VisibleIndex = 3;
+            this.colnum_Marcher.VisibleIndex = 2;
             this.colnum_Marcher.Width = 97;
             // 
             // coldate_Visa
@@ -953,7 +956,7 @@ namespace DXApplication2
             this.coldate_Visa.FieldName = "date_Visa";
             this.coldate_Visa.Name = "coldate_Visa";
             this.coldate_Visa.Visible = true;
-            this.coldate_Visa.VisibleIndex = 4;
+            this.coldate_Visa.VisibleIndex = 3;
             this.coldate_Visa.Width = 97;
             // 
             // coldate_approbation
@@ -961,7 +964,7 @@ namespace DXApplication2
             this.coldate_approbation.FieldName = "date_approbation";
             this.coldate_approbation.Name = "coldate_approbation";
             this.coldate_approbation.Visible = true;
-            this.coldate_approbation.VisibleIndex = 5;
+            this.coldate_approbation.VisibleIndex = 4;
             this.coldate_approbation.Width = 113;
             // 
             // colvalide_approbation
@@ -975,8 +978,6 @@ namespace DXApplication2
             this.colduree_approbation.ColumnEdit = this.repositoryItemTrackBar_approb;
             this.colduree_approbation.FieldName = "duree_approbation";
             this.colduree_approbation.Name = "colduree_approbation";
-            this.colduree_approbation.Visible = true;
-            this.colduree_approbation.VisibleIndex = 6;
             this.colduree_approbation.Width = 141;
             // 
             // repositoryItemTrackBar_approb
@@ -991,7 +992,7 @@ namespace DXApplication2
             this.coldélai_dexecution1.FieldName = "délai_dexecution";
             this.coldélai_dexecution1.Name = "coldélai_dexecution1";
             this.coldélai_dexecution1.Visible = true;
-            this.coldélai_dexecution1.VisibleIndex = 7;
+            this.coldélai_dexecution1.VisibleIndex = 5;
             this.coldélai_dexecution1.Width = 78;
             // 
             // colcaution_definitif
@@ -999,7 +1000,7 @@ namespace DXApplication2
             this.colcaution_definitif.FieldName = "caution_definitif";
             this.colcaution_definitif.Name = "colcaution_definitif";
             this.colcaution_definitif.Visible = true;
-            this.colcaution_definitif.VisibleIndex = 8;
+            this.colcaution_definitif.VisibleIndex = 6;
             this.colcaution_definitif.Width = 78;
             // 
             // colcaution_return
@@ -1007,7 +1008,7 @@ namespace DXApplication2
             this.colcaution_return.FieldName = "caution_return";
             this.colcaution_return.Name = "colcaution_return";
             this.colcaution_return.Visible = true;
-            this.colcaution_return.VisibleIndex = 9;
+            this.colcaution_return.VisibleIndex = 7;
             this.colcaution_return.Width = 78;
             // 
             // coldatenotifiy
@@ -1015,7 +1016,7 @@ namespace DXApplication2
             this.coldatenotifiy.FieldName = "datenotifiy";
             this.coldatenotifiy.Name = "coldatenotifiy";
             this.coldatenotifiy.Visible = true;
-            this.coldatenotifiy.VisibleIndex = 10;
+            this.coldatenotifiy.VisibleIndex = 8;
             this.coldatenotifiy.Width = 78;
             // 
             // coldate_caution
@@ -1023,7 +1024,7 @@ namespace DXApplication2
             this.coldate_caution.FieldName = "date_caution";
             this.coldate_caution.Name = "coldate_caution";
             this.coldate_caution.Visible = true;
-            this.coldate_caution.VisibleIndex = 11;
+            this.coldate_caution.VisibleIndex = 9;
             this.coldate_caution.Width = 83;
             // 
             // colvalide_caution
@@ -1037,8 +1038,6 @@ namespace DXApplication2
             this.colduree_caution.ColumnEdit = this.repositoryItemTrackBar_caution;
             this.colduree_caution.FieldName = "duree_caution";
             this.colduree_caution.Name = "colduree_caution";
-            this.colduree_caution.Visible = true;
-            this.colduree_caution.VisibleIndex = 12;
             this.colduree_caution.Width = 97;
             // 
             // repositoryItemTrackBar_caution
@@ -1059,8 +1058,6 @@ namespace DXApplication2
             this.colduree_order_service.ColumnEdit = this.repositoryItemTrackBar_overt;
             this.colduree_order_service.FieldName = "duree_order_service";
             this.colduree_order_service.Name = "colduree_order_service";
-            this.colduree_order_service.Visible = true;
-            this.colduree_order_service.VisibleIndex = 13;
             this.colduree_order_service.Width = 123;
             // 
             // repositoryItemTrackBar_overt
