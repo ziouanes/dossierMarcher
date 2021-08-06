@@ -29,10 +29,11 @@ namespace DXApplication2
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.textEditaoodate = new DevExpress.XtraEditors.TextEdit();
             this.editable = new DevExpress.XtraEditors.CheckEdit();
             this.dateEdit_caution = new DevExpress.XtraEditors.DateEdit();
             this.dateEditreception = new DevExpress.XtraEditors.DateEdit();
@@ -73,6 +74,7 @@ namespace DXApplication2
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem9 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -81,6 +83,7 @@ namespace DXApplication2
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditaoodate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_caution.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_caution.Properties)).BeginInit();
@@ -123,6 +126,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
@@ -133,6 +137,7 @@ namespace DXApplication2
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.textEditaoodate);
             this.layoutControl1.Controls.Add(this.editable);
             this.layoutControl1.Controls.Add(this.dateEdit_caution);
             this.layoutControl1.Controls.Add(this.dateEditreception);
@@ -155,9 +160,17 @@ namespace DXApplication2
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // textEditaoodate
+            // 
+            this.textEditaoodate.Location = new System.Drawing.Point(334, 236);
+            this.textEditaoodate.Name = "textEditaoodate";
+            this.textEditaoodate.Size = new System.Drawing.Size(283, 20);
+            this.textEditaoodate.StyleController = this.layoutControl1;
+            this.textEditaoodate.TabIndex = 15;
+            // 
             // editable
             // 
-            this.editable.Location = new System.Drawing.Point(36, 357);
+            this.editable.Location = new System.Drawing.Point(36, 368);
             this.editable.Name = "editable";
             this.editable.Properties.Caption = "Editable";
             this.editable.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgCheckBox1;
@@ -172,7 +185,7 @@ namespace DXApplication2
             // dateEdit_caution
             // 
             this.dateEdit_caution.EditValue = null;
-            this.dateEdit_caution.Location = new System.Drawing.Point(863, 416);
+            this.dateEdit_caution.Location = new System.Drawing.Point(863, 427);
             this.dateEdit_caution.Name = "dateEdit_caution";
             this.dateEdit_caution.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -185,7 +198,7 @@ namespace DXApplication2
             // dateEditreception
             // 
             this.dateEditreception.EditValue = null;
-            this.dateEditreception.Location = new System.Drawing.Point(218, 416);
+            this.dateEditreception.Location = new System.Drawing.Point(218, 427);
             this.dateEditreception.Name = "dateEditreception";
             this.dateEditreception.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -199,7 +212,7 @@ namespace DXApplication2
             // dateEditdate_approbation
             // 
             this.dateEditdate_approbation.EditValue = null;
-            this.dateEditdate_approbation.Location = new System.Drawing.Point(218, 265);
+            this.dateEditdate_approbation.Location = new System.Drawing.Point(218, 271);
             this.dateEditdate_approbation.Name = "dateEditdate_approbation";
             this.dateEditdate_approbation.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -213,7 +226,7 @@ namespace DXApplication2
             // dateEditvisa
             // 
             this.dateEditvisa.EditValue = null;
-            this.dateEditvisa.Location = new System.Drawing.Point(863, 231);
+            this.dateEditvisa.Location = new System.Drawing.Point(863, 236);
             this.dateEditvisa.Name = "dateEditvisa";
             this.dateEditvisa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -249,13 +262,13 @@ namespace DXApplication2
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            windowsUIButtonImageOptions1.ImageUri.Uri = "Save;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions2.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions3.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions4.ImageUri.Uri = "Save;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions5.ImageUri.Uri = "SaveAndNew;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions6.ImageUri.Uri = "Reset;Size32x32;GrayScaled";
             this.windowsUIButtonPanelMain.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Enregistrer et nouveau", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Réinitialiser", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanelMain.EnableImageTransparency = true;
             this.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanelMain.Location = new System.Drawing.Point(12, 520);
@@ -280,15 +293,16 @@ namespace DXApplication2
             // 
             // num_Marcher
             // 
-            this.num_Marcher.Location = new System.Drawing.Point(218, 231);
+            this.num_Marcher.Location = new System.Drawing.Point(218, 236);
             this.num_Marcher.Name = "num_Marcher";
-            this.num_Marcher.Size = new System.Drawing.Size(399, 20);
+            this.num_Marcher.Size = new System.Drawing.Size(112, 20);
             this.num_Marcher.StyleController = this.layoutControl1;
             this.num_Marcher.TabIndex = 6;
             // 
             // textEditdefinitif
             // 
-            this.textEditdefinitif.Location = new System.Drawing.Point(218, 300);
+            this.textEditdefinitif.Enabled = false;
+            this.textEditdefinitif.Location = new System.Drawing.Point(218, 310);
             this.textEditdefinitif.Name = "textEditdefinitif";
             this.textEditdefinitif.Properties.ReadOnly = true;
             this.textEditdefinitif.Size = new System.Drawing.Size(399, 20);
@@ -297,7 +311,8 @@ namespace DXApplication2
             // 
             // caution_return
             // 
-            this.caution_return.Location = new System.Drawing.Point(863, 300);
+            this.caution_return.Enabled = false;
+            this.caution_return.Location = new System.Drawing.Point(863, 310);
             this.caution_return.Name = "caution_return";
             this.caution_return.Properties.ReadOnly = true;
             this.caution_return.Size = new System.Drawing.Size(379, 20);
@@ -318,7 +333,8 @@ namespace DXApplication2
             // 
             // délai_dexecution
             // 
-            this.délai_dexecution.Location = new System.Drawing.Point(863, 265);
+            this.délai_dexecution.Enabled = false;
+            this.délai_dexecution.Location = new System.Drawing.Point(863, 271);
             this.délai_dexecution.Name = "délai_dexecution";
             this.délai_dexecution.Properties.DisplayFormat.FormatString = "d";
             this.délai_dexecution.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -391,9 +407,9 @@ namespace DXApplication2
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 298);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 309);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(1222, 34);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(1222, 23);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup8
@@ -406,7 +422,7 @@ namespace DXApplication2
             this.emptySpaceItem15,
             this.datenotifiy,
             this.layoutControlItem7});
-            this.layoutControlGroup8.Location = new System.Drawing.Point(0, 219);
+            this.layoutControlGroup8.Location = new System.Drawing.Point(0, 230);
             this.layoutControlGroup8.Name = "layoutControlGroup8";
             this.layoutControlGroup8.Size = new System.Drawing.Size(1222, 79);
             this.layoutControlGroup8.Text = "Group4";
@@ -468,10 +484,11 @@ namespace DXApplication2
             this.emptySpaceItem14,
             this.layoutControlItem6,
             this.layoutControlItem10,
-            this.layoutControlItem11});
+            this.layoutControlItem11,
+            this.layoutControlItem3});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(1222, 172);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1222, 182);
             this.layoutControlGroup3.Text = "-";
             // 
             // azze
@@ -503,9 +520,9 @@ namespace DXApplication2
             this.layoutControlItem5.Control = this.num_Marcher;
             this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 34);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 39);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(573, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(286, 24);
             this.layoutControlItem5.Text = "num_Marcher : ";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(167, 13);
@@ -516,7 +533,7 @@ namespace DXApplication2
             this.emptySpaceItem5.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem5.Location = new System.Drawing.Point(573, 0);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(72, 58);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(72, 63);
             this.emptySpaceItem5.Text = "emptySpaceItem1";
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -526,7 +543,7 @@ namespace DXApplication2
             this.emptySpaceItem6.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem6.Location = new System.Drawing.Point(0, 24);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(573, 10);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(573, 15);
             this.emptySpaceItem6.Text = "emptySpaceItem2";
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -536,16 +553,16 @@ namespace DXApplication2
             this.emptySpaceItem7.CustomizationFormText = "emptySpaceItem3";
             this.emptySpaceItem7.Location = new System.Drawing.Point(645, 24);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(553, 10);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(553, 15);
             this.emptySpaceItem7.Text = "emptySpaceItem3";
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 58);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 63);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(1198, 10);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(1198, 11);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem12
@@ -553,7 +570,7 @@ namespace DXApplication2
             this.layoutControlItem12.Control = this.textEditdefinitif;
             this.layoutControlItem12.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem12.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 103);
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 113);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(573, 24);
             this.layoutControlItem12.Text = "caution definitif : ";
@@ -565,7 +582,7 @@ namespace DXApplication2
             this.layoutControlItem13.Control = this.caution_return;
             this.layoutControlItem13.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem13.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem13.Location = new System.Drawing.Point(645, 103);
+            this.layoutControlItem13.Location = new System.Drawing.Point(645, 113);
             this.layoutControlItem13.Name = "layoutControlItem13";
             this.layoutControlItem13.Size = new System.Drawing.Size(553, 24);
             this.layoutControlItem13.Text = "Caution return : ";
@@ -576,9 +593,9 @@ namespace DXApplication2
             // 
             this.emptySpaceItem12.AllowHotTrack = false;
             this.emptySpaceItem12.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem12.Location = new System.Drawing.Point(573, 68);
+            this.emptySpaceItem12.Location = new System.Drawing.Point(573, 74);
             this.emptySpaceItem12.Name = "emptySpaceItem12";
-            this.emptySpaceItem12.Size = new System.Drawing.Size(72, 59);
+            this.emptySpaceItem12.Size = new System.Drawing.Size(72, 63);
             this.emptySpaceItem12.Text = "emptySpaceItem1";
             this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -586,9 +603,9 @@ namespace DXApplication2
             // 
             this.emptySpaceItem13.AllowHotTrack = false;
             this.emptySpaceItem13.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem13.Location = new System.Drawing.Point(0, 92);
+            this.emptySpaceItem13.Location = new System.Drawing.Point(0, 98);
             this.emptySpaceItem13.Name = "emptySpaceItem13";
-            this.emptySpaceItem13.Size = new System.Drawing.Size(573, 11);
+            this.emptySpaceItem13.Size = new System.Drawing.Size(573, 15);
             this.emptySpaceItem13.Text = "emptySpaceItem2";
             this.emptySpaceItem13.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -596,16 +613,16 @@ namespace DXApplication2
             // 
             this.emptySpaceItem14.AllowHotTrack = false;
             this.emptySpaceItem14.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem14.Location = new System.Drawing.Point(645, 92);
+            this.emptySpaceItem14.Location = new System.Drawing.Point(645, 98);
             this.emptySpaceItem14.Name = "emptySpaceItem14";
-            this.emptySpaceItem14.Size = new System.Drawing.Size(553, 11);
+            this.emptySpaceItem14.Size = new System.Drawing.Size(553, 15);
             this.emptySpaceItem14.Text = "emptySpaceItem3";
             this.emptySpaceItem14.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.dateEditvisa;
-            this.layoutControlItem6.Location = new System.Drawing.Point(645, 34);
+            this.layoutControlItem6.Location = new System.Drawing.Point(645, 39);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(553, 24);
             this.layoutControlItem6.Text = "Date Visa : ";
@@ -614,7 +631,7 @@ namespace DXApplication2
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.dateEditdate_approbation;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 68);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 74);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(573, 24);
             this.layoutControlItem10.Text = "date approbation : ";
@@ -623,19 +640,28 @@ namespace DXApplication2
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.délai_dexecution;
-            this.layoutControlItem11.Location = new System.Drawing.Point(645, 68);
+            this.layoutControlItem11.Location = new System.Drawing.Point(645, 74);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(553, 24);
             this.layoutControlItem11.Text = "délai dexecution : ";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(167, 13);
             // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.textEditaoodate;
+            this.layoutControlItem3.Location = new System.Drawing.Point(286, 39);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(287, 24);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
             // emptySpaceItem9
             // 
             this.emptySpaceItem9.AllowHotTrack = false;
             this.emptySpaceItem9.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem9.Location = new System.Drawing.Point(0, 183);
+            this.emptySpaceItem9.Location = new System.Drawing.Point(0, 193);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
-            this.emptySpaceItem9.Size = new System.Drawing.Size(1222, 10);
+            this.emptySpaceItem9.Size = new System.Drawing.Size(1222, 11);
             this.emptySpaceItem9.Text = "emptySpaceItem3";
             this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -643,7 +669,7 @@ namespace DXApplication2
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
             this.emptySpaceItem8.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem8.Location = new System.Drawing.Point(0, 172);
+            this.emptySpaceItem8.Location = new System.Drawing.Point(0, 182);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
             this.emptySpaceItem8.Size = new System.Drawing.Size(1222, 11);
             this.emptySpaceItem8.Text = "emptySpaceItem1";
@@ -652,7 +678,7 @@ namespace DXApplication2
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.editable;
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 193);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 204);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(1222, 26);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
@@ -699,6 +725,7 @@ namespace DXApplication2
             this.Load += new System.EventHandler(this.overt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEditaoodate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_caution.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_caution.Properties)).EndInit();
@@ -741,6 +768,7 @@ namespace DXApplication2
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
@@ -800,5 +828,7 @@ namespace DXApplication2
         private DevExpress.XtraEditors.CheckEdit editable;
         private DevExpress.XtraEditors.TextEdit délai_dexecution;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraEditors.TextEdit textEditaoodate;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

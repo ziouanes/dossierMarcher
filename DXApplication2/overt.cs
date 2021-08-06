@@ -26,10 +26,40 @@ namespace DXApplication2
         {
             InitializeComponent();
 
+
+
+            string[] digits = Regex.Split(_num_Marcher, @"\D");
+
+            //select only first item in string 
+
+            foreach (string value in digits)
+            {
+                int number;
+                if (int.TryParse(value, out number))
+                {
+                    num_Marcher.Text = value.ToString();
+                    break;
+                }
+            }
+            string[] digits2 = Regex.Split(_num_Marcher, @"\D") ;
+
+
+            //select only seconde item in string 
+            foreach (string value in digits)
+            {
+                int number;
+                if (int.TryParse(value, out number))
+                {
+                    textEditaoodate.Text = "/" + value.ToString() ;
+                    continue;
+                }
+            }
+
+
             idOvert = id3;
             attributaire.EditValue = _attributaire;
             Montant.EditValue = _Montant;
-            num_Marcher.EditValue = _num_Marcher;
+            //num_Marcher.EditValue = _num_Marcher;
             délai_dexecution.EditValue = _délai_dexecution;
             caution_return.EditValue = _caution_return;
             textEditdefinitif.EditValue = _caution_definitif;
@@ -158,6 +188,9 @@ namespace DXApplication2
 
         }
 
+        string nummarche = "";
+
+
         private void overt_Load(object sender, EventArgs e)
         {
             ExecuteQueryoVERTURE();
@@ -169,11 +202,38 @@ namespace DXApplication2
             textEditdefinitif.Properties.Mask.EditMask = "n0";
             textEditdefinitif.Properties.Mask.UseMaskAsDisplayFormat = true;
 
-           // var roundedA = Math.Ceiling(1 + .00); // Output: 1
+            // var roundedA = Math.Ceiling(1 + .00); // Output: 1
 
-           // textEdit3.Text = roundedA.ToString();
+            // textEdit3.Text = roundedA.ToString();
 
-            editable.Checked = false;
+            //date today
+            if(idOvert == 0)
+            {
+
+                int i = 1;
+                double year = DateTime.Now.Year;
+                string this_Year = "/" + year.ToString();
+                textEditaoodate.Text = this_Year;
+            }
+
+            //select only first item in string 
+            //string[] digits = Regex.Split(nummarche, @"\D");
+
+            //foreach (string value in digits)
+            //{
+            //    int number;
+            //    if (int.TryParse(value, out number))
+            //    {
+            //        i += int.Parse(value.ToString());
+            //        break;
+            //    }
+            //}
+            //num_Marcher.Text = i.ToString();
+
+        
+
+
+        editable.Checked = false;
 
 
         }
@@ -268,7 +328,7 @@ namespace DXApplication2
                                 Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
                                 Program.sql_cmd.Parameters.AddWithValue("@attributaire", attributaire.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@Montant", Montant.Text);
-                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text + textEditaoodate.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@date_Visa", dateEditvisa.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@date_approbation", dateEditdate_approbation.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
@@ -335,7 +395,7 @@ namespace DXApplication2
                                 Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
                                 Program.sql_cmd.Parameters.AddWithValue("@attributaire", attributaire.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@Montant", Montant.Text);
-                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text + textEditaoodate.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@date_Visa", dateEditvisa.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@date_approbation", dateEditdate_approbation.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
@@ -413,7 +473,7 @@ namespace DXApplication2
                             Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
                                 Program.sql_cmd.Parameters.AddWithValue("@attributaire", attributaire.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@Montant", Montant.Text);
-                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text + textEditaoodate.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@date_Visa", dateEditvisa.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@date_approbation", dateEditdate_approbation.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);
@@ -440,7 +500,7 @@ namespace DXApplication2
                                 Program.sql_cmd = new SqlCommand(sql, Program.sql_con);
                                 Program.sql_cmd.Parameters.AddWithValue("@attributaire", attributaire.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@Montant", Montant.Text);
-                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text);
+                                Program.sql_cmd.Parameters.AddWithValue("@num_Marcher", num_Marcher.Text + textEditaoodate.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@date_Visa", dateEditvisa.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@date_approbation", dateEditdate_approbation.Text);
                                 Program.sql_cmd.Parameters.AddWithValue("@délai_dexecution", délai_dexecution.Text);

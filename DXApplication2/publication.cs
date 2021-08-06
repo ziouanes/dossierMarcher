@@ -273,7 +273,6 @@ namespace DXApplication2
                 if (int.TryParse(value, out number))
                 {
                         i += int.Parse(value.ToString());
-                        MessageBox.Show(i.ToString());
                     break;
                 }
             }
